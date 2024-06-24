@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Meu Planejador Diário</title>
+
+    <!-- Importando CSS Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Estilos CSS personalizados -->
+    <style>
+  
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .container2 {
+            max-width: 600px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        form {
+            display: flex;
+            margin-bottom: 20px;
+        }
+
+        input[type="text"] {
+            flex: 1;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px 0 0 4px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            background-color: #007bff;
+            color: #fff;
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #tasks {
+            margin-top: 20px;
+        }
+
+        .task {
+            padding: 10px;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .task span {
+            flex: 1;
+        }
+
+        .task .delete-btn {
+            background-color: #dc3545;
+            color: #fff;
+            padding: 6px 10px;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="/images/logo-ft.png" width="150">
+            </a>
+
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-lg-5 me-lg-auto">
+                    <li class="nav-item">
+                        <a class="nav-link click" href="#section_1">Home</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link click" href="rotina.html">Rotina</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link click" href="topics-detail.html">Notas</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link click" href="topics-listing.html">Agenda</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link click" href="sobre.html">Sobre</a>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarLightDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">Decrubra um novo hobby</a>
+
+                        <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarLightDropdownMenuLink">
+                            <li><a class="dropdown-item" href="topics-listing.html">Questionario</a></li>
+
+                            <li><a class="dropdown-item" href="/php_login/cadastro_form.php">Resultado do Quest</a></li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <div class="d-none d-lg-block">
+                    <a href="http://localhost/roubbie-tec/php_login/cadastro_form.php" class="navbar-icon bi-person smoothscroll"></a>
+                </div>
+
+            </div>
+        </div>
+    </nav>
+
+    <div class="container2">
+        <h1>Meu Planejador Diário</h1>
+        <form id="taskForm">
+            <input type="text" id="taskInput" placeholder="Adicionar nova tarefa" required>
+            <button type="submit">Adicionar</button>
+        </form>
+        <div id="tasks">
+            <!-- Tarefas serão adicionadas aqui dinamicamente -->
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const taskForm = document.getElementById('taskForm');
+            const taskInput = document.getElementById('taskInput');
+            const tasksContainer = document.getElementById('tasks');
+
+            taskForm.addEventListener('submit', function(event) {
+                event.preventDefault();
+                const taskText = taskInput.value.trim();
+                if (taskText !== '') {
+                    addTask(taskText);
+                    taskInput.value = '';
+                }
+            });
+
+            function addTask(taskText) {
+                const task = document.createElement('div');
+                task.classList.add('task');
+                task.innerHTML = `
+                    <span>${taskText}</span>
+                    <button class="delete-btn">X</button>
+                `;
+                tasksContainer.appendChild(task);
+
+                const deleteBtn = task.querySelector('.delete-btn');
+                deleteBtn.addEventListener('click', function() {
+                    task.remove();
+                });
+            }
+        });
+    </script>
+</body>
+</html>

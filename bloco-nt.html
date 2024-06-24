@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bloco de Notas</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<style>
+    body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.notepad-container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+h1 {
+    text-align: center;
+}
+
+textarea {
+    width: 100%;
+    height: 100px;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+.note {
+    background-color: #ffffcc;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+.note-content {
+    display: none;
+    padding-top: 10px;
+}
+
+</style>
+<body>
+    <div class="notepad-container">
+        <h1>Bloco de Notas</h1>
+        <textarea id="noteArea" placeholder="Digite suas notas aqui..."></textarea>
+        <button onclick="addNote()">Adicionar Nota</button>
+        <div id="notesContainer"></div>
+    </div>
+    <script src="scripts.js"></script>
+    <script>
+        function addNote() {
+    const noteArea = document.getElementById('noteArea');
+    const noteContent = noteArea.value.trim();
+    
+    if (noteContent) {
+        const notesContainer = document.getElementById('notesContainer');
+        
+        // Cria um elemento de nota
+        const note = document.createElement('div');
+        note.className = 'note';
+        note.onclick = function() {
+            const content = this.querySelector('.note-content');
+            content.style.display = content.style.display === 'none' ? 'block' : 'none';
+        };
+        
+        // Cria o conteúdo da nota
+        const noteText = document.createElement('div');
+        noteText.className = 'note-text';
+        noteText.innerText = noteContent;
+        
+        const noteContentDiv = document.createElement('div');
+        noteContentDiv.className = 'note-content';
+        noteContentDiv.innerText = noteContent;
+        
+        note.appendChild(noteText);
+        note.appendChild(noteContentDiv);
+        
+        notesContainer.appendChild(note);
+        
+        // Salva a nota no localStorage
+        saveNotes(noteContent);
+        
+        // Limpa a área de texto
+        noteArea.value = '';
+    } else {
+        alert('Por favor, digite uma nota antes de adicionar.');
+    }
+}
+
+function saveNotes(note) {
+    const notes = JSON.parse(localStorage.getItem('notes')) || [];
+    notes.push(note);
+    localStorage.setItem('notes', JSON.stringify(notes));
+}
+
+function loadNotes() {
+    const notes = JSON.parse(localStorage.getItem('notes')) || [];
+    const notesContainer = document.getElementById('notesContainer');
+    
+    notes.forEach(noteContent => {
+        const note = document.createElement('div');
+        note.className = 'note';
+        note.onclick = function() {
+            const content = this.querySelector('.note-content');
+            content.style.display = content.style.display === 'none' ? 'block' : 'none';
+        };
+        
+        const noteText = document.createElement('div');
+        noteText.className = 'note-text';
+        noteText.innerText = noteContent;
+        
+        const noteContentDiv = document.createElement('div');
+        noteContentDiv.className = 'note-content';
+        noteContentDiv.innerText = noteContent;
+        
+        note.appendChild(noteText);
+        note.appendChild(noteContentDiv);
+        
+        notesContainer.appendChild(note);
+    });
+}
+
+window.onload = loadNotes;
+
+    </script>
+</body>
+</html>

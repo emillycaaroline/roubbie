@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Sobre</title>
+
+    <!-- ARQUIVOS CSS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Open+Sans&display=swap" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap-icons.css" rel="stylesheet">
+    <link href="css/templatemo-topic-listing.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: #f8f9fa;
+        }
+
+        .navbar {
+            background-color: #343a40 !important;
+        }
+
+        .navbar-brand span {
+            font-weight: 600;
+            font-size: 1.5rem;
+        }
+
+        .breadcrumb {
+            background: none;
+            font-size: 0.875rem;
+            margin-bottom: 0;
+            padding: 0;
+        }
+
+        .breadcrumb-item a,
+        .breadcrumb-item.active {
+            color: #343a40;
+        }
+
+        .site-header {
+            background-color: #343a40;
+            height: 80vh;
+            color: white;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .site-header h2 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            line-height: 1.3;
+        }
+
+        .btn-custom {
+            background-color: #dc3545;
+            color: white;
+            border-color: #dc3545;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-custom:hover {
+            background-color: #c82333;
+            border-color: #bd2130;
+        }
+
+        .topics-detail-section {
+            background-color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .topics-detail-section h3 {
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 30px;
+        }
+
+        .topics-detail-section p {
+            font-size: 1.125rem;
+            line-height: 1.8;
+            color: #6c757d;
+        }
+
+        .topics-detail-section blockquote {
+            font-style: italic;
+            color: #6c757d;
+            margin: 30px 0;
+        }
+
+        .topics-detail-block-image {
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+
+<body id="top">
+
+    <main>
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">
+                    <img src="/images/logo-ft.png" width="150">
+                </a>
+
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-lg-5 me-lg-auto">
+                        <li class="nav-item">
+                            <a class="nav-link click" href="index.html">Home</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link click" href="rotina.html">Rotina</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link click" href="bloco-nt.html">Notas</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link click" href="topics-listing.html">Agenda</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link click" href="sobre.html">Sobre</a>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarLightDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">Decrubra um novo hobby</a>
+
+                            <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarLightDropdownMenuLink">
+                                <li><a class="dropdown-item" href="topics-listing.html">Questionario</a></li>
+
+                                <li><a class="dropdown-item" href="/php_login/cadastro_form.php">Resultado do Quest</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <div class="d-none d-lg-block">
+                        <a href="http://localhost/roubbie-tec/cad-log/register.php" class="navbar-icon bi-person smoothscroll"></a>
+
+                    </div>
+
+                </div>
+            </div>
+        </nav>
+
+        <!-- Header -->
+        <header class="site-header">
+            <div class="container">
+                <div class="row justify-content-center align-items-center">
+                    <div class="col-lg-5 col-12 mb-5">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="index.html">Início</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Design Web</li>
+                            </ol>
+                        </nav>
+                        <h2 class="text-white">Introdução ao <br> Design Web 101</h2>
+                        <a href="#sobre-roubbie" class="btn btn-custom btn-lg mt-4">Saiba Mais</a>
+                    </div>
+                    <div class="col-lg-5 col-12">
+                        <div class="topics-detail-block">
+                            <img src="images/design-web-intro.jpg" class="topics-detail-block-image img-fluid" alt="Imagem de Introdução ao Design Web">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Seção Sobre o Roubbie -->
+        <section class="topics-detail-section" id="sobre-roubbie">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-12 m-auto">
+                        <h3 class="mb-4">Conheça o Roubbie: Feito por Alunas do Marista</h3>
+                        <p>Roubbie nasceu do desejo de simplificar a vida moderna. Desenvolvido por alunas do Marista como projeto de TCC, ele é seu assistente digital pessoal para organizar tarefas, inspirar criatividade e aumentar a produtividade.</p>
+                        <p>Deixe o Roubbie cuidar das pequenas coisas e transforme sua rotina diária em algo mais simples e divertido!</p>
+                    </div>
+                </div>
+                <div class="row justify-content-center my-4">
+                    <div class="col-lg-6 col-md-6 col-12">
+                        <img src="https://www.souenfermagem.com.br/wp-content/uploads/2023/03/Como-ter-um-estilo-de-vida-saudavel.webp" class="topics-detail-block-image img-fluid" alt="Imagem da Equipe do Roubbie">
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-12 mt-4 mt-md-0">
+                        <img src="https://cvcrm.com.br/wp-content/uploads/2023/11/O-que-e-um-assistente-virtual-1.webp" class="topics-detail-block-image img-fluid" alt="Imagem do Roubbie em um Laptop">
+                    </div>
+                </div>
+                <p class="text-center">Desenvolvido com carinho por estudantes, o Roubbie combina inovação com praticidade para facilitar sua vida.</p>
+            </div>
+        </section>
+             <!-- Seção Como o Roubbie Pode Ajudar -->
+             <section class="topics-detail-section bg-light" id="como-pode-ajudar">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-8 col-12 m-auto">
+                            <h3 class="mb-4">Como o Roubbie Pode Ajudar Você?</h3>
+                            <p>O Roubbie é seu aliado para simplificar o dia a dia. Com funcionalidades intuitivas e um design amigável, ele mantém você organizado, criativo e produtivo.</p>
+                            <p>Imagine ter um assistente digital que gerencia suas tarefas e ainda mantém você motivado a alcançar seus objetivos diários.</p>
+                            <p><strong>Por que escolher o Roubbie?</strong></p>
+<blockquote>
+    Nossa missão é transformar a complexidade em simplicidade, permitindo que você aproveite mais a vida e se preocupe menos com as pequenas coisas.
+</blockquote>
+</div>
+</div>
+<div class="row my-4">
+    <div class="col-lg-6 col-md-6 col-12">
+        <img src="https://cvcrm.com.br/wp-content/uploads/2023/11/O-que-e-um-assistente-virtual-1.webp" class="topics-detail-block-image img-fluid" alt="Imagem de Roubbie no Calendário">
+    </div>
+    <div class="col-lg-6 col-md-6 col-12 mt-4 mt-lg-0 mt-md-0">
+        <img src="https://inicialeducacional.com.br/wp-content/uploads/2020/10/post-artigo2.png" class="topics-detail-block-image img-fluid" alt="Imagem de Roubbie no Smartphone">
+    </div>
+</div>
+<p class="text-center">Com o Roubbie, você pode relaxar sabendo que suas atividades estão sob controle, permitindo que você se concentre no que realmente importa para você.</p>
+</div>
+</div>
+</section>
+
+</main>
+
+<!-- ARQUIVOS JS -->
+<script src="js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
