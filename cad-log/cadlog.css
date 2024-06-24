@@ -8350,21 +8350,20 @@
       outline: none; }
     .btn.btn-primary {
       background: #f35588;
-      border: 1px solid #f35588;
+      border: 1px solid #80d0c7;
       color: #fff;
-      background: #f75959;
-      background: -moz-linear-gradient(-45deg, #f75959 0%, #f35587 100%);
+      /* cor fundo */
+      background: rgb(128,208,199);
       background: -webkit-gradient(left top, right bottom, color-stop(0%, #f75959), color-stop(100%, #f35587));
-      background: -webkit-linear-gradient(-45deg, #f75959 0%, #f35587 100%);
-      background: -o-linear-gradient(-45deg, #f75959 0%, #f35587 100%);
-      background: -ms-linear-gradient(-45deg, #f75959 0%, #f35587 100%);
-      background: -webkit-linear-gradient(315deg, #f75959 0%, #f35587 100%);
-      background: -o-linear-gradient(315deg, #f75959 0%, #f35587 100%);
-      background: linear-gradient(135deg, #f75959 0%, #f35587 100%);
+      
+   
+      background-image: linear-gradient(15deg, #13547a 0%, #80d0c7 100%);
       filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f75959', endColorstr='#f35587', GradientType=1 ); }
       .btn.btn-primary:hover {
-        border: 1px solid #f35588;
-        background: #f35588;
+        border: 1px solid #80d0c7;
+        /* muda cor do fundo */
+        background: rgb(128,208,199);
+background: radial-gradient(circle, rgba(128,208,199,1) 0%, rgba(19,84,122,1) 100%);
         color: #fff; }
       .btn.btn-primary.btn-outline-primary {
         border: 1px solid #f35588;
