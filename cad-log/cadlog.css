@@ -58,6 +58,7 @@
     color: #212529;
     text-align: left;
     background-color: #fff; }
+    
   
   [tabindex="-1"]:focus {
     outline: 0 !important; }
@@ -8338,7 +8339,7 @@
     cursor: pointer;
     -webkit-box-shadow: none !important;
     box-shadow: none !important;
-    font-size: 15px;
+    font-size: 15px;                                   
     padding: 10px 20px;
     border-radius: 50px; }
     .btn:hover, .btn:active, .btn:focus {

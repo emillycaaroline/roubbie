@@ -389,6 +389,24 @@ strong {
   left: 2px;
   border: 0;
 }
+/* styles.css */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: transparent; /* Menu inicialmente transparente */
+    color: white;
+    padding: 10px 0;
+    z-index: 1000;
+    text-align: center;
+    transition: background-color 0.3s, opacity 0.5s;
+    opacity: 1;
+}
+
+.navbar.hidden {
+    opacity: 0; /* Opacidade 0 para esconder o menu */
+    pointer-events: none; /* Desabilita eventos de clique quando o menu estiver oculto */
+}
 
 @media screen and (min-width: 992px) {
   .navbar .dropdown:hover .dropdown-menu {
