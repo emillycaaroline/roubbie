@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Questionário Socioemocional</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<style>
+    body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    max-width: 600px;
+    margin: auto;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.section {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin: 5px 0;
+}
+
+button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+</style>
+<body>
+    <div class="container">
+        <h1>Questionário Socioemocional</h1>
+        <form id="questionario">
+            <div class="section">
+                <label for="nome">Qual o seu nome?</label>
+                <input type="text" id="nome" name="nome" required>
+            </div>
+
+            <div class="section">
+                <p>1. Quanto anos você tem?</p>
+                <input type="radio" id="age1" name="idade" value="Até 18 anos">
+                <label for="age1">Até 18 anos</label><br>
+                <input type="radio" id="age2" name="idade" value="19-35 anos">
+                <label for="age2">19-35 anos</label><br>
+                <input type="radio" id="age3" name="idade" value="36+ anos">
+                <label for="age3">36+ anos</label>
+            </div>
+
+            <div class="section">
+                <p>2. Você geralmente mantém a calma, mesmo sob muita pressão?</p>
+                <input type="radio" id="calma1" name="calma" value="Concordo">
+                <label for="calma1">Concordo</label><br>
+                <input type="radio" id="calma2" name="calma" value="Discordo">
+                <label for="calma2">Discordo</label><br>
+                <input type="radio" id="calma3" name="calma" value="Neutro">
+                <label for="calma3">Neutro</label>
+            </div>
+
+            <div class="section">
+                <p>3. Você se considera uma pessoa paciente?</p>
+                <input type="radio" id="paciente1" name="paciente" value="Concordo">
+                <label for="paciente1">Concordo</label><br>
+                <input type="radio" id="paciente2" name="paciente" value="Discordo">
+                <label for="paciente2">Discordo</label><br>
+                <input type="radio" id="paciente3" name="paciente" value="Neutro">
+                <label for="paciente3">Neutro</label>
+            </div>
+
+            <div class="section">
+                <p>4. Em eventos sociais, você raramente tenta se apresentar para novas pessoas e conversa mais com quem já conhece.</p>
+                <input type="radio" id="social1" name="social" value="Concordo">
+                <label for="social1">Concordo</label><br>
+                <input type="radio" id="social2" name="social" value="Discordo">
+                <label for="social2">Discordo</label><br>
+                <input type="radio" id="social3" name="social" value="Neutro">
+                <label for="social3">Neutro</label>
+            </div>
+
+            <div class="section">
+                <p>5. Em uma situação onde você tem que sair de casa para praticar um esporte, você prefere praticá-lo sozinho.</p>
+                <input type="radio" id="esporte1" name="esporte" value="Concordo">
+                <label for="esporte1">Concordo</label><br>
+                <input type="radio" id="esporte2" name="esporte" value="Discordo">
+                <label for="esporte2">Discordo</label><br>
+                <input type="radio" id="esporte3" name="esporte" value="Neutro">
+                <label for="esporte3">Neutro</label>
+            </div>
+
+            <div class="section">
+                <p>6. Você prefere ficar em casa, curtindo a solitude, ao invés de participar de uma festa com muitas pessoas.</p>
+                <input type="radio" id="solitude1" name="solitude" value="Concordo">
+                <label for="solitude1">Concordo</label><br>
+                <input type="radio" id="solitude2" name="solitude" value="Discordo">
+                <label for="solitude2">Discordo</label><br>
+                <input type="radio" id="solitude3" name="solitude" value="Neutro">
+                <label for="solitude3">Neutro</label>
+            </div>
+
+            <div class="section">
+                <p>7. Você normalmente gosta de lugares com muitas pessoas.</p>
+                <input type="radio" id="lugares1" name="lugares" value="Concordo">
+                <label for="lugares1">Concordo</label><br>
+                <input type="radio" id="lugares2" name="lugares" value="Discordo">
+                <label for="lugares2">Discordo</label><br>
+                <input type="radio" id="lugares3" name="lugares" value="Neutro">
+                <label for="lugares3">Neutro</label>
+            </div>
+
+            <div class="section">
+                <p>8. Você tem facilidade de elaborar metas a serem cumpridas dentro de um prazo.</p>
+                <input type="radio" id="metas1" name="metas" value="Concordo">
+                <label for="metas1">Concordo</label><br>
+                <input type="radio" id="metas2" name="metas" value="Discordo">
+                <label for="metas2">Discordo</label><br>
+                <input type="radio" id="metas3" name="metas" value="Neutro">
+                <label for="metas3">Neutro</label>
+            </div>
+
+            <div class="section">
+                <p>9. Você perde a concentração facilmente em tarefas que demandam muita atenção.</p>
+                <input type="radio" id="concentracao1" name="concentracao" value="Concordo">
+                <label for="concentracao1">Concordo</label><br>
+                <input type="radio" id="concentracao2" name="concentracao" value="Discordo">
+                <label for="concentracao2">Discordo</label><br>
+                <input type="radio" id="concentracao3" name="concentracao" value="Neutro">
+                <label for="concentracao3">Neutro</label>
+            </div>
+
+            <div class="section">
+                <p>10. Você tem muito interesse pela prática de atividades físicas.</p>
+                <input type="radio" id="atividades1" name="atividades" value="Concordo">
+                <label for="atividades1">Concordo</label><br>
+                <input type="radio" id="atividades2" name="atividades" value="Discordo">
+                <label for="atividades2">Discordo</label><br>
+                <input type="radio" id="atividades3" name="atividades" value="Neutro">
+                <label for="atividades3">Neutro</label>
+            </div>
+
+            <div class="section">
+                <p>11. Você prefere esportes de baixo desempenho, como yoga e pilates.</p>
+                <input type="radio" id="baixo1" name="baixo" value="Concordo">
+                <label for="baixo1">Concordo</label><br>
+                <input type="radio" id="baixo2" name="baixo" value="Discordo">
+                <label for="baixo2">Discordo</label><br>
+                <input type="radio" id="baixo3" name="baixo" value="Neutro">
+                <label for="baixo3">Neutro</label>
+            </div>
+
+            <div class="section">
+                <p>12. Você tem facilidade de imaginar e criar novas coisas.</p>
+                <input type="radio" id="imaginar1" name="imaginar" value="Concordo">
+                <label for="imaginar1">Concordo</label><br>
+                <input type="radio" id="imaginar2" name="imaginar" value="Discordo">
+                <label for="imaginar2">Discordo</label><br>
+                <input type="radio" id="imaginar3" name="imaginar" value="Neutro">
+                <label for="imaginar3">Neutro</label>
+            </div>
+
+            <div class="section">
+                <p>13. Qual dessas cores você acha que representa sua personalidade?</p>
+                <input type="radio" id="cor1" name="cor" value="Cores frias">
+                <label for="cor1">Cores frias (azul, verde, roxo, etc.)</label><br>
+                <input type="radio" id="cor2" name="cor" value="Cores neutras">
+                <label for="cor2">Cores neutras (preto, cinza, branco, marrom, etc.)</label><br>
+                <input type="radio" id="cor3" name="cor" value="Cores quentes">
+                <label for="cor3">Cores quentes (vermelho, laranja, amarelo, etc.)</label>
+            </div>
+
+            <div class="section">
+                <p>14. O que você procura em um hobbie?</p>
+                <input type="radio" id="hobbie1" name="hobbie" value="Socializar com pessoas">
+                <label for="hobbie1">Socializar com pessoas</label><br>
+                <input type="radio" id="hobbie2" name="hobbie" value="Calmaria que ajude a organizar minha mente">
+                <label for="hobbie2">Calmaria que ajude a organizar minha mente</label><br>
+                <input type="radio" id="hobbie3" name="hobbie" value="Saúde física">
+                <label for="hobbie3">Saúde física</label>
+            </div>
+
+            <button type="submit">Enviar</button>
+        </form>
+    </div>
+    <script>
+        document.getElementById('questionario').addEventListener('submit', function(event) {
+    event.preventDefault();
+    // Process form data here
+    alert('Questionário enviado com sucesso!');
+});
+
+    </script>
+</body>
+</html>
