@@ -9,7 +9,7 @@ Full-sized drag & drop calendar in JavaScript
 - [License](LICENSE.md)
 - [Roadmap](https://fullcalendar.io/roadmap)
 
-Connectors:
+Connectors: 
 
 - [React](https://github.com/fullcalendar/fullcalendar-react)
 - [Angular](https://github.com/fullcalendar/fullcalendar-angular)
