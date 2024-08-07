@@ -15,29 +15,37 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         die("Falha na conexão: " . $conn->connect_error);
     }
 
-    // Prepara os dados do formulário para inserção no banco de dados
+    // Prepara os dados do formulário
+    $nome = $_POST["nome"];
     $email = $_POST["email"];
-    $senha = md5($_POST["senha"]); // MD5 é uma forma simples de hash, para exemplo básico
+    $senha = $_POST["senha"];
 
     // Verifica se o email já existe no banco de dados
-    $sql = "SELECT id FROM usuarios WHERE email='$email'";
-    $result = $conn->query($sql);
+    $stmt = $conn->prepare("SELECT id FROM usuarios WHERE email = ?");
+    $stmt->bind_param("s", $email);
+    $stmt->execute();
+    $stmt->store_result();
 
-    if ($result->num_rows > 0) {
+    if ($stmt->num_rows > 0) {
         // Email já cadastrado
         echo "Email já cadastrado. <a href='cadastro.php'>Tente novamente.</a>";
     } else {
-        // Insere o novo usuário no banco de dados
-        $sql = "INSERT INTO usuarios (email, senha) VALUES ('$email', '$senha')";
+        // Hash da senha com password_hash
+        $hashed_senha = password_hash($senha, PASSWORD_DEFAULT);
 
-        if ($conn->query($sql) === TRUE) {
+        // Insere o novo usuário no banco de dados
+        $stmt = $conn->prepare("INSERT INTO usuarios (nome, email, senha) VALUES (?, ?, ?)");
+        $stmt->bind_param("sss", $nome, $email, $hashed_senha);
+
+        if ($stmt->execute()) {
             echo "Usuário cadastrado com sucesso. <a href='login.php'>Faça login aqui.</a>";
         } else {
-            echo "Erro ao cadastrar usuário: " . $conn->error;
+            echo "Erro ao cadastrar usuário: " . $stmt->error;
         }
     }
 
     // Fecha a conexão
+    $stmt->close();
     $conn->close();
 } else {
     // Se o método de requisição não for POST, redireciona para o formulário de cadastro

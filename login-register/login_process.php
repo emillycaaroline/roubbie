@@ -5,9 +5,9 @@ session_start();
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Conecta ao banco de dados (substitua com suas configurações)
     $servername = "localhost";  // Host do banco de dados
-    $username = "root";  // Nome de usuário do banco de dados
-    $password = "";    // Senha do banco de dados
-    $dbname = "roubbie_bd";  // Nome do banco de dados
+    $username = "root";         // Nome de usuário do banco de dados
+    $password = "";             // Senha do banco de dados
+    $dbname = "roubbie_bd";     // Nome do banco de dados
 
     // Cria a conexão
     $conn = new mysqli($servername, $username, $password, $dbname);
@@ -19,22 +19,33 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Prepara os dados do formulário para verificação no banco de dados
     $email = $_POST["email"];
-    $senha = md5($_POST["senha"]); // MD5 é uma forma simples de hash, para exemplo básico
+    $senha = $_POST["senha"];
 
     // Consulta para verificar se o usuário existe
-    $sql = "SELECT * FROM usuarios WHERE email='$email' AND senha='$senha'";
-    $result = $conn->query($sql);
+    $stmt = $conn->prepare("SELECT senha FROM usuarios WHERE email = ?");
+    $stmt->bind_param("s", $email);
+    $stmt->execute();
+    $stmt->store_result();
+    $stmt->bind_result($hashed_password);
 
-    if ($result->num_rows == 1) {
-        // Login bem-sucedido, redireciona para a página inicial do usuário
-        $_SESSION["email"] = $email;
-        header("Location: pagina_restrita.php");
+    if ($stmt->num_rows == 1) {
+        $stmt->fetch();
+        if (password_verify($senha, $hashed_password)) {
+            // Login bem-sucedido, redireciona para a página inicial do usuário
+            $_SESSION["email"] = $email;
+            header("Location: pagina_restrita.php");
+            exit();
+        } else {
+            // Senha incorreta
+            echo "Senha incorreta. <a href='login.php'>Tente novamente.</a>";
+        }
     } else {
-        // Login falhou, redireciona para a página de login com mensagem de erro
-        echo "Email ou senha inválidos. <a href='login.php'>Tente novamente.</a>";
+        // Email não encontrado
+        echo "Usuário não encontrado. <a href='login.php'>Tente novamente.</a>";
     }
 
     // Fecha a conexão
+    $stmt->close();
     $conn->close();
 } else {
     // Se o método de requisição não for POST, redireciona para o formulário de login
