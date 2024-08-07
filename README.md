@@ -1,26 +1,39 @@
-# roubbie 📚
-  
-## Projeto de TCC sobre rotina e hobby.💡
-Nosso objetivo é criar uma ferramenta que ajude as pessoas a cuidarem melhor da sua saúde mental e a encontrarem um equilíbrio entre a organização do dia a dia e o lazer.
-## Através deste problema 
-- A falta de uma rotina específica ou menos cansativa é um problema muito grande que tem se mostrado um grande fator para a piora da saúde mental dos indivíduos na atualidade.
-- Falta de um hobbie ou atividades de lazer que proporcionem prazer ou relaxamento. 
+# ROUBBIE 📱
 
-## Decidimos cria o ROUBBIE 📱
-O ROUBBIE é um aplicativo desenvolvido para promover o bem-estar mental dos usuários, ajudando-os a descobrir hobbies e a organizar suas rotinas diárias de forma saudável e prazerosa.
+**Objetivo:** Ajudar usuários a encontrar um equilíbrio saudável entre rotina e lazer, promovendo o bem-estar mental.
 
-## Contribuição para a Saúde Mental 
-- **Promove o Equilíbrio:** Oferece tempo para atividades de lazer, ajudando a reduzir o estresse e a sobrecarga mental.
-- **Estimula o Autoconhecimento:** Através do questionário personalizado, os usuários refletem sobre seus interesses, promovendo o autoconhecimento.
-- **Oferece Suporte Personalizado:** Fornece recomendações adaptadas a cada usuário para o desenvolvimento de uma rotina mais saudável e equilibrada.
-- **Acompanhamento Contínuo:** Acompanha o progresso dos usuários e ajusta as recomendações conforme suas necessidades e preferências mudam ao longo do tempo.
+## Como Funciona o Quiz
 
-## Equipe 👩‍💻
-[Larissa Manrique](https://github.com/larissassk)  
-[Emilly Caroline](https://github.com/emillycaaroline)  
-[Amanda Vitória](https://github.com/amandvitoria)  
-[Ana Paula](https://github.com/anapaulacd)  
-[Lara](https://github.com/laraassuncao18)  
-[Vitoria](https://github.com/vickieww)   
+O quiz do ROUBBIE ajuda a identificar seu tipo de personalidade para oferecer recomendações personalizadas de hobbies e atividades.
 
+### 1. Perguntas
+
+- O quiz consiste em perguntas com opções de resposta que correspondem a diferentes tipos de personalidade: Analista, Diplomata, Sentinela e Explorador.
+
+### 2. Processamento das Respostas
+
+- As respostas são enviadas e processadas para determinar qual tipo de personalidade é mais predominante.
+
+### 3. Resultados
+
+- Após o processamento, o aplicativo exibe:
+  - **Personalidade Predominante:** O tipo de personalidade mais forte baseado nas respostas.
+  - **Sugestões de Atividades:** Recomendações de hobbies e atividades para o tipo de personalidade predominante.
+  - **Área para Desenvolvimento:** Sugestões para explorar o tipo de personalidade menos predominante.
+
+### Implementação
+
+- **Formulário HTML:** Coleta as respostas do usuário.
+- **PHP:** Processa as respostas e exibe os resultados.
+
+
+---
+
+**Equipe:**
+- Larissa Manrique
+- Emilly Caroline
+- Amanda Vitória
+- Ana Paula
+- Lara
+- Vitoria
 
