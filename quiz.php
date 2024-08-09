@@ -35,7 +35,7 @@
             color: #ffffff;
             border: none;
             padding: 12px 24px;
-            border-radius: 8px;
+            border-radius: 8px;  
             cursor: pointer;
             font-size: 16px;
         }
