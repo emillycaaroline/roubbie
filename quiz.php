@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,6 +13,7 @@
             text-align: center;
             padding: 20px;
         }
+
         .container {
             max-width: 600px;
             margin: 0 auto;
@@ -20,43 +22,52 @@
             border-radius: 12px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
+
         h1 {
             color: #004d40;
         }
+
         .question {
             margin-bottom: 20px;
         }
+
         .options label {
             display: block;
             margin-bottom: 12px;
         }
+
         .submit-btn {
             background-color: #00796b;
             color: #ffffff;
             border: none;
             padding: 12px 24px;
-            border-radius: 8px;  
+            border-radius: 8px;
             cursor: pointer;
             font-size: 16px;
         }
+
         .submit-btn:hover {
             background-color: #004d40;
         }
+
         #result {
             display: none;
             margin-top: 20px;
             text-align: left;
             color: #004d40;
         }
+
         #result h2 {
             color: #004d40;
         }
+
         #result ul {
             list-style-type: disc;
             padding-left: 20px;
         }
     </style>
 </head>
+
 <body>
     <!-- 
         Página de quiz para descobrir seu tipo de personalidade com base nas perguntas. ele mostra:
@@ -102,7 +113,7 @@
                 "Sentinela": 0,
                 "Explorador": 0
             };
-            scores[personality] = 1;  // Simulação simples: um ponto para a escolha
+            scores[personality] = 1; // Simulação simples: um ponto para a escolha
 
             const activities = {
                 "Analista": [
@@ -153,4 +164,5 @@
         });
     </script>
 </body>
+
 </html>

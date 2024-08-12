@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,56 +9,56 @@
 </head>
 <style>
     body {
-    font-family: Arial, sans-serif;
-    background-color: #f2f2f2;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-}
+        font-family: Arial, sans-serif;
+        background-color: #f2f2f2;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
 
-.container {
-    background-color: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 80%;
-    max-width: 600px;
-    margin: auto;
-}
+    .container {
+        background-color: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        width: 80%;
+        max-width: 600px;
+        margin: auto;
+    }
 
-h1 {
-    text-align: center;
-    margin-bottom: 20px;
-}
+    h1 {
+        text-align: center;
+        margin-bottom: 20px;
+    }
 
-.section {
-    margin-bottom: 20px;
-}
+    .section {
+        margin-bottom: 20px;
+    }
 
-label {
-    display: block;
-    margin: 5px 0;
-}
+    label {
+        display: block;
+        margin: 5px 0;
+    }
 
-button {
-    display: block;
-    width: 100%;
-    padding: 10px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
+    button {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
 
-button:hover {
-    background-color: #45a049;
-}
-
+    button:hover {
+        background-color: #45a049;
+    }
 </style>
+
 <body>
     <div class="container">
         <h1>Questionário Socioemocional</h1>
@@ -98,7 +99,8 @@ button:hover {
             </div>
 
             <div class="section">
-                <p>4. Em eventos sociais, você raramente tenta se apresentar para novas pessoas e conversa mais com quem já conhece.</p>
+                <p>4. Em eventos sociais, você raramente tenta se apresentar para novas pessoas e conversa mais com quem
+                    já conhece.</p>
                 <input type="radio" id="social1" name="social" value="Concordo">
                 <label for="social1">Concordo</label><br>
                 <input type="radio" id="social2" name="social" value="Discordo">
@@ -108,7 +110,8 @@ button:hover {
             </div>
 
             <div class="section">
-                <p>5. Em uma situação onde você tem que sair de casa para praticar um esporte, você prefere praticá-lo sozinho.</p>
+                <p>5. Em uma situação onde você tem que sair de casa para praticar um esporte, você prefere praticá-lo
+                    sozinho.</p>
                 <input type="radio" id="esporte1" name="esporte" value="Concordo">
                 <label for="esporte1">Concordo</label><br>
                 <input type="radio" id="esporte2" name="esporte" value="Discordo">
@@ -118,7 +121,8 @@ button:hover {
             </div>
 
             <div class="section">
-                <p>6. Você prefere ficar em casa, curtindo a solitude, ao invés de participar de uma festa com muitas pessoas.</p>
+                <p>6. Você prefere ficar em casa, curtindo a solitude, ao invés de participar de uma festa com muitas
+                    pessoas.</p>
                 <input type="radio" id="solitude1" name="solitude" value="Concordo">
                 <label for="solitude1">Concordo</label><br>
                 <input type="radio" id="solitude2" name="solitude" value="Discordo">
@@ -211,12 +215,13 @@ button:hover {
         </form>
     </div>
     <script>
-        document.getElementById('questionario').addEventListener('submit', function(event) {
-    event.preventDefault();
-    // Process form data here
-    alert('Questionário enviado com sucesso!');
-});
+        document.getElementById('questionario').addEventListener('submit', function (event) {
+            event.preventDefault();
+            // Process form data here
+            alert('Questionário enviado com sucesso!');
+        });
 
     </script>
 </body>
+
 </html>
