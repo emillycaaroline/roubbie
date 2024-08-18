@@ -8,8 +8,10 @@
     <title>FullCalendar</title>
     <link rel="stylesheet" href="style.css">
 </head>
+<!-- FUNCIONANDO ORIG NÃO FAZER ALTERAÇÕES NESSE ARQUIVO -->
 <body>
-    <div class="modal-opened hidden">
+    <!-- Card para inserir evento -->
+<div class="modal-opened hidden">
         <div class="modal">
             <div class="modal-header">
                 <div class="modal-title">
@@ -43,9 +45,11 @@
         </div>
     </div>
 
+<!-- MODELO DE CALENDARIO/ROTINA/DIA -->
+
     <div class="calendar-area">
         <div class="calendar-area-header">
-            <h3>Gerenciamento de rotina</h3>
+            <h3>Minha Rotina</h3>
             <div class="msg">
                 <?php
                 if (!empty($_SESSION['msg'])) {
