@@ -77,6 +77,15 @@
                     <li class="nav-item">
                         <a class="nav-link click" href="index.php">Home</a>
                     </li>
+
+                    <nav>
+    <ul>
+        <li><a href="http://localhost/roubbie/projeto_fullcalendar_js_php-master/rotina.php">Rotina - dia</a></li>
+        <li><a href="http://localhost/roubbie/projeto_fullcalendar_js_php-master/index.php">Agenda</a></li>
+    </ul>
+</nav>
+
+
                     <li class="nav-item">
                         <a class="nav-link click" href="http://localhost/roubbie/projeto_fullcalendar_js_php-master/index.php">Agenda</a>
                     </li>
