@@ -21,18 +21,23 @@
             box-sizing: border-box;
         }
 
+        /* Configura o body para usar flexbox */
+        html, body {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            margin: 0;
+        }
+
         /* Cor de fundo da página */
         body {
             background: #e0e5ec;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
-            margin-top: 80px; /* Ajuste para compensar o navbar fixo */
         }
 
-        /* Container centralizado */
+        /* Container principal */
         .container1 {
             width: 90%;
             max-width: 700px;
@@ -42,14 +47,14 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             position: relative;
             overflow: hidden;
+            margin-top: 50px;
+            margin-bottom: 50px;
         }
 
         /* Estilo do cabeçalho */
         header {
             text-align: center;
             margin-bottom: 20px;
-            position: relative;
-            z-index: 1;
         }
 
         header h1 {
@@ -66,7 +71,6 @@
         .diary-entry {
             width: 100%;
             height: 300px;
-            /* Altura ajustada para o conteúdo */
             padding: 20px;
             border: 1px solid #ccc;
             border-radius: 4px;
@@ -78,10 +82,6 @@
             resize: none;
             overflow-y: auto;
             white-space: pre-wrap;
-            /* Preserva espaços e quebras de linha */
-            position: relative;
-            z-index: 1;
-            /* Estilo de linhas de papel */
             background: linear-gradient(to bottom, #ffffff 0%, #f0f0f0 10%, #ffffff 20%);
             background-size: 100% 20px;
         }
@@ -102,9 +102,8 @@
             font-size: 1.1em;
             cursor: pointer;
             transition: background-color 0.3s, transform 0.2s;
-            position: relative;
-            z-index: 1;
-            margin-top: 10px;
+            margin-top: 20px;
+            width: 100%;
         }
 
         button:hover {
@@ -129,9 +128,9 @@
 </head>
 
 <body>
-   <!-- Adiciona o header -->
-   <?php include 'includes/header.php'; ?>
-
+    
+    <!-- Adiciona o header -->
+    <?php include 'includes/header.php'; ?>
 
     <!-- Conteúdo principal -->
     <div class="container1">
@@ -151,6 +150,7 @@
         </footer>
     </div>
 
+<!-- Script de funcionamento do diario -->
     <script>
         function saveEntry() {
             const diaryContent = document.querySelector('.diary-entry').innerText;
@@ -167,10 +167,8 @@
             }, 3000);
         }
     </script>
+
     <!-- JavaScript Bundle with Popper -->
     <script src="js/bootstrap.bundle.min.js"></script>
 </body>
-  <!-- Adiciona o footer -->
-  <?php include 'footer.php'; ?>
-
 </html>
