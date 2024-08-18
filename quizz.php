@@ -14,13 +14,14 @@
             padding: 20px;
         }
 
-        .container {
+        .container1 {
             max-width: 600px;
             margin: 0 auto;
             background: #ffffff;
             padding: 20px;
             border-radius: 12px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 60px;
         }
 
         h1 {
@@ -67,16 +68,12 @@
         }
     </style>
 </head>
-
 <body>
-    <!-- 
-        Página de quiz para descobrir seu tipo de personalidade com base nas perguntas. ele mostra:
-        Personalidade Principal: Identifica o tipo de personalidade predominante.
-        Sugestões de Atividades: Recomenda atividades para o tipo de personalidade principal.
-        Área para Desenvolvimento: Sugere atividades para melhorar ou explorar uma área menos compatível. 
-     -->
+     <!-- Adiciona o header -->
+     <?php include 'includes/header.php'; ?>
 
-    <div class="container">
+
+    <div class="container1">
         <h1>Descubra Sua Personalidade!</h1>
         <form id="quiz-form">
             <div class="question">
@@ -164,5 +161,5 @@
         });
     </script>
 </body>
-
+ 
 </html>

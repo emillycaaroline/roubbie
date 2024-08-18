@@ -26,7 +26,6 @@
 
     <!-- CUSTOM STYLES -->
     <style>
-                    
         body {
             background-image: url('images/colleagues-working-cozy-office-medium-shot.jpg');
             /* Verifique o caminho para a imagem de fundo */
@@ -92,68 +91,9 @@
 </head>
 
 <body id="top">
-    <!-- Menu Inicial -->
-    <nav class="navbar navbar-expand-lg">
-        <div class="container">
-            <a class="navbar-brand" href="index.html">
-                <img src="img/logo-ft.png" width="100">
-            </a>
+    <!-- Adiciona o header -->
+    <?php include 'includes/header.php'; ?>
 
-
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-lg-5 me-lg-auto">
-                    <li class="nav-item">
-                        <a class="nav-link click" href="index.html">Home</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link click" href="http://localhost/roubbie/projeto_fullcalendar_js_php-master/index.php">Agenda</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link click" href="bloco-nt.html">Notas</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link click" href="http://localhost/roubbie/projeto_fullcalendar_js_php-master/index.php">Rotina</a>
-
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link click" href="sobre.html">Sobre</a>
-                    </li>
-
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarLightDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">Decrubra um novo hobby</a>
-
-                        <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarLightDropdownMenuLink">
-                            <li><a class="dropdown-item" href="quiz.php">Quiz</a></li>
-
-                            <li><a class="dropdown-item" href="">Resultado do Quest</a></li>
-                        </ul>
-                    </li>
-                </ul>
-
-                <ul class="nav-menu">
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle bi-person navbar-icon" style="border: none;" href="#" id="navbarLightDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false"></a>
-
-                    <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarLightDropdownMenuLink">
-                        <li><a class="dropdown-item" href="/login-register/login.php">Login</a></li>
-                        <li><a class="dropdown-item" href="/login-register/cadastro.html">Cadastro</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </ul>
-
-            </div>
-        </div>
-    </nav>
-    
     <!-- Campos para Artigos -->
     <main>
         <section class="timeline-section section-padding" id="section_3">
@@ -232,36 +172,9 @@
         </section>
     </main>
 
-    <!-- Rodapé -->
-    <footer class="site-footer">
-        <div class="container">
-            <div class="row">
-                <div style="margin-top: 40px;" class="col-lg-4 col-md-6 mb-4">
-                    <h5>Nossa Equipe</h5>
-                    <p>Emilly Caroline <br>Larissa Manrique <br>Amanda victoria <br>Vitoria Gabrieli <br>Lara Assunção
-                        <br>Ana Paula <br></p>
-                </div>
-                <div style="margin-top: 40px;" class="col-lg-4 col-md-6 mb-4">
-                    <h5>Recursos</h5>
-                    <ul class="list-unstyled">
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="agenda.html">Agenda</a></li>
-                        <li><a href="bloco-nt.html">Notas</a></li>
-                        <li><a href="rotina.html">Rotina</a></li>
-                        <li><a href="sobre.html">Sobre</a></li>
-                    </ul>
-                </div>
-                <div style="margin-top: 40px;" class="col-lg-4 col-md-12 mb-4">
-                    <h5>Contato</h5>
-                    <ul class="list-unstyled">
-                        <li><i class="bi bi-envelope"></i> <a href="mailto:contato@roubbie.com">contato@roubbie.com</a>
-                        </li>
-                        <li><i class="bi bi-phone"></i> <a href="tel:+5511999999999">+55 11 99999-9999</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </footer>
+    <!-- Adiciona o footer -->
+    <?php include 'footer.php'; ?>
+
 
 </body>
 

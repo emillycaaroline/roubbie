@@ -8,9 +8,7 @@
     <title>FullCalendar</title>
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-
     <div class="modal-opened hidden">
         <div class="modal">
             <div class="modal-header">
