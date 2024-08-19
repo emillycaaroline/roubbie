@@ -90,9 +90,6 @@
                         <a class="nav-link click" href="http://localhost/roubbie/projeto_fullcalendar_js_php-master/index.php">Agenda</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link click" href="notas.php">Notas</a>
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link click" href="http://localhost/roubbie/projeto_fullcalendar_js_php-master/index.php">Rotina</a>
                     </li>
                     <li class="nav-item">

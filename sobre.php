@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Roubbie - Encontre equilíbrio entre organização e lazer.">
     <meta name="author" content="Equipe Roubbie">
-    <title>Início - Roubbie</title>
+    <title>Sobre o Roubbie</title>
 
     <!-- CSS FILES -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -34,7 +34,6 @@
             background-attachment: fixed;
             background-repeat: no-repeat;
         }
-
         body::before {
             content: "";
             position: absolute;
@@ -43,7 +42,7 @@
             width: 100%;
             height: 100%;
             background: rgba(0, 0, 0, 0.2);
-            /* Overlay preto com 40% de opacidade */
+            /* Overlay preto com 20% de opacidade */
             z-index: -1;
         }
 
@@ -101,7 +100,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-12 text-center">
-                        <h2 class="text-white mb-4"></h2>
+                        <h2 class="text-white mb-4">Sobre o Roubbie</h2>
                     </div>
                     <div class="col-lg-10 col-12 mx-auto">
                         <div class="timeline-container">
@@ -111,55 +110,55 @@
                                 </div>
                                 <li>
                                     <h4 class="text-white mb-3">Quem Somos?</h4>
-                                    <p class="text-white">A ideia do Roubbie surgiu da nossa preocupação com um problema
-                                        crescente: a saúde mental. Nós, da equipe formada por Larissa, Lara, Amanda,
-                                        Emilly, Ana Paula e Vitória, notamos que a ansiedade, a depressão e a síndrome
-                                        do pânico estão se tornando cada vez mais comuns e afetando muitas pessoas ao
-                                        nosso redor.</p>
-                                    <p class="text-white">O que nos motivou foi perceber que, apesar das atividades
-                                        físicas como academia e esportes, muitas pessoas ainda não exploram hobbies que
-                                        podem trazer relaxamento e satisfação. Por isso, decidimos criar uma solução
-                                        inovadora!</p>
+                                    <p class="text-white">
+                                        A ideia do Roubbie surgiu da nossa preocupação com um problema crescente: a
+                                        saúde mental. Nós, da equipe formada por Larissa, Lara, Amanda, Emilly, Ana
+                                        Paula e Vitória, percebemos que a ansiedade, a depressão e a síndrome do pânico
+                                        estão se tornando cada vez mais comuns e afetando muitas pessoas ao nosso
+                                        redor. Isso nos motivou a criar uma solução inovadora!
+                                    </p>
                                     <div class="icon-holder">
                                         <i class="bi-search"></i>
                                     </div>
                                 </li>
                                 <li>
                                     <h4 class="text-white mb-3">Motivação</h4>
-                                    <p class="text-white">O Roubbie é mais do que um simples aplicativo; é uma proposta
-                                        para transformar a abordagem da saúde mental. Queremos destacar a importância
-                                        dos hobbies, frequentemente negligenciados, e mostrar como essas atividades
-                                        podem promover um equilíbrio saudável entre lazer e trabalho, ajudando a viver
-                                        de forma mais organizada e plena.</p>
-                                    <p class="text-white">Com o Roubbie, você encontrará ferramentas para se organizar
-                                        melhor, descobrir atividades relaxantes e integrar hobbies na sua rotina. Nosso
-                                        objetivo é quebrar a rotina estressante e abrir espaço para momentos de prazer e
-                                        conexão.</p>
+                                    <p class="text-white">
+                                        O Roubbie é mais do que um simples aplicativo; é uma proposta para transformar a
+                                        abordagem da saúde mental. Queremos destacar a importância dos hobbies,
+                                        frequentemente negligenciados, e mostrar como essas atividades podem promover um
+                                        equilíbrio saudável entre lazer e trabalho, ajudando a viver de forma mais
+                                        organizada e plena.
+                                    </p>
                                     <div class="icon-holder">
                                         <i class="bi-bookmark"></i>
                                     </div>
                                 </li>
                                 <li>
                                     <h4 class="text-white mb-3">O Desafio</h4>
-                                    <p class="text-white">A falta de um hobby pode resultar em sentimentos de tédio,
-                                        apatia e desânimo, que podem aumentar a ansiedade e a depressão. Muitos jovens
-                                        enfrentam dificuldades para encontrar um hobby que combine lazer e
-                                        desenvolvimento pessoal. O Roubbie visa preencher essa lacuna, ajudando a
-                                        descobrir e integrar novos interesses na rotina diária.ficou nmt bom</p>
+                                    <p class="text-white">
+                                        A falta de um hobby pode resultar em sentimentos de tédio, apatia e desânimo,
+                                        que podem aumentar a ansiedade e a depressão. Muitos jovens enfrentam
+                                        dificuldades para encontrar um hobby que combine lazer e desenvolvimento pessoal.
+                                        O Roubbie visa preencher essa lacuna, ajudando a descobrir e integrar novos
+                                        interesses na rotina diária.
+                                    </p>
                                     <div class="icon-holder">
                                         <i class="bi-card-checklist"></i>
                                     </div>
                                 </li>
                                 <li>
                                     <h4 class="text-white mb-3">O Que Você Vai Encontrar no Roubbie?</h4>
-                                    <p class="text-white">Oferecemos uma plataforma interativa e dinâmica com uma
-                                        variedade de hobbies para explorar, desafios para engajar e recursos para
-                                        acompanhar seu progresso. É a sua oportunidade de criar um equilíbrio saudável
-                                        entre lazer e organização.</p>
-                                    <p class="text-white">O Roubbie é sobre conexão, qualidade de vida e organização.
-                                        Nosso objetivo é melhorar a saúde mental dos nossos usuários e ajudar a
-                                        fortalecer relações sociais, alcançando um equilíbrio real entre trabalho e
-                                        lazer.</p>
+                                    <p class="text-white">
+                                        Oferecemos uma plataforma interativa e dinâmica com uma variedade de hobbies para
+                                        explorar, desafios para engajar e recursos para acompanhar seu progresso. É a
+                                        sua oportunidade de criar um equilíbrio saudável entre lazer e organização.
+                                    </p>
+                                    <p class="text-white">
+                                        O Roubbie é sobre conexão, qualidade de vida e organização. Nosso objetivo é
+                                        melhorar a saúde mental dos nossos usuários e ajudar a fortalecer relações
+                                        sociais, alcançando um equilíbrio real entre trabalho e lazer.
+                                    </p>
                                     <div class="icon-holder">
                                         <i class="bi-award"></i>
                                     </div>
@@ -173,9 +172,7 @@
     </main>
 
     <!-- Adiciona o footer -->
-    <?php include 'footer.php'; ?>
-
-
+    <?php include 'includes/footer.php'; ?>
 </body>
 
 </html>
