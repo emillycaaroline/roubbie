@@ -1,9 +1,9 @@
-<footer class="site-footer">
+<footer class="site-footer py-4">
     <div class="container">
-        <div class="row">
+        <div class="row text-center text-md-start">
             <!-- Logo e Slogan -->
             <div class="col-lg-3 col-md-6 mb-4">
-                <img src="images/logo-footer.png" alt="Roubbie Logo" class="img-fluid">
+                <img src="img/logo-ft.png" width="100"alt="Roubbie Logo" class="img-fluid">
                 <p class="mt-2">Encontre equilíbrio entre organização e lazer</p>
             </div>
 
@@ -22,9 +22,7 @@
             <!-- Redes Sociais e Contato -->
             <div class="col-lg-3 col-md-6 mb-4">
                 <h5>Redes Sociais</h5>
-                <ul class="list-unstyled d-flex">
-                    <li><a href="#" class="social-icon-link me-3"><i class="bi bi-facebook"></i></a></li>
-                    <li><a href="#" class="social-icon-link me-3"><i class="bi bi-twitter"></i></a></li>
+                <ul class="list-unstyled d-flex justify-content-center justify-content-md-start">
                     <li><a href="#" class="social-icon-link me-3"><i class="bi bi-instagram"></i></a></li>
                     <li><a href="#" class="social-icon-link"><i class="bi bi-linkedin"></i></a></li>
                 </ul>

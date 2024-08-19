@@ -61,7 +61,20 @@
         </div>
         <div id='calendar'></div>
     </div>
+<script>
+    // Adicionando um estilo inline diretamente a um elemento
+document.querySelector('.modal').style.backgroundColor = '#ff0000';
 
+// Adicionando uma nova regra CSS ao documento
+const style = document.createElement('style');
+style.innerHTML = `
+  .new-class {
+    color: #00ff00;
+  }
+`;
+document.head.appendChild(style);
+
+</script>
     <script src="dist/index.global.min.js"></script>
     <script src="core/locales/pt-br.global.min.js"></script>
     <script src="script.js"></script>
