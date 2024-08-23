@@ -1,31 +1,23 @@
 <?php
-include 'db.php'; // Inclua o arquivo com a conexão ao banco de dados
+include('db.php'); // Inclua seu arquivo de conexão
 
-// Verifique o valor da ação
-$action = $_POST['action'] ?? '';
-$id = $_POST['id'] ?? '';
-$title = $_POST['title'] ?? '';
-$color = $_POST['color'] ?? '';
-$start = $_POST['start'] ?? '';
-$end = $_POST['end'] ?? '';
+$action = $_POST['action']; // Determina se é um add ou update
+$title = $_POST['title'];
+$color = $_POST['color'];
+$start = $_POST['start'];
+$end = $_POST['end'];
+$view = $_POST['view']; // Adicione este campo
 
-// Depuração: Verifique os valores recebidos
-var_dump($action, $id, $title, $color, $start, $end); // Remova ou comente isso após o teste
-
-try {
-    if ($action == 'add') {
-        $stmt = $pdo->prepare("INSERT INTO events (title, color, start, end) VALUES (?, ?, ?, ?)");
-        $stmt->execute([$title, $color, $start, $end]);
-    } elseif ($action == 'edit') {
-        $stmt = $pdo->prepare("UPDATE events SET title = ?, color = ?, start = ?, end = ? WHERE id = ?");
-        $stmt->execute([$title, $color, $start, $end, $id]);
-    } elseif ($action == 'delete') {
-        $stmt = $pdo->prepare("DELETE FROM events WHERE id = ?");
-        $stmt->execute([$id]);
-    } else {
-        throw new Exception("Ação inválida.");
-    }
-} catch (Exception $e) {
-    echo "Erro: " . $e->getMessage();
+if ($action == 'add') {
+    $stmt = $pdo->prepare("INSERT INTO events (title, color, start, end, view) VALUES (?, ?, ?, ?, ?)");
+    $stmt->execute([$title, $color, $start, $end, $view]);
+} elseif ($action == 'edit') {
+    $id = $_POST['id'];
+    $stmt = $pdo->prepare("UPDATE events SET title = ?, color = ?, start = ?, end = ?, view = ? WHERE id = ?");
+    $stmt->execute([$title, $color, $start, $end, $view, $id]);
+} elseif ($action == 'delete') {
+    $id = $_POST['id'];
+    $stmt = $pdo->prepare("DELETE FROM events WHERE id = ?");
+    $stmt->execute([$id]);
 }
 ?>

@@ -19,10 +19,9 @@ document.addEventListener('DOMContentLoaded', function () {
         eventDrop: function (info) {
             moverEvento(info);
         },
-        events: 'event-list.php', // Atualize o caminho se necessário
+        events: 'event-list.php',
     };
 
-    // Configuração da barra de ferramentas e visão inicial com base na classe do corpo
     if (bodyClass === 'index-page') {
         calendarConfig.headerToolbar = {
             left: 'prev,next today',
@@ -52,7 +51,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
         document.querySelector('#start').value = info.dateStr + "T08:00"; // Ajuste para datetime-local
         document.querySelector('#end').value = info.dateStr + "T18:00";   // Ajuste para datetime-local
-        document.querySelector('#action').value = 'add';
+        document.querySelector('#view').value = bodyClass === 'index-page' ? 'monthly' : (bodyClass === 'sisrot-page' ? 'weekly' : 'daily'); // Define a visualização
     }
 
     const abrirModalEditar = (info) => {
@@ -78,8 +77,8 @@ document.addEventListener('DOMContentLoaded', function () {
         document.querySelector('#color').value = info.event.backgroundColor;
         document.querySelector('#start').value = data_start;
         document.querySelector('#end').value = data_end;
+        document.querySelector('#view').value = info.event.extendedProps.view || (bodyClass === 'index-page' ? 'monthly' : (bodyClass === 'sisrot-page' ? 'weekly' : 'daily')); // Ajuste conforme necessário
         document.querySelector('.btn-delete').classList.remove('hidden');
-        document.querySelector('#action').value = 'edit';
     }
 
     const moverEvento = (info) => {
@@ -88,8 +87,9 @@ document.addEventListener('DOMContentLoaded', function () {
         let color = info.event.backgroundColor;
         let start = info.event.start.toISOString().substring(0, 19);
         let end = info.event.end.toISOString().substring(0, 19);
+        let view = document.querySelector('#view').value; // Captura a visualização atual
 
-        let data = { id, title, color, start, end };
+        let data = { id, title, color, start, end, view };
 
         let urlEncodedData = Object.keys(data).map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key])).join('&');
 
@@ -106,14 +106,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    document.querySelector('.btn-delete').addEventListener('click', function() {
-        document.querySelector('#action').value = 'delete';
-        document.querySelector('#form-add-event').submit();
-    });
-
-    document.querySelector('.modal-close').addEventListener('click', function() {
-        fecharModal();
-    });
+    document.querySelector('.modal-close').addEventListener('click', () => fecharModal());
 
     modal.addEventListener('click', function (event) {
         if (event.target == modal) {
