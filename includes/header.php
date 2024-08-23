@@ -80,7 +80,7 @@
 
                     <nav>
     <ul>
-        <li><a href="http://localhost/roubbie/projeto_fullcalendar_js_php-master/rotina.php">Rotina - dia</a></li>
+        <li><a href="http://localhost/roubbie/projeto_fullcalendar_js_php-master/sisrot.php">Rotina - dia</a></li>
         <li><a href="http://localhost/roubbie/projeto_fullcalendar_js_php-master/index.php">Agenda</a></li>
     </ul>
 </nav>
@@ -90,7 +90,7 @@
                         <a class="nav-link click" href="http://localhost/roubbie/projeto_fullcalendar_js_php-master/index.php">Agenda</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link click" href="http://localhost/roubbie/projeto_fullcalendar_js_php-master/index.php">Rotina</a>
+                        <a class="nav-link click" href="http://localhost/roubbie/projeto_fullcalendar_js_php-master/sisrot.php">Rotina</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link click" href="diario.php">Diario</a>

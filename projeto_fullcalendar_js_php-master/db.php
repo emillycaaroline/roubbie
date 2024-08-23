@@ -1,13 +1,13 @@
 <?php
-
-$host = 'localhost';
-$dbname = 'fullcalendar';
-$user = 'root';
-$pass = '';
+$host = 'localhost'; // Ou o IP do seu servidor de banco de dados
+$dbname = 'fullcalendar'; // Nome do seu banco de dados
+$user = 'root'; // Seu usuário do banco de dados
+$pass = ''; // Sua senha do banco de dados
 
 try {
-    $db = new PDO("mysql:host=$host;dbname=$dbname", $user, $pass);
-    // echo 'Banco de dados conectado com sucesso';
+    $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $user, $pass);
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 } catch (PDOException $e) {
-    echo $e->getMessage();
+    die("Não foi possível conectar ao banco de dados: " . $e->getMessage());
 }
+?>
