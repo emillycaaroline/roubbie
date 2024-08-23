@@ -3,12 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FullCalendar</title>
+    <title>Agenda</title>
     <link rel="stylesheet" href="style.css">
 </head>
+<style>
+    body {
+        background-image: linear-gradient(15deg, #13547a 0%, #80d0c7 100%);
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+    }
+
+    .calendar-area {
+        background-color: white; /* Mantém o fundo do calendário separado */
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        max-width: 900px;
+        margin: 20px auto;
+    }
+
+    h2{
+        color: white;
+    }
+</style>
 <body class="index-page">
 <!-- Este arquivo configura a visualização mensal do calendário, com um modal semelhante ao sisrot.php. -->
     <!-- Card para inserir evento -->
+    <h2 style="text-align: center;">Minha Agenda</h2>
+
     <div class="modal-opened hidden">
         <div class="modal">
             <div class="modal-header">
@@ -39,7 +62,7 @@
 
     <div class="calendar-area">
         <div class="calendar-area-header">
-            <h3>Minha Rotina</h3>
+            <h2>Minha Rotina</h2>
             <div class="msg">
                 <?php
                 if (!empty($_SESSION['msg'])) {
