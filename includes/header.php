@@ -94,7 +94,7 @@
                         <a class="nav-link dropdown-toggle" href="#" id="navbarLightDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">Descubra um novo hobby</a>
                         <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarLightDropdownMenuLink">
                             <li><a class="dropdown-item" href="quizz.php">Quiz</a></li>
-                            <li><a class="dropdown-item" href="#">Resultado do Quest</a></li>
+                            <li><a class="dropdown-item" href="http://localhost/roubbie/prototipoquiz.php">prototipo quiz</a></li>
                         </ul>
                     </li>
                 </ul>
