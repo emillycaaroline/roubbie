@@ -64,10 +64,11 @@
 
 <body id="top">
     <!-- Menu Inicial -->
-    <nav class="navbar navbar-expand-lg">
+     <!-- Menu Inicial -->
+     <nav class="navbar navbar-expand-lg">
         <div class="container">
             <a class="navbar-brand" href="index.html">
-                <img src="img/logo-ft.png" width="100">
+                <img src="img/logo-ft.png" alt="Roubbie Logo" width="100">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -77,15 +78,6 @@
                     <li class="nav-item">
                         <a class="nav-link click" href="index.php">Home</a>
                     </li>
-
-                    <nav>
-    <ul>
-        <li><a href="http://localhost/roubbie/projeto_fullcalendar_js_php-master/sisrot.php">Rotina - dia</a></li>
-        <li><a href="http://localhost/roubbie/projeto_fullcalendar_js_php-master/index.php">Agenda</a></li>
-    </ul>
-</nav>
-
-
                     <li class="nav-item">
                         <a class="nav-link click" href="http://localhost/roubbie/projeto_fullcalendar_js_php-master/index.php">Agenda</a>
                     </li>
@@ -93,7 +85,7 @@
                         <a class="nav-link click" href="http://localhost/roubbie/projeto_fullcalendar_js_php-master/sisrot.php">Rotina</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link click" href="diario.php">Diario</a>
+                        <a class="nav-link click" href="diario.php">Diário</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link click" href="sobre.php">Sobre</a>
@@ -102,14 +94,14 @@
                         <a class="nav-link dropdown-toggle" href="#" id="navbarLightDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">Descubra um novo hobby</a>
                         <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarLightDropdownMenuLink">
                             <li><a class="dropdown-item" href="quizz.php">Quiz</a></li>
-                            <li><a class="dropdown-item" href="">Resultado do Quest</a></li>
+                            <li><a class="dropdown-item" href="#">Resultado do Quest</a></li>
                         </ul>
                     </li>
                 </ul>
                 <ul class="nav-menu">
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle bi-person navbar-icon" style="border: none;" href="#" id="navbarLightDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false"></a>
-                        <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarLightDropdownMenuLink">
+                        <a class="nav-link dropdown-toggle bi-person navbar-icon" style="border: none;" href="#" id="navbarUserDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false"></a>
+                        <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarUserDropdownMenuLink">
                             <li><a class="dropdown-item" href="/login-register/login.php">Login</a></li>
                             <li><a class="dropdown-item" href="/login-register/cadastro.html">Cadastro</a></li>
                         </ul>
