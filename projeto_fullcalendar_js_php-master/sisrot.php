@@ -16,23 +16,24 @@
     }
 
     .calendar-area {
-        background-color: white; /* Mantém o fundo do calendário separado */
+        background-color: white;
+        /* Mantém o fundo do calendário separado */
         padding: 20px;
         border-radius: 8px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         max-width: 900px;
         margin: 20px auto;
     }
-    h2{
+
+    h2 {
         color: white;
     }
-    
 </style>
+
 <body class="sisrot-page">
 
     <!-- Este arquivo configura a visualização semanal e diária do calendário. Inclui o modal para adicionar ou editar eventos. -->
     <!-- Card para inserir evento -->
-    <h2 style="text-align: center;">Minha rotina</h2>
     <div class="modal-opened hidden">
         <div class="modal">
             <div class="modal-header">
@@ -62,6 +63,8 @@
     </div>
 
     <div class="calendar-area">
+        <h2 style="color: black; text-align: center;">Dia a Dia</h2>
+
         <div id='calendar'></div>
     </div>
     <script src="dist/index.global.min.js"></script>

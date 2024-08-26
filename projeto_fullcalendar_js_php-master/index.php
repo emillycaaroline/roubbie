@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,7 +16,8 @@
     }
 
     .calendar-area {
-        background-color: white; /* Mantém o fundo do calendário separado */
+        background-color: white;
+        /* Mantém o fundo do calendário separado */
         padding: 20px;
         border-radius: 8px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -23,14 +25,15 @@
         margin: 20px auto;
     }
 
-    h2{
+    h2 {
         color: white;
     }
 </style>
+
 <body class="index-page">
-<!-- Este arquivo configura a visualização mensal do calendário, com um modal semelhante ao sisrot.php. -->
+    <!-- Este arquivo configura a visualização mensal do calendário, com um modal semelhante ao sisrot.php. -->
     <!-- Card para inserir evento -->
-    <h2 style="text-align: center;">Minha Agenda</h2>
+
 
     <div class="modal-opened hidden">
         <div class="modal">
@@ -41,28 +44,28 @@
                 <div class="modal-close">x</div>
             </div>
             <form action="action-event.php" method="post" id="form-add-event">
-    <input type="hidden" name="id" id="id">
-    <input type="hidden" name="action" id="action" value="">
-    <label for="title">Nome do Evento</label>
-    <input type="text" name="title" id="title">
-    <label for="color">Selecione uma cor</label>
-    <input type="color" name="color" id="color">
-    <label for="start">Início do Evento</label>
-    <input type="datetime-local" name="start" id="start">
-    <label for="end">Término do Evento</label>
-    <input type="datetime-local" name="end" id="end">
-    <div class="modal-footer">
-        <button type="submit" class="btn-save">Salvar</button>
-        <button type="button" class="btn-delete hidden">Excluir</button>
-    </div>
-</form>
+                <input type="hidden" name="id" id="id">
+                <input type="hidden" name="action" id="action" value="">
+                <label for="title">Nome do Evento</label>
+                <input type="text" name="title" id="title">
+                <label for="color">Selecione uma cor</label>
+                <input type="color" name="color" id="color">
+                <label for="start">Início do Evento</label>
+                <input type="datetime-local" name="start" id="start">
+                <label for="end">Término do Evento</label>
+                <input type="datetime-local" name="end" id="end">
+                <div class="modal-footer">
+                    <button type="submit" class="btn-save">Salvar</button>
+                    <button type="button" class="btn-delete hidden">Excluir</button>
+                </div>
+            </form>
 
         </div>
     </div>
 
     <div class="calendar-area">
+        <h2 style="color: black; text-align: center;">Mês Atual</h2>
         <div class="calendar-area-header">
-            <h2>Minha Rotina</h2>
             <div class="msg">
                 <?php
                 if (!empty($_SESSION['msg'])) {
@@ -78,4 +81,5 @@
     <script src="core/locales/pt-br.global.min.js"></script>
     <script src="script.js"></script>
 </body>
+
 </html>
