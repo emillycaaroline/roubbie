@@ -4,111 +4,73 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Diário Pessoal</title>
-    <!-- CSS FILES -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Open+Sans&display=swap" rel="stylesheet">
+    <title>Diário</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/bootstrap-icons.css" rel="stylesheet">
-    <link href="css/templatemo-topic-listing.css" rel="stylesheet">
-    <link href="css/styles.css" rel="stylesheet"> <!-- External CSS -->
     <style>
-        /* Reset de margens e padding */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        /* Configura o body para usar flexbox */
-        html, body {
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            margin: 0;
-        }
-
-        /* Cor de fundo da página */
         body {
-            background: #e0e5ec;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f7fa;
+            color: #2c3e50;
+            font-family: 'Poppins', sans-serif;
+            display: flex;
             justify-content: center;
             align-items: center;
+            height: 100vh;
         }
 
-        /* Container principal */
         .container1 {
-            width: 90%;
-            max-width: 700px;
-            background: #ffffff;
+            background-color: #ffffff;
+            border: 1px solid #e0e0e0;
+            border-radius: 10px;
             padding: 30px;
-            border-radius: 12px;
+            width: 90%;
+            max-width: 600px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            position: relative;
-            overflow: hidden;
-            margin-top: 50px;
-            margin-bottom: 50px;
         }
 
-        /* Estilo do cabeçalho */
         header {
             text-align: center;
             margin-bottom: 20px;
         }
 
         header h1 {
-            font-size: 2.2em;
-            color: #333;
+            font-weight: 600;
+            color: #34495e;
         }
 
-        header p {
-            font-size: 1.1em;
-            color: #666;
-        }
-
-        /* Área de texto estilizada */
         .diary-entry {
             width: 100%;
-            height: 300px;
-            padding: 20px;
+            height: 200px;
+            padding: 15px;
+            border-radius: 8px;
             border: 1px solid #ccc;
-            border-radius: 4px;
-            font-size: 1em;
-            line-height: 1.6em;
-            background: #ffffff;
-            background-clip: padding-box;
-            color: #333;
-            resize: none;
-            overflow-y: auto;
-            white-space: pre-wrap;
-            background: linear-gradient(to bottom, #ffffff 0%, #f0f0f0 10%, #ffffff 20%);
-            background-size: 100% 20px;
+            font-size: 1rem;
+            background-color: #ecf0f1;
+            outline: none;
+            transition: background-color 0.3s, box-shadow 0.3s;
         }
 
-        .diary-entry:empty:before {
-            content: attr(data-placeholder);
-            color: #aaa;
-            font-style: italic;
+        .diary-entry:focus {
+            background-color: #ffffff;
+            box-shadow: 0 0 10px rgba(52, 152, 219, 0.5);
         }
 
         button {
             display: inline-block;
             padding: 12px 24px;
             border: none;
-            border-radius: 8px;
-            background-color: #28a745;
-            color: #fff;
-            font-size: 1.1em;
+            border-radius: 50px;
+            background-color: #3498db;
+            color: #ffffff;
+            font-size: 1.1rem;
             cursor: pointer;
             transition: background-color 0.3s, transform 0.2s;
-            margin-top: 20px;
             width: 100%;
         }
 
         button:hover {
-            background-color: #218838;
-            transform: scale(1.02);
+            background-color: #2980b9;
+            transform: scale(1.05);
         }
 
         footer {
@@ -118,31 +80,38 @@
             color: #777;
         }
 
-        #feedback {
-            display: none;
-            color: green;
-            text-align: center;
-            margin-top: 10px;
+        .dark-mode {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+        }
+
+        .dark-mode .container1 {
+            background-color: #34495e;
+            border-color: #2c3e50;
+        }
+
+        .dark-mode .diary-entry {
+            background-color: #3b3f47;
+            color: #ecf0f1;
+            border-color: #555;
+        }
+
+        .dark-mode button {
+            background-color: #e74c3c;
         }
     </style>
 </head>
 
 <body>
-    
-    <!-- Adiciona o header -->
-    <?php include 'includes/header.php'; ?>
-
-    <!-- Conteúdo principal -->
     <div class="container1">
         <header>
-            <h1>Diário Pessoal</h1>
-            <p>Capture seus momentos e reflexões do dia aqui.</p>
+            <h1>Pensar e Refletir</h1>
+            <p>Conte o que aconteceu e suas emoções do dia.</p>
         </header>
 
         <main>
             <div class="diary-entry" contenteditable="true" data-placeholder="Escreva seus momentos e reflexões do dia aqui..."></div>
-            <button type="button" onclick="saveEntry()" aria-label="Salvar entrada">Salvar</button>
-            <div id="feedback">Texto salvo com sucesso!</div>
+            <button type="button" onclick="saveEntry()">Guardar</button>
         </main>
 
         <footer>
@@ -150,25 +119,13 @@
         </footer>
     </div>
 
-<!-- Script de funcionamento do diario -->
     <script>
         function saveEntry() {
             const diaryContent = document.querySelector('.diary-entry').innerText;
-
-            // Exemplo de exibição do conteúdo em um alerta
             alert('Seu texto salvo:\n\n' + diaryContent);
-
-            // Mostrar feedback na página
-            document.getElementById('feedback').style.display = 'block';
-
-            // Limpar feedback após alguns segundos
-            setTimeout(() => {
-                document.getElementById('feedback').style.display = 'none';
-            }, 3000);
+            // Aqui você pode adicionar a lógica para salvar a entrada
         }
     </script>
-
-    <!-- JavaScript Bundle with Popper -->
-    <script src="js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>

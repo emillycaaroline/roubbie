@@ -132,3 +132,17 @@ body {
   margin: 10px 0;
   border-radius: 6px;
 }
+
+.modal {
+  background-color: #e0f7fa; /* Atualizado para uma cor mais clara */
+}
+
+.modal-footer button {
+  background-color: #00796b; /* Atualizado para um verde mais escuro */
+  border: 1px solid #00796b; /* Atualizado para combinar com o fundo */
+}
+
+.modal-footer button:hover {
+  background-color: #004d40; /* Atualizado para um verde ainda mais escuro ao passar o mouse */
+}
+

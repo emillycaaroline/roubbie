@@ -49,6 +49,20 @@ body {
   background-color: var(--white-color);
   font-family: var(--body-font-family); 
 }
+    @media (max-width: 576px) {
+    footer.site-footer p, 
+    footer.site-footer h5 {
+        font-size: 14px; /* Reduz o tamanho do texto para telas muito pequenas */
+    }
+
+    footer.site-footer .social-icon-link {
+        font-size: 18px; /* Ajusta o tamanho dos ícones de redes sociais */
+    }
+
+    footer.site-footer .input-group .form-control {
+        font-size: 14px; /* Reduz o tamanho da fonte no campo de newsletter */
+    }
+}
 
 /* footer */
 html, body {

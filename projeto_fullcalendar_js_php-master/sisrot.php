@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agenda</title>
+    <title>Rotina</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <style>
@@ -30,11 +30,10 @@
     }
 </style>
 
-<body class="index-page">
-    <!-- Este arquivo configura a visualização mensal do calendário, com um modal semelhante ao sisrot.php. -->
+<body class="sisrot-page">
+
+    <!-- Este arquivo configura a visualização semanal e diária do calendário. Inclui o modal para adicionar ou editar eventos. -->
     <!-- Card para inserir evento -->
-
-
     <div class="modal-opened hidden">
         <div class="modal">
             <div class="modal-header">
@@ -64,17 +63,8 @@
     </div>
 
     <div class="calendar-area">
-        <h2 style="color: black; text-align: center;">Mês Atual</h2>
-        <div class="calendar-area-header">
-            <div class="msg">
-                <?php
-                if (!empty($_SESSION['msg'])) {
-                    echo $_SESSION['msg'];
-                    unset($_SESSION['msg']);
-                }
-                ?>
-            </div>
-        </div>
+        <h2 style="color: black; text-align: center;">Dia a Dia</h2>
+
         <div id='calendar'></div>
     </div>
     <script src="dist/index.global.min.js"></script>

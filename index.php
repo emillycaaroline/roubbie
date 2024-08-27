@@ -651,7 +651,7 @@
 
 
   <!-- Adiciona o footer -->
-  <?php include 'footer.php'; ?>
+  <?php include 'includes/footer.php'; ?>
 
 
     <!-- JAVASCRIPT FILES -->

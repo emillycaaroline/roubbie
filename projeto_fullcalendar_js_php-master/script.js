@@ -1,12 +1,9 @@
 document.addEventListener('DOMContentLoaded', function () {
     var calendarEl = document.getElementById('calendar');
-    var calendar = new FullCalendar.Calendar(calendarEl, {
-        headerToolbar: {
-            left: 'prev,next today',
-            center: 'title',
-            right: 'dayGridMonth,timeGridWeek,timeGridDay'
-        },
-        initialView: 'dayGridMonth',
+    
+    var bodyClass = document.body.classList[0];
+    
+    var calendarConfig = {
         locale: 'pt-br',
         navLinks: true,
         selectable: true,
@@ -23,7 +20,25 @@ document.addEventListener('DOMContentLoaded', function () {
             moverEvento(info);
         },
         events: 'event-list.php',
-    });
+    };
+
+    if (bodyClass === 'index-page') {
+        calendarConfig.headerToolbar = {
+            left: 'prev,next today',
+            center: 'title',
+            right: 'dayGridMonth'
+        };
+        calendarConfig.initialView = 'dayGridMonth';
+    } else if (bodyClass === 'sisrot-page') {
+        calendarConfig.headerToolbar = {
+            left: 'prev,next today',
+            center: 'title',
+            right: 'timeGridWeek,timeGridDay'
+        };
+        calendarConfig.initialView = 'timeGridWeek'; 
+    }
+
+    var calendar = new FullCalendar.Calendar(calendarEl, calendarConfig);
     calendar.render();
 
     const modal = document.querySelector('.modal-opened');
@@ -31,33 +46,30 @@ document.addEventListener('DOMContentLoaded', function () {
     const abrirModal = (info) => {
         if (modal.classList.contains('hidden')) {
             modal.classList.remove('hidden');
-
             modal.style.transition = 'opacity 300ms';
-
             setTimeout(() => modal.style.opacity = 1, 100);
         }
-        document.querySelector('#start').value = info.dateStr + " 08:00";
-        document.querySelector('#end').value = info.dateStr + " 18:00";
+        document.querySelector('#start').value = info.dateStr + "T08:00"; // Ajuste para datetime-local
+        document.querySelector('#end').value = info.dateStr + "T18:00";   // Ajuste para datetime-local
+        document.querySelector('#view').value = bodyClass === 'index-page' ? 'monthly' : (bodyClass === 'sisrot-page' ? 'weekly' : 'daily'); // Define a visualização
     }
 
     const abrirModalEditar = (info) => {
         if (modal.classList.contains('hidden')) {
             modal.classList.remove('hidden');
-
             modal.style.transition = 'opacity 300ms';
-
             setTimeout(() => modal.style.opacity = 1, 100);
         }
 
         let data_start = [
-            info.event.start.toLocaleString().replace(',', '').split(' ')[0].split('/').reverse().join('-'),
-            info.event.start.toLocaleString().replace(',', '').split(' ')[1]
-        ].join(' ');
+            info.event.start.toISOString().split('T')[0],
+            info.event.start.toISOString().split('T')[1].substring(0, 5)
+        ].join('T');
 
         let data_end = [
-            info.event.end.toLocaleString().replace(',', '').split(' ')[0].split('/').reverse().join('-'),
-            info.event.end.toLocaleString().replace(',', '').split(' ')[1]
-        ].join(' ');
+            info.event.end.toISOString().split('T')[0],
+            info.event.end.toISOString().split('T')[1].substring(0, 5)
+        ].join('T');
 
         document.querySelector('.modal-title h3').innerHTML = 'Editar Evento';
         document.querySelector('#id').value = info.event.id;
@@ -65,6 +77,7 @@ document.addEventListener('DOMContentLoaded', function () {
         document.querySelector('#color').value = info.event.backgroundColor;
         document.querySelector('#start').value = data_start;
         document.querySelector('#end').value = data_end;
+        document.querySelector('#view').value = info.event.extendedProps.view || (bodyClass === 'index-page' ? 'monthly' : (bodyClass === 'sisrot-page' ? 'weekly' : 'daily')); // Ajuste conforme necessário
         document.querySelector('.btn-delete').classList.remove('hidden');
     }
 
@@ -72,14 +85,13 @@ document.addEventListener('DOMContentLoaded', function () {
         let id = info.event.id;
         let title = info.event.title;
         let color = info.event.backgroundColor;
-        let start = info.event.startStr.substring(0, 19);
-        let end = info.event.endStr.substring(0, 19);
+        let start = info.event.start.toISOString().substring(0, 19);
+        let end = info.event.end.toISOString().substring(0, 19);
+        let view = document.querySelector('#view').value; // Captura a visualização atual
 
-        let data = { id, title, color, start, end };
+        let data = { id, title, color, start, end, view };
 
         let urlEncodedData = Object.keys(data).map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key])).join('&');
-
-        console.log(urlEncodedData);
 
         var ajax = new XMLHttpRequest();
         ajax.open('POST', 'action-event.php', true);
@@ -89,7 +101,7 @@ document.addEventListener('DOMContentLoaded', function () {
         ajax.onreadystatechange = function () {
             if (ajax.readyState == 4 && ajax.status == 200) {
                 var data = ajax.responseText;
-                // console.log(data);
+                // Atualizar a página ou manipular a resposta conforme necessário
             }
         }
     }
@@ -97,53 +109,14 @@ document.addEventListener('DOMContentLoaded', function () {
     document.querySelector('.modal-close').addEventListener('click', () => fecharModal());
 
     modal.addEventListener('click', function (event) {
-        if (event.target === this) {
+        if (event.target == modal) {
             fecharModal();
         }
     });
 
-    document.addEventListener('keydown', function (event) {
-        if (event.key === 'Escape') {
-            fecharModal();
-        }
-    });
-
-    const fecharModal = () => {
-        if (!modal.classList.contains('hidden')) {
-
-            modal.style.transition = 'opacity 300ms';
-
-            setTimeout(() => modal.style.opacity = 0, 100);
-            setTimeout(() => modal.classList.add('hidden'), 300);
-        }
+    function fecharModal() {
+        modal.style.transition = 'opacity 300ms';
+        modal.style.opacity = 0;
+        setTimeout(() => modal.classList.add('hidden'), 300);
     }
-
-    let form_add_event = document.querySelector('#form-add-event');
-
-    form_add_event.addEventListener('submit', function (event) {
-        event.preventDefault();
-        let title = document.querySelector('#title');
-        let start = document.querySelector('#start');
-
-        if (title.value == '') {
-            title.style.borderColor = 'red';
-            title.focus();
-            return false;
-        }
-        if (start.value == '') {
-            start.style.borderColor = 'red';
-            start.focus();
-            return false;
-        }
-        this.submit();
-    });
-
-    document.querySelector('.btn-delete').addEventListener('click', function () {
-        if (confirm('Você confirma a exclusão do evento? Esta ação não pode ser desfeita.')) {
-            document.querySelector('#action').value = 'delete';
-            form_add_event.submit();
-            return true;
-        }
-        return false;
-    });
 });
