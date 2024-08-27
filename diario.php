@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Diário Pessoal</title>
+    <title>Diário</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <style>
@@ -105,13 +105,13 @@
 <body>
     <div class="container1">
         <header>
-            <h1>Diário Pessoal</h1>
-            <p>Capture seus momentos e reflexões do dia aqui.</p>
+            <h1>Pensar e Refletir</h1>
+            <p>Conte o que aconteceu e suas emoções do dia.</p>
         </header>
 
         <main>
             <div class="diary-entry" contenteditable="true" data-placeholder="Escreva seus momentos e reflexões do dia aqui..."></div>
-            <button type="button" onclick="saveEntry()">Salvar</button>
+            <button type="button" onclick="saveEntry()">Guardar</button>
         </main>
 
         <footer>
