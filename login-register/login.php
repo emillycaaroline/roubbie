@@ -29,7 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['login'])) {
             // Login bem-sucedido
             session_start();
             $_SESSION['email'] = $email;
-            header("Location: home.html");  // Redireciona para a página inicial
+            header("Location: /roubbie/index.php");  // Redireciona para a página inicial
             exit();
         } else {
             // Senha incorreta
