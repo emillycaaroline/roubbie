@@ -6,7 +6,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['login'])) {
     $servername = "localhost"; // endereço do servidor
     $username = "root"; // nome de usuário do banco de dados
     $password = ""; // senha do banco de dados
-    $dbname = "roubbie_bd";
+    $dbname = "bd_roubbie";
 
     // Cria a conexão
     $conn = new mysqli($servername, $username, $password, $dbname);
