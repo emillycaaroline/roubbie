@@ -102,8 +102,8 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle bi-person navbar-icon" style="border: none;" href="#" id="navbarUserDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false"></a>
                         <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarUserDropdownMenuLink">
-                            <li><a class="dropdown-item" href="/login-register/login.php">Login</a></li>
-                            <li><a class="dropdown-item" href="/login-register/cadastro.html">Cadastro</a></li>
+                            <li><a class="dropdown-item" href="http://localhost/roubbie/login-register/login.php">Login</a></li>
+                            <li><a class="dropdown-item" href="http://localhost/roubbie/login-register/cadastro.html">Cadastro</a></li>
                         </ul>
                     </li>
                 </ul>
