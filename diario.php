@@ -16,6 +16,7 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
+            margin: 0;
         }
 
         .container1 {
@@ -48,6 +49,8 @@
             background-color: #ecf0f1;
             outline: none;
             transition: background-color 0.3s, box-shadow 0.3s;
+            overflow-y: auto;
+            position: relative;
         }
 
         .diary-entry:focus {
@@ -66,6 +69,7 @@
             cursor: pointer;
             transition: background-color 0.3s, transform 0.2s;
             width: 100%;
+            margin-top: 20px;
         }
 
         button:hover {
@@ -110,7 +114,9 @@
         </header>
 
         <main>
-            <div class="diary-entry" contenteditable="true" data-placeholder="Escreva seus momentos e reflexões do dia aqui..."></div>
+            <div class="diary-entry" contenteditable="true" aria-label="Área para escrever suas reflexões do dia" data-placeholder="Escreva seus momentos e reflexões do dia aqui...">
+                <!-- Placeholder adicionado via CSS -->
+            </div>
             <button type="button" onclick="saveEntry()">Guardar</button>
         </main>
 
@@ -120,11 +126,33 @@
     </div>
 
     <script>
-        function saveEntry() {
-            const diaryContent = document.querySelector('.diary-entry').innerText;
-            alert('Seu texto salvo:\n\n' + diaryContent);
-            // Aqui você pode adicionar a lógica para salvar a entrada
-        }
+        document.addEventListener('DOMContentLoaded', function() {
+            const diaryEntry = document.querySelector('.diary-entry');
+
+            // Carregar o conteúdo salvo
+            const savedContent = localStorage.getItem('diaryEntry');
+            if (savedContent) {
+                diaryEntry.innerHTML = savedContent;
+            }
+
+            // Função para formatar a data atual
+            function getCurrentDate() {
+                const now = new Date();
+                const day = now.getDate().toString().padStart(2, '0');
+                const month = (now.getMonth() + 1).toString().padStart(2, '0');
+                const year = now.getFullYear();
+                return `${day}/${month}/${year}`;
+            }
+
+            // Função para salvar a entrada
+            window.saveEntry = function() {
+                const date = getCurrentDate();
+                const diaryContent = diaryEntry.innerText;
+                const contentWithDate = `<strong>${date}</strong><br><br>${diaryContent}`;
+                localStorage.setItem('diaryEntry', contentWithDate);
+                alert('Seu texto foi salvo.');
+            }
+        });
     </script>
 </body>
 
