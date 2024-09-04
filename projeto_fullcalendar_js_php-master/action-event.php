@@ -1,10 +1,7 @@
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // // Depura o conteúdo de $_POST
-    // var_dump($_POST);
-
     // Inclui o arquivo de conexão
-    include 'db_connection.php';
+    include '../includes/db_connection.php';
     
     // Verifica a conexão
     if ($conn->connect_error) {
@@ -37,7 +34,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->bind_param("ssssi", $title, $color, $start, $end, $usuario_id);
 
     if ($stmt->execute()) {
-        echo "Evento adicionado com sucesso!";
+        $evento_id = $stmt->insert_id;
+
+        // Redireciona para a página com os dados do evento como parâmetros
+        $redirect_url = "pagina.php";
+        $query_params = http_build_query([
+            'evento_id' => $evento_id,
+            'titulo' => $title,
+            'cor' => $color,
+            'start' => $start,
+            'end' => $end,
+            'usuario_id' => $usuario_id
+        ]);
+        header("Location: $redirect_url?$query_params");
+        exit();
     } else {
         echo "Erro ao adicionar o evento: " . $stmt->error;
     }
