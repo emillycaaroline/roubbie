@@ -1,7 +1,7 @@
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Depura o conteúdo de $_POST
-    var_dump($_POST);
+    // // Depura o conteúdo de $_POST
+    // var_dump($_POST);
 
     // Conecta ao banco de dados
     $servername = "localhost";
