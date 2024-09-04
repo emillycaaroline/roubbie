@@ -1,15 +1,10 @@
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Conecta ao banco de dados
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "bd_roubbie";
-
-    // Cria a conexão
-    $conn = new mysqli($servername, $username, $password, $dbname);
-
-    // Verifica a conexão
+    
+     // Inclui o arquivo de conexão
+     include 'db_connection.php';
+     
+    // Verifica a conexãok
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
     }
