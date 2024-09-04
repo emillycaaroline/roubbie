@@ -2,14 +2,9 @@
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['login'])) {
     $email = $_POST["email"];
     $senha = $_POST["senha"];
-
-    $servername = "localhost"; // endereço do servidor
-    $username = "root"; // nome de usuário do banco de dados
-    $password = ""; // senha do banco de dados
-    $dbname = "bd_roubbie";
-
-    // Cria a conexão
-    $conn = new mysqli($servername, $username, $password, $dbname);
+    
+     // Inclui o arquivo de conexão
+     include 'db_connection.php';
 
     // Verifica a conexão
     if ($conn->connect_error) {
