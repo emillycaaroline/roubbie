@@ -1,3 +1,13 @@
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Depura o conteúdo de $_POST
+    var_dump($_POST);
+
+    // O resto do código para manipular os eventos
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -43,22 +53,15 @@
                 </div>
                 <div class="modal-close">x</div>
             </div>
-            <form action="action-event.php" method="post" id="form-add-event">
-                <input type="hidden" name="id" id="id">
-                <input type="hidden" name="action" id="action" value="">
-                <label for="title">Nome do Evento</label>
-                <input type="text" name="title" id="title">
-                <label for="color">Selecione uma cor</label>
-                <input type="color" name="color" id="color">
-                <label for="start">Início do Evento</label>
-                <input type="datetime-local" name="start" id="start">
-                <label for="end">Término do Evento</label>
-                <input type="datetime-local" name="end" id="end">
-                <div class="modal-footer">
-                    <button type="submit" class="btn-save">Salvar</button>
-                    <button type="button" class="btn-delete hidden">Excluir</button>
-                </div>
-            </form>
+            <form action="action-event.php" method="POST">
+    <input type="text" name="title" placeholder="Título" required>
+    <input type="color" name="color" required>
+    <input type="datetime-local" name="start" required>
+    <input type="datetime-local" name="end" required>
+    <input type="hidden" name="usuario_id" value="5"> <!-- ID do usuário atual -->
+    <button type="submit">Adicionar Evento</button>
+</form>
+
 
         </div>
     </div>
