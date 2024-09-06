@@ -1,7 +1,8 @@
 <?php
-// db_connection.php
 
-// Definições de conexão com o banco de dados
+// <!-- //sera a dunção usada que ira incluir este arquivo em outra pagina -> (require_once) -->
+
+// conexão com o banco de dados
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -16,4 +17,4 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 // }
 ?>
  
-<!--  include 'db_connection.php'; -->
+

@@ -2,7 +2,7 @@
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
      // Inclui o arquivo de conexão
-     include 'db_connection.php';
+     include '../includes/db_connection.php';
      
     // Verifica a conexãok
     if ($conn->connect_error) {
