@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 04/09/2024 às 00:09
+-- Tempo de geração: 07/09/2024 às 03:56
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.2.12
 
@@ -24,6 +24,29 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Estrutura para tabela `diario`
+--
+
+CREATE TABLE `diario` (
+  `id` int(11) NOT NULL,
+  `title` varchar(255) DEFAULT NULL,
+  `description` text DEFAULT NULL,
+  `date` date NOT NULL,
+  `image` varchar(255) DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Despejando dados para a tabela `diario`
+--
+
+INSERT INTO `diario` (`id`, `title`, `description`, `date`, `image`, `created_at`) VALUES
+(1, 'novo reflexao', 'lindo es seras lindo', '2024-09-06', '', '2024-09-07 01:54:15'),
+(2, 'ola', 'hj ta um dia legal pra dar um tibum ', '2024-09-06', '', '2024-09-07 01:54:46');
+
+-- --------------------------------------------------------
+
+--
 -- Estrutura para tabela `events`
 --
 
@@ -35,6 +58,16 @@ CREATE TABLE `events` (
   `end` datetime NOT NULL,
   `usuario_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Despejando dados para a tabela `events`
+--
+
+INSERT INTO `events` (`id`, `title`, `color`, `start`, `end`, `usuario_id`) VALUES
+(44, 'Reunião de Projeto', '#ff5733', '2024-09-10 09:00:00', '2024-09-10 11:00:00', 12),
+(45, 'Aniversário da Maria', '#33ff57', '2024-09-15 18:00:00', '2024-09-15 22:00:00', 13),
+(46, 'teste ful', '#356ef3', '2024-09-06 21:43:00', '2024-09-07 21:43:00', NULL),
+(47, 'teste fulhiy', '#356ef3', '2024-09-03 21:48:00', '2024-09-13 21:49:00', NULL);
 
 -- --------------------------------------------------------
 
@@ -54,11 +87,22 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id`, `nome`, `email`, `senha`) VALUES
-(4, 'Ana Souza', 'ana@example.com', 'senhaSegura123');
+(12, 'João da Silva', 'joao.silva@example.com', 'senha123'),
+(13, 'Maria Oliveira', 'maria.oliveira@example.com', 'senha456'),
+(14, 'vianda', 'vianda@gmail.com', '$2y$10$4FRYyu/rGom6ynpS70/0Feh2ispPMGWULnIbYc1WbmYdX1AMynu42'),
+(15, 'amanda', 'mad@gmail.com', '$2y$10$yy2YIJ0xHlBMFO7DmINAzeQwB3KaOVgNTdXsNQiVpflkeYJ8hsRiq'),
+(16, '', '', '$2y$10$dZk8t2mjAGyJs29kmFZPPuAifkIafeLN44uHU3ttj6ZgXaef8OlsK'),
+(17, 'caique sopi', 'daoarda@gmail.com', '$2y$10$eXvR8LzL0dTjP7idOFkfeOLiL3VaxdsPbmevhfvKQAY5AwYslz0xa');
 
 --
 -- Índices para tabelas despejadas
 --
+
+--
+-- Índices de tabela `diario`
+--
+ALTER TABLE `diario`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Índices de tabela `events`
@@ -78,16 +122,22 @@ ALTER TABLE `usuarios`
 --
 
 --
+-- AUTO_INCREMENT de tabela `diario`
+--
+ALTER TABLE `diario`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT de tabela `events`
 --
 ALTER TABLE `events`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
 
 --
 -- AUTO_INCREMENT de tabela `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- Restrições para tabelas despejadas
