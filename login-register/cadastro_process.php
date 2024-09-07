@@ -1,12 +1,11 @@
 <?php
+require_once '../includes/db_connection.php';
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
-     // Inclui o arquivo de conexão
-     include '../includes/db_connection.php';
-     
-    // Verifica a conexãok
+    // Verifica a conexão
     if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
+        die("Falha na conexão: " . $conn->connect_error);
     }
 
     // Obtém os dados do formulário
@@ -31,10 +30,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt->bind_param("sss", $nome, $email, $hashed_password);
 
         if ($stmt->execute()) {
-            
-            echo "<script>alert('Cadastro realizado com sucesso!'); window.location.href = 'Location: /roubbie/index.php';</script>";
+            echo "<script>alert('Cadastro realizado com sucesso!'); window.location.href = '../index.php';</script>";
         } else {
-            echo "<script>alert('Erro ao cadastrar. Tente novamente mais tarde.');</script>";
+            echo "<script>alert('Erro ao cadastrar. Tente novamente mais tarde.'); window.location.href = 'cadastro.html';</script>";
         }
     }
 
@@ -42,3 +40,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $conn->close();
 }
 ?>
+<!-- # Script para processar o cadastro de usuários -->

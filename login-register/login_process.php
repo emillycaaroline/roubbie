@@ -4,9 +4,8 @@ session_start();
 // Verifica se o formulário foi submetido
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
-     // Inclui o arquivo de conexão
-     include 'db_connection.php';
-
+    // Inclui o arquivo de conexão com o caminho correto
+    require_once '../includes/db_connection.php';
 
     // Verifica a conexão
     if ($conn->connect_error) {
@@ -33,11 +32,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             exit();
         } else {
             // Senha incorreta
-            echo "Senha incorreta. <a href='login.php'>Tente novamente.</a>";
+            echo "<script>alert('Senha incorreta.'); window.location.href = 'login.php';</script>";
         }
     } else {
         // Email não encontrado
-        echo "Usuário não encontrado. <a href='login.php'>Tente novamente.</a>";
+        echo "<script>alert('Usuário não encontrado.'); window.location.href = 'login.php';</script>";
     }
 
     // Fecha a conexão
@@ -49,3 +48,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     exit();
 }
 ?>
+<!-- # Script para processar o login de usuários -->

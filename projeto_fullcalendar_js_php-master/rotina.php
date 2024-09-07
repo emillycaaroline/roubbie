@@ -1,6 +1,6 @@
 <?php
 session_start();
-include_once 'db.php';
+require_once '../includes/db_connection.php';
 
 // calendário interativo, permitindo adicionar, editar e excluir eventos. Utiliza o FullCalendar para exibir e gerenciar os eventos, e um formulário modal para inserção de dados. Mensagens de sucesso ou erro informam o resultado das ações.
 

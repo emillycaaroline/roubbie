@@ -1,17 +1,22 @@
 <?php
+session_start();
+
+// Verifica se o formulário foi submetido
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['login'])) {
-    $email = $_POST["email"];
-    $senha = $_POST["senha"];
     
-     // Inclui o arquivo de conexão
-     include 'db_connection.php';
+    // Inclui o arquivo de conexão com o caminho correto
+    require_once '../includes/db_connection.php';
 
     // Verifica a conexão
     if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
+        die("Falha na conexão: " . $conn->connect_error);
     }
 
-    // Preparar a consulta SQL para evitar SQL Injection
+    // Obtém os dados do formulário
+    $email = $_POST["email"];
+    $senha = $_POST["senha"];
+    
+    // Prepara a consulta SQL para evitar SQL Injection
     $stmt = $conn->prepare("SELECT senha FROM usuarios WHERE email = ?");
     $stmt->bind_param("s", $email);
     $stmt->execute();
@@ -22,17 +27,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['login'])) {
         $stmt->fetch();
         if (password_verify($senha, $hashed_password)) {
             // Login bem-sucedido
-            session_start();
             $_SESSION['email'] = $email;
             header("Location: /roubbie/index.php");  // Redireciona para a página inicial
             exit();
         } else {
             // Senha incorreta
-            echo "<script>alert('Senha incorreta');</script>";
+            echo "<script>alert('Senha incorreta'); window.location.href = 'login.php';</script>";
         }
     } else {
         // Email não encontrado
-        echo "<script>alert('Usuário não encontrado');</script>";
+        echo "<script>alert('Usuário não encontrado'); window.location.href = 'login.php';</script>";
     }
 
     $stmt->close();
@@ -60,6 +64,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['login'])) {
     <meta name="robots" content="noindex, follow">
 </head>
 <body style="background-color: #666666;">
+    <!-- # Página php para o formulário de login -->
+
     <div class="limiter">
         <div class="container-login100">
             <div class="wrap-login100">

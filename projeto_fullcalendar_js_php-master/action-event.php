@@ -13,25 +13,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $color = isset($_POST["color"]) ? $_POST["color"] : '';
     $start = isset($_POST["start"]) ? $_POST["start"] : '';
     $end = isset($_POST["end"]) ? $_POST["end"] : '';
-    $usuario_id = isset($_POST["usuario_id"]) ? intval($_POST["usuario_id"]) : 0; // Converte para inteiro
 
-    // Verifica se o usuario_id é válido
-    if ($usuario_id <= 0) {
-        die("Erro: ID de usuário inválido.");
-    }
+    // // Verifica se o usuario_id é válido
+    // if ($usuario_id <= 0) {
+    //     die("Erro: ID de usuário inválido.");
+    // }
 
-    // Verifica se o usuario_id existe na tabela usuarios
-    $stmt = $conn->prepare("SELECT id FROM usuarios WHERE id = ?");
-    $stmt->bind_param("i", $usuario_id);
-    $stmt->execute();
-    $result = $stmt->get_result();
-    if ($result->num_rows == 0) {
-        die("Erro: ID de usuário não encontrado.");
-    }
+    // // Verifica se o usuario_id existe na tabela usuarios
+    // $stmt = $conn->prepare("SELECT id FROM usuarios WHERE id = ?");
+    // $stmt->bind_param("i", $usuario_id);
+    // $stmt->execute();
+    // $result = $stmt->get_result();
+    // if ($result->num_rows == 0) {
+    //     die("Erro: ID de usuário não encontrado.");
+    // }
 
     // Insere o evento no banco de dados
-    $stmt = $conn->prepare("INSERT INTO events (title, color, start, end, usuario_id) VALUES (?, ?, ?, ?, ?)");
-    $stmt->bind_param("ssssi", $title, $color, $start, $end, $usuario_id);
+    $stmt = $conn->prepare("INSERT INTO events (title, color, start, end ) VALUES (?, ?, ?, ?)");
+    $stmt->bind_param("ssss", $title, $color, $start, $end);
 
     if ($stmt->execute()) {
         $evento_id = $stmt->insert_id;
@@ -44,7 +43,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             'cor' => $color,
             'start' => $start,
             'end' => $end,
-            'usuario_id' => $usuario_id
         ]);
         header("Location: $redirect_url?$query_params");
         exit();
