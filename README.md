@@ -2,66 +2,34 @@
 
 ## Índice
 
-1. [Objetivo](#objetivo)
-2. [Valores](#valores)
-   - [Equilíbrio e Bem-Estar](#equilibrio-e-bem-estar)
-   - [Desenvolvimento Pessoal](#desenvolvimento-pessoal)
-   - [Saúde Mental](#saude-mental)
-   - [Criatividade e Conexão](#criatividade-e-conexao)
-3. [Como Funciona o Quiz](#como-funciona-o-quiz)
-   - [Perguntas](#perguntas)
-   - [Processamento das Respostas](#processamento-das-respostas)
-   - [Resultados](#resultados)
-4. [Implementação](#implementacao)
-5. [Equipe](#equipe)
+- [Objetivo](#objetivo)
+- [Valores](#valores)
+- [Como Funciona o Quiz](#como-funciona-o-quiz)
+- [Implementação](#implementação)
+- [Equipe](#equipe)
+- [Instalação do Banco de Dados](#instalação-do-banco-de-dados)
 
 ## Objetivo
 
-O ´ROUBBIE` ajuda usuários a encontrar um equilíbrio saudável entre rotina e lazer, promovendo o bem-estar mental e emocional.
+O **ROUBBIE** ajuda a equilibrar rotina e lazer, promovendo bem-estar mental e emocional.
 
 ## Valores
 
-### Equilíbrio e Bem-Estar
-
-*Promover uma vida equilibrada entre responsabilidades e lazer.*  
-Incentivamos a harmonia entre obrigações e diversão, ajudando a manter uma rotina saudável e evitar o burnout.
-
-### Desenvolvimento Pessoal
-
-*Facilitar o crescimento pessoal e a descoberta de novas habilidades.*  
-Oferecemos recursos para explorar e desenvolver hobbies, ampliando seus horizontes e aumentando sua autoestima.
-
-### Saúde Mental
-
-*Apoiar a saúde mental e o bem-estar emocional.*  
-Ajudamos a reduzir o estresse e melhorar o humor com atividades que proporcionam prazer e relaxamento.
-
-### Criatividade e Conexão
-
-*Estimular a expressão pessoal e fomentar conexões significativas.*  
-Incentivamos a exploração criativa e a construção de relacionamentos através de atividades compartilhadas.
+- **Equilíbrio e Bem-Estar**: Mantém uma rotina saudável.
+- **Desenvolvimento Pessoal**: Facilita a descoberta de novos hobbies.
+- **Saúde Mental**: Apoia o bem-estar emocional.
+- **Criatividade e Conexão**: Estimula expressão pessoal e conexões significativas.
 
 ## Como Funciona o Quiz
 
-### Perguntas
-
-O quiz consiste em perguntas com opções de resposta que correspondem a diferentes tipos de personalidade: Analista, Diplomata, Sentinela e Explorador.
-
-### Processamento das Respostas
-
-As respostas são enviadas e processadas para determinar qual tipo de personalidade é mais predominante.
-
-### Resultados
-
-Após o processamento, o aplicativo exibe:
-- **Personalidade Predominante:** O tipo de personalidade mais forte baseado nas respostas.
-- **Sugestões de Atividades:** Recomendações de hobbies e atividades para o tipo de personalidade predominante.
-- **Área para Desenvolvimento:** Sugestões para explorar o tipo de personalidade menos predominante.
+- **Perguntas**: Identificam o tipo de personalidade.
+- **Processamento**: Analisa as respostas.
+- **Resultados**: Exibe a personalidade predominante e sugestões de atividades.
 
 ## Implementação
 
-- **Formulário HTML:** Coleta as respostas do usuário.
-- **PHP:** Processa as respostas e exibe os resultados.
+- **Formulário HTML**: Coleta respostas.
+- **PHP**: Processa e exibe resultados.
 
 ## Equipe
 
@@ -71,3 +39,15 @@ Após o processamento, o aplicativo exibe:
 - Ana Paula
 - Lara
 - Vitória
+
+## Instalação do Banco de Dados
+
+1. **Crie o Banco de Dados**:
+   - No phpMyAdmin, crie um banco de dados chamado `bd_roubbie`.
+
+2. **Importe o Dump SQL**:
+   - Acesse a aba **"Importar"** no phpMyAdmin e carregue o arquivo `.sql`.
+
+   Alternativamente, você pode usar a linha de comando:
+   ```bash
+   mysql -u [usuario] -p bd_roubbie < dump.sql
