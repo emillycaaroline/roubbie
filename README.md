@@ -1,53 +1,51 @@
-# ROUBBIE 📱
+# Roubbie 📱
 
 ## Índice
 
+- [Sobre o Projeto](#sobre-o-projeto)
 - [Objetivo](#objetivo)
-- [Valores](#valores)
-- [Como Funciona o Quiz](#como-funciona-o-quiz)
-- [Implementação](#implementação)
+- [Como Funciona](#como-funciona)
+- [Instalação](#instalação)
 - [Equipe](#equipe)
-- [Instalação do Banco de Dados](#instalação-do-banco-de-dados)
+
+## Sobre o Projeto
+
+O **Roubbie** é um projeto de TCC que ajuda a equilibrar a rotina com atividades de lazer, promovendo o bem-estar mental e emocional dos usuários. 🌟
 
 ## Objetivo
 
-O **ROUBBIE** ajuda a equilibrar rotina e lazer, promovendo bem-estar mental e emocional.
+- **Equilíbrio e Bem-Estar**: Manter uma rotina saudável.
+- **Desenvolvimento Pessoal**: Descobrir novos hobbies.
+- **Saúde Mental**: Apoiar o bem-estar emocional.
+- **Criatividade e Conexão**: Estimular a expressão pessoal e conexões significativas.
 
-## Valores
+## Como Funciona
 
-- **Equilíbrio e Bem-Estar**: Mantém uma rotina saudável.
-- **Desenvolvimento Pessoal**: Facilita a descoberta de novos hobbies.
-- **Saúde Mental**: Apoia o bem-estar emocional.
-- **Criatividade e Conexão**: Estimula expressão pessoal e conexões significativas.
+1. **Quiz de Personalidade** 📝:
+   - Responda a perguntas.
+   - Receba sugestões de atividades baseadas no seu perfil.
 
-## Como Funciona o Quiz
+2. **Formulário HTML e PHP**:
+   - Coleta e processa respostas dos usuários.
 
-- **Perguntas**: Identificam o tipo de personalidade.
-- **Processamento**: Analisa as respostas.
-- **Resultados**: Exibe a personalidade predominante e sugestões de atividades.
+## Instalação
 
-## Implementação
-
-- **Formulário HTML**: Coleta respostas.
-- **PHP**: Processa e exibe resultados.
-
-## Equipe
-
-- Larissa Manrique
-- Emilly Caroline
-- Amanda Vitória
-- Ana Paula
-- Lara
-- Vitória
-
-## Instalação do Banco de Dados
-
-1. **Crie o Banco de Dados**:
+1. **Crie o Banco de Dados** 🗃️:
    - No phpMyAdmin, crie um banco de dados chamado `bd_roubbie`.
 
 2. **Importe o Dump SQL**:
-   - Acesse a aba **"Importar"** no phpMyAdmin e carregue o arquivo `.sql`.
+   - Carregue o arquivo `bd_roubbie.sql` no phpMyAdmin ou use o comando:
+     ```bash
+     mysql -u [usuario] -p bd_roubbie < bd_roubbie.sql
+     ```
 
-   Alternativamente, você pode usar a linha de comando:
-   ```bash
-   mysql -u [usuario] -p bd_roubbie < dump.sql
+## Equipe
+
+- **Larissa Manrique**: Programadora Frontend e Backend
+- **Emilly Caroline**: Programadora Frontend e Backend
+- **Amanda Vitória**: Designer e Gerenciamento
+- **Ana Paula**: Gerenciamento
+- **Lara**: Design
+- **Vitória**: Gerenciamento
+
+Para mais detalhes, consulte os arquivos no repositório.
