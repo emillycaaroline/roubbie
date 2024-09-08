@@ -1,25 +1,3 @@
-<?php
-// Inclua o arquivo de conexão
-include('includes/db_connection.php'); // Ajuste o caminho conforme necessário
-
-// Consultar entradas do diário
-$entries = [];
-try {
-    $sql = "SELECT * FROM diario ORDER BY date DESC";
-    $result = $conn->query($sql);
-
-    if ($result) {
-        while ($row = $result->fetch_assoc()) {
-            $entries[] = $row;
-        }
-    } else {
-        die("Erro ao consultar entradas: " . $conn->error);
-    }
-} catch (Exception $e) {
-    die("Erro ao consultar entradas: " . $e->getMessage());
-}
-?>
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -29,30 +7,95 @@ try {
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <style>
-        .entry { border: 1px solid #ddd; border-radius: 5px; padding: 15px; margin-bottom: 15px; }
-        .entry img { max-width: 100%; height: auto; }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        .container-d {
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+            margin-top: 100px;
+        }
+        h2 {
+            font-weight: 600;
+            color: #007bff; /* Azul */
+            border-bottom: 2px solid #007bff; /* Azul */
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        .form-control, .btn {
+            border-radius: 5px;
+        }
+        .entry {
+            background: #ffffff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 15px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: box-shadow 0.3s;
+        }
+        .entry:hover {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .entry img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+        .entry h3 {
+            font-size: 1.5rem;
+            margin-top: 0;
+            color: #333;
+        }
+        .entry p {
+            font-size: 1rem;
+            line-height: 1.6;
+            margin: 0;
+        }
+        .entry small {
+            display: block;
+            font-size: 0.875rem;
+            color: #666;
+            margin-top: 10px;
+        }
+        .btn-primary {
+            background-color: #007bff; /* Azul */
+            border: none;
+            padding: 10px 20px;
+            font-size: 1rem;
+        }
+        .btn-primary:hover {
+            background-color: #0056b3; /* Azul Escuro */
+        }
+        .form-label {
+            font-weight: 500;
+        }
     </style>
 </head>
 <body>
-    <div class="container mt-4">
+    <!-- Adiciona o header -->
+    <?php include 'includes/header.php'; ?>
+    
+    <!-- Diário Pessoal Digital -->
+    <div style="margin-top: 100px;" class="container-d">
         <h2>Adicionar Entrada ao Diário</h2>
-        <form action="insere-diario.php" method="post" enctype="multipart/form-data">
-
+        <form action="insere-diario.php" method="post">
             <div class="mb-3">
-                <label for="title" class="form-label">Título (opcional):</label>
-                <input type="text" id="title" name="title" class="form-control">
+                <label for="title" class="form-label">Título:</label>
+                <input type="text" id="title" name="title" class="form-control" required>
             </div>
             <div class="mb-3">
-                <label for="description" class="form-label">Descrição (opcional):</label>
-                <textarea id="description" name="description" class="form-control"></textarea>
+                <label for="description" class="form-label">Descrição:</label>
+                <textarea id="description" name="description" class="form-control" rows="4" required></textarea>
             </div>
             <div class="mb-3">
                 <label for="date" class="form-label">Data:</label>
                 <input type="date" id="date" name="date" class="form-control" required>
-            </div>
-            <div class="mb-3">
-                <label for="image" class="form-label">Imagem (opcional):</label>
-                <input type="file" id="image" name="image" class="form-control">
             </div>
             <button type="submit" class="btn btn-primary">Adicionar Entrada</button>
         </form>

@@ -20,14 +20,14 @@
             min-height: 100vh;
         }
 
-        .container {
+        /* .container {
             background: #fff;
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             max-width: 600px;
             width: 100%;
-        }
+        } */
 
         h1 {
             color: #13547a;
@@ -87,7 +87,9 @@
 </head>
 
 <body>
-    <div class="container">
+     <!-- Adiciona o header -->
+     <?php include 'includes/header.php'; ?>
+    <div  style="margin-top: 100px;" class="container">
         <h1>Quiz de Personalidade e Temperamento</h1>
 
         <!-- Formulário para o Quiz -->
