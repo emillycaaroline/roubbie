@@ -95,7 +95,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['login'])) {
                         <span class="txt2">Não tem uma conta? <a href="cadastro.html">Criar nova conta</a></span>
                     </div>
                 </form>
-                <div class="login100-more" style="background-image: url('img/meditacao.jpg');"></div>
+                <div class="login100-more" style="background-image: url('img/login.jpg');"></div>
             </div>
         </div>
     </div>
