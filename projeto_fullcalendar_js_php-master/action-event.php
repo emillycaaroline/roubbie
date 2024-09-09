@@ -6,7 +6,6 @@ $title = $_POST['title'];
 $color = $_POST['color'];
 $start = $_POST['start'];
 $end = $_POST['end'];
-$view = $_POST['view']; // Adicione este campo
 
 if ($action == 'add') {
     $stmt = $pdo->prepare("INSERT INTO events (title, color, start, end, view) VALUES (?, ?, ?, ?, ?)");
