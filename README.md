@@ -1,73 +1,57 @@
-# ROUBBIE 📱
+# Roubbie 📱
 
 ## Índice
 
-1. [Objetivo](#objetivo)
-2. [Valores](#valores)
-   - [Equilíbrio e Bem-Estar](#equilibrio-e-bem-estar)
-   - [Desenvolvimento Pessoal](#desenvolvimento-pessoal)
-   - [Saúde Mental](#saude-mental)
-   - [Criatividade e Conexão](#criatividade-e-conexao)
-3. [Como Funciona o Quiz](#como-funciona-o-quiz)
-   - [Perguntas](#perguntas)
-   - [Processamento das Respostas](#processamento-das-respostas)
-   - [Resultados](#resultados)
-4. [Implementação](#implementacao)
-5. [Equipe](#equipe)
+- [Sobre o Projeto](#sobre-o-projeto)
+- [Objetivo](#objetivo)
+- [Como Funciona](#como-funciona)
+- [Instalação](#instalação)
+- [Equipe](#equipe)
+
+## Sobre o Projeto
+
+O **Roubbie** é um projeto de TCC que ajuda a equilibrar a rotina com atividades de lazer, promovendo o bem-estar mental e emocional dos usuários. 🌟
 
 ## Objetivo
 
-O ´ROUBBIE` ajuda usuários a encontrar um equilíbrio saudável entre rotina e lazer, promovendo o bem-estar mental e emocional.
+- **Equilíbrio e Bem-Estar**: Manter uma rotina saudável.
+- **Desenvolvimento Pessoal**: Descobrir novos hobbies.
+- **Saúde Mental**: Apoiar o bem-estar emocional.
+- **Criatividade e Conexão**: Estimular a expressão pessoal e conexões significativas.
 
-## Valores
+## Como Funciona
 
-### Equilíbrio e Bem-Estar
+1. **Quiz de Personalidade** 📝:
+   - Responda a perguntas.
+   - Receba sugestões de atividades baseadas no seu perfil.
 
-*Promover uma vida equilibrada entre responsabilidades e lazer.*  
-Incentivamos a harmonia entre obrigações e diversão, ajudando a manter uma rotina saudável e evitar o burnout.
+2. **Formulário HTML e PHP**:
+   - Coleta e processa respostas dos usuários.
 
-### Desenvolvimento Pessoal
+## Instalação
 
-*Facilitar o crescimento pessoal e a descoberta de novas habilidades.*  
-Oferecemos recursos para explorar e desenvolver hobbies, ampliando seus horizontes e aumentando sua autoestima.
+1. **Crie o Banco de Dados** 🗃️:
+   - No phpMyAdmin, crie um banco de dados chamado `bd_roubbie`.
 
-### Saúde Mental
-
-*Apoiar a saúde mental e o bem-estar emocional.*  
-Ajudamos a reduzir o estresse e melhorar o humor com atividades que proporcionam prazer e relaxamento.
-
-### Criatividade e Conexão
-
-*Estimular a expressão pessoal e fomentar conexões significativas.*  
-Incentivamos a exploração criativa e a construção de relacionamentos através de atividades compartilhadas.
-
-## Como Funciona o Quiz
-
-### Perguntas
-
-O quiz consiste em perguntas com opções de resposta que correspondem a diferentes tipos de personalidade: Analista, Diplomata, Sentinela e Explorador.
-
-### Processamento das Respostas
-
-As respostas são enviadas e processadas para determinar qual tipo de personalidade é mais predominante.
-
-### Resultados
-
-Após o processamento, o aplicativo exibe:
-- **Personalidade Predominante:** O tipo de personalidade mais forte baseado nas respostas.
-- **Sugestões de Atividades:** Recomendações de hobbies e atividades para o tipo de personalidade predominante.
-- **Área para Desenvolvimento:** Sugestões para explorar o tipo de personalidade menos predominante.
-
-## Implementação
-
-- **Formulário HTML:** Coleta as respostas do usuário.
-- **PHP:** Processa as respostas e exibe os resultados.
+2. **Importe o Dump SQL**:
+   - Carregue o arquivo `bd_roubbie.sql` no phpMyAdmin ou use o comando:
+     ```bash
+     mysql -u [usuario] -p bd_roubbie < bd_roubbie.sql
+     ```
 
 ## Equipe
 
-- Larissa Manrique
-- Emilly Caroline
-- Amanda Vitória
-- Ana Paula
-- Lara
-- Vitória
+- **Larissa Manrique**: Programadora Frontend e Backend
+- **Emilly Caroline**: Programadora Frontend e Backend
+- **Amanda Vitória**: Designer e Gerenciamento
+- **Ana Paula**: Gerenciamento
+- **Lara**: Design
+- **Vitória**: Gerenciamento
+
+Para mais detalhes, consulte os arquivos no repositório.
+
+
+
+
+
+

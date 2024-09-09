@@ -1,22 +1,30 @@
 <?php
+session_start();
+
+// Verifica se o formulário foi submetido
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['login'])) {
+<<<<<<< HEAD
     $email = $_POST["email"];
     $senha = $_POST["senha"];
 
-    $servername = "localhost"; // endereço do servidor
-    $username = "root"; // nome de usuário do banco de dados
-    $password = ""; // senha do banco de dados
-    $dbname = "roubbie_bd";
-
-    // Cria a conexão
-    $conn = new mysqli($servername, $username, $password, $dbname);
+    // Inclui o arquivo de conexão
+    include '../includes/db_connection.php';  // Ajuste o caminho conforme necessário
+=======
+    
+    // Inclui o arquivo de conexão com o caminho correto
+    require_once '../includes/db_connection.php';
+>>>>>>> 7743cbbce92a908d46b018080dc59613cc880e70
 
     // Verifica a conexão
     if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
+        die("Falha na conexão: " . $conn->connect_error);
     }
 
-    // Preparar a consulta SQL para evitar SQL Injection
+    // Obtém os dados do formulário
+    $email = $_POST["email"];
+    $senha = $_POST["senha"];
+    
+    // Prepara a consulta SQL para evitar SQL Injection
     $stmt = $conn->prepare("SELECT senha FROM usuarios WHERE email = ?");
     $stmt->bind_param("s", $email);
     $stmt->execute();
@@ -27,17 +35,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['login'])) {
         $stmt->fetch();
         if (password_verify($senha, $hashed_password)) {
             // Login bem-sucedido
-            session_start();
             $_SESSION['email'] = $email;
             header("Location: /roubbie/index.php");  // Redireciona para a página inicial
             exit();
         } else {
             // Senha incorreta
-            echo "<script>alert('Senha incorreta');</script>";
+            echo "<script>alert('Senha incorreta'); window.location.href = 'login.php';</script>";
         }
     } else {
         // Email não encontrado
-        echo "<script>alert('Usuário não encontrado');</script>";
+        echo "<script>alert('Usuário não encontrado'); window.location.href = 'login.php';</script>";
     }
 
     $stmt->close();
@@ -47,6 +54,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['login'])) {
 
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <title>Login</title>
     <meta charset="UTF-8">
@@ -64,7 +72,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['login'])) {
     <link rel="stylesheet" type="text/css" href="css/main.css">
     <meta name="robots" content="noindex, follow">
 </head>
+
 <body style="background-color: #666666;">
+    <!-- # Página php para o formulário de login -->
+
     <div class="limiter">
         <div class="container-login100">
             <div class="wrap-login100">
@@ -94,7 +105,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['login'])) {
                         <span class="txt2">Não tem uma conta? <a href="cadastro.html">Criar nova conta</a></span>
                     </div>
                 </form>
-                <div class="login100-more" style="background-image: url('img/meditacao.jpg');"></div>
+                <div class="login100-more" style="background-image: url('img/login.jpg');"></div>
             </div>
         </div>
     </div>
@@ -109,4 +120,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['login'])) {
     <script src="vendor/countdowntime/countdowntime.js"></script>
     <script src="js/main.js"></script>
 </body>
+
 </html>
