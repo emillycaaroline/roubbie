@@ -1,9 +1,9 @@
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    
-     // Inclui o arquivo de conexão
-     include 'db_connection.php';
-     
+
+    // Inclui o arquivo de conexão
+    include '../includes/db_connection.php';  // Ajuste o caminho conforme necessário
+
     // Verifica a conexãok
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
@@ -31,7 +31,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt->bind_param("sss", $nome, $email, $hashed_password);
 
         if ($stmt->execute()) {
-            
+
             echo "<script>alert('Cadastro realizado com sucesso!'); window.location.href = 'Location: /roubbie/index.php';</script>";
         } else {
             echo "<script>alert('Erro ao cadastrar. Tente novamente mais tarde.');</script>";
@@ -41,4 +41,3 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->close();
     $conn->close();
 }
-?>

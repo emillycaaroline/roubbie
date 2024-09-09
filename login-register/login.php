@@ -2,9 +2,9 @@
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['login'])) {
     $email = $_POST["email"];
     $senha = $_POST["senha"];
-    
-     // Inclui o arquivo de conexão
-     include 'db_connection.php';
+
+    // Inclui o arquivo de conexão
+    include '../includes/db_connection.php';  // Ajuste o caminho conforme necessário
 
     // Verifica a conexão
     if ($conn->connect_error) {
@@ -42,6 +42,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['login'])) {
 
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <title>Login</title>
     <meta charset="UTF-8">
@@ -59,6 +60,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['login'])) {
     <link rel="stylesheet" type="text/css" href="css/main.css">
     <meta name="robots" content="noindex, follow">
 </head>
+
 <body style="background-color: #666666;">
     <div class="limiter">
         <div class="container-login100">
@@ -104,4 +106,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['login'])) {
     <script src="vendor/countdowntime/countdowntime.js"></script>
     <script src="js/main.js"></script>
 </body>
+
 </html>

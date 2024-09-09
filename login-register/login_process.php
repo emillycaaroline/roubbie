@@ -3,9 +3,9 @@ session_start();
 
 // Verifica se o formulário foi submetido
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    
-     // Inclui o arquivo de conexão
-     include 'db_connection.php';
+
+    // Inclui o arquivo de conexão
+    include '../includes/db_connection.php';  // Ajuste o caminho conforme necessário
 
 
     // Verifica a conexão
@@ -48,4 +48,3 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     header("Location: login.php");
     exit();
 }
-?>
