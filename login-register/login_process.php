@@ -3,10 +3,16 @@ session_start();
 
 // Verifica se o formulário foi submetido
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+<<<<<<< HEAD
 
     // Inclui o arquivo de conexão
     include '../includes/db_connection.php';  // Ajuste o caminho conforme necessário
 
+=======
+    
+    // Inclui o arquivo de conexão com o caminho correto
+    require_once '../includes/db_connection.php';
+>>>>>>> 7743cbbce92a908d46b018080dc59613cc880e70
 
     // Verifica a conexão
     if ($conn->connect_error) {
@@ -33,11 +39,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             exit();
         } else {
             // Senha incorreta
-            echo "Senha incorreta. <a href='login.php'>Tente novamente.</a>";
+            echo "<script>alert('Senha incorreta.'); window.location.href = 'login.php';</script>";
         }
     } else {
         // Email não encontrado
-        echo "Usuário não encontrado. <a href='login.php'>Tente novamente.</a>";
+        echo "<script>alert('Usuário não encontrado.'); window.location.href = 'login.php';</script>";
     }
 
     // Fecha a conexão
@@ -48,3 +54,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     header("Location: login.php");
     exit();
 }
+<<<<<<< HEAD
+=======
+?>
+<!-- # Script para processar o login de usuários -->
+>>>>>>> 7743cbbce92a908d46b018080dc59613cc880e70

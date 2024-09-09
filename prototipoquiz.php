@@ -99,55 +99,91 @@
 </head>
 
 <body>
+<<<<<<< HEAD
     <!-- Este arquivo HTML cria um quiz dinâmico de personalidade que exibe perguntas e, ao final, apresenta um resultado com base nas respostas do usuário, incluindo um GIF relaxante como parte da apresentação do resultado. -->
 
     <!-- este link tem giff de facil acesso e uso -->
     <!-- https://tenor.com/pt-BR/view/chill-relax-peace-yoga-positive-gif-9312942009826875346 -->
+=======
+>>>>>>> 7743cbbce92a908d46b018080dc59613cc880e70
     <div class="container">
         <h1>Quiz Dinâmico de Personalidade</h1>
 
         <div id="quizContainer">
-            <!-- Perguntas do Quiz -->
+            <!-- Pergunta 1 -->
             <div class="question" id="question1">
                 <h3>1. Como você aborda projetos novos?</h3>
-                <label>
-                    <input type="radio" name="question1" value="analista"> Planejo e sigo um plano. (Analista)
-                </label>
-                <label>
-                    <input type="radio" name="question1" value="diplomata"> Busco inspiração e impacto emocional. (Diplomata)
-                </label>
-                <label>
-                    <input type="radio" name="question1" value="sentinela"> Mantenho organização e sigo processos. (Sentinela)
-                </label>
-                <label>
-                    <input type="radio" name="question1" value="explorador"> Sou flexível e exploro novas ideias. (Explorador)
-                </label>
+                <label><input type="radio" name="question1" value="analista"> Planejo e sigo um plano. (Analista)</label>
+                <label><input type="radio" name="question1" value="diplomata"> Busco inspiração e impacto emocional. (Diplomata)</label>
+                <label><input type="radio" name="question1" value="sentinela"> Mantenho organização e sigo processos. (Sentinela)</label>
+                <label><input type="radio" name="question1" value="explorador"> Sou flexível e exploro novas ideias. (Explorador)</label>
                 <div class="button-container">
                     <button onclick="nextQuestion(1)">Próxima</button>
                 </div>
             </div>
 
+            <!-- Pergunta 2 -->
             <div class="question hidden" id="question2">
                 <h3>2. Qual é o seu papel em uma equipe?</h3>
-                <label>
-                    <input type="radio" name="question2" value="analista"> Planejador (Analista)
-                </label>
-                <label>
-                    <input type="radio" name="question2" value="diplomata"> Motivador (Diplomata)
-                </label>
-                <label>
-                    <input type="radio" name="question2" value="sentinela"> Organizador (Sentinela)
-                </label>
-                <label>
-                    <input type="radio" name="question2" value="explorador"> Inovador (Explorador)
-                </label>
+                <label><input type="radio" name="question2" value="analista"> Planejador (Analista)</label>
+                <label><input type="radio" name="question2" value="diplomata"> Motivador (Diplomata)</label>
+                <label><input type="radio" name="question2" value="sentinela"> Organizador (Sentinela)</label>
+                <label><input type="radio" name="question2" value="explorador"> Inovador (Explorador)</label>
                 <div class="button-container">
                     <button onclick="nextQuestion(2)">Próxima</button>
                 </div>
             </div>
 
-            <!-- Mais perguntas aqui... -->
+            <!-- Pergunta 3 -->
+            <div class="question hidden" id="question3">
+                <h3>3. Como você reage a mudanças inesperadas?</h3>
+                <label><input type="radio" name="question3" value="analista"> Reavalio a situação com base em lógica. (Analista)</label>
+                <label><input type="radio" name="question3" value="diplomata"> Tento entender o impacto emocional. (Diplomata)</label>
+                <label><input type="radio" name="question3" value="sentinela"> Prefiro manter a ordem e seguir planos. (Sentinela)</label>
+                <label><input type="radio" name="question3" value="explorador"> Me adapto rapidamente e improviso. (Explorador)</label>
+                <div class="button-container">
+                    <button onclick="nextQuestion(3)">Próxima</button>
+                </div>
+            </div>
 
+            <!-- Pergunta 4 -->
+            <div class="question hidden" id="question4">
+                <h3>4. Como você se motiva em um desafio pessoal?</h3>
+                <label><input type="radio" name="question4" value="analista"> Defino metas claras e planejo. (Analista)</label>
+                <label><input type="radio" name="question4" value="diplomata"> Busco inspiração e motivação emocional. (Diplomata)</label>
+                <label><input type="radio" name="question4" value="sentinela"> Mantenho uma rotina e sigo as regras. (Sentinela)</label>
+                <label><input type="radio" name="question4" value="explorador"> Experimento novas abordagens. (Explorador)</label>
+                <div class="button-container">
+                    <button onclick="nextQuestion(4)">Próxima</button>
+
+                </div>
+            </div>
+
+            <!-- Pergunta 5 -->
+            <div class="question hidden" id="question5">
+                <h3>5. Como você lida com um conflito de opinião?</h3>
+                <label><input type="radio" name="question5" value="analista"> Analisando os argumentos e buscando a solução lógica. (Analista)</label>
+                <label><input type="radio" name="question5" value="diplomata"> Tentando compreender as emoções envolvidas e encontrar um consenso. (Diplomata)</label>
+                <label><input type="radio" name="question5" value="sentinela"> Seguindo regras estabelecidas e buscando uma solução prática. (Sentinela)</label>
+                <label><input type="radio" name="question5" value="explorador"> Explorando novas perspectivas e soluções criativas. (Explorador)</label>
+                <div class="button-container">
+                    <button onclick="nextQuestion(5)">Próxima</button>
+                </div>
+            </div>
+
+            <!-- Pergunta 6 -->
+            <div class="question hidden" id="question6">
+                <h3>6. O que você valoriza mais em um projeto colaborativo?</h3>
+                <label><input type="radio" name="question6" value="analista"> Clareza e eficiência na execução. (Analista)</label>
+                <label><input type="radio" name="question6" value="diplomata"> Colaboração e harmonia entre os membros da equipe. (Diplomata)</label>
+                <label><input type="radio" name="question6" value="sentinela"> Organização e estrutura bem definida. (Sentinela)</label>
+                <label><input type="radio" name="question6" value="explorador"> Liberdade para experimentar e inovar. (Explorador)</label>
+                <div class="button-container">
+                    <button onclick="showResult()">Finalizar</button>
+                </div>
+            </div>
+
+            <!-- Resultado -->
             <div class="question hidden" id="result">
                 <h1 id="resultTitle">Resultado do Quiz</h1>
                 <p id="resultText"></p>
@@ -178,48 +214,41 @@
         }
 
         function showResult() {
-            // Calcula as pontuações
-            let analista = 0;
-            let diplomata = 0;
-            let sentinela = 0;
-            let explorador = 0;
+            // Inicializa a contagem de pontos
+            let pontuacao = {
+                analista: 0,
+                diplomata: 0,
+                sentinela: 0,
+                explorador: 0
+            };
 
-            const answers = document.querySelectorAll('input[type="radio"]:checked');
-
-            answers.forEach(answer => {
-                if (answer.value === "analista") analista += 3;
-                if (answer.value === "diplomata") diplomata += 3;
-                if (answer.value === "sentinela") sentinela += 3;
-                if (answer.value === "explorador") explorador += 3;
+            // Conta os pontos com base nas respostas selecionadas
+            const respostas = document.querySelectorAll('input[type="radio"]:checked');
+            respostas.forEach(resposta => {
+                pontuacao[resposta.value] += 1;
             });
 
-            // Determina a personalidade principal
+            // Determina o tipo de personalidade com mais pontos
             let personalidadePrincipal = "";
-            if (analista >= diplomata && analista >= sentinela && analista >= explorador) {
-                personalidadePrincipal = "analista";
-            } else if (diplomata >= analista && diplomata >= sentinela && diplomata >= explorador) {
-                personalidadePrincipal = "diplomata";
-            } else if (sentinela >= analista && sentinela >= diplomata && sentinela >= explorador) {
-                personalidadePrincipal = "sentinela";
-            } else {
-                personalidadePrincipal = "explorador";
+            let maiorPontuacao = 0;
+            for (const [tipo, pontos] of Object.entries(pontuacao)) {
+                if (pontos > maiorPontuacao) {
+                    maiorPontuacao = pontos;
+                    personalidadePrincipal = tipo;
+                }
             }
 
             // Define a recomendação com base na personalidade
-            let recomendacao = "";
-            if (personalidadePrincipal === "analista") {
-                recomendacao = "Você é um planejador meticuloso. Aproveite atividades que envolvem estratégia e lógica.";
-            } else if (personalidadePrincipal === "diplomata") {
-                recomendacao = "Você é um motivador criativo. Atividades sociais e expressivas são ideais para você.";
-            } else if (personalidadePrincipal === "sentinela") {
-                recomendacao = "Você é um organizador detalhista. Atividades que exigem estrutura e organização são perfeitas para você.";
-            } else {
-                recomendacao = "Você é um inovador aventureiro. Experimente novas ideias e explore atividades variadas.";
-            }
+            const mensagens = {
+                analista: 'Você é um Analista! Racional e lógico, você se destaca em criar planos e estruturas eficientes. Sua capacidade de pensar de maneira crítica e detalhista é admirável. Para relaxar e manter sua mente afiada, considere hobbies como quebra-cabeças, xadrez ou programação. Esses interesses permitem que você continue a usar suas habilidades analíticas de maneira divertida e desafiadora.',
+                diplomata: 'Você é um Diplomata! Sensível e empático, busca sempre impacto emocional e harmonia. Seu talento para criar conexões genuínas e promover um ambiente positivo é notável. Para relaxar e recarregar suas energias, explore hobbies criativos e introspectivos como meditação, fotografia ou yoga. Esses interesses não só ajudam a manter seu equilíbrio, mas também aprofundam sua conexão com o mundo ao seu redor.',
+                sentinela: 'Você é um Sentinela! Organizado e prático, valoriza a ordem e a eficiência. Sua capacidade de estruturar e gerenciar tarefas é excepcional. Para relaxar, você pode aproveitar hobbies que envolvem planejamento e estrutura, como jardinagem, trabalhos manuais ou até mesmo organização de eventos. Essas atividades são perfeitas para equilibrar sua energia e manter sua rotina organizada.',
+                explorador: 'Você é um Explorador! Curioso e adaptável, você adora experimentar e inovar. Sua natureza aberta a novas experiências é uma grande vantagem. Para satisfazer seu desejo de novidade, experimente hobbies como trilhas, esportes radicais ou viagens. Esses interesses ajudam a manter sua vida emocionante e repleta de descobertas.'
+            };
 
             // Exibe o resultado
             document.getElementById("resultTitle").innerText = "Resultado do Quiz";
-            document.getElementById("resultText").innerText = recomendacao;
+            document.getElementById("resultText").innerText = mensagens[personalidadePrincipal];
             document.getElementById("result").classList.remove('hidden');
         }
     </script>
