@@ -1,10 +1,8 @@
 <?php
-// Inclui o arquivo de conexão
 require_once '../includes/db_connection.php';
 
-// Verifica se o formulário foi enviado
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
+    
     // Verifica a conexão
     if ($conn->connect_error) {
         die("Falha na conexão: " . $conn->connect_error);
@@ -38,8 +36,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     }
 
-    // Fecha a declaração e a conexão
     $stmt->close();
     $conn->close();
 }
 ?>
+<!-- # Script para processar o cadastro de usuários -->
