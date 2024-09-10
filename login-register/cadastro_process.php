@@ -2,8 +2,16 @@
 require_once '../includes/db_connection.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+<<<<<<< HEAD
+
+    // Inclui o arquivo de conexão
+    include '../includes/db_connection.php';  // Ajuste o caminho conforme necessário
+
+    // Verifica a conexãok
+=======
     
     // Verifica a conexão
+>>>>>>> 7743cbbce92a908d46b018080dc59613cc880e70
     if ($conn->connect_error) {
         die("Falha na conexão: " . $conn->connect_error);
     }
@@ -30,7 +38,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt->bind_param("sss", $nome, $email, $hashed_password);
 
         if ($stmt->execute()) {
+<<<<<<< HEAD
+
+            echo "<script>alert('Cadastro realizado com sucesso!'); window.location.href = 'Location: /roubbie/index.php';</script>";
+=======
             echo "<script>alert('Cadastro realizado com sucesso!'); window.location.href = '../index.php';</script>";
+>>>>>>> 7743cbbce92a908d46b018080dc59613cc880e70
         } else {
             echo "<script>alert('Erro ao cadastrar. Tente novamente mais tarde.'); window.location.href = 'cadastro.html';</script>";
         }
@@ -39,5 +52,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->close();
     $conn->close();
 }
+<<<<<<< HEAD
+=======
 ?>
 <!-- # Script para processar o cadastro de usuários -->
+>>>>>>> 7743cbbce92a908d46b018080dc59613cc880e70

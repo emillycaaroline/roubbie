@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="en">
-   
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -23,7 +23,11 @@
 </head>
 <!-- Conteudo da página -->
 
-<body id="top"> 
+<<<<<<< HEAD
+<body id="top">  
+=======
+<body id="top">
+>>>>>>> fdf28871b44df2b7570df7c628e1a67b8f824d6f
     <main>
         <!-- Adiciona o header -->
         <?php include 'includes/header.php'; ?>
@@ -47,8 +51,7 @@
 
                                 </span>
 
-                                <input name="keyword" type="search" class="form-control" id="keyword"
-                                    placeholder="Encontre um Novo Hobby" aria-label="Search">
+                                <input name="keyword" type="search" class="form-control" id="keyword" placeholder="Encontre um Novo Hobby" aria-label="Search">
 
                                 <button type="submit" class="form-control">Search</button>
                             </div>
@@ -80,8 +83,7 @@
                                     <span class="badge bg-design rounded-pill ms-auto">14</span>
                                 </div>
 
-                                <img src="images/topics/undraw_Remote_design_team_re_urdx.png"
-                                    class="custom-block-image img-fluid" alt="">
+                                <img src="images/topics/undraw_Remote_design_team_re_urdx.png" class="custom-block-image img-fluid" alt="">
                             </a>
                         </div>
                     </div>
@@ -89,8 +91,7 @@
                     <div class="col-lg-6 col-12">
                         <div class="custom-block custom-block-overlay">
                             <div class="d-flex flex-column h-100">
-                                <img src="images/businesswoman-using-tablet-analysis.jpg"
-                                    class="custom-block-image img-fluid" alt="">
+                                <img src="images/businesswoman-using-tablet-analysis.jpg" class="custom-block-image img-fluid" alt="">
 
                                 <div class="custom-block-overlay-text d-flex">
                                     <div>
@@ -103,8 +104,7 @@
 
                                         </p>
 
-                                        <a href="https://lfidiomas.com.br/os-beneficios-e-a-importancia-de-ter-um-hobby/"
-                                            class="btn custom-btn mt-2 mt-lg-3">Learn More</a>
+                                        <a href="https://lfidiomas.com.br/os-beneficios-e-a-importancia-de-ter-um-hobby/" class="btn custom-btn mt-2 mt-lg-3">Learn More</a>
                                     </div>
 
                                     <span class="badge bg-finance rounded-pill ms-auto">25</span>
@@ -148,27 +148,19 @@
                 <div class="row">
                     <ul class="nav nav-tabs" id="myTab" role="tablist">
                         <li class="nav-item" role="presentation">
-                            <button class="nav-link active" id="design-tab" data-bs-toggle="tab"
-                                data-bs-target="#design-tab-pane" type="button" role="tab"
-                                aria-controls="design-tab-pane" aria-selected="true">Fisico</button>
+                            <button class="nav-link active" id="design-tab" data-bs-toggle="tab" data-bs-target="#design-tab-pane" type="button" role="tab" aria-controls="design-tab-pane" aria-selected="true">Fisico</button>
                         </li>
 
                         <li class="nav-item" role="presentation">
-                            <button class="nav-link" id="marketing-tab" data-bs-toggle="tab"
-                                data-bs-target="#marketing-tab-pane" type="button" role="tab"
-                                aria-controls="marketing-tab-pane" aria-selected="false">Emocional</button>
+                            <button class="nav-link" id="marketing-tab" data-bs-toggle="tab" data-bs-target="#marketing-tab-pane" type="button" role="tab" aria-controls="marketing-tab-pane" aria-selected="false">Emocional</button>
                         </li>
 
                         <li class="nav-item" role="presentation">
-                            <button class="nav-link" id="finance-tab" data-bs-toggle="tab"
-                                data-bs-target="#finance-tab-pane" type="button" role="tab"
-                                aria-controls="finance-tab-pane" aria-selected="false">Espiritual</button>
+                            <button class="nav-link" id="finance-tab" data-bs-toggle="tab" data-bs-target="#finance-tab-pane" type="button" role="tab" aria-controls="finance-tab-pane" aria-selected="false">Espiritual</button>
                         </li>
 
                         <li class="nav-item" role="presentation">
-                            <button class="nav-link" id="music-tab" data-bs-toggle="tab"
-                                data-bs-target="#music-tab-pane" type="button" role="tab" aria-controls="music-tab-pane"
-                                aria-selected="false">nenhum</button>
+                            <button class="nav-link" id="music-tab" data-bs-toggle="tab" data-bs-target="#music-tab-pane" type="button" role="tab" aria-controls="music-tab-pane" aria-selected="false">nenhum</button>
                         </li>
 
 
@@ -182,13 +174,11 @@
 
                     <div class="col-12">
                         <div class="tab-content" id="myTabContent">
-                            <div class="tab-pane fade show active" id="design-tab-pane" role="tabpanel"
-                                aria-labelledby="design-tab" tabindex="0">
+                            <div class="tab-pane fade show active" id="design-tab-pane" role="tabpanel" aria-labelledby="design-tab" tabindex="0">
                                 <div class="row">
                                     <div class="col-lg-4 col-md-6 col-12 mb-4 mb-lg-0">
                                         <div class="custom-block bg-white shadow-lg">
-                                            <a
-                                                href="https://www.usebob.com.br/blogs/news/autocuidado-conheca-os-4-pilares-para-incluir-no-seu-dia-a-dia">
+                                            <a href="https://www.usebob.com.br/blogs/news/autocuidado-conheca-os-4-pilares-para-incluir-no-seu-dia-a-dia">
                                                 <div class="d-flex">
                                                     <div>
                                                         <h5 class="mb-2">
@@ -203,8 +193,7 @@
                                                     <span class="badge bg-design rounded-pill ms-auto">14</span>
                                                 </div>
 
-                                                <img src="https://magscan.com.br/wp-content/uploads/2020/02/original-df8beb46a3d3178a1a7bcd1bc90dfc98.jpeg"
-                                                    class="custom-block-image img-fluid" alt="">
+                                                <img src="https://magscan.com.br/wp-content/uploads/2020/02/original-df8beb46a3d3178a1a7bcd1bc90dfc98.jpeg" class="custom-block-image img-fluid" alt="">
                                             </a>
                                         </div>
                                     </div>
@@ -223,8 +212,7 @@
                                                     <span class="badge bg-design rounded-pill ms-auto">75</span>
                                                 </div>
 
-                                                <img src="images/s-emocional.jpg" class="custom-block-image img-fluid"
-                                                    alt="">
+                                                <img src="images/s-emocional.jpg" class="custom-block-image img-fluid" alt="">
                                             </a>
                                         </div>
                                     </div>
@@ -246,8 +234,7 @@
                                                     <span class="badge bg-design rounded-pill ms-auto">100</span>
                                                 </div>
 
-                                                <img src="images/topics/colleagues-working-cozy-office-medium-shot.png"
-                                                    class="custom-block-image img-fluid" alt="">
+                                                <img src="images/topics/colleagues-working-cozy-office-medium-shot.png" class="custom-block-image img-fluid" alt="">
                                             </a>
                                         </div>
                                     </div>
@@ -255,8 +242,7 @@
                             </div>
 
                             <!-- Cards do emocional -->
-                            <div class="tab-pane fade" id="marketing-tab-pane" role="tabpanel"
-                                aria-labelledby="marketing-tab" tabindex="0">
+                            <div class="tab-pane fade" id="marketing-tab-pane" role="tabpanel" aria-labelledby="marketing-tab" tabindex="0">
                                 <div class="row">
                                     <div class="col-lg-4 col-md-6 col-12 mb-4 mb-lg-3">
                                         <div class="custom-block bg-white shadow-lg">
@@ -273,8 +259,7 @@
                                                     <span class="badge bg-advertising rounded-pill ms-auto">30</span>
                                                 </div>
 
-                                                <img src="images/topics/undraw_online_ad_re_ol62.png"
-                                                    class="custom-block-image img-fluid" alt="">
+                                                <img src="images/topics/undraw_online_ad_re_ol62.png" class="custom-block-image img-fluid" alt="">
                                             </a>
                                         </div>
                                     </div>
@@ -292,8 +277,7 @@
                                                     <span class="badge bg-advertising rounded-pill ms-auto">65</span>
                                                 </div>
 
-                                                <img src="images/topics/undraw_Group_video_re_btu7.png"
-                                                    class="custom-block-image img-fluid" alt="">
+                                                <img src="images/topics/undraw_Group_video_re_btu7.png" class="custom-block-image img-fluid" alt="">
                                             </a>
                                         </div>
                                     </div>
@@ -311,8 +295,7 @@
                                                     <span class="badge bg-advertising rounded-pill ms-auto">50</span>
                                                 </div>
 
-                                                <img src="images/topics/undraw_viral_tweet_gndb.png"
-                                                    class="custom-block-image img-fluid" alt="">
+                                                <img src="images/topics/undraw_viral_tweet_gndb.png" class="custom-block-image img-fluid" alt="">
                                             </a>
                                         </div>
                                     </div>
@@ -320,8 +303,7 @@
                             </div>
 
                             <!-- cards de espiritual -->
-                            <div class="tab-pane fade" id="finance-tab-pane" role="tabpanel"
-                                aria-labelledby="finance-tab" tabindex="0">
+                            <div class="tab-pane fade" id="finance-tab-pane" role="tabpanel" aria-labelledby="finance-tab" tabindex="0">
                                 <div class="row">
                                     <div class="col-lg-6 col-md-6 col-12 mb-4 mb-lg-0">
                                         <div class="custom-block bg-white shadow-lg">
@@ -336,8 +318,7 @@
                                                     <span class="badge bg-finance rounded-pill ms-auto">30</span>
                                                 </div>
 
-                                                <img src="images/topics/undraw_Finance_re_gnv2.png"
-                                                    class="custom-block-image img-fluid" alt="">
+                                                <img src="images/topics/undraw_Finance_re_gnv2.png" class="custom-block-image img-fluid" alt="">
                                             </a>
                                         </div>
                                     </div>
@@ -345,8 +326,7 @@
                                     <div class="col-lg-6 col-md-6 col-12">
                                         <div class="custom-block custom-block-overlay">
                                             <div class="d-flex flex-column h-100">
-                                                <img src="images/businesswoman-using-tablet-analysis-graph-company-finance-strategy-statistics-success-concept-planning-future-office-room.jpg"
-                                                    class="custom-block-image img-fluid" alt="">
+                                                <img src="images/businesswoman-using-tablet-analysis-graph-company-finance-strategy-statistics-success-concept-planning-future-office-room.jpg" class="custom-block-image img-fluid" alt="">
 
                                                 <div class="custom-block-overlay-text d-flex">
                                                     <div>
@@ -356,8 +336,7 @@
                                                             adipisicing elit. Sint animi necessitatibus aperiam
                                                             repudiandae nam omnis</p>
 
-                                                        <a href="topics-detail.html"
-                                                            class="btn custom-btn mt-2 mt-lg-3">Learn More</a>
+                                                        <a href="topics-detail.html" class="btn custom-btn mt-2 mt-lg-3">Learn More</a>
                                                     </div>
 
                                                     <span class="badge bg-finance rounded-pill ms-auto">25</span>
@@ -391,8 +370,7 @@
                             </div>
 
                             <!-- card pra adicionar tema  -->
-                            <div class="tab-pane fade" id="music-tab-pane" role="tabpanel" aria-labelledby="music-tab"
-                                tabindex="0">
+                            <div class="tab-pane fade" id="music-tab-pane" role="tabpanel" aria-labelledby="music-tab" tabindex="0">
                                 <div class="row">
                                     <div class="col-lg-4 col-md-6 col-12 mb-4 mb-lg-3">
                                         <div class="custom-block bg-white shadow-lg">
@@ -407,8 +385,7 @@
                                                     <span class="badge bg-music rounded-pill ms-auto">45</span>
                                                 </div>
 
-                                                <img src="images/topics/undraw_Compose_music_re_wpiw.png"
-                                                    class="custom-block-image img-fluid" alt="">
+                                                <img src="images/topics/undraw_Compose_music_re_wpiw.png" class="custom-block-image img-fluid" alt="">
                                             </a>
                                         </div>
                                     </div>
@@ -426,8 +403,7 @@
                                                     <span class="badge bg-music rounded-pill ms-auto">45</span>
                                                 </div>
 
-                                                <img src="images/topics/undraw_happy_music_g6wc.png"
-                                                    class="custom-block-image img-fluid" alt="">
+                                                <img src="images/topics/undraw_happy_music_g6wc.png" class="custom-block-image img-fluid" alt="">
                                             </a>
                                         </div>
                                     </div>
@@ -445,16 +421,14 @@
                                                     <span class="badge bg-music rounded-pill ms-auto">20</span>
                                                 </div>
 
-                                                <img src="images/topics/undraw_Podcast_audience_re_4i5q.png"
-                                                    class="custom-block-image img-fluid" alt="">
+                                                <img src="images/topics/undraw_Podcast_audience_re_4i5q.png" class="custom-block-image img-fluid" alt="">
                                             </a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
 
-                            <div class="tab-pane fade" id="education-tab-pane" role="tabpanel"
-                                aria-labelledby="education-tab" tabindex="0">
+                            <div class="tab-pane fade" id="education-tab-pane" role="tabpanel" aria-labelledby="education-tab" tabindex="0">
                                 <div class="row">
                                     <div class="col-lg-6 col-md-6 col-12 mb-4 mb-lg-3">
                                         <div class="custom-block bg-white shadow-lg">
@@ -469,8 +443,7 @@
                                                     <span class="badge bg-education rounded-pill ms-auto">80</span>
                                                 </div>
 
-                                                <img src="images/topics/undraw_Graduation_re_gthn.png"
-                                                    class="custom-block-image img-fluid" alt="">
+                                                <img src="images/topics/undraw_Graduation_re_gthn.png" class="custom-block-image img-fluid" alt="">
                                             </a>
                                         </div>
                                     </div>
@@ -488,8 +461,7 @@
                                                     <span class="badge bg-education rounded-pill ms-auto">75</span>
                                                 </div>
 
-                                                <img src="images/topics/undraw_Educator_re_ju47.png"
-                                                    class="custom-block-image img-fluid" alt="">
+                                                <img src="images/topics/undraw_Educator_re_ju47.png" class="custom-block-image img-fluid" alt="">
                                             </a>
                                         </div>
                                     </div>
@@ -591,14 +563,12 @@
                         <div class="accordion" id="accordionExample">
                             <div class="accordion-item">
                                 <h2 class="accordion-header" id="headingOne">
-                                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                                         Descubra Novos Interesses
                                     </button>
                                 </h2>
 
-                                <div id="collapseOne" class="accordion-collapse collapse show"
-                                    aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                                     <div class="accordion-body">
                                         Encontre inspiração e explore uma variedade de tópicos interessantes para
                                         enriquecer sua vida diária.
@@ -608,15 +578,13 @@
 
                             <div class="accordion-item">
                                 <h2 class="accordion-header" id="headingTwo">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                                         Como Funciona?
 
                                     </button>
                                 </h2>
 
-                                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
-                                    data-bs-parent="#accordionExample">
+                                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
                                     <div class="accordion-body">
                                         Saiba como o Topic Listing pode ajudá-lo a encontrar hobbies que se alinhem com
                                         seus interesses e estilo de vida.
@@ -626,15 +594,12 @@
 
                             <div class="accordion-item">
                                 <h2 class="accordion-header" id="headingThree">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#collapseThree" aria-expanded="false"
-                                        aria-controls="collapseThree">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
                                         Gratuito e Acessível
                                     </button>
                                 </h2>
 
-                                <div id="collapseThree" class="accordion-collapse collapse"
-                                    aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                                <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
                                     <div class="accordion-body">
                                         Nosso serviço é totalmente gratuito e acessível a todos. Comece sua jornada para
                                         um estilo de vida mais equilibrado hoje mesmo!
@@ -650,8 +615,8 @@
     </main>
 
 
-  <!-- Adiciona o footer -->
-  <?php include 'includes/footer.php'; ?>
+    <!-- Adiciona o footer -->
+    <?php include 'includes/footer.php'; ?>
 
 
     <!-- JAVASCRIPT FILES -->

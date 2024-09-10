@@ -3,9 +3,17 @@ session_start();
 
 // Verifica se o formulário foi submetido
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['login'])) {
+<<<<<<< HEAD
+    $email = $_POST["email"];
+    $senha = $_POST["senha"];
+
+    // Inclui o arquivo de conexão
+    include '../includes/db_connection.php';  // Ajuste o caminho conforme necessário
+=======
     
     // Inclui o arquivo de conexão com o caminho correto
     require_once '../includes/db_connection.php';
+>>>>>>> 7743cbbce92a908d46b018080dc59613cc880e70
 
     // Verifica a conexão
     if ($conn->connect_error) {
@@ -46,6 +54,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['login'])) {
 
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <title>Login</title>
     <meta charset="UTF-8">
@@ -63,6 +72,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['login'])) {
     <link rel="stylesheet" type="text/css" href="css/main.css">
     <meta name="robots" content="noindex, follow">
 </head>
+
 <body style="background-color: #666666;">
     <!-- # Página php para o formulário de login -->
 
@@ -110,4 +120,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['login'])) {
     <script src="vendor/countdowntime/countdowntime.js"></script>
     <script src="js/main.js"></script>
 </body>
+
 </html>

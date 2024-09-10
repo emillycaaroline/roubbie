@@ -99,6 +99,13 @@
 </head>
 
 <body>
+<<<<<<< HEAD
+    <!-- Este arquivo HTML cria um quiz dinâmico de personalidade que exibe perguntas e, ao final, apresenta um resultado com base nas respostas do usuário, incluindo um GIF relaxante como parte da apresentação do resultado. -->
+
+    <!-- este link tem giff de facil acesso e uso -->
+    <!-- https://tenor.com/pt-BR/view/chill-relax-peace-yoga-positive-gif-9312942009826875346 -->
+=======
+>>>>>>> 7743cbbce92a908d46b018080dc59613cc880e70
     <div class="container">
         <h1>Quiz de Personalidade</h1>
 

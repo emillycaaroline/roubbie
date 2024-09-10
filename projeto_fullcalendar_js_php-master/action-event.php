@@ -8,11 +8,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         die("Connection failed: " . $conn->connect_error);
     }
 
+<<<<<<< HEAD
+$action = $_POST['action']; // Determina se é um add ou update
+$title = $_POST['title'];
+$color = $_POST['color'];
+$start = $_POST['start'];
+$end = $_POST['end'];
+=======
     // Obtém os dados do formulário
     $title = isset($_POST["title"]) ? $_POST["title"] : '';
     $color = isset($_POST["color"]) ? $_POST["color"] : '';
     $start = isset($_POST["start"]) ? $_POST["start"] : '';
     $end = isset($_POST["end"]) ? $_POST["end"] : '';
+>>>>>>> fdf28871b44df2b7570df7c628e1a67b8f824d6f
 
     // // Verifica se o usuario_id é válido
     // if ($usuario_id <= 0) {
