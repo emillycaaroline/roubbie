@@ -91,7 +91,7 @@
 
 <body id="top">
     <!-- Adiciona o header -->
-    <?php include 'includes/header.php'; ?>
+    <?php include 'includes/menu novo.php'; ?>
 
     <!-- Campos para Artigos -->
     <main>
