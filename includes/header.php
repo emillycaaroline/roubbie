@@ -10,7 +10,6 @@
     <title>Início - Roubbie</title>
 
     <!-- CSS FILES -->
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Open+Sans&display=swap" rel="stylesheet">
@@ -65,40 +64,67 @@
             color: #80d0c7 !important;
         }
 
-        /* Define o tamanho da fonte para os itens de menu */
         .navbar-nav .nav-item .nav-link {
             font-size: 14px;
-            /* Ajuste o tamanho conforme necessário */
         }
 
         .bi {
             font-size: 1.5rem;
         }
 
-        .d-none-desk {
-            display: none;
-        }
-
         @media (max-width: 767.98px) {
-            .d-none-desk {
-                display: inline-block;
-            }
-
-            /* Ajusta o tamanho da fonte para dispositivos móveis */
             .navbar-nav .nav-item .nav-link {
                 font-size: 12px;
-                /* Ajuste o tamanho conforme necessário para dispositivos móveis */
             }
         }
 
         .navbar-collapse {
             display: none;
-            /* Oculta o menu por padrão */
         }
 
         .navbar-collapse.show {
             display: block;
-            /* Exibe o menu quando a classe 'show' é adicionada */
+        }
+
+        .mobile-nav {
+            display: none;
+        }
+
+        @media (max-width: 767.98px) {
+            .mobile-nav {
+                display: block;
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                background: linear-gradient(to right, #13547a, #80d0c7);
+                color: #ffffff;
+                border-top: 1px solid #80d0c7;
+                z-index: 1000;
+                text-align: center;
+            }
+
+            .mobile-nav ul {
+                display: flex;
+                justify-content: space-around;
+                padding: 10px 0;
+                margin: 0;
+                list-style: none;
+            }
+
+            .mobile-nav li {
+                text-align: center;
+            }
+
+            .mobile-nav a {
+                color: #ffffff;
+                text-decoration: none;
+            }
+
+            .mobile-nav svg {
+                margin-bottom: 5px;
+                fill: #ffffff;
+            }
         }
     </style>
 </head>
@@ -106,50 +132,63 @@
 <body id="top">
     <!-- Header -->
     <header>
-        <nav class="navbar navbar-expand-lg">
+        <nav style="background: linear-gradient(to right, #13547a, #80d0c7);
+" class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container">
                 <a class="navbar-brand" href="index.php">
                     <img src="img/logo-ft.png" alt="Logo do Roubbie">
                 </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
                 <div class="collapse navbar-collapse" id="navbarNav">
-
                     <ul class="navbar-nav ms-lg-5 me-lg-auto">
                         <li class="nav-item">
-                            <a class="nav-link click" href="index.php"><span class="d-none-desk"><i class="bi bi-house" aria-hidden="true"></i></span> Home</a>
+                            <a class="nav-link click" href="index.php">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link click" href="http://localhost/roubbie/projeto_fullcalendar_js_php-master/index.php"><span class="d-none-desk"><i class="bi bi-calendar-month" aria-hidden="true"></i></span> Agenda</a>
+                            <a class="nav-link click" href="http://localhost/roubbie/projeto_fullcalendar_js_php-master/index.php">Agenda</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link click" href="http://localhost/roubbie/projeto_fullcalendar_js_php-master/sisrot.php"><span class="d-none-desk"><i class="bi bi-calendar-range" aria-hidden="true"></i></span> Rotina</a>
+                            <a class="nav-link click" href="http://localhost/roubbie/projeto_fullcalendar_js_php-master/sisrot.php">Rotina</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link click" href="diario.php"><span class="d-none-desk"><i class="bi bi-pencil-square" aria-hidden="true"></i></span> Diário</a>
+                            <a class="nav-link click" href="diario.php"> Diário</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link click" href="sobre.php"><span class="d-none-desk"><i class="bi bi-info-circle" aria-hidden="true"></i></span> Sobre</a>
+                            <a class="nav-link click" href="sobre.php">Sobre</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link click" href="http://localhost/roubbie/prototipoquiz.php"><span class="d-none-desk"><i class="bi bi-puzzle" aria-hidden="true"></i></span> Descubra um novo hobby</a>
+                            <a class="nav-link click" href="http://localhost/roubbie/prototipoquiz.php">Descubra um novo hobby</a>
                         </li>
                     </ul>
+
+
+                    <!-- Login/cadastro -->
+                    <!-- Login/cadastro -->
                     <ul class="nav-menu">
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle bi-person navbar-icon" style="border: none;" href="#" id="navbarUserDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Menu do usuário"><i class="bi bi-person d-none-desk" aria-hidden="true"></i></a>
+                            <a class="nav-link dropdown-toggle navbar-icon bi-person" style="border: none;" href="#" id="navbarUserDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Menu do usuário">
+                                <!-- O ícone bi-person já está aplicado na classe, não há necessidade de adicionar um <i> aqui -->
+                            </a>
                             <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarUserDropdownMenuLink">
-                                <li><a class="dropdown-item" href="http://localhost/roubbie/login-register/login.php"><i class="bi bi-box-arrow-in-right"></i> Login</a></li>
+                                <li><a class="dropdown-item" href="http://localhost/roubbie/login-register/login.php">Login</a></li>
                                 <li><a class="dropdown-item" href="http://localhost/roubbie/login-register/cadastro.html">Cadastro</a></li>
                             </ul>
                         </li>
                     </ul>
+
                 </div>
             </div>
         </nav>
     </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-nav d-lg-none">
+        <ul>
+            <li><a href="index.php"><i class="bi bi-house"></i> </a></li>
+            <li><a href="http://localhost/roubbie/projeto_fullcalendar_js_php-master/index.php"><i class="bi bi-calendar-month"></i></a></li>
+            <li><a href="http://localhost/roubbie/projeto_fullcalendar_js_php-master/sisrot.php"><i class="bi bi-calendar-range"></i></a></li>
+            <li><a href="diario.php"><i class="bi bi-pencil-square"></i> </a></li>
+        </ul>
+    </div>
 
     <!-- JAVASCRIPT FILES -->
     <script src="js/jquery.min.js"></script>
@@ -157,8 +196,6 @@
     <script src="js/jquery.sticky.js"></script>
     <script src="js/click-scroll.js"></script>
     <script src="js/custom.js"></script>
-    <script src="js/bootstrap.bundle.min.js"></script>
-
 </body>
 
 </html>

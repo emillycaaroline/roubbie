@@ -23,11 +23,7 @@
 </head>
 <!-- Conteudo da página -->
 
-<<<<<<< HEAD
 <body id="top">  
-=======
-<body id="top">
->>>>>>> fdf28871b44df2b7570df7c628e1a67b8f824d6f
     <main>
         <!-- Adiciona o header -->
         <?php include 'includes/header.php'; ?>
