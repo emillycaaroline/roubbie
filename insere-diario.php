@@ -7,7 +7,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Coleta e sanitiza os dados do formulário
     $title = isset($_POST['title']) ? $_POST['title'] : '';
     $description = isset($_POST['description']) ? $_POST['description'] : '';
-    $date = $_POST['date'];
+    $date = isset($_POST['date']) ? $_POST['date'] : '';
 
     // Verifica se uma imagem foi carregada
     $image = '';
@@ -23,15 +23,30 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     }
 
-    // Insere os dados no banco de dados
-    $stmt = $conn->prepare("INSERT INTO diario (title, description, date, image) VALUES (?, ?, ?, ?)");
-    $stmt->bind_param("ssss", $title, $description, $date, $image);
+    // Verifica se a conexão foi estabelecida corretamente
+    if (!$conn) {
+        die("Falha na conexão com o banco de dados: " . mysqli_connect_error());
+    }
 
+    // Prepara a consulta SQL
+    $stmt = $conn->prepare("INSERT INTO diario (title, description, date, image) VALUES (?, ?, ?, ?)");
+    if (!$stmt) {
+        die("Erro ao preparar a consulta: " . $conn->error);
+    }
+
+    // Vincula os parâmetros e executa a consulta
+    $stmt->bind_param("ssss", $title, $description, $date, $image);
     if ($stmt->execute()) {
         header("Location: diario.php"); // Redireciona para a página do diário após a inserção
         exit;
     } else {
         die("Erro ao inserir entrada: " . $stmt->error);
     }
+
+    // Fecha a declaração
+    $stmt->close();
 }
+
+// Fecha a conexão
+$conn->close();
 ?>

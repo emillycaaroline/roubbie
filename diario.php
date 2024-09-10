@@ -117,9 +117,4 @@
         <?php endif; ?>
     </div>
 </body>
-<<<<<<< HEAD
-
 </html>
-=======
-</html>
->>>>>>> 7743cbbce92a908d46b018080dc59613cc880e70
