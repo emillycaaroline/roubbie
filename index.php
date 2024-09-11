@@ -49,8 +49,8 @@
                                 </span>
 
                                 <input name="keyword" type="search" class="form-control" id="keyword" placeholder="Encontre um Novo Hobby" aria-label="Search">
+
                                 <button type="submit" class="form-control">Search</button>
-                                <button type="button" class="btn btn-lg btn-danger" data-bs-toggle="popover" data-bs-title="Popover title" data-bs-content="And here's some amazing content. It's very engaging. Right?">Click to toggle popover</button>
                             </div>
                         </form>
                     </div>

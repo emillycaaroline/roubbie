@@ -91,7 +91,7 @@
 
 <body id="top">
     <!-- Adiciona o header -->
-    <?php include 'includes/menu novo.php'; ?>
+    <?php include 'includes/header.php'; ?>
 
     <!-- Campos para Artigos -->
     <main>
@@ -111,15 +111,12 @@
                                 <li>
                                     <h4 class="text-white mb-3">Quem Somos?</h4>
                                     <p class="text-white">
-<<<<<<< HEAD
                                         O Roubbie vai além de um aplicativo comum; é uma proposta para revolucionar a abordagem da saúde mental. Acreditamos que os hobbies, frequentemente negligenciados, são essenciais para promover um equilíbrio saudável entre lazer e trabalho. Nosso objetivo é ajudar você a viver de forma mais organizada e plena, integrando hobbies significativos na sua rotina.
-=======
                                         O Roubbie vai além de um aplicativo comum; é uma proposta para revolucionar a
                                         abordagem da saúde mental. Acreditamos que os hobbies, frequentemente
                                         negligenciados, são essenciais para promover um equilíbrio saudável entre lazer e
                                         trabalho. Nosso objetivo é ajudar você a viver de forma mais organizada e plena,
                                         integrando hobbies significativos na sua rotina.
->>>>>>> 7743cbbce92a908d46b018080dc59613cc880e70
                                     </p>
                                     <div class="icon-holder">
                                         <i class="bi-search"></i>
@@ -128,15 +125,12 @@
                                 <li>
                                     <h4 class="text-white mb-3">Motivação</h4>
                                     <p class="text-white">
-<<<<<<< HEAD
                                         A falta de hobbies pode levar a sentimentos de tédio, apatia e desânimo, agravando problemas de saúde mental como ansiedade e depressão. Muitos jovens enfrentam dificuldades em encontrar um hobby que combine lazer e desenvolvimento pessoal. O Roubbie está aqui para preencher essa lacuna, ajudando você a descobrir e integrar novos interesses na sua vida diária.
-=======
                                         A falta de hobbies pode levar a sentimentos de tédio, apatia e desânimo,
                                         agravando problemas de saúde mental como ansiedade e depressão. Muitos jovens
                                         enfrentam dificuldades em encontrar um hobby que combine lazer e desenvolvimento
                                         pessoal. O Roubbie está aqui para preencher essa lacuna, ajudando você a
                                         descobrir e integrar novos interesses na sua vida diária.
->>>>>>> 7743cbbce92a908d46b018080dc59613cc880e70
                                     </p>
                                     <div class="icon-holder">
                                         <i class="bi-bookmark"></i>
@@ -145,14 +139,7 @@
                                 <li>
                                     <h4 class="text-white mb-3">O Desafio</h4>
                                     <p class="text-white">
-<<<<<<< HEAD
                                         O Roubbie oferece uma plataforma interativa e dinâmica, repleta de hobbies variados para explorar, desafios envolventes e recursos para acompanhar seu progresso. É a sua chance de criar um equilíbrio saudável entre lazer e organização, promovendo uma vida mais satisfatória e equilibrada.
-=======
-                                        O Roubbie oferece uma plataforma interativa e dinâmica, repleta de hobbies
-                                        variados para explorar, desafios envolventes e recursos para acompanhar seu
-                                        progresso. É a sua chance de criar um equilíbrio saudável entre lazer e
-                                        organização, promovendo uma vida mais satisfatória e equilibrada.
->>>>>>> 7743cbbce92a908d46b018080dc59613cc880e70
                                     </p>
                                     <div class="icon-holder">
                                         <i class="bi-card-checklist"></i>
