@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 
-<head>
+<head> 
     <meta charset="utf-8">
     
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -29,7 +29,7 @@
         <!-- Adiciona o header -->
         <?php include 'includes/header.php'; ?>
 
-
+   
 
         <!-- Conteudo da pagina  -->
         <section class="hero-section d-flex justify-content-center align-items-center" id="section_1">
