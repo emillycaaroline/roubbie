@@ -1,256 +1,91 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
-
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quiz de Personalidade</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: linear-gradient(to right, #13547a, #80d0c7);
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-        }
-
-        .container {
-            background: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            width: 100%;
-            max-width: 600px;
-            text-align: center;
-        }
-
-        h1 {
-            color: #13547a;
-            margin-bottom: 20px;
-            font-size: 24px;
-            font-weight: bold;
-        }
-
-        .question {
-            margin-bottom: 30px;
-            padding: 20px;
-            border-radius: 8px;
-            background: #f9f9f9;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-
-        .question h3 {
-            font-size: 18px;
-            color: #333;
-        }
-
-        label {
-            display: block;
-            margin: 10px 0;
-            font-size: 16px;
-            color: #555;
-            cursor: pointer;
-        }
-
-        input[type="radio"] {
-            margin-right: 10px;
-            cursor: pointer;
-        }
-
-        .button-container {
-            margin-top: 20px;
-        }
-
-        button {
-            background-color: #13547a;
-            color: #fff;
-            border: none;
-            padding: 12px 24px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
-            transition: background-color 0.3s ease;
-        }
-
-        button:hover {
-            background-color: #0a2d55;
-        }
-
-        #resultTitle {
-            color: #13547a;
-            margin-top: 20px;
-            font-size: 22px;
-            font-weight: bold;
-        }
-
-        #resultText {
-            color: #555;
-            font-size: 18px;
-            margin-top: 10px;
-        }
-
-        .hidden {
-            display: none;
-        }
-    </style>
 </head>
-
 <body>
-<<<<<<< HEAD
-    <!-- Este arquivo HTML cria um quiz dinâmico de personalidade que exibe perguntas e, ao final, apresenta um resultado com base nas respostas do usuário, incluindo um GIF relaxante como parte da apresentação do resultado. -->
+    <p>Quiz de Personalidade</p>
+    
+    <p>1. Qual o seu papel na sua equipe ou grupo de amigos?</p>
+    <ul>
+        <li>Faço minhas obrigações com antecedência e gosto de planejar as coisas. (A)</li>
+        <li>Sou conselheiro, estou sempre aí para conversar e ajudar a manter um clima bom. (D)</li>
+        <li>Sou aquele que coloca a mão na massa, tomo atitudes para cumprir os processos. (S)</li>
+        <li>Penso fora da caixinha, me adapto bem às circunstâncias facilmente e agilizo os processos. (E)</li>
+    </ul>
 
-    <!-- este link tem giff de facil acesso e uso -->
-    <!-- https://tenor.com/pt-BR/view/chill-relax-peace-yoga-positive-gif-9312942009826875346 -->
-=======
->>>>>>> 7743cbbce92a908d46b018080dc59613cc880e70
-    <div class="container">
-        <h1>Quiz de Personalidade</h1>
+    <p>2. Quando você tem que tomar decisões, como você reage?</p>
+    <ul>
+        <li>Planejo e sigo um plano se fizer sentido na minha mente, não necessariamente preciso de um método ou muitas opiniões. (A)</li>
+        <li>Busco inspiração e penso em como todos os envolvidos vão se sentir. (D)</li>
+        <li>Mantenho a estabilidade e sigo com o que organizei. (S)</li>
+        <li>Ajo naturalmente e deixo as coisas fluir. (E)</li>
+    </ul>
 
-        <div id="quizContainer">
-            <!-- Pergunta 1 -->
-            <div class="question" id="question1">
-                <h3>1. Como você lida com projetos complexos no trabalho?</h3>
-                <label><input type="radio" name="question1" value="analista"> Planejo meticulosamente e busco entender todos os detalhes. (Analista)</label>
-                <label><input type="radio" name="question1" value="diplomata"> Busco uma abordagem colaborativa e foco na harmonia do grupo. (Diplomata)</label>
-                <label><input type="radio" name="question1" value="explorador"> Adoro experimentar novas abordagens e sou flexível diante dos desafios. (Explorador)</label>
-                <label><input type="radio" name="question1" value="sentinela"> Prefiro seguir procedimentos estabelecidos e garantir que tudo esteja em ordem. (Sentinela)</label>
-                <div class="button-container">
-                    <button onclick="nextQuestion(1)">Próxima</button>
-                </div>
-            </div>
+    <p>3. Como você prefere resolver problemas?</p>
+    <ul>
+        <li>Analisando o ambiente e suas informações e criando estratégias. (A)</li>
+        <li>Buscando soluções criativas e colaborativas. (D)</li>
+        <li>Sigo meus princípios, normas e processos à risca. (S)</li>
+        <li>Penso em diferentes formas de resolução para o problema. (E)</li>
+    </ul>
 
-            <!-- Pergunta 2 -->
-            <div class="question hidden" id="question2">
-                <h3>2. Qual é a sua abordagem ao resolver conflitos?</h3>
-                <label><input type="radio" name="question2" value="analista"> Analiso a situação de forma lógica e busco uma solução objetiva. (Analista)</label>
-                <label><input type="radio" name="question2" value="diplomata"> Tento entender as necessidades de todas as partes e encontrar um compromisso. (Diplomata)</label>
-                <label><input type="radio" name="question2" value="explorador"> Sou aberto a várias soluções e busco uma abordagem criativa para resolver o conflito. (Explorador)</label>
-                <label><input type="radio" name="question2" value="sentinela"> Prefiro seguir regras e procedimentos para garantir uma solução estruturada. (Sentinela)</label>
-                <div class="button-container">
-                    <button onclick="nextQuestion(2)">Próxima</button>
-                </div>
-            </div>
+    <p>4. Em uma viagem, você prefere:</p>
+    <ul>
+        <li>Procurar lugares do meu interesse. (A)</li>
+        <li>Ir a lugares diferentes e agradar todo mundo na escolha. (D)</li>
+        <li>Seguir minha programação à risca, evitando contratempos. (S)</li>
+        <li>Deixo a vida me levar, qualquer lugar que eu chegar é uma nova experiência. (E)</li>
+    </ul>
 
-            <!-- Pergunta 3 -->
-            <div class="question hidden" id="question3">
-                <h3>3. Como você prefere passar o seu tempo livre?</h3>
-                <label><input type="radio" name="question3" value="analista"> Trabalhando em projetos de interesse pessoal ou estudando novos tópicos. (Analista)</label>
-                <label><input type="radio" name="question3" value="diplomata"> Socializando com amigos e participando de atividades em grupo. (Diplomata)</label>
-                <label><input type="radio" name="question3" value="explorador"> Explorando novos lugares e buscando aventuras emocionantes. (Explorador)</label>
-                <label><input type="radio" name="question3" value="sentinela"> Organizando e estruturando atividades ou cuidando de tarefas práticas. (Sentinela)</label>
-                <div class="button-container">
-                    <button onclick="nextQuestion(3)">Próxima</button>
-                </div>
-            </div>
+    <p>5. Você está entediado e procura algumas atividades para ocuparem seu tempo. Quais você escolhe?</p>
+    <ul>
+        <li>Pintura, jogos de tabuleiro ou escrita. (A)</li>
+        <li>Meditação, yoga ou fotografia. (D)</li>
+        <li>Jardinagem, culinária ou caminhada. (S)</li>
+        <li>Skate, dança ou saio para correr. (E)</li>
+    </ul>
 
-            <!-- Pergunta 4 -->
-            <div class="question hidden" id="question4">
-                <h3>4. Como você reage a mudanças inesperadas?</h3>
-                <label><input type="radio" name="question4" value="analista"> Analiso as mudanças de forma lógica e ajusto meu planejamento conforme necessário. (Analista)</label>
-                <label><input type="radio" name="question4" value="diplomata"> Procuro adaptar-me de forma positiva e manter um bom relacionamento com os outros. (Diplomata)</label>
-                <label><input type="radio" name="question4" value="explorador"> Aceito as mudanças com entusiasmo e vejo-as como uma oportunidade para novas experiências. (Explorador)</label>
-                <label><input type="radio" name="question4" value="sentinela"> Adapto-me às mudanças seguindo procedimentos e tentando manter a ordem. (Sentinela)</label>
-                <div class="button-container">
-                    <button onclick="nextQuestion(4)">Próxima</button>
-                </div>
-            </div>
+    <p>6. Em uma festa, como você se comporta?</p>
+    <ul>
+        <li>Prefiro ficar no meu canto observando as pessoas. (A)</li>
+        <li>Tento deixar todo mundo unido e fico próximo de quem já conheço. (D)</li>
+        <li>Procuro lugares mais calmos. (S)</li>
+        <li>Danço até não poder mais e converso até com as paredes. (E)</li>
+    </ul>
 
-            <!-- Pergunta 5 -->
-            <div class="question hidden" id="question5">
-                <h3>5. Qual é a sua abordagem ao tomar decisões importantes?</h3>
-                <label><input type="radio" name="question5" value="analista"> Recolho todas as informações possíveis e faço uma análise detalhada. (Analista)</label>
-                <label><input type="radio" name="question5" value="diplomata"> Considero como minha decisão afetará os outros e busco um consenso. (Diplomata)</label>
-                <label><input type="radio" name="question5" value="explorador"> Tomo decisões baseadas em minha intuição e nas oportunidades que vejo. (Explorador)</label>
-                <label><input type="radio" name="question5" value="sentinela"> Sigo regras e precedentes estabelecidos para tomar a decisão. (Sentinela)</label>
-                <div class="button-container">
-                    <button onclick="nextQuestion(5)">Próxima</button>
-                </div>
-            </div>
+    <p>7. No seu grupo de amigos ou colegas você desempenha o "papel" de:</p>
+    <ul>
+        <li>Pessoa das ideias criativas e idealizador de soluções e trabalhos. (A)</li>
+        <li>Conselheiro(a) e resolvedor(a) de problemas. (D)</li>
+        <li>Planejador de encontros e atividades mais elaboradas, aquele que faz as coisas acontecerem. (S)</li>
+        <li>Aquele que topa tudo e anima o clima. (E)</li>
+    </ul>
 
-            <!-- Pergunta 6 -->
-            <div class="question hidden" id="question6">
-                <h3>6. Como você lida com a pressão?</h3>
-                <label><input type="radio" name="question6" value="analista"> Mantenho a calma e utilizo métodos lógicos para gerenciar a pressão. (Analista)</label>
-                <label><input type="radio" name="question6" value="diplomata"> Busco apoio e incentivo dos outros e tento manter uma atitude positiva. (Diplomata)</label>
-                <label><input type="radio" name="question6" value="explorador"> Encaro a pressão como um desafio e procuro soluções criativas para lidar com ela. (Explorador)</label>
-                <label><input type="radio" name="question6" value="sentinela"> Sigo procedimentos estabelecidos e busco manter a organização em meio à pressão. (Sentinela)</label>
-                <div class="button-container">
-                    <button onclick="showResult()">Ver Resultado</button>
-                </div>
-            </div>
+    <p>8. Qual é sua visão sobre regras e tradições?</p>
+    <ul>
+        <li>Questiono as regras, mas as sigo se fizerem sentido lógico. (A)</li>
+        <li>Tento seguir as regras, mas sou flexível para manter a harmonia. (D)</li>
+        <li>Valorizo muito as regras e tradições estabelecidas. (S)</li>
+        <li>Prefiro quebrar as regras e buscar novas experiências. (E)</li>
+    </ul>
 
-            <!-- Resultado -->
-            <div id="result" class="hidden">
-                <h2 id="resultTitle">Seu Tipo de Personalidade</h2>
-                <p id="resultText"></p>
-            </div>
-        </div>
-    </div>
+    <p>9. Quando você inicia um novo projeto ou hobby, como você aborda isso?</p>
+    <ul>
+        <li>Pesquiso profundamente antes de começar. (A)</li>
+        <li>Busco a opinião de outros e procuro trabalhar em conjunto. (D)</li>
+        <li>Sigo um plano bem definido para alcançar resultados eficientes. (S)</li>
+        <li>Gosto de começar logo e aprender ao longo do caminho. (E)</li>
+    </ul>
 
-    <script>
-        let currentQuestion = 1;
-
-        function nextQuestion(questionNumber) {
-            const currentDiv = document.getElementById(`question${questionNumber}`);
-            const nextDiv = document.getElementById(`question${questionNumber + 1}`);
-            if (nextDiv) {
-                currentDiv.classList.add('hidden');
-                nextDiv.classList.remove('hidden');
-            }
-        }
-
-        function showResult() {
-            const answers = document.querySelectorAll('input[type="radio"]:checked');
-            const counts = {
-                analista: 0,
-                diplomata: 0,
-                explorador: 0,
-                sentinela: 0
-            };
-
-            answers.forEach(answer => {
-                counts[answer.value]++;
-            });
-
-            const maxCount = Math.max(counts.analista, counts.diplomata, counts.explorador, counts.sentinela);
-            let resultType = 'analista';
-
-            if (counts.diplomata === maxCount) resultType = 'diplomata';
-            if (counts.explorador === maxCount) resultType = 'explorador';
-            if (counts.sentinela === maxCount) resultType = 'sentinela';
-
-            const resultTitle = document.getElementById('resultTitle');
-            const resultText = document.getElementById('resultText');
-
-            resultTitle.textContent = `Você é um ${capitalize(resultType)}!`;
-            resultText.textContent = getResultDescription(resultType);
-
-            document.getElementById('quizContainer').classList.add('hidden');
-            document.getElementById('result').classList.remove('hidden');
-        }
-
-        function capitalize(str) {
-            return str.charAt(0).toUpperCase() + str.slice(1);
-        }
-
-        function getResultDescription(type) {
-            switch (type) {
-                case 'analista':
-                    return 'Você é um Analista, focado em lógica e detalhes. Você adora resolver problemas complexos e encontrar soluções eficientes.';
-                case 'diplomata':
-                    return 'Você é um Diplomata, valorizando a harmonia e o entendimento entre as pessoas. Você é ótimo em colaborar e encontrar compromissos.';
-                case 'explorador':
-                    return 'Você é um Explorador, buscando novas experiências e abordagens criativas. Você adora se aventurar e enfrentar desafios com entusiasmo.';
-                case 'sentinela':
-                    return 'Você é um Sentinela, preferindo estrutura e ordem. Você é confiável e trabalha bem seguindo procedimentos estabelecidos.';
-                default:
-                    return '';
-            }
-        }
-    </script>
+    <p>10. Como você lida com a incerteza em projetos ou situações novas?</p>
+    <ul>
+        <li>Prefiro analisar todas as variáveis antes de tomar qualquer decisão. (A)</li>
+        <li>Tento entender como a incerteza afeta os outros e busco soluções colaborativas. (D)</li>
+        <li>Procuro seguir processos comprovados e manter a organização mesmo em situações incertas. (S)</li>
+        <li>Abraço a incerteza e vejo como uma oportunidade para explorar novas possibilidades e improvisar. (E)</li>
+    </ul>
 </body>
-
 </html>

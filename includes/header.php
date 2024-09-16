@@ -200,7 +200,7 @@
                             <a class="nav-link click" href="sobre.php">Sobre</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link click" href="http://localhost/roubbie/prototipoquiz.php">Descubra um novo hobby</a>
+                            <a class="nav-link click" href="http://localhost/roubbie/prototipoquiz.php">Quiz</a>
                         </li>
                     </ul>
 
@@ -221,18 +221,7 @@
         
        
     </header>
-  <!-- botao do menu -->
-  <button id="menuButton" aria-label="Abrir menu de configurações" class="navbar-toggler" type="button">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                        <path d="M2 6h20v3H2V6Z" fill="currentColor"></path>
-                        <path d="M2 15h20v3H2v-3Z" fill="currentColor"></path>
-                    </svg>
-                <div class="menu-config" id="menuConfig">
-                    <button class="close-btn" id="closeMenu">&times;</button>
-                    <a href="#">Sobre</a>
-                    <a href="#">Quiz</a>
-                </div>
-                </button>
+  
     <!-- Mobile Menu -->
     <div class="mobile-nav d-lg-none" id="mobileMenu">
         <ul>
