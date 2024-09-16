@@ -21,7 +21,6 @@
     <style>
         body {
             background: none;
-            font-family: 'Open Sans', sans-serif;
         }
 
         .text-white {
@@ -31,7 +30,7 @@
         .timeline-section {
             padding: 60px 0;
         }
-       
+
         .site-footer {
             background-color: white;
             color: #ffffff;
@@ -58,7 +57,7 @@
         }
 
         .nav-link {
-            color: #fff !important;
+            color: #13547a !important;
         }
 
         .nav-link:hover {
@@ -67,6 +66,10 @@
 
         .navbar-nav .nav-item .nav-link {
             font-size: 14px;
+        }
+
+        .bi {
+            font-size: 1.5rem;
         }
 
         @media (max-width: 767.98px) {
@@ -99,14 +102,12 @@
                 border-top: 1px solid #80d0c7;
                 z-index: 1000;
                 text-align: center;
-                box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
-                padding: 10px 0;
             }
 
             .mobile-nav ul {
                 display: flex;
                 justify-content: space-around;
-                padding: 0;
+                padding: 10px 0;
                 margin: 0;
                 list-style: none;
             }
@@ -124,64 +125,19 @@
                 margin-bottom: 5px;
                 fill: #ffffff;
             }
-
-            .menu-config {
-                display: none;
-                position: fixed;
-                top: 0;
-                right: 0;
-                width: 250px;
-                height: 100%;
-                background: #80d0c7;
-                box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
-                z-index: 1001;
-                padding: 20px;
-                box-sizing: border-box;
-                overflow-y: auto;
-                transition: transform 0.3s ease;
-                transform: translateX(100%);
-            }
-
-            .menu-config.show {
-                display: block;
-                transform: translateX(0);
-            }
-
-            .menu-config a {
-                display: block;
-                margin-bottom: 15px;
-                color: #fff;
-                text-decoration: none;
-            }
-
-            .menu-config a:hover {
-                color: #13547a;
-            }
-
-            .close-btn {
-                position: absolute;
-                top: 30px;
-                right: 20px;
-                font-size: 24px;
-                color: #13547a;
-                background: transparent;
-                border: none;
-                cursor: pointer;
-            }
         }
-
     </style>
 </head>
 
 <body id="top">
     <!-- Header -->
     <header>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light" style="background: linear-gradient(to right, #13547a, #80d0c7);">
+        <nav style="background: linear-gradient(to right, #13547a, #80d0c7);
+" class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container">
                 <a class="navbar-brand" href="index.php">
                     <img src="img/logo-ft.png" alt="Logo do Roubbie">
                 </a>
-                
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-lg-5 me-lg-auto">
                         <li class="nav-item">
@@ -194,20 +150,23 @@
                             <a class="nav-link click" href="http://localhost/roubbie/projeto_fullcalendar_js_php-master/sisrot.php">Rotina</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link click" href="diario.php">Diário</a>
+                            <a class="nav-link click" href="diario.php"> Diário</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link click" href="sobre.php">Sobre</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link click" href="http://localhost/roubbie/prototipoquiz.php">Quiz</a>
+                            <a class="nav-link click" href="http://localhost/roubbie/prototipoquiz.php">Descubra um novo hobby</a>
                         </li>
                     </ul>
 
+
+                    <!-- Login/cadastro -->
                     <!-- Login/cadastro -->
                     <ul class="nav-menu">
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle navbar-icon bi-person" href="#" id="navbarUserDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Menu do usuário">
+                            <a class="nav-link dropdown-toggle navbar-icon bi-person" style="border: none;" href="#" id="navbarUserDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Menu do usuário">
+                                <!-- O ícone bi-person já está aplicado na classe, não há necessidade de adicionar um <i> aqui -->
                             </a>
                             <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarUserDropdownMenuLink">
                                 <li><a class="dropdown-item" href="http://localhost/roubbie/login-register/login.php">Login</a></li>
@@ -215,37 +174,33 @@
                             </ul>
                         </li>
                     </ul>
+
                 </div>
             </div>
         </nav>
-        
+    </header>
+
     <!-- Mobile Menu -->
-    <div class="mobile-nav d-lg-none" id="mobileMenu">
+    <div class="mobile-nav d-lg-none">
         <ul>
-            <li><a href="index.php"><i class="bi bi-house"></i></a></li>
+            <li><a href="index.php"><i class="bi bi-house"></i> </a></li>
             <li><a href="http://localhost/roubbie/projeto_fullcalendar_js_php-master/index.php"><i class="bi bi-calendar-month"></i></a></li>
-            <li><a href="http://localhost/roubbie/projeto_fullcalendar_js_php-master/sisrot.php"><i class="bi bi-calendar-week"></i></a></li>
-            <li><a href="diario.php"><i class="bi bi-journal-text"></i></a></li>
+            <li><a href="http://localhost/roubbie/projeto_fullcalendar_js_php-master/sisrot.php"><i class="bi bi-calendar-range"></i></a></li>
+            <li><a href="diario.php"><i class="bi bi-pencil-square"></i> </a></li>
+            <li><a href="http://localhost/roubbie/projeto_fullcalendar_js_php-master/sisrot.php"><i class="bi bi-calendar-range"></i></a></li>
+            <li><a href="diario.php"><i class="bi bi-pencil-square"></i> </a></li>
+            
+            </li>
+
         </ul>
     </div>
 
-    <!-- Scripts -->
+    <!-- JAVASCRIPT FILES -->
+    <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.bundle.min.js"></script>
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            const menuButton = document.getElementById("menuButton");
-            const menuConfig = document.getElementById("menuConfig");
-            const closeMenu = document.getElementById("closeMenu");
-
-            menuButton.addEventListener("click", function() {
-                menuConfig.classList.toggle("show");
-            });
-
-            closeMenu.addEventListener("click", function() {
-                menuConfig.classList.remove("show");
-            });
-        });
-    </script>
+    <script src="js/jquery.sticky.js"></script>
+    <script src="js/click-scroll.js"></script>
+    <script src="js/custom.js"></script>
 </body>
 
 </html>
