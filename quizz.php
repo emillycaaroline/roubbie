@@ -3,6 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
+    
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quiz de Personalidade e Temperamento</title>
     <link rel="stylesheet" href="styles.css">
@@ -164,7 +165,15 @@
         <h1 id="resultTitle"></h1>
         <p id="resultText"></p>
     </div>
-
+    <!-- progresso bootstrap -->
+    <div class="position-relative m-4">
+  <div class="progress" role="progressbar" aria-label="Progress" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="height: 1px;">
+    <div class="progress-bar" style="width: 50%"></div>
+  </div>
+  <button type="button" class="position-absolute top-0 start-0 translate-middle btn btn-sm btn-primary rounded-pill" style="width: 2rem; height:2rem;">1</button>
+  <button type="button" class="position-absolute top-0 start-50 translate-middle btn btn-sm btn-primary rounded-pill" style="width: 2rem; height:2rem;">2</button>
+  <button type="button" class="position-absolute top-0 start-100 translate-middle btn btn-sm btn-secondary rounded-pill" style="width: 2rem; height:2rem;">3</button>
+</div>
     <script>
         function processQuiz() {
             let analista = 0;
