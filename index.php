@@ -29,7 +29,7 @@
         <!-- Adiciona o header -->
         <?php include 'includes/header.php'; ?>
 
-
+   
 
         <!-- Conteudo da pagina  -->
         <section class="hero-section d-flex justify-content-center align-items-center" id="section_1">
