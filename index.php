@@ -21,7 +21,7 @@
             TemplateMo 590 topic listing 
             https://templatemo.com/tm-590-topic-listing
          -->
-</head>
+</head> 
 <!-- Conteudo da página -->
 
 <body id="top">  
