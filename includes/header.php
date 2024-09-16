@@ -31,7 +31,7 @@
         .timeline-section {
             padding: 60px 0;
         }
-
+       
         .site-footer {
             background-color: white;
             color: #ffffff;
@@ -170,9 +170,6 @@
             }
         }
 
-        .menuButton {
-            /* estilo do botão de menu, se necessário */
-        }
     </style>
 </head>
 
@@ -184,20 +181,6 @@
                 <a class="navbar-brand" href="index.php">
                     <img src="img/logo-ft.png" alt="Logo do Roubbie">
                 </a>
-                <!-- botao do menu -->
-                <button id="menuButton" aria-label="Abrir menu de configurações" class="navbar-toggler" type="button">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                        <path d="M2 6h20v3H2V6Z" fill="currentColor"></path>
-                        <path d="M2 15h20v3H2v-3Z" fill="currentColor"></path>
-                    </svg>
-                    <!-- ao clicar no botao vai abrir a aba -->
-                     <!-- Aba de Configurações -->
-                <div class="menu-config" id="menuConfig">
-                    <button class="close-btn" id="closeMenu">&times;</button>
-                    <a href="#">Sobre</a>
-                    <a href="#">Quiz</a>
-                </div>
-                </button>
                 
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-lg-5 me-lg-auto">
@@ -235,8 +218,21 @@
                 </div>
             </div>
         </nav>
+        
+       
     </header>
-
+  <!-- botao do menu -->
+  <button id="menuButton" aria-label="Abrir menu de configurações" class="navbar-toggler" type="button">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                        <path d="M2 6h20v3H2V6Z" fill="currentColor"></path>
+                        <path d="M2 15h20v3H2v-3Z" fill="currentColor"></path>
+                    </svg>
+                <div class="menu-config" id="menuConfig">
+                    <button class="close-btn" id="closeMenu">&times;</button>
+                    <a href="#">Sobre</a>
+                    <a href="#">Quiz</a>
+                </div>
+                </button>
     <!-- Mobile Menu -->
     <div class="mobile-nav d-lg-none" id="mobileMenu">
         <ul>
@@ -244,8 +240,6 @@
             <li><a href="http://localhost/roubbie/projeto_fullcalendar_js_php-master/index.php"><i class="bi bi-calendar-month"></i></a></li>
             <li><a href="http://localhost/roubbie/projeto_fullcalendar_js_php-master/sisrot.php"><i class="bi bi-calendar-week"></i></a></li>
             <li><a href="diario.php"><i class="bi bi-journal-text"></i></a></li>
-            <li><a href="sobre.php"><i class="bi bi-info-circle"></i></a></li>
-            <li><a href="http://localhost/roubbie/prototipoquiz.php"><i class="bi bi-lightbulb"></i></a></li>
         </ul>
     </div>
 
