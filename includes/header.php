@@ -219,9 +219,6 @@
             </div>
         </nav>
         
-       
-    </header>
-  
     <!-- Mobile Menu -->
     <div class="mobile-nav d-lg-none" id="mobileMenu">
         <ul>
