@@ -44,6 +44,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       <!-- Adiciona o header -->
       <?php include '../../includes/header.php'; ?>
 
+
     <!-- Este arquivo configura a visualização mensal do calendário, com um modal semelhante ao sisrot.php. -->
     <!-- Card para inserir evento -->
 

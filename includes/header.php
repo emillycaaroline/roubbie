@@ -100,6 +100,7 @@
                 background: linear-gradient(to right, #13547a, #80d0c7);
                 color: #ffffff;
                 border-top: 1px solid #80d0c7;
+                border-radius: 5px;
                 z-index: 1000;
                 text-align: center;
             }
