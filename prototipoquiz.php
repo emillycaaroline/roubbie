@@ -1,255 +1,316 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quiz de Personalidade</title>
+    <title>RoubQuiz</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: linear-gradient(to right, #13547a, #80d0c7);
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
+        /* (A) CONTÊINER DO QUIZ */
+        #quizWrap {
+            max-width: 100%;
+            margin: 0 auto;
+            padding: 0 10px;
+            /* Adicionado padding horizontal */
         }
 
-        .container {
-            background: #fff;
-            padding: 20px;
+        /* (B) PERGUNTA */
+        #quizQn {
+            padding: 15px;
+            color: #fff;
+            font-size: 20px;
             border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            width: 100%;
-            max-width: 600px;
+            background: #4c93ba;
+            /* Adicionado fundo para contraste */
+        }
+
+        /* (C) RESPOSTAS */
+        #quizAns {
+            margin: 10px 0;
+            display: grid;
+            grid-template-columns: 1fr;
+            /* Ajuste padrão para uma coluna */
+            grid-gap: 15px;
+            /* Aumentado o espaçamento */
+        }
+
+        #quizAns input[type=radio] {
+            display: none;
+        }
+
+        #quizAns label {
+            background: #f9f9f9;
+            /* Alterado para um fundo mais neutro */
+            border: 1px solid #ddd;
+            /* Ajustado para uma borda mais leve */
+            border-radius: 10px;
+            padding: 15px;
+            font-size: 18px;
+            /* Reduzido para melhor ajuste */
+            cursor: pointer;
+            text-align: center;
+            transition: background 0.3s, transform 0.2s;
+            /* Adiciona transições */
+        }
+
+        #quizAns label.correct {
+            background: #d8ffc4;
+            border: 1px solid #60a03f;
+        }
+
+        #quizAns label.wrong {
+            background: #ffe8e8;
+            border: 1px solid #c78181;
+        }
+
+        #quizAns label:hover {
+            transform: scale(1.05);
+            /* Efeito de zoom ao passar o mouse */
+        }
+
+        /* PÁGINA & CORPO */
+        * {
+            font-family: Arial, sans-serif;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background-color: #13547a;
+            /* Paleta aplicada */
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
             text-align: center;
         }
 
-        h1 {
-            color: #13547a;
-            margin-bottom: 20px;
-            font-size: 24px;
-            font-weight: bold;
-        }
-
-        .question {
-            margin-bottom: 30px;
+        /* WIDGET */
+        .widget-wrap {
+            width: 100%;
+            max-width: 600px;
             padding: 20px;
-            border-radius: 8px;
-            background: #f9f9f9;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 20px;
+            background-color: #80d0c7;
+            /* Paleta aplicada */
         }
 
-        .question h3 {
-            font-size: 18px;
-            color: #333;
+        /* RODAPÉ */
+        #code-boxx {
+            font-weight: 600;
+            margin-top: 30px;
         }
 
-        label {
-            display: block;
-            margin: 10px 0;
-            font-size: 16px;
-            color: #555;
-            cursor: pointer;
+        #code-boxx a {
+            display: inline-block;
+            border: 0;
+            padding: 5px;
+            text-decoration: none;
+            background: #b90a0a;
+            color: #fff;
         }
 
-        input[type="radio"] {
-            margin-right: 10px;
-            cursor: pointer;
-        }
-
-        .button-container {
+        /* BOTÃO DE REINICIAR */
+        #restartBtn {
             margin-top: 20px;
-        }
-
-        button {
-            background-color: #13547a;
+            padding: 10px 20px;
+            background: #4c93ba;
             color: #fff;
             border: none;
-            padding: 12px 24px;
             border-radius: 5px;
             cursor: pointer;
-            font-size: 16px;
-            transition: background-color 0.3s ease;
-        }
-
-        button:hover {
-            background-color: #0a2d55;
-        }
-
-        #resultTitle {
-            color: #13547a;
-            margin-top: 20px;
-            font-size: 22px;
-            font-weight: bold;
-        }
-
-        #resultText {
-            color: #555;
             font-size: 18px;
-            margin-top: 10px;
+            transition: background 0.3s;
+            /* Adiciona transição */
         }
 
-        .hidden {
-            display: none;
+        #restartBtn:hover {
+            background: #357aab;
+            /* Alterado para um tom mais escuro ao passar o mouse */
+        }
+
+        /* Estilos para dispositivos móveis */
+        @media (max-width: 767px) {
+            #quizQn {
+                font-size: 18px;
+                padding: 15px;
+            }
+
+            #quizAns {
+                grid-template-columns: 1fr;
+                /* Uma coluna em telas menores */
+            }
+
+            #quizAns label {
+                font-size: 16px;
+                /* Ajustado para melhor ajuste */
+                padding: 15px;
+            }
+
+            .widget-wrap {
+                padding: 15px;
+            }
+        }
+
+        /* Estilos para dispositivos maiores (tablets e desktops) */
+        @media (min-width: 768px) {
+            #quizQn {
+                font-size: 24px;
+                padding: 20px;
+            }
+
+            #quizAns {
+                grid-template-columns: 1fr 1fr;
+                /* Duas colunas em telas maiores */
+            }
+
+            #quizAns label {
+                font-size: 20px;
+                padding: 15px;
+            }
+
+            .widget-wrap {
+                padding: 20px;
+            }
         }
     </style>
 </head>
 
 <body>
-<<<<<<< HEAD
-    <!-- Este arquivo HTML cria um quiz dinâmico de personalidade que exibe perguntas e, ao final, apresenta um resultado com base nas respostas do usuário, incluindo um GIF relaxante como parte da apresentação do resultado. -->
+    <div class="widget-wrap">
+        <h1>RoubQuiz</h1>
 
-    <!-- este link tem giff de facil acesso e uso -->
-    <!-- https://tenor.com/pt-BR/view/chill-relax-peace-yoga-positive-gif-9312942009826875346 -->
-=======
->>>>>>> 7743cbbce92a908d46b018080dc59613cc880e70
-    <div class="container">
-        <h1>Quiz de Personalidade</h1>
+        <!-- (A) QUIZ CONTAINER -->
+        <div id="quizWrap"></div>
 
-        <div id="quizContainer">
-            <!-- Pergunta 1 -->
-            <div class="question" id="question1">
-                <h3>1. Como você lida com projetos complexos no trabalho?</h3>
-                <label><input type="radio" name="question1" value="analista"> Planejo meticulosamente e busco entender todos os detalhes. (Analista)</label>
-                <label><input type="radio" name="question1" value="diplomata"> Busco uma abordagem colaborativa e foco na harmonia do grupo. (Diplomata)</label>
-                <label><input type="radio" name="question1" value="explorador"> Adoro experimentar novas abordagens e sou flexível diante dos desafios. (Explorador)</label>
-                <label><input type="radio" name="question1" value="sentinela"> Prefiro seguir procedimentos estabelecidos e garantir que tudo esteja em ordem. (Sentinela)</label>
-                <div class="button-container">
-                    <button onclick="nextQuestion(1)">Próxima</button>
-                </div>
-            </div>
+        <!-- RESTART BUTTON -->
+        <button id="restartBtn" style="display: none;" onclick="quiz.reset()">Restart Quiz</button>
 
-            <!-- Pergunta 2 -->
-            <div class="question hidden" id="question2">
-                <h3>2. Qual é a sua abordagem ao resolver conflitos?</h3>
-                <label><input type="radio" name="question2" value="analista"> Analiso a situação de forma lógica e busco uma solução objetiva. (Analista)</label>
-                <label><input type="radio" name="question2" value="diplomata"> Tento entender as necessidades de todas as partes e encontrar um compromisso. (Diplomata)</label>
-                <label><input type="radio" name="question2" value="explorador"> Sou aberto a várias soluções e busco uma abordagem criativa para resolver o conflito. (Explorador)</label>
-                <label><input type="radio" name="question2" value="sentinela"> Prefiro seguir regras e procedimentos para garantir uma solução estruturada. (Sentinela)</label>
-                <div class="button-container">
-                    <button onclick="nextQuestion(2)">Próxima</button>
-                </div>
-            </div>
-
-            <!-- Pergunta 3 -->
-            <div class="question hidden" id="question3">
-                <h3>3. Como você prefere passar o seu tempo livre?</h3>
-                <label><input type="radio" name="question3" value="analista"> Trabalhando em projetos de interesse pessoal ou estudando novos tópicos. (Analista)</label>
-                <label><input type="radio" name="question3" value="diplomata"> Socializando com amigos e participando de atividades em grupo. (Diplomata)</label>
-                <label><input type="radio" name="question3" value="explorador"> Explorando novos lugares e buscando aventuras emocionantes. (Explorador)</label>
-                <label><input type="radio" name="question3" value="sentinela"> Organizando e estruturando atividades ou cuidando de tarefas práticas. (Sentinela)</label>
-                <div class="button-container">
-                    <button onclick="nextQuestion(3)">Próxima</button>
-                </div>
-            </div>
-
-            <!-- Pergunta 4 -->
-            <div class="question hidden" id="question4">
-                <h3>4. Como você reage a mudanças inesperadas?</h3>
-                <label><input type="radio" name="question4" value="analista"> Analiso as mudanças de forma lógica e ajusto meu planejamento conforme necessário. (Analista)</label>
-                <label><input type="radio" name="question4" value="diplomata"> Procuro adaptar-me de forma positiva e manter um bom relacionamento com os outros. (Diplomata)</label>
-                <label><input type="radio" name="question4" value="explorador"> Aceito as mudanças com entusiasmo e vejo-as como uma oportunidade para novas experiências. (Explorador)</label>
-                <label><input type="radio" name="question4" value="sentinela"> Adapto-me às mudanças seguindo procedimentos e tentando manter a ordem. (Sentinela)</label>
-                <div class="button-container">
-                    <button onclick="nextQuestion(4)">Próxima</button>
-                </div>
-            </div>
-
-            <!-- Pergunta 5 -->
-            <div class="question hidden" id="question5">
-                <h3>5. Qual é a sua abordagem ao tomar decisões importantes?</h3>
-                <label><input type="radio" name="question5" value="analista"> Recolho todas as informações possíveis e faço uma análise detalhada. (Analista)</label>
-                <label><input type="radio" name="question5" value="diplomata"> Considero como minha decisão afetará os outros e busco um consenso. (Diplomata)</label>
-                <label><input type="radio" name="question5" value="explorador"> Tomo decisões baseadas em minha intuição e nas oportunidades que vejo. (Explorador)</label>
-                <label><input type="radio" name="question5" value="sentinela"> Sigo regras e precedentes estabelecidos para tomar a decisão. (Sentinela)</label>
-                <div class="button-container">
-                    <button onclick="nextQuestion(5)">Próxima</button>
-                </div>
-            </div>
-
-            <!-- Pergunta 6 -->
-            <div class="question hidden" id="question6">
-                <h3>6. Como você lida com a pressão?</h3>
-                <label><input type="radio" name="question6" value="analista"> Mantenho a calma e utilizo métodos lógicos para gerenciar a pressão. (Analista)</label>
-                <label><input type="radio" name="question6" value="diplomata"> Busco apoio e incentivo dos outros e tento manter uma atitude positiva. (Diplomata)</label>
-                <label><input type="radio" name="question6" value="explorador"> Encaro a pressão como um desafio e procuro soluções criativas para lidar com ela. (Explorador)</label>
-                <label><input type="radio" name="question6" value="sentinela"> Sigo procedimentos estabelecidos e busco manter a organização em meio à pressão. (Sentinela)</label>
-                <div class="button-container">
-                    <button onclick="showResult()">Ver Resultado</button>
-                </div>
-            </div>
-
-            <!-- Resultado -->
-            <div id="result" class="hidden">
-                <h2 id="resultTitle">Seu Tipo de Personalidade</h2>
-                <p id="resultText"></p>
-            </div>
-        </div>
     </div>
 
     <script>
-        let currentQuestion = 1;
+        // Perguntas e alternativas que levara a uma personalidade a qual sera recomendado o hobby que se adequa com o tipo de personalidade do usuario
 
-        function nextQuestion(questionNumber) {
-            const currentDiv = document.getElementById(`question${questionNumber}`);
-            const nextDiv = document.getElementById(`question${questionNumber + 1}`);
-            if (nextDiv) {
-                currentDiv.classList.add('hidden');
-                nextDiv.classList.remove('hidden');
+        var quiz = {
+            data: [
+                {
+                    q: "1.Qual o seu papel na sua equipe ou grupo de amigos?",
+                    o: ["Faço minhas obrigações com antecedência e gosto de planejar as coisas.", "Sou conselheiro, estou sempre aí para conversar e ajudar a manter um clima bom.", "Sou aquele que coloca a mão na massa, tomo atitudes para cumprir os processos.", "Penso fora da caixinha, me adapto bem às circunstâncias facilmente e agilizo os processos."]
+                },
+                {
+                    q: "2.Quando você tem que tomar decisões, como você reage?",
+                    o: ["Planejo e sigo um plano se fizer sentido na minha mente, não necessariamente preciso de um método ou muitas opiniões", "Busco inspiração e penso em como todos os envolvidos vão se sentir", "Mantenho a estabilidade e sigo com o que organizei", "Ajo naturalmente e deixo as coisas fluir"]
+                },
+                {
+                    q: "3.Como você prefere resolver problemas?",
+                    o: ["Analisando o ambiente e suas informações e criando estratégias", "Buscando soluções criativas e colaborativas", "Sigo meus princípios, normas e processos à risca", "Penso em diferentes formas de resolução para o problema"]
+                },
+                {
+                    q: "4.Em uma viagem você prefere",
+                    o: ["Procurar lugares do meu interesse", "Ir à lugares diferentes e agradar todo mundo na escolha", "Seguir minha programação à risca, evitando contratempos", "Deixo a vida me levar, qualquer lugar que eu chegar é uma nova experiência"]
+                },
+                {
+                    q: "5.Você está entediado e procura algumas atividades para ocuparem seu tempo. Quais você escolhe?",
+                    o: ["Pintura, jogos de tabuleiro ou escrita", "Meditação, yoga ou fotografia", "Jardinagem, culinária ou caminhada", "Skate, dança ou saio para correr"]
+                },
+                {
+                    q: "6.Em uma festa, como você se comporta?",
+                    o: ["Prefiro ficar no meu canto observando as pessoas", "Tento deixar todo mundo unido e fico próximo de quem já conheço", "Procuro lugares mais calmos", "Danço até não poder mais e converso até com as paredes"]
+                },
+                {
+                    q: "7.No seu grupo de amigos ou colegas você desempenha o \"papel\" de",
+                    o: ["Pessoa das ideias criativas e idealizador de soluções e trabalhos", "Conselheiro(a) e resolvedor(a) de problemas", "Planejador de encontros e atividades mais elaboradas, aquele que faz as coisas acontecerem", "Aquele que topa tudo e anima o clima"]
+                },
+                {
+                    q: "8.Qual é sua visão sobre regras e tradições?",
+                    o: ["Questiono as regras, mas as sigo se fizerem sentido lógico", "Tento seguir as regras, mas sou flexível para manter a harmonia", "Valorizo muito as regras e tradições estabelecidas", "Prefiro quebrar as regras e buscar novas experiências"]
+                },
+                {
+                    q: "9.Quando você inicia um novo projeto ou hobby, como você aborda isso?",
+                    o: ["Pesquiso profundamente antes de começar", "Busco a opinião de outros e procuro trabalhar em conjunto", "Sigo um plano bem definido para alcançar resultados eficientes", "Gosto de começar logo e aprender ao longo do caminho"]
+                },
+                {
+                    q: "10.Como você lida com a incerteza em projetos ou situações novas?",
+                    o: ["Prefiro analisar todas as variáveis antes de tomar qualquer decisão", "Tento manter a calma e busco compreender como a incerteza pode afetar os envolvidos", "Procuro seguir processos e métodos para lidar com a incerteza", "Me adapto e faço mudanças conforme necessário"]
+                },
+            ],
+            // propriedades e variáveis que ajudam a controlar e gerenciar o estado do quiz e a interação do usuário com as perguntas e respostas.
+            hWrap: null,
+            hQn: null,
+            hAns: null,
+            now: 0,
+            score: 0,
+
+            //Inicializar o quiz criando e anexando os elementos HTML necessários para mostrar a pergunta e as opções de resposta.
+            init: () => {
+                quiz.hWrap = document.getElementById("quizWrap");
+                quiz.hQn = document.createElement("div");
+                quiz.hQn.id = "quizQn";
+                quiz.hWrap.appendChild(quiz.hQn);
+                quiz.hAns = document.createElement("div");
+                quiz.hAns.id = "quizAns";
+                quiz.hWrap.appendChild(quiz.hAns);
+                quiz.draw();
+            },
+
+            //Exibir a pergunta e as opções de resposta para a pergunta atual. Cria inputs de tipo radio e labels para cada opção e adiciona eventos de clique para selecionar a resposta.
+            draw: () => {
+                quiz.hQn.innerHTML = quiz.data[quiz.now].q;
+                quiz.hAns.innerHTML = "";
+                for (let i in quiz.data[quiz.now].o) {
+                    let radio = document.createElement("input");
+                    radio.type = "radio";
+                    radio.name = "quiz";
+                    radio.id = "quizo" + i;
+                    quiz.hAns.appendChild(radio);
+                    let label = document.createElement("label");
+                    label.innerHTML = quiz.data[quiz.now].o[i];
+                    label.setAttribute("for", "quizo" + i);
+                    label.dataset.idx = i;
+                    label.addEventListener("click", () => { quiz.select(label); });
+                    quiz.hAns.appendChild(label);
+                }
+            },
+
+            //Verificar se a resposta selecionada está correta. Atualiza a pontuação e destaca a resposta correta. Depois de um breve atraso, avança para a próxima pergunta ou mostra o resultado final se todas as perguntas foram respondidas.
+            select: (option) => {
+                let all = quiz.hAns.getElementsByTagName("label");
+                for (let label of all) {
+                    label.removeEventListener("click", quiz.select);
+                }
+                let correct = option.dataset.idx == quiz.data[quiz.now].a;
+                if (correct) {
+                    quiz.score++;
+                    option.classList.add("correct");
+                } else {
+                    option.classList.add("wrong");
+                    // Destaque a resposta correta
+                    all[quiz.data[quiz.now].a].classList.add("correct");
+                }
+                quiz.now++;
+                setTimeout(() => {
+                    if (quiz.now < quiz.data.length) { quiz.draw(); }
+                    else {
+                        quiz.hQn.innerHTML = `Você respondeu ${quiz.score} de ${quiz.data.length} corretamente.`;
+                        quiz.hAns.innerHTML = "";
+                        document.getElementById("restartBtn").style.display = "block";
+                    }
+                }, 1000);
+            },
+
+            //Reiniciar o quiz, definindo o índice da pergunta atual e a pontuação para zero, e ocultar o botão de reinício.
+            reset: () => {
+                quiz.now = 0;
+                quiz.score = 0;
+                document.getElementById("restartBtn").style.display = "none";
+                quiz.draw();
             }
-        }
+        };
 
-        function showResult() {
-            const answers = document.querySelectorAll('input[type="radio"]:checked');
-            const counts = {
-                analista: 0,
-                diplomata: 0,
-                explorador: 0,
-                sentinela: 0
-            };
-
-            answers.forEach(answer => {
-                counts[answer.value]++;
-            });
-
-            const maxCount = Math.max(counts.analista, counts.diplomata, counts.explorador, counts.sentinela);
-            let resultType = 'analista';
-
-            if (counts.diplomata === maxCount) resultType = 'diplomata';
-            if (counts.explorador === maxCount) resultType = 'explorador';
-            if (counts.sentinela === maxCount) resultType = 'sentinela';
-
-            const resultTitle = document.getElementById('resultTitle');
-            const resultText = document.getElementById('resultText');
-
-            resultTitle.textContent = `Você é um ${capitalize(resultType)}!`;
-            resultText.textContent = getResultDescription(resultType);
-
-            document.getElementById('quizContainer').classList.add('hidden');
-            document.getElementById('result').classList.remove('hidden');
-        }
-
-        function capitalize(str) {
-            return str.charAt(0).toUpperCase() + str.slice(1);
-        }
-
-        function getResultDescription(type) {
-            switch (type) {
-                case 'analista':
-                    return 'Você é um Analista, focado em lógica e detalhes. Você adora resolver problemas complexos e encontrar soluções eficientes.';
-                case 'diplomata':
-                    return 'Você é um Diplomata, valorizando a harmonia e o entendimento entre as pessoas. Você é ótimo em colaborar e encontrar compromissos.';
-                case 'explorador':
-                    return 'Você é um Explorador, buscando novas experiências e abordagens criativas. Você adora se aventurar e enfrentar desafios com entusiasmo.';
-                case 'sentinela':
-                    return 'Você é um Sentinela, preferindo estrutura e ordem. Você é confiável e trabalha bem seguindo procedimentos estabelecidos.';
-                default:
-                    return '';
-            }
-        }
+        //Quando a página é carregada, o método init é chamado para configurar e iniciar o quiz.
+        window.addEventListener("load", quiz.init);
     </script>
 </body>
 

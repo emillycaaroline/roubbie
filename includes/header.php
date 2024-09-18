@@ -184,20 +184,13 @@
                 <a class="navbar-brand" href="index.php">
                     <img src="img/logo-ft.png" alt="Logo do Roubbie">
                 </a>
-                <!-- botao do menu -->
                 <button id="menuButton" aria-label="Abrir menu de configurações" class="navbar-toggler" type="button">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                        <path d="M2 6h20v3H2V6Z" fill="currentColor"></path>
-                        <path d="M2 15h20v3H2v-3Z" fill="currentColor"></path>
-                    </svg>
-                    <!-- ao clicar no botao vai abrir a aba -->
-                     <!-- Aba de Configurações -->
-                <div class="menu-config" id="menuConfig">
-                    <button class="close-btn" id="closeMenu">&times;</button>
-                    <a href="#">Sobre</a>
-                    <a href="#">Quiz</a>
-                </div>
-                </button>
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+        <path d="M2 6h20v3H2V6Z" fill="currentColor"></path>
+        <path d="M2 15h20v3H2v-3Z" fill="currentColor"></path>
+    </svg>
+</button>
+
                 
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-lg-5 me-lg-auto">
@@ -265,6 +258,21 @@
                 menuConfig.classList.remove("show");
             });
         });
+        
+        document.addEventListener("DOMContentLoaded", function() {
+    const menuButton = document.getElementById("menuButton");
+    const menuConfig = document.getElementById("menuConfig");
+    const closeMenu = document.getElementById("closeMenu");
+
+    menuButton.addEventListener("click", function() {
+        menuConfig.classList.toggle("show");
+    });
+
+    closeMenu.addEventListener("click", function() {
+        menuConfig.classList.remove("show");
+    });
+});
+
     </script>
 </body>
 
