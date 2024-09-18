@@ -139,6 +139,17 @@
                 <a class="navbar-brand" href="index.php">
                     <img src="img/logo-ft.png" alt="Logo do Roubbie">
                 </a>
+<<<<<<< HEAD
+                <button id="menuButton" aria-label="Abrir menu de configurações" class="navbar-toggler" type="button">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+        <path d="M2 6h20v3H2V6Z" fill="currentColor"></path>
+        <path d="M2 15h20v3H2v-3Z" fill="currentColor"></path>
+    </svg>
+</button>
+
+                
+=======
+>>>>>>> 7cc96e237b270413b5b8c8df47a57abb5fc72ba7
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-lg-5 me-lg-auto">
                         <li class="nav-item">
@@ -199,9 +210,42 @@
     <!-- JAVASCRIPT FILES -->
     <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.bundle.min.js"></script>
+<<<<<<< HEAD
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const menuButton = document.getElementById("menuButton");
+            const menuConfig = document.getElementById("menuConfig");
+            const closeMenu = document.getElementById("closeMenu");
+
+            menuButton.addEventListener("click", function() {
+                menuConfig.classList.toggle("show");
+            });
+
+            closeMenu.addEventListener("click", function() {
+                menuConfig.classList.remove("show");
+            });
+        });
+        
+        document.addEventListener("DOMContentLoaded", function() {
+    const menuButton = document.getElementById("menuButton");
+    const menuConfig = document.getElementById("menuConfig");
+    const closeMenu = document.getElementById("closeMenu");
+
+    menuButton.addEventListener("click", function() {
+        menuConfig.classList.toggle("show");
+    });
+
+    closeMenu.addEventListener("click", function() {
+        menuConfig.classList.remove("show");
+    });
+});
+
+    </script>
+=======
     <script src="js/jquery.sticky.js"></script>
     <script src="js/click-scroll.js"></script>
     <script src="js/custom.js"></script>
+>>>>>>> 7cc96e237b270413b5b8c8df47a57abb5fc72ba7
 </body>
 
 </html>
