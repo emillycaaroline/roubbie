@@ -177,6 +177,7 @@
                             <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarUserDropdownMenuLink">
                                 <li><a class="dropdown-item" href="http://localhost/roubbie/login-register/login.php">Login</a></li>
                                 <li><a class="dropdown-item" href="http://localhost/roubbie/login-register/cadastro.html">Cadastro</a></li>
+                                <li><a href="/login-register/logout.php">Sair</a></li>
                             </ul>
                         </li>
                     </ul>
