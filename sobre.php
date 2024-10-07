@@ -25,9 +25,11 @@
 
     <!-- CUSTOM STYLES -->
     <style>
+        main{
+            margin-top: 60px;
+        }
         body {
             background-image: url('images/colleagues-working-cozy-office-medium-shot.jpg');
-            /* Verifique o caminho para a imagem de fundo */
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -41,8 +43,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.2);
-            /* Overlay preto com 20% de opacidade */
+            background: rgba(0, 0, 0, 0.4);
             z-index: -1;
         }
 
@@ -90,11 +91,9 @@
 </head>
 
 <body id="top">
-<!doctype html>
-<!-- Adiciona o header -->
-        <?php include 'includes/header.php'; ?>
+    <!-- Adiciona o header -->
+    <?php include 'includes/header.php'; ?>
 
-   
     <!-- Campos para Artigos -->
     <main>
         <section class="timeline-section section-padding" id="section_3">
@@ -113,46 +112,34 @@
                                 <li>
                                     <h4 class="text-white mb-3">Quem Somos?</h4>
                                     <p class="text-white">
-                                        O Roubbie vai além de um aplicativo comum; é uma proposta para revolucionar a abordagem da saúde mental. Acreditamos que os hobbies, frequentemente negligenciados, são essenciais para promover um equilíbrio saudável entre lazer e trabalho. Nosso objetivo é ajudar você a viver de forma mais organizada e plena, integrando hobbies significativos na sua rotina.
-                                        O Roubbie vai além de um aplicativo comum; é uma proposta para revolucionar a
-                                        abordagem da saúde mental. Acreditamos que os hobbies, frequentemente
-                                        negligenciados, são essenciais para promover um equilíbrio saudável entre lazer e
-                                        trabalho. Nosso objetivo é ajudar você a viver de forma mais organizada e plena,
-                                        integrando hobbies significativos na sua rotina.
+                                        No Roubbie, acreditamos que o bem-estar mental é tão importante quanto a saúde física. Por isso, desenvolvemos um aplicativo que transforma a maneira como você se conecta com seus hobbies. Nossa missão é ajudar você a redescobrir e integrar atividades significativas no seu dia a dia, promovendo uma vida mais equilibrada e satisfatória.
                                     </p>
                                     <div class="icon-holder">
                                         <i class="bi-search"></i>
                                     </div>
                                 </li>
                                 <li>
-                                    <h4 class="text-white mb-3">Motivação</h4>
+                                    <h4 class="text-white mb-3">Por Que o Roubbie?</h4>
                                     <p class="text-white">
-                                        A falta de hobbies pode levar a sentimentos de tédio, apatia e desânimo, agravando problemas de saúde mental como ansiedade e depressão. Muitos jovens enfrentam dificuldades em encontrar um hobby que combine lazer e desenvolvimento pessoal. O Roubbie está aqui para preencher essa lacuna, ajudando você a descobrir e integrar novos interesses na sua vida diária.
-                                        A falta de hobbies pode levar a sentimentos de tédio, apatia e desânimo,
-                                        agravando problemas de saúde mental como ansiedade e depressão. Muitos jovens
-                                        enfrentam dificuldades em encontrar um hobby que combine lazer e desenvolvimento
-                                        pessoal. O Roubbie está aqui para preencher essa lacuna, ajudando você a
-                                        descobrir e integrar novos interesses na sua vida diária.
+                                        Em um mundo onde o estresse e a falta de tempo são comuns, muitos sentem-se sobrecarregados e desconectados de suas paixões. O Roubbie surge como uma solução para essa realidade, oferecendo ferramentas que não apenas incentivam a prática de hobbies, mas também melhoram a saúde mental e emocional. Vamos ajudá-lo a encontrar o prazer nas pequenas coisas e a se reconectar com o que realmente importa.
                                     </p>
                                     <div class="icon-holder">
                                         <i class="bi-bookmark"></i>
                                     </div>
                                 </li>
                                 <li>
-                                    <h4 class="text-white mb-3">O Desafio</h4>
+                                    <h4 class="text-white mb-3">Como Funciona?</h4>
                                     <p class="text-white">
-                                        O Roubbie oferece uma plataforma interativa e dinâmica, repleta de hobbies variados para explorar, desafios envolventes e recursos para acompanhar seu progresso. É a sua chance de criar um equilíbrio saudável entre lazer e organização, promovendo uma vida mais satisfatória e equilibrada.
+                                        O Roubbie é uma plataforma interativa, repleta de recursos que tornam a descoberta de novos hobbies divertida e acessível. Desde desafios personalizados até sugestões de atividades que se adaptam ao seu estilo de vida, estamos aqui para guiá-lo em sua jornada de autodescoberta e crescimento pessoal.
                                     </p>
                                     <div class="icon-holder">
                                         <i class="bi-card-checklist"></i>
                                     </div>
                                 </li>
                                 <li>
-                                    <h4 class="text-white mb-3">O Que Você Vai Encontrar no Roubbie?</h4>
+                                    <h4 class="text-white mb-3">O Que Você Vai Encontrar?</h4>
                                     <p class="text-white">
-                                        Oferecemos uma plataforma interativa e dinâmica com uma variedade de hobbies
-                                        para explorar, desafios para engajar e recursos para acompanhar seu progresso. É
-                                        a sua oportunidade de criar um equilíbrio saudável entre lazer e organização.
+                                        Explore uma diversidade de hobbies, participe de desafios empolgantes e utilize ferramentas práticas para acompanhar seu progresso. O Roubbie oferece uma experiência única que combina lazer e organização, ajudando você a criar um equilíbrio saudável entre suas responsabilidades e suas paixões.
                                     </p>
                                     <div class="icon-holder">
                                         <i class="bi-award"></i>
@@ -161,16 +148,12 @@
                                 <li>
                                     <h4 class="text-white mb-3">Conexão e Qualidade de Vida</h4>
                                     <p class="text-white">
-                                        O Roubbie é sobre conexão, qualidade de vida e organização. Nosso objetivo é melhorar a saúde mental dos nossos
-                                        usuários e ajudar a fortalecer relações sociais, alcançando um equilíbrio real entre trabalho e lazer.
-                                        Encontre equilíbrio entre organização e lazer com o Roubbie. Conecte-se, melhore sua qualidade de vida
-                                        e fortaleça suas relações sociais com um app que coloca a saúde mental em primeiro lugar.
+                                        Mais do que um aplicativo, o Roubbie é uma comunidade que promove a conexão entre pessoas que buscam melhorar sua qualidade de vida. Juntos, podemos transformar a rotina, priorizando o que realmente traz felicidade e satisfação. Venha fazer parte do Roubbie e descubra o poder de um hobby bem praticado!
                                     </p>
                                     <div class="icon-holder">
                                         <i class="bi-award"></i>
                                     </div>
                                 </li>
-
                             </ul>
                         </div>
                     </div>

@@ -1,96 +1,113 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Roubbie - Encontre equilíbrio entre organização e lazer.">
-    <meta name="author" content="Equipe Roubbie">
-    <meta name="keywords" content="Roubbie, organização, lazer, bem-estar">
-    <title>Início - Roubbie</title>
-
-    <!-- CSS FILES -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Open+Sans&display=swap"
-        rel="stylesheet">
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/bootstrap-icons.css" rel="stylesheet">
-    <link href="css/templatemo-topic-listing.css" rel="stylesheet">
-
-    <!-- CUSTOM STYLES -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Onboarding com Intro.js</title>
+    <link href="https://cdn.jsdelivr.net/npm/intro.js/minified/introjs.min.css" rel="stylesheet">
     <style>
+        /* Estilos gerais */
         body {
-            background: white;
-            color: black;
-            transition: background-color 0.3s, color 0.3s;
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f4f8;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #333;
         }
 
-        .dark-mode {
-            background-color: #121212;
-            color: #e0e0e0;
+        /* Estilo do botão de iniciar onboarding */
+        button {
+            padding: 15px 30px;
+            font-size: 18px;
+            font-weight: bold;
+            background-color: #13547a;
+            border: none;
+            border-radius: 8px;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
         }
 
-        .dark-mode .navbar {
-            background-color: #333;
+        button:hover {
+            background-color: #0e3e5a;
         }
 
-        .dark-mode .nav-link {
-            color: #e0e0e0 !important;
+        /* Estilo das seções de funcionalidades */
+        #feature1, #feature2, #feature3 {
+            background-color: #fff;
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 600px;
+            text-align: center;
+            font-size: 18px;
         }
 
-        .dark-mode .btn-primary {
-            background-color: #555;
-            border-color: #666;
+        /* Para tornar o design responsivo */
+        @media (max-width: 768px) {
+            button {
+                font-size: 16px;
+                padding: 12px 25px;
+            }
+
+            #feature1, #feature2, #feature3 {
+                font-size: 16px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            button {
+                font-size: 14px;
+                padding: 10px 20px;
+            }
+
+            #feature1, #feature2, #feature3 {
+                font-size: 14px;
+            }
         }
     </style>
 </head>
+<body>
 
-<body id="top">
-    <!-- Header -->
-    <header>
-        <nav style="background: linear-gradient(to right, #13547a, #80d0c7);"
-            class="navbar navbar-expand-lg navbar-light bg-light">
-            <div class="container">
-                <a class="navbar-brand" href="index.php">
-                    <img src="img/logo-ft.png" alt="Logo do Roubbie">
-                </a>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav ms-lg-5 me-lg-auto">
-                        <!-- Menu items here -->
-                    </ul>
+<!-- Botão para iniciar o onboarding -->
+<button id="startOnboarding">Iniciar Onboarding</button>
 
-                    <!-- Theme Toggle -->
-                    <button id="theme-toggle" class="btn btn-primary">Modo Escuro</button>
-                </div>
-            </div>
-        </nav>
-    </header>
+<!-- Divs que destacam as funcionalidades -->
+<div id="feature1">Funcionalidade 1: Adicionar Evento</div>
+<div id="feature2">Funcionalidade 2: Personalizar com Cores</div>
+<div id="feature3">Funcionalidade 3: Explore Novos Hobbies</div>
 
-    <!-- Mobile Menu -->
-    <div class="mobile-nav d-lg-none">
-        <ul>
-            <!-- Mobile menu items here -->
-        </ul>
-    </div>
+<!-- Importando o script do Intro.js -->
+<script src="https://cdn.jsdelivr.net/npm/intro.js/minified/intro.min.js"></script>
+<script>
+    document.getElementById('startOnboarding').addEventListener('click', function() {
+        introJs().setOptions({
+            steps: [
+                { 
+                    intro: "Bem-vindo ao Roubbie! Vamos mostrar as principais funcionalidades." 
+                },
+                { 
+                    element: document.querySelector('#feature1'),
+                    intro: "Aqui você pode adicionar um evento à sua agenda." 
+                },
+                { 
+                    element: document.querySelector('#feature2'),
+                    intro: "Personalize seus eventos com diferentes cores." 
+                },
+                { 
+                    element: document.querySelector('#feature3'),
+                    intro: "Explore novos hobbies e desafios!" 
+                }
+            ]
+        }).start();
+    });
+</script>
 
-    <!-- JAVASCRIPT FILES -->
-    <script src="js/jquery.min.js"></script>
-    <script src="js/bootstrap.bundle.min.js"></script>
-    <script src="js/jquery.sticky.js"></script>
-    <script src="js/click-scroll.js"></script>
-    <script src="js/custom.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const themeToggleButton = document.getElementById('theme-toggle');
-
-            themeToggleButton.addEventListener('click', () => {
-                document.body.classList.toggle('dark-mode');
-                const isDarkMode = document.body.classList.contains('dark-mode');
-                themeToggleButton.textContent = isDarkMode ? 'Modo Claro' : 'Modo Escuro';
-            });
-        });
-    </script>
 </body>
-
 </html>
