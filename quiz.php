@@ -6,261 +6,140 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RoubQuiz</title>
     <style>
-        /* (A) CONTÊINER DO QUIZ */
-        #quizWrap {
-            max-width: 100%;
-            margin: 0 auto;
-            padding: 0 10px;
-        }
+/* (A) CONTÊINER DO QUIZ */
+#quizWrap {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0 20px; /* Aumentado para um melhor espaçamento em telas pequenas */
+}
 
-        /* (B) PERGUNTA */
-        #quizQn {
-            padding: 15px;
-            color: #fff;
-            font-size: 20px;
-            border-radius: 10px;
-            background: #4c93ba;
-        }
+/* (B) PERGUNTA */
+#quizQn {
+    padding: 20px; /* Aumentado para mais espaço */
+    color: #fff;
+    font-size: 24px; /* Aumentado para melhor legibilidade */
+    border-radius: 12px; /* Bordas mais suaves */
+    background: linear-gradient(135deg, #4c93ba 0%, #3a7a9e 100%); /* Gradiente para um visual mais dinâmico */
+}
 
-        /* (C) RESPOSTAS */
-        #quizAns {
-            margin: 10px 0;
-            display: grid;
-            grid-template-columns: 1fr;
-            grid-gap: 15px;
-        }
+/* (C) RESPOSTAS */
+#quizAns {
+    margin: 15px 0; /* Aumentado para maior espaçamento entre as opções */
+    display: grid;
+    grid-template-columns: 1fr; /* Mantém em coluna única por padrão */
+    grid-gap: 15px;
+}
 
-        #quizAns input[type=radio] {
-            display: none;
-        }
+#quizAns input[type=radio] {
+    display: none; /* Esconde os botões de rádio */
+}
 
-        #quizAns label {
-            background: #f9f9f9;
-            border: 1px solid #ddd;
-            border-radius: 10px;
-            padding: 15px;
-            font-size: 18px;
-            cursor: pointer;
-            text-align: center;
-            transition: background 0.3s, transform 0.2s;
-        }
+#quizAns label {
+    background: #f9f9f9;
+    border: 2px solid #ddd; /* Aumentado para um contraste mais forte */
+    border-radius: 12px; /* Bordas mais suaves */
+    padding: 15px;
+    font-size: 20px; /* Aumentado para melhor legibilidade */
+    cursor: pointer;
+    text-align: center;
+    transition: background 0.3s, transform 0.2s, border 0.2s; /* Transição para bordas */
+}
 
-        #quizAns label.correct {
-            background: #d8ffc4;
-            border: 1px solid #60a03f;
-        }
+#quizAns label.correct {
+    background: #d8ffc4;
+    border: 2px solid #60a03f; /* Aumentado para um contraste mais forte */
+}
 
-        #quizAns label.wrong {
-            background: #ffe8e8;
-            border: 1px solid #c78181;
-        }
+#quizAns label.wrong {
+    background: #ffe8e8;
+    border: 2px solid #c78181; /* Aumentado para um contraste mais forte */
+}
 
-        #quizAns label:hover {
-            transform: scale(1.05);
-        }
+#quizAns label:hover {
+    transform: scale(1.05);
+    border-color: #a0a0a0; /* Mudança de cor ao passar o mouse */
+}
 
-        /* PÁGINA & CORPO */
-        * {
-            font-family: Arial, sans-serif;
-            box-sizing: border-box;
-        }
+/* PÁGINA & CORPO */
+* {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Fonte mais moderna */
+    box-sizing: border-box;
+}
 
-        body {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-            background-color: #13547a;
-            background-repeat: no-repeat;
-            background-position: center;
-            background-size: cover;
-            text-align: center;
-        }
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    text-align: center;
+}
 
-        /* WIDGET */
-        .widget-wrap {
-            width: 100%;
-            max-width: 600px;
-            padding: 20px;
-            border-radius: 20px;
-            background-color: #80d0c7;
-        }
+/* WIDGET */
+.widget-wrap {
+    width: 100%;
+    max-width: 700px; /* Aumentado para mais espaço em dispositivos maiores */
+    padding: 30px; /* Aumentado para mais espaçamento interno */
+    border-radius: 20px;
+    background-color: rgba(255, 255, 255, 0.9); /* Fundo branco com leve transparência */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Sombra para dar profundidade */
+}
 
-        /* BOTÃO DE REINICIAR */
-        #restartBtn {
-            margin-top: 20px;
-            padding: 10px 20px;
-            background: #4c93ba;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 18px;
-            transition: background 0.3s;
-        }
+/* BOTÃO DE REINICIAR */
+#restartBtn {
+    margin-top: 20px;
+    padding: 12px 25px; /* Aumentado para maior área clicável */
+    background: #4c93ba;
+    color: #fff;
+    border: none;
+    border-radius: 8px; /* Bordas mais suaves */
+    cursor: pointer;
+    font-size: 20px; /* Aumentado para melhor legibilidade */
+    transition: background 0.3s, transform 0.2s; /* Adicionando transições */
+}
 
-        #restartBtn:hover {
-            background: #357aab;
-        }
+#restartBtn:hover {
+    background: #357aab;
+    transform: translateY(-2px); /* Leve elevação no hover */
+}
 
-        /* Estilos para dispositivos móveis */
-        @media (max-width: 767px) {
-            #quizQn {
-                font-size: 18px;
-                padding: 15px;
-            }
+/* Estilos para dispositivos móveis */
+@media (max-width: 767px) {
+    #quizQn {
+        font-size: 20px; /* Mantido maior para leitura em telas pequenas */
+    }
 
-            #quizAns {
-                grid-template-columns: 1fr;
-            }
+    #quizAns {
+        grid-template-columns: 1fr; /* Uma coluna por padrão */
+    }
 
-            #quizAns label {
-                font-size: 16px;
-                padding: 15px;
-            }
+    #quizAns label {
+        font-size: 18px; /* Mantido grande o suficiente */
+    }
 
-            .widget-wrap {
-                padding: 15px;
-            }
-        }
+    .widget-wrap {
+        padding: 20px; /* Menos espaço em dispositivos menores */
+    }
+}
 
-        /* Estilos para dispositivos maiores */
-        @media (min-width: 768px) {
-            #quizQn {
-                font-size: 24px;
-                padding: 20px;
-            }
+/* Estilos para dispositivos maiores */
+@media (min-width: 768px) {
+    #quizQn {
+        font-size: 26px; /* Aumentado para telas maiores */
+    }
 
-            #quizAns {
-                grid-template-columns: 1fr 1fr;
-            }
+    #quizAns {
+        grid-template-columns: repeat(2, 1fr); /* Duas colunas em telas maiores */
+    }
 
-            #quizAns label {
-                font-size: 20px;
-                padding: 15px;
-            }
+    #quizAns label {
+        font-size: 22px; /* Aumentado para leitura em telas maiores */
+    }
 
-            .widget-wrap {
-                padding: 20px;
-            }
-        }
+    .widget-wrap {
+        padding: 30px; /* Mais espaço em telas maiores */
+    }
+}
 
-        /* barra de progresso */
-        :root {
-            font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-            line-height: 1.5;
-            font-weight: 400;
-            font-synthesis: none;
-            text-rendering: optimizeLegibility;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-
-            --primary: hsl(270, 100%, 50%);
-            --white: #fff;
-            --black: #000;
-            --darker: color-mix(in oklab, var(--primary), var(--black, #000) 15%);
-            --lighter: color-mix(in oklab, var(--primary), var(--white, #fff) 20%);
-        }
-
-        :is(*, *::before, *::after) {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        .main-wrapper {
-            height: 100dvh;
-            display: grid;
-            place-items: center;
-        }
-
-        .steps-wrapper {
-            max-width: 400px;
-            width: 100%;
-
-            .steps {
-                width: 100%;
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
-                position: relative;
-
-                .step {
-                    width: 50px;
-                    height: 50px;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    border: 4px solid rgb(222, 222, 222);
-                    border-radius: 50%;
-                    color: rgb(135, 135, 135);
-                    background: rgb(255, 255, 255);
-                    font-size: 24px;
-                    font-weight: 600;
-                    transition: 200ms ease;
-                    transition-delay: 0ms;
-
-                    &.active {
-                        color: var(--primary);
-                        border-color: var(--primary);
-                        transition-delay: 100ms;
-                    }
-                }
-
-                .progress-bar {
-                    position: absolute;
-                    width: 100%;
-                    height: 4px;
-                    background: rgb(222, 222, 222);
-                    z-index: -1;
-
-                    .progress {
-                        position: absolute;
-                        height: 100%;
-                        background: var(--primary);
-                        transition: 300ms ease;
-                    }
-                }
-            }
-
-            .buttons {
-                margin-block-start: 50px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                gap: 15px;
-
-                .btn {
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    padding: 10px 15px;
-                    font-family: inherit;
-                    font-size: 1rem;
-                    font-weight: 600;
-                    border-radius: 6px;
-                    border: none;
-                    background: var(--primary);
-                    color: var(--white);
-                    cursor: pointer;
-                    transition: 200ms linear;
-
-                    &:active {
-                        transform: scale(0.9);
-                    }
-
-                    &:hover:not(&:disabled) {
-                        background: var(--darker);
-                    }
-
-                    &:disabled {
-                        cursor: not-allowed;
-                        background: var(--lighter);
-                        pointer-events: none;
-                    }
-                }
-            }
-        }
     </style>
 </head>
 
@@ -275,11 +154,12 @@
 
         <!-- RESTART BUTTON -->
         <button id="restartBtn" style="display: none;" onclick="quiz.reset()">Restart Quiz</button>
-    </div>
-    <?php
+        <?php
     // Inclui a barra de progresso
     include 'includes/barra_progresso.php';
     ?>
+    </div>
+  
     <script>
         // Definição do quiz com perguntas e alternativas
         var quiz = {
