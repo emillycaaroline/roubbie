@@ -1,128 +1,127 @@
 <style>
-:root {
-    font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
-        "Segoe UI Emoji", "Segoe UI Symbol";
-    line-height: 1.5;
-    font-weight: 400;
-    font-synthesis: none;
-    text-rendering: optimizeLegibility;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    --primary: hsl(270, 100%, 50%);
-    --white: #fff;
-    --black: #000;
-    --darker: color-mix(in oklab, var(--primary), var(--black, #000) 15%);
-    --lighter: color-mix(in oklab, var(--primary), var(--white, #fff) 20%);
-}
+    :root {
+        font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
+            "Segoe UI Emoji", "Segoe UI Symbol";
+        line-height: 1.5;
+        font-weight: 400;
+        font-synthesis: none;
+        text-rendering: optimizeLegibility;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        --primary: hsl(270, 100%, 50%);
+        --white: #fff;
+        --black: #000;
+        --darker: color-mix(in oklab, var(--primary), var(--black, #000) 15%);
+        --lighter: color-mix(in oklab, var(--primary), var(--white, #fff) 20%);
+    }
 
-*,
-*::before,
-*::after {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+    *,
+    *::before,
+    *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
 
-body {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    height: 100vh;
-    background-color: #f0f0f0;
-    padding: 20px;
-}
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        height: 100vh;
+        background-color: #f0f0f0;
+        padding: 20px;
+    }
 
-.main-wrapper {
-    width: 100%;
-    max-width: 500px;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    padding: 20px;
-    margin: auto;
-    margin: 20px 20px;
+    .main-wrapper {
+        width: 100%;
+        max-width: 500px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        padding: 20px;
+        margin: auto;
+        margin: 20px 20px;
 
-}
+    }
 
-.steps-wrapper {
-    width: 100%;
-}
+    .steps-wrapper {
+        width: 100%;
+    }
 
-.steps {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: relative;
-}
+    .steps {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: relative;
+    }
 
-.step {
-    width: 50px;
-    height: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 50%;
-    border: 4px solid #dedede;
-    background-color: #fff;
-    color: #878787;
-    font-size: 1.5rem;
-    font-weight: bold;
-    transition: 0.2s ease;
-    padding: 21px;
-    margin: 5px;
-}
+    .step {
+        width: 50px;
+        height: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        border: 4px solid #dedede;
+        background-color: #fff;
+        color: #878787;
+        font-size: 1.5rem;
+        font-weight: bold;
+        transition: 0.2s ease;
+        padding: 21px;
+        margin: 5px;
+    }
 
-.step.active {
-    border-color: var(--primary);
-    color: var(--primary);
-}
+    .step.active {
+        border-color: var(--primary);
+        color: var(--primary);
+    }
 
-.progress-bar {
-    position: absolute;
-    top: 50%;
-    left: 0;
-    width: 100%;
-    height: 4px;
-    background: #dedede;
-    z-index: -1;
-    transform: translateY(-50%);
-}
+    .progress-bar {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        width: 100%;
+        height: 4px;
+        background: #dedede;
+        z-index: -1;
+        transform: translateY(-50%);
+    }
 
-.progress {
-    height: 100%;
-    background-color: var(--primary);
-    transition: width 0.3s ease;
-}
+    .progress {
+        height: 100%;
+        background-color: var(--primary);
+        transition: width 0.3s ease;
+    }
 
-.buttons {
-    margin-top: 20px;
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-}
+    .buttons {
+        margin-top: 20px;
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+    }
 
-.btn {
-    padding: 10px 20px;
-    font-size: 1rem;
-    font-weight: bold;
-    background-color: var(--primary);
-    color: var(--white);
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.2s ease;
-}
+    .btn {
+        padding: 10px 20px;
+        font-size: 1rem;
+        font-weight: bold;
+        background-color: var(--primary);
+        color: var(--white);
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.2s ease;
+    }
 
-.btn:hover {
-    background-color: var(--darker);
-}
+    .btn:hover {
+        background-color: var(--darker);
+    }
 
-.btn:disabled {
-    background-color: var(--lighter);
-    cursor: not-allowed;
-}
-
+    .btn:disabled {
+        background-color: var(--lighter);
+        cursor: not-allowed;
+    }
 </style>
 
 <main class="main-wrapper">
@@ -148,7 +147,7 @@ body {
             <button class="btn btn-next" id="btn-next">Next</button>
         </div> -->
     </div>
-    
+
 </main>
 
 <script>

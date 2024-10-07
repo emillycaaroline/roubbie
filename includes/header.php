@@ -14,6 +14,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Open+Sans&display=swap" rel="stylesheet">
     <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
     <link href="css/bootstrap-icons.css" rel="stylesheet">
     <link href="css/templatemo-topic-listing.css" rel="stylesheet">
 
@@ -140,12 +142,12 @@
                     <img src="img/logo-ft.png" alt="Logo do Roubbie">
                 </a>
                 <button id="menuButton" aria-label="Abrir menu de configurações" class="navbar-toggler" type="button">
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-        <path d="M2 6h20v3H2V6Z" fill="currentColor"></path>
-        <path d="M2 15h20v3H2v-3Z" fill="currentColor"></path>
-    </svg>
-</button>
-                    <div class="collapse navbar-collapse" id="navbarNav">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                        <path d="M2 6h20v3H2V6Z" fill="currentColor"></path>
+                        <path d="M2 15h20v3H2v-3Z" fill="currentColor"></path>
+                    </svg>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-lg-5 me-lg-auto">
                         <li class="nav-item">
                             <a class="nav-link click" href="index.php">Home</a>
@@ -172,11 +174,14 @@
                     <ul class="nav-menu">
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle navbar-icon bi-person" style="border: none;" href="#" id="navbarUserDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Menu do usuário">
-                                <!-- O ícone bi-person já está aplicado na classe, não há necessidade de adicionar um <i> aqui -->
                             </a>
                             <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarUserDropdownMenuLink">
                                 <li><a class="dropdown-item" href="http://localhost/roubbie/login-register/login.php">Login</a></li>
                                 <li><a class="dropdown-item" href="http://localhost/roubbie/login-register/cadastro.html">Cadastro</a></li>
+                                <li><a href="logout.php" class="btn btn-danger">
+                                        <i class="fas fa-sign-out-alt"></i> Sair
+                                    </a>
+                                </li>
                             </ul>
                         </li>
                     </ul>
@@ -195,7 +200,7 @@
             <li><a href="diario.php"><i class="bi bi-pencil-square"></i> </a></li>
             <li><a href="http://localhost/roubbie/projeto_fullcalendar_js_php-master/sisrot.php"><i class="bi bi-calendar-range"></i></a></li>
             <li><a href="diario.php"><i class="bi bi-pencil-square"></i> </a></li>
-            
+
             </li>
 
         </ul>
@@ -218,21 +223,20 @@
                 menuConfig.classList.remove("show");
             });
         });
-        
+
         document.addEventListener("DOMContentLoaded", function() {
-    const menuButton = document.getElementById("menuButton");
-    const menuConfig = document.getElementById("menuConfig");
-    const closeMenu = document.getElementById("closeMenu");
+            const menuButton = document.getElementById("menuButton");
+            const menuConfig = document.getElementById("menuConfig");
+            const closeMenu = document.getElementById("closeMenu");
 
-    menuButton.addEventListener("click", function() {
-        menuConfig.classList.toggle("show");
-    });
+            menuButton.addEventListener("click", function() {
+                menuConfig.classList.toggle("show");
+            });
 
-    closeMenu.addEventListener("click", function() {
-        menuConfig.classList.remove("show");
-    });
-});
-
+            closeMenu.addEventListener("click", function() {
+                menuConfig.classList.remove("show");
+            });
+        });
     </script>
     <script src="js/jquery.sticky.js"></script>
     <script src="js/click-scroll.js"></script>

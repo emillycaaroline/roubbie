@@ -30,14 +30,14 @@
                 <p class="text-muted mb-0">Telefone: +55 (11) 1234-5678</p>
             </div>
 
-           
 
-        <!-- Créditos e Direitos Autorais -->
-        <div class="row mt-4">
-            <div class="col-12 text-center">
-                <p class="text-muted mb-1">© 2024 Roubbie. Todos os direitos reservados.</p>
-                <p class="text-muted mb-0"><a href="#" class="text-decoration-none">Termos de Serviço</a> | <a href="#" class="text-decoration-none">Política de Privacidade</a></p>
+
+            <!-- Créditos e Direitos Autorais -->
+            <div class="row mt-4">
+                <div class="col-12 text-center">
+                    <p class="text-muted mb-1">© 2024 Roubbie. Todos os direitos reservados.</p>
+                    <p class="text-muted mb-0"><a href="#" class="text-decoration-none">Termos de Serviço</a> | <a href="#" class="text-decoration-none">Política de Privacidade</a></p>
+                </div>
             </div>
         </div>
-    </div>
 </footer>

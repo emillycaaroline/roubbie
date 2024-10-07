@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Roubbie - Encontre equilíbrio entre organização e lazer.">
+    <meta name="author" content="Equipe Roubbie">
+    <meta name="keywords" content="Roubbie, organização, lazer, bem-estar">
+    <title>Início - Roubbie</title>
+
+    <!-- CSS FILES -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Open+Sans&display=swap"
+        rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap-icons.css" rel="stylesheet">
+    <link href="css/templatemo-topic-listing.css" rel="stylesheet">
+
+    <!-- CUSTOM STYLES -->
+    <style>
+        body {
+            background: white;
+            color: black;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .dark-mode {
+            background-color: #121212;
+            color: #e0e0e0;
+        }
+
+        .dark-mode .navbar {
+            background-color: #333;
+        }
+
+        .dark-mode .nav-link {
+            color: #e0e0e0 !important;
+        }
+
+        .dark-mode .btn-primary {
+            background-color: #555;
+            border-color: #666;
+        }
+    </style>
+</head>
+
+<body id="top">
+    <!-- Header -->
+    <header>
+        <nav style="background: linear-gradient(to right, #13547a, #80d0c7);"
+            class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container">
+                <a class="navbar-brand" href="index.php">
+                    <img src="img/logo-ft.png" alt="Logo do Roubbie">
+                </a>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-lg-5 me-lg-auto">
+                        <!-- Menu items here -->
+                    </ul>
+
+                    <!-- Theme Toggle -->
+                    <button id="theme-toggle" class="btn btn-primary">Modo Escuro</button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-nav d-lg-none">
+        <ul>
+            <!-- Mobile menu items here -->
+        </ul>
+    </div>
+
+    <!-- JAVASCRIPT FILES -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/jquery.sticky.js"></script>
+    <script src="js/click-scroll.js"></script>
+    <script src="js/custom.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const themeToggleButton = document.getElementById('theme-toggle');
+
+            themeToggleButton.addEventListener('click', () => {
+                document.body.classList.toggle('dark-mode');
+                const isDarkMode = document.body.classList.contains('dark-mode');
+                themeToggleButton.textContent = isDarkMode ? 'Modo Claro' : 'Modo Escuro';
+            });
+        });
+    </script>
+</body>
+
+</html>

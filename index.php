@@ -1,9 +1,9 @@
 <!doctype html>
 <html lang="en">
 
-<head> 
+<head>
     <meta charset="utf-8">
-    
+
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -16,20 +16,20 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Open+Sans&display=swap" rel="stylesheet">
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/bootstrap-icons.css" rel="stylesheet">
-    <link href="css/templatemo-topic-listing.css" rel="stylesheet"> 
+    <link href="css/templatemo-topic-listing.css" rel="stylesheet">
     <!--   
             TemplateMo 590 topic listing 
             https://templatemo.com/tm-590-topic-listing
          -->
-</head> 
+</head>
 <!-- Conteudo da página -->
-  
-<body id="top">  
+
+<body id="top">
     <main>
         <!-- Adiciona o header -->
         <?php include 'includes/header.php'; ?>
 
-   
+
 
         <!-- Conteudo da pagina  -->
         <section class="hero-section d-flex justify-content-center align-items-center" id="section_1">
