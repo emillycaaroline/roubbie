@@ -90,9 +90,11 @@
 </head>
 
 <body id="top">
-    <!-- Adiciona o header -->
-    <?php include 'includes/header.php'; ?>
+<!doctype html>
+<!-- Adiciona o header -->
+        <?php include 'includes/header.php'; ?>
 
+   
     <!-- Campos para Artigos -->
     <main>
         <section class="timeline-section section-padding" id="section_3">

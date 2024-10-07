@@ -143,10 +143,10 @@ body {
                 <span class="progress"></span>
             </div>
         </div>
-        <div class="buttons">
+        <!-- <div class="buttons">
             <button class="btn btn-prev" id="btn-prev" disabled>Previous</button>
             <button class="btn btn-next" id="btn-next">Next</button>
-        </div>
+        </div> -->
     </div>
     
 </main>
