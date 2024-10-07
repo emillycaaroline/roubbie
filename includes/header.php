@@ -14,6 +14,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Open+Sans&display=swap" rel="stylesheet">
     <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
     <link href="css/bootstrap-icons.css" rel="stylesheet">
     <link href="css/templatemo-topic-listing.css" rel="stylesheet">
 
@@ -177,7 +179,10 @@
                             <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarUserDropdownMenuLink">
                                 <li><a class="dropdown-item" href="http://localhost/roubbie/login-register/login.php">Login</a></li>
                                 <li><a class="dropdown-item" href="http://localhost/roubbie/login-register/cadastro.html">Cadastro</a></li>
-                                <li><a href="/login-register/logout.php">Sair</a></li>
+                                <li><a href="logout.php" class="btn btn-danger">
+                                        <i class="fas fa-sign-out-alt"></i> Sair
+                                    </a>
+                                </li>
                             </ul>
                         </li>
                     </ul>
