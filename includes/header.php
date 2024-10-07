@@ -174,7 +174,6 @@
                     <ul class="nav-menu">
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle navbar-icon bi-person" style="border: none;" href="#" id="navbarUserDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Menu do usuário">
-                                <!-- O ícone bi-person já está aplicado na classe, não há necessidade de adicionar um <i> aqui -->
                             </a>
                             <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarUserDropdownMenuLink">
                                 <li><a class="dropdown-item" href="http://localhost/roubbie/login-register/login.php">Login</a></li>
