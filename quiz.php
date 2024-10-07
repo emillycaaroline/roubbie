@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -143,128 +144,129 @@
                 padding: 20px;
             }
         }
+
         /* barra de progresso */
         :root {
-  font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-  line-height: 1.5;
-  font-weight: 400;
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+            font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            line-height: 1.5;
+            font-weight: 400;
+            font-synthesis: none;
+            text-rendering: optimizeLegibility;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
 
-  --primary: hsl(270, 100%, 50%);
-  --white: #fff;
-  --black: #000;
-  --darker: color-mix(in oklab, var(--primary), var(--black, #000) 15%);
-  --lighter: color-mix(in oklab, var(--primary), var(--white, #fff) 20%);
-}
+            --primary: hsl(270, 100%, 50%);
+            --white: #fff;
+            --black: #000;
+            --darker: color-mix(in oklab, var(--primary), var(--black, #000) 15%);
+            --lighter: color-mix(in oklab, var(--primary), var(--white, #fff) 20%);
+        }
 
-:is(*, *::before, *::after) {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+        :is(*, *::before, *::after) {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-.main-wrapper {
-  height: 100dvh;
-  display: grid;
-  place-items: center;
-}
+        .main-wrapper {
+            height: 100dvh;
+            display: grid;
+            place-items: center;
+        }
 
-.steps-wrapper {
-  max-width: 400px;
-  width: 100%;
+        .steps-wrapper {
+            max-width: 400px;
+            width: 100%;
 
-  .steps {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    position: relative;
+            .steps {
+                width: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                position: relative;
 
-    .step {
-      width: 50px;
-      height: 50px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border: 4px solid rgb(222, 222, 222);
-      border-radius: 50%;
-      color: rgb(135, 135, 135);
-      background: rgb(255, 255, 255);
-      font-size: 24px;
-      font-weight: 600;
-      transition: 200ms ease;
-      transition-delay: 0ms;
+                .step {
+                    width: 50px;
+                    height: 50px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    border: 4px solid rgb(222, 222, 222);
+                    border-radius: 50%;
+                    color: rgb(135, 135, 135);
+                    background: rgb(255, 255, 255);
+                    font-size: 24px;
+                    font-weight: 600;
+                    transition: 200ms ease;
+                    transition-delay: 0ms;
 
-      &.active {
-        color: var(--primary);
-        border-color: var(--primary);
-        transition-delay: 100ms;
-      }
-    }
+                    &.active {
+                        color: var(--primary);
+                        border-color: var(--primary);
+                        transition-delay: 100ms;
+                    }
+                }
 
-    .progress-bar {
-      position: absolute;
-      width: 100%;
-      height: 4px;
-      background: rgb(222, 222, 222);
-      z-index: -1;
+                .progress-bar {
+                    position: absolute;
+                    width: 100%;
+                    height: 4px;
+                    background: rgb(222, 222, 222);
+                    z-index: -1;
 
-      .progress {
-        position: absolute;
-        height: 100%;
-        background: var(--primary);
-        transition: 300ms ease;
-      }
-    }
-  }
+                    .progress {
+                        position: absolute;
+                        height: 100%;
+                        background: var(--primary);
+                        transition: 300ms ease;
+                    }
+                }
+            }
 
-  .buttons {
-    margin-block-start: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 15px;
+            .buttons {
+                margin-block-start: 50px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 15px;
 
-    .btn {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 10px 15px;
-      font-family: inherit;
-      font-size: 1rem;
-      font-weight: 600;
-      border-radius: 6px;
-      border: none;
-      background: var(--primary);
-      color: var(--white);
-      cursor: pointer;
-      transition: 200ms linear;
+                .btn {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    padding: 10px 15px;
+                    font-family: inherit;
+                    font-size: 1rem;
+                    font-weight: 600;
+                    border-radius: 6px;
+                    border: none;
+                    background: var(--primary);
+                    color: var(--white);
+                    cursor: pointer;
+                    transition: 200ms linear;
 
-      &:active {
-        transform: scale(0.9);
-      }
+                    &:active {
+                        transform: scale(0.9);
+                    }
 
-      &:hover:not(&:disabled) {
-        background: var(--darker);
-      }
+                    &:hover:not(&:disabled) {
+                        background: var(--darker);
+                    }
 
-      &:disabled {
-        cursor: not-allowed;
-        background: var(--lighter);
-        pointer-events: none;
-      }
-    }
-  }
-}
-
+                    &:disabled {
+                        cursor: not-allowed;
+                        background: var(--lighter);
+                        pointer-events: none;
+                    }
+                }
+            }
+        }
     </style>
 </head>
+
 <body>
 
-<!-- Quiz -->
+    <!-- Quiz -->
     <div class="widget-wrap">
         <h1>RoubQuiz</h1>
 
@@ -275,14 +277,13 @@
         <button id="restartBtn" style="display: none;" onclick="quiz.reset()">Restart Quiz</button>
     </div>
     <?php
-        // Inclui a barra de progresso
-        include 'includes/barra_progresso.php'; 
+    // Inclui a barra de progresso
+    include 'includes/barra_progresso.php';
     ?>
     <script>
         // Definição do quiz com perguntas e alternativas
         var quiz = {
-            data: [
-                {
+            data: [{
                     q: "1. Qual o seu papel na sua equipe ou grupo de amigos?",
                     o: ["Faço minhas obrigações com antecedência e gosto de planejar as coisas.", "Sou conselheiro, estou sempre aí para conversar e ajudar a manter um clima bom.", "Sou aquele que coloca a mão na massa, tomo atitudes para cumprir os processos.", "Penso fora da caixinha, me adapto bem às circunstâncias facilmente e agilizo os processos."]
                 },
@@ -350,7 +351,9 @@
                     label.innerHTML = quiz.data[quiz.now].o[i];
                     label.classList.add("quiz-option");
                     label.dataset.idx = i;
-                    label.addEventListener("click", () => { quiz.select(label); });
+                    label.addEventListener("click", () => {
+                        quiz.select(label);
+                    });
                     quiz.hAns.appendChild(label);
                 }
             },
@@ -392,6 +395,7 @@
         // Inicializa o quiz quando a página é carregada
         window.addEventListener("load", quiz.init);
     </script>
-    
+
 </body>
+
 </html>
