@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?php
  // Inclui o arquivo de conexão com o caminho correto
  require_once 'includes/db_connection.php';
@@ -22,3 +23,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $conn->close();
 }
 ?>
+=======
+<!-- Codigo que vai fazer o salvamento e redirecionamento para salvar no calendario a categoria notas. -->
+>>>>>>> 47e536d60f81eb0dce5168011e81309762bc9afa
