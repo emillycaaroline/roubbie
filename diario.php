@@ -174,7 +174,7 @@
             <!-- Entradas serão adicionadas aqui -->
         </div>
     </div>
-
+   
     <script>
         document.addEventListener('DOMContentLoaded', loadEntries);
 
