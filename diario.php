@@ -52,7 +52,7 @@
 
         input:focus,
         textarea:focus {
-            border-color: #ff6347;
+            border-color: black;
             outline: none;
         }
 
