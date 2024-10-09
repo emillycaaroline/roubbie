@@ -1,28 +1,30 @@
-<<<<<<< HEAD
 <?php
- // Inclui o arquivo de conexão com o caminho correto
- require_once 'includes/db_connection.php';
+include 'includes/db_connection.php'; // Conexão com o banco de dados
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Coleta os dados do formulário
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $titulo = $_POST['titulo'];
     $data = $_POST['data'];
     $conteudo = $_POST['conteudo'];
+    $sentimento = isset($_POST['sentimento']) ? $_POST['sentimento'] : null;
 
-    // Prepara a inserção no banco de dados
-    $stmt = $conn->prepare("INSERT INTO diario (titulo, data, conteudo) VALUES (?, ?, ?)");
-    $stmt->bind_param("sss", $titulo, $data, $conteudo);
-
-    if ($stmt->execute()) {
-        echo "Nota salva com sucesso!";
-    } else {
-        echo "Erro ao salvar nota: " . $stmt->error;
+    // Validação simples
+    if (empty($titulo) || empty($data) || empty($conteudo)) {
+        echo "Por favor, preencha todos os campos.";
+        exit;
     }
 
-    $stmt->close(); 
+    // Inserir no banco de dados
+    $sql = "INSERT INTO diario (titulo, data, conteudo, sentimento) VALUES (?, ?, ?, ?)";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("ssss", $titulo, $data, $conteudo, $sentimento);
+
+    if ($stmt->execute()) {
+        echo "Entrada salva com sucesso!";
+    } else {
+        echo "Erro: " . $stmt->error;
+    }
+
+    $stmt->close();
     $conn->close();
 }
 ?>
-=======
-<!-- Codigo que vai fazer o salvamento e redirecionamento para salvar no calendario a categoria notas. -->
->>>>>>> 47e536d60f81eb0dce5168011e81309762bc9afa

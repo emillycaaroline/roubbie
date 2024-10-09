@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,7 +13,9 @@
             margin: 0;
             padding: 20px;
         }
-        form, .entries {
+
+        form,
+        .entries {
             max-width: 600px;
             margin: auto;
             background: #edebff;
@@ -21,19 +24,21 @@
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
             border: 2px dashed blue;
         }
+
         h1 {
             text-align: center;
             color: #ff6347;
             font-family: 'Pacifico', cursive;
             margin-bottom: 20px;
-
         }
+
         label {
             display: block;
             margin-top: 10px;
             color: #333;
             font-weight: 700;
         }
+
         input,
         textarea {
             width: 100%;
@@ -44,15 +49,18 @@
             transition: border-color 0.3s;
             background-color: #fff;
         }
+
         input:focus,
         textarea:focus {
             border-color: #ff6347;
             outline: none;
         }
+
         textarea {
             height: 120px;
             resize: vertical;
         }
+
         button {
             margin-top: 15px;
             padding: 10px;
@@ -64,48 +72,56 @@
             font-size: 16px;
             transition: background-color 0.3s, transform 0.2s;
         }
+
         button:hover {
             background-color: skyblue;
             transform: translateY(-2px);
         }
+
         .entries {
             margin-top: 20px;
             border-top: 2px solid blue;
             padding-top: 10px;
         }
+
         .entry {
             background: #dcd9ff;
             margin: 10px 0;
             padding: 10px;
             border-radius: 10px;
         }
+
         .feedback {
             margin-top: 10px;
         }
+
         .emoji {
             font-size: 24px;
             cursor: pointer;
             margin: 0 5px;
             transition: transform 0.2s;
         }
+
         .selected {
             transform: scale(1.5);
             background-color: skyblue;
             border-radius: 5px;
         }
+
         .edit-button {
-            background-color: lightblue; /* Azul claro */
-            border-radius: 50px; /* Bordas arredondadas */
-            padding: 5px 10px; /* Espaçamento interno */
+            background-color: lightblue;
+            border-radius: 50px;
+            padding: 5px 10px;
             color: white;
             border: none;
             cursor: pointer;
             margin-left: 5px;
         }
+
         .delete-button {
-            background-color: red; /* Vermelho */
-            border-radius: 50px; /* Bordas arredondadas */
-            padding: 5px 10px; /* Espaçamento interno */
+            background-color: red;
+            border-radius: 50px;
+            padding: 5px 10px;
             color: white;
             border: none;
             cursor: pointer;
@@ -113,13 +129,14 @@
         }
     </style>
 </head>
+
 <body>
 
+    <?php require_once 'includes/header.php'; ?>
+    <div class="container">
+        <h1 style="margin-top: 100px;">Meu Diário</h1>
 
-<?php include 'includes/header.php'; ?>
-<div class="container">
-    <h1 style="margin-top: 100px;">Meu Diário</h1>
-    <form action="salvar_diario.php" method="post" id="diaryForm">
+        <form action="salvar_diario.php" method="post">
     <label for="titulo">Título:</label>
     <input type="text" id="titulo" name="titulo" placeholder="Como foi seu dia?" required>
 
@@ -130,46 +147,46 @@
     <textarea id="conteudo" name="conteudo" placeholder="Escreva aqui..." required></textarea>
 
     <label>Como você se sentiu?</label>
-    <div id="feeling" class="feedback">
-        <span class="emoji" data-feeling="😊">😊</span>
-        <span class="emoji" data-feeling="😐">😐</span>
-        <span class="emoji" data-feeling="😢">😢</span>
-        <span class="emoji" data-feeling="😡">😡</span>
-    </div>
-    <input type="hidden" id="feeling" name="feeling" value="😶"> <!-- Campo oculto para o sentimento -->
-    <br>
-    <button type="submit" style="border-radius: 10px;">Adicionar Entrada</button>
+<select name="sentimento" id="sentimento" required>
+    <option value="😊">😊</option>
+    <option value="😐">😐</option>
+    <option value="😢">😢</option>
+    <option value="😡">😡</option>
+</select>
+
+
+    <button type="submit">Adicionar Entrada</button>
 </form>
 
-<script>
-    document.querySelectorAll('.emoji').forEach(emoji => {
-        emoji.addEventListener('click', function() {
-            document.querySelectorAll('.emoji').forEach(e => e.classList.remove('selected'));
-            this.classList.add('selected');
-            document.getElementById('feeling').value = this.dataset.feeling; // Atualiza o valor do feeling
-        });
-    });
-</script>
 
+        <script>
+            document.querySelectorAll('.emoji').forEach(emoji => {
+                emoji.addEventListener('click', function() {
+                    document.querySelectorAll('.emoji').forEach(e => e.classList.remove('selected'));
+                    this.classList.add('selected');
+                    document.getElementById('feelingValue').value = this.dataset.feeling; // Atualiza o valor do feeling
+                });
+            });
+        </script>
 
-    <div class="entries" id="entries">
-        <h2>Entradas Anteriores</h2>
-        <!-- Entradas serão adicionadas aqui -->
+        <div class="entries" id="entries">
+            <h2>Entradas Anteriores</h2>
+            <!-- Entradas serão adicionadas aqui -->
+        </div>
     </div>
-</div>
 
-<script>
-    document.addEventListener('DOMContentLoaded', loadEntries);
+    <script>
+        document.addEventListener('DOMContentLoaded', loadEntries);
 
-    let diaryEntries = JSON.parse(localStorage.getItem('diaryEntries')) || [];
+        let diaryEntries = JSON.parse(localStorage.getItem('diaryEntries')) || [];
 
-    function loadEntries() {
-        const entriesContainer = document.getElementById('entries');
-        entriesContainer.innerHTML = '<h2>Entradas Anteriores</h2>'; // Resetando o conteúdo
-        diaryEntries.forEach((entry, index) => {
-            const entryDiv = document.createElement('div');
-            entryDiv.classList.add('entry');
-            entryDiv.innerHTML = `
+        function loadEntries() {
+            const entriesContainer = document.getElementById('entries');
+            entriesContainer.innerHTML = '<h2>Entradas Anteriores</h2>'; // Resetando o conteúdo
+            diaryEntries.forEach((entry, index) => {
+                const entryDiv = document.createElement('div');
+                entryDiv.classList.add('entry');
+                entryDiv.innerHTML = `
                 <strong>${entry.title}</strong> <br>
                 <em>${entry.date}</em> <br>
                 ${entry.description} <br>
@@ -177,60 +194,53 @@
                 <button class="edit-button" onclick="editEntry(${index})">Editar</button>
                 <button class="delete-button" onclick="deleteEntry(${index})">Excluir</button>
             `;
-            entriesContainer.appendChild(entryDiv);
+                entriesContainer.appendChild(entryDiv);
+            });
+        }
+
+        document.getElementById('diaryForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const titulo = document.getElementById('titulo').value;
+            const data = document.getElementById('data').value;
+            const conteudo = document.getElementById('conteudo').value;
+            const feeling = document.querySelector('.emoji.selected')?.dataset.feeling || '😶';
+
+            const newEntry = {
+                title: titulo,
+                date: data,
+                description: conteudo,
+                feeling: feeling
+            };
+
+            // Adiciona a nova entrada ao array e armazena no Local Storage
+            diaryEntries.push(newEntry);
+            localStorage.setItem('diaryEntries', JSON.stringify(diaryEntries));
+
+            // Limpa o formulário e recarrega as entradas
+            this.reset();
+            loadEntries();
         });
-    }
 
-    document.getElementById('diaryForm').addEventListener('submit', function(event) {
-        event.preventDefault();
-        
-        const titulo = document.getElementById('titulo').value;
-        const data = document.getElementById('data').value;
-        const conteudo = document.getElementById('conteudo').value;
-        const feeling = document.querySelector('.emoji.selected')?.dataset.feeling || '😶';
-
-        const newEntry = {
-            title: titulo,
-            date: data,
-            description: conteudo,
-            feeling: feeling
-        };
-
-        // Adiciona a nova entrada ao array e armazena no Local Storage
-        diaryEntries.push(newEntry);
-        localStorage.setItem('diaryEntries', JSON.stringify(diaryEntries));
-
-        // Limpa o formulário e recarrega as entradas
-        this.reset();
-        loadEntries();
-    });
-
-    document.querySelectorAll('.emoji').forEach(emoji => {
-        emoji.addEventListener('click', function() {
+        function editEntry(index) {
+            const entry = diaryEntries[index];
+            document.getElementById('titulo').value = entry.title;
+            document.getElementById('data').value = entry.date;
+            document.getElementById('conteudo').value = entry.description; // Atualizado para 'conteudo'
             document.querySelectorAll('.emoji').forEach(e => e.classList.remove('selected'));
-            this.classList.add('selected');
-        });
-    });
+            document.querySelector(`.emoji[data-feeling="${entry.feeling}"]`).classList.add('selected');
 
-    function editEntry(index) {
-        const entry = diaryEntries[index];
-        document.getElementById('titulo').value = entry.title;
-        document.getElementById('data').value = entry.date;
-        document.getElementById('conteudo').value = entry.description; // Atualizado para 'conteudo'
-        document.querySelectorAll('.emoji').forEach(e => e.classList.remove('selected'));
-        document.querySelector(`.emoji[data-feeling="${entry.feeling}"]`).classList.add('selected');
+            // Remove a entrada do array e do Local Storage
+            deleteEntry(index);
+        }
 
-        // Remove a entrada do array e do Local Storage
-        deleteEntry(index);
-    }
-
-    function deleteEntry(index) {
-        diaryEntries.splice(index, 1);
-        localStorage.setItem('diaryEntries', JSON.stringify(diaryEntries));
-        loadEntries();
-    }
-</script>
-
+        function deleteEntry(index) {
+            diaryEntries.splice(index, 1);
+            localStorage.setItem('diaryEntries', JSON.stringify(diaryEntries));
+            loadEntries();
+        }
+    </script>
 
 </body>
+
 </html>
