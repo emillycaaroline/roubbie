@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Criar Nota</title>
     <link rel="stylesheet" href="css/estilo.css">
 </head>
+
 <body>
     <main>
         <div class="container">
@@ -17,12 +19,14 @@
                 <label for="data">Data:</label>
                 <input type="date" name="data" id="data" required>
 
-                <label for="conteudo">Conteúdo:</label>
-                <textarea name="conteudo" id="conteudo" rows="4" required></textarea>
+                <label for="conteudo">Conteúdo da Anotação</label>
+                <textarea name="conteudo" id="conteudo"></textarea>
+
 
                 <button type="submit">Salvar Nota</button>
             </form>
         </div>
     </main>
 </body>
+
 </html>
