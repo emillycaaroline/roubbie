@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -117,31 +115,42 @@
 </head>
 <body>
 
-<?php include 'includes/header.php'; ?>
 
+<?php include 'includes/header.php'; ?>
 <div class="container">
     <h1 style="margin-top: 100px;">Meu Diário</h1>
-    <form action="salvar_diario.php" method="post" id="diaryForm"  >
-        
-        <label for="titulo">Título:</label>
-        <input type="text" id="titulo" name="titulo" placeholder="Como foi seu dia?" required>
+    <form action="salvar_diario.php" method="post" id="diaryForm">
+    <label for="titulo">Título:</label>
+    <input type="text" id="titulo" name="titulo" placeholder="Como foi seu dia?" required>
 
-        <label for="data">Data:</label>
-        <input type="date" id="data" name="data" required>
+    <label for="data">Data:</label>
+    <input type="date" id="data" name="data" required>
 
-        <label for="descricao">Sobre o dia:</label>
-        <textarea id="conteudo" name="conteudo" placeholder="Escreva aqui..." required></textarea>
+    <label for="conteudo">Sobre o dia:</label>
+    <textarea id="conteudo" name="conteudo" placeholder="Escreva aqui..." required></textarea>
 
-        <label>Como você se sentiu?</label>
-        <div class="feedback">
-            <span class="emoji" data-feeling="😊">😊</span>
-            <span class="emoji" data-feeling="😐">😐</span>
-            <span class="emoji" data-feeling="😢">😢</span>
-            <span class="emoji" data-feeling="😡">😡</span>
-        </div> <br>
+    <label>Como você se sentiu?</label>
+    <div id="feeling" class="feedback">
+        <span class="emoji" data-feeling="😊">😊</span>
+        <span class="emoji" data-feeling="😐">😐</span>
+        <span class="emoji" data-feeling="😢">😢</span>
+        <span class="emoji" data-feeling="😡">😡</span>
+    </div>
+    <input type="hidden" id="feeling" name="feeling" value="😶"> <!-- Campo oculto para o sentimento -->
+    <br>
+    <button type="submit" style="border-radius: 10px;">Adicionar Entrada</button>
+</form>
 
-        <button type="submit" style="border-radius: 10px;">Adicionar Entrada</button>
-    </form>
+<script>
+    document.querySelectorAll('.emoji').forEach(emoji => {
+        emoji.addEventListener('click', function() {
+            document.querySelectorAll('.emoji').forEach(e => e.classList.remove('selected'));
+            this.classList.add('selected');
+            document.getElementById('feeling').value = this.dataset.feeling; // Atualiza o valor do feeling
+        });
+    });
+</script>
+
 
     <div class="entries" id="entries">
         <h2>Entradas Anteriores</h2>
@@ -225,4 +234,3 @@
 
 </body>
 </html>
->>>>>>> 70f9bc722781db7ac885af554b8545356ea012e7

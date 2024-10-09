@@ -1,18 +1,18 @@
 <?php
 // Configurações do banco de dados
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "bd_roubbie";
+$servername = "localhost"; // Nome do servidor
+$username = "root";        // Nome de usuário do banco de dados
+$password = "";            // Senha do banco de dados
+$dbname = "bd_roubbie";   // Nome do banco de dados
 
 // Cria a conexão
 $conn = new mysqli($servername, $username, $password, $dbname);
 
 // Verifica a conexão
 if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+    die("Conexão falhou: " . $conn->connect_error); // Mensagem de erro em caso de falha
 }
 
 // Define o charset para a conexão
-$conn->set_charset("utf8");
+$conn->set_charset("utf8"); // Define o charset para UTF-8
 ?>
