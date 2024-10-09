@@ -127,6 +127,17 @@
             cursor: pointer;
             margin-left: 5px;
         }
+        select{
+            margin-top: 15px;
+            padding: 10px;
+            background-color: skyblue;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s, transform 0.2s;
+        }
     </style>
 </head>
 
@@ -146,13 +157,13 @@
     <label for="conteudo">Sobre o dia:</label>
     <textarea id="conteudo" name="conteudo" placeholder="Escreva aqui..." required></textarea>
 
-    <label>Como você se sentiu?</label>
+    <label>Como você se sentiu?</label><br>
 <select name="sentimento" id="sentimento" required>
     <option value="😊">😊</option>
     <option value="😐">😐</option>
     <option value="😢">😢</option>
     <option value="😡">😡</option>
-</select>
+</select><br><br>
 
 
     <button type="submit">Adicionar Entrada</button>
