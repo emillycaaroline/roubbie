@@ -18,7 +18,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "Erro ao salvar nota: " . $stmt->error;
     }
 
-    $stmt->close();
+    $stmt->close(); 
     $conn->close();
 }
 ?>
