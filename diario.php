@@ -23,13 +23,11 @@
             padding: 40px;
             box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
         }
-
-<<<<<<< HEAD
         h3 {
             font-family: 'Dancing Script', cursive;
             color: #5a2a77;
             margin-bottom: 30px;
-=======
+
         h2 {
             font-weight: 600;
             color: #007bff;
@@ -43,7 +41,6 @@
         .form-control,
         .btn {
             border-radius: 5px;
->>>>>>> 9635ebb5bdf758599b8b1584150d75f2dba2f793
         }
 
         .entry {
@@ -56,7 +53,6 @@
         }
 
         .entry:hover {
-<<<<<<< HEAD
             transform: translateY(-5px);
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
         }
@@ -65,7 +61,7 @@
             background-color: #ff6f61;
             border-radius: 25px;
             padding: 10px 30px;
-=======
+
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
 
@@ -97,13 +93,11 @@
         .btn-primary {
             background-color: #007bff;
             /* Azul */
->>>>>>> 9635ebb5bdf758599b8b1584150d75f2dba2f793
             border: none;
             transition: background-color 0.3s;
         }
 
         .btn-primary:hover {
-<<<<<<< HEAD
             background-color: #ff4c3b;
         }
 
@@ -111,12 +105,10 @@
             border-radius: 10px;
         }
 
-=======
             background-color: #0056b3;
             /* Azul Escuro */
         }
 
->>>>>>> 9635ebb5bdf758599b8b1584150d75f2dba2f793
         .form-label {
             font-weight: 500;
         }
@@ -127,14 +119,11 @@
 
     <?php include 'includes/header.php'; ?>
 
-<<<<<<< HEAD
     <div class="container-d">
         <h3>Notas...</h3>
-=======
     <!-- Diário Pessoal Digital -->
     <div style="margin-top: 100px;" class="container-d">
         <h2>Adicionar Entrada ao Diário</h2>
->>>>>>> 9635ebb5bdf758599b8b1584150d75f2dba2f793
         <form action="insere-diario.php" method="post">
             <div class="mb-3">
                 <label for="title" class="form-label">Título:</label>
