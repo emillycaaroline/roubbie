@@ -101,7 +101,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-12 text-center">
-                        <h2 class="text-white mb-4">Sobre o Roubbie</h2>
+                        <h2 class="text-white mb-4" style="margin-top: 50px;">Sobre o Roubbie</h2>
                     </div>
                     <div class="col-lg-10 col-12 mx-auto">
                         <div class="timeline-container">

@@ -28,9 +28,35 @@
     h2 {
         color: white;
     }
+
+    
+     /* botão */
+     button {
+            margin-left: 50px;
+            margin-top: 20px;
+            padding: 10px;
+            background-color: white;
+            color: black;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s, box-shadow 0.3s;
+          
+        }
+
+       
+        button:hover {
+            background-color: black;
+            color: white;
+            box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
+            /* Sombra mais forte ao passar o mouse */
+        }
 </style>
 
 <body class="sisrot-page">
+
+<button onclick="window.history.back()">Voltar</button>
 
     <!-- Este arquivo configura a visualização semanal e diária do calendário. Inclui o modal para adicionar ou editar eventos. -->
     <!-- Card para inserir evento -->
