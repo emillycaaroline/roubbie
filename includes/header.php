@@ -15,7 +15,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Open+Sans&display=swap" rel="stylesheet">
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-
     <link href="css/bootstrap-icons.css" rel="stylesheet">
     <link href="css/templatemo-topic-listing.css" rel="stylesheet">
 
@@ -135,8 +134,7 @@
 <body id="top">
     <!-- Header -->
     <header>
-        <nav style="background: linear-gradient(to right, #13547a, #80d0c7);
-" class="navbar navbar-expand-lg navbar-light bg-light">
+        <nav style="background: linear-gradient(to right, #13547a, #80d0c7);" class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container">
                 <a class="navbar-brand" href="index.php">
                     <img src="img/logo-ft.png" alt="Logo do Roubbie">
@@ -150,7 +148,7 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-lg-5 me-lg-auto">
                         <li class="nav-item">
-                            <a class="nav-link click" href="index.php">Home</a>
+                            <a class="nav-link click" href="dashboard.php">Home</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link click" href="http://localhost/roubbie/projeto_fullcalendar_js_php-master/index.php">Agenda</a>
@@ -168,7 +166,6 @@
                             <a class="nav-link click" href="http://localhost/roubbie/quiz.php">Descubra um novo hobby</a>
                         </li>
                     </ul>
-
 
                     <!-- Login/cadastro -->
                     <ul class="nav-menu">
@@ -194,15 +191,11 @@
     <!-- Mobile Menu -->
     <div class="mobile-nav d-lg-none">
         <ul>
-            <li><a href="index.php"><i class="bi bi-house"></i> </a></li>
+            <li><a href="dashboard.php"><i class="bi bi-house"></i></a></li>
             <li><a href="http://localhost/roubbie/projeto_fullcalendar_js_php-master/index.php"><i class="bi bi-calendar-month"></i></a></li>
             <li><a href="http://localhost/roubbie/projeto_fullcalendar_js_php-master/sisrot.php"><i class="bi bi-calendar-range"></i></a></li>
-            <li><a href="diario.php"><i class="bi bi-pencil-square"></i> </a></li>
-            <li><a href="http://localhost/roubbie/projeto_fullcalendar_js_php-master/sisrot.php"><i class="bi bi-calendar-range"></i></a></li>
-            <li><a href="diario.php"><i class="bi bi-pencil-square"></i> </a></li>
-
-            </li>
-
+            <li><a href="diario.php"><i class="bi bi-pencil-square"></i></a></li>
+            <li><a href="http://localhost/roubbie/quiz.php"><i class="bi bi-lightbulb"></i></a></li>
         </ul>
     </div>
 
@@ -210,20 +203,6 @@
     <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.bundle.min.js"></script>
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            const menuButton = document.getElementById("menuButton");
-            const menuConfig = document.getElementById("menuConfig");
-            const closeMenu = document.getElementById("closeMenu");
-
-            menuButton.addEventListener("click", function() {
-                menuConfig.classList.toggle("show");
-            });
-
-            closeMenu.addEventListener("click", function() {
-                menuConfig.classList.remove("show");
-            });
-        });
-
         document.addEventListener("DOMContentLoaded", function() {
             const menuButton = document.getElementById("menuButton");
             const menuConfig = document.getElementById("menuConfig");
