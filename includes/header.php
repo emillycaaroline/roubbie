@@ -148,7 +148,7 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-lg-5 me-lg-auto">
                         <li class="nav-item">
-                            <a class="nav-link click" href="dashboard.php">Home</a>
+                            <a class="nav-link click" href="index.php">Home</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link click" href="http://localhost/roubbie/projeto_fullcalendar_js_php-master/index.php">Agenda</a>
@@ -191,7 +191,7 @@
     <!-- Mobile Menu -->
     <div class="mobile-nav d-lg-none">
         <ul>
-            <li><a href="dashboard.php"><i class="bi bi-house"></i></a></li>
+            <li><a href="index.php"><i class="bi bi-house"></i></a></li>
             <li><a href="http://localhost/roubbie/projeto_fullcalendar_js_php-master/index.php"><i class="bi bi-calendar-month"></i></a></li>
             <li><a href="http://localhost/roubbie/projeto_fullcalendar_js_php-master/sisrot.php"><i class="bi bi-calendar-range"></i></a></li>
             <li><a href="diario.php"><i class="bi bi-pencil-square"></i></a></li>
