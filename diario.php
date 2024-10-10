@@ -205,15 +205,15 @@ $entries = fetchEntries($conn);
             <label for="conteudo">Sobre o dia:</label>
             <textarea id="conteudo" name="conteudo" placeholder="Escreva aqui..." required></textarea>
 
-            <label>Como você se sentiu?</label>
+            <label>Como você se sentiu?</label><br>
             <select name="sentimento" id="sentimento" required>
                 <option value="😊">😊</option>
                 <option value="😐">😐</option>
                 <option value="😢">😢</option>
                 <option value="😡">😡</option>
-            </select>
+            </select><br><br>
 
-            <button type="submit">Adicionar Entrada</button>
+            <button type="submit" style="border-radius: 10px;">Adicionar Entrada</button>
         </form>
 
         <div class="entries" id="entries">
