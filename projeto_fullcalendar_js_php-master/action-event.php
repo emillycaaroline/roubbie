@@ -40,8 +40,9 @@ $end = $_POST['end'];
     if ($stmt->execute()) {
         $evento_id = $stmt->insert_id;
 
+      
         // Redireciona para a página com os dados do evento como parâmetros
-        $redirect_url = "status-rotina.php";
+        $redirect_url = "index.php";
         $query_params = http_build_query([
             'evento_id' => $evento_id,
             'titulo' => $title,
