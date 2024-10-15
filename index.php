@@ -8,98 +8,83 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Open+Sans&display=swap">
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/intro.js/minified/introjs.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/dashboard.css">   
     <style>
-        .bd-placeholder-img {
-            font-size: 1.125rem;
-            text-anchor: middle;
-            user-select: none;
-        }
+     
+        /* ajuste feito para o status (dashboard) */
+.card {
+    background-color: var(--white);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+    text-align: center;
+}
 
-        @media (min-width: 768px) {
-            .bd-placeholder-img-lg {
-                font-size: 3.5rem;
-            }
-        }
+.card:hover {
+    transform: scale(1.02);
+}
 
-        .b-example-divider {
-            width: 100%;
-            height: 3rem;
-            background-color: rgba(0, 0, 0, .1);
-            border: solid rgba(0, 0, 0, .15);
-            border-width: 1px 0;
-            box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
-        }
+/* Títulos dos cards */
+.card h3 {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
 
-        .b-example-vr {
-            flex-shrink: 0;
-            width: 1.5rem;
-            height: 100vh;
-        }
+/* Estilo dos badges */
+.badge {
+    font-size: 0.9rem;
+    padding: 5px 10px;
+    border-radius: 12px;
+}
 
-        .nav-scroller {
-            position: relative;
-            z-index: 2;
-            height: 2.75rem;
-            overflow-y: hidden;
-        }
+.bg-success {
+    background-color: var(--secondary-color) !important;
+    color: var(--white);
+}
 
-        .nav-scroller .nav {
-            display: flex;
-            flex-wrap: nowrap;
-            padding-bottom: 1rem;
-            margin-top: -1px;
-            overflow-x: auto;
-            text-align: center;
-            white-space: nowrap;
-            -webkit-overflow-scrolling: touch;
-        }
+.bg-danger {
+    background-color: var(--primary-color) !important;
+    color: var(--white);
+}
 
-        .btn-bd-primary {
-            --bd-violet-bg: #712cf9;
-            --bs-btn-font-weight: 600;
-            --bs-btn-color: var(--bs-white);
-            --bs-btn-bg: var(--bd-violet-bg);
-            --bs-btn-border-color: var(--bd-violet-bg);
-            --bs-btn-hover-bg: #6528e0;
-            --bs-btn-active-bg: #5a23c8;
-        }
+/* Estilo dos gráficos */
+#canvas {
+    max-width: 100%;
+    margin-top: 20px;
+}
 
-        .bd-mode-toggle {
-            z-index: 1500;
-        }
+/* Responsividade */
+@media (max-width: 768px) {
+    .card {
+        margin-bottom: 30px;
+    }
 
-        .card {
-            margin-bottom: 20px;
-        }
+    .card h3 {
+        font-size: 1.2rem;
+    }
 
-        /* Estilo do botão de iniciar onboarding */
-        #startOnboarding {
-            margin-bottom: 20px;
-            padding: 10px 20px;
-            font-size: 16px;
-            font-weight: bold;
-            background-color: #13547a;
-            border: none;
-            border-radius: 8px;
-            color: white;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        #startOnboarding:hover {
-            background-color: #0e3e5a;
-        }
+    .btn {
+        padding: 8px 15px;
+        font-size: 0.9rem;
+    }
+}
+        
     </style>
 </head>
 
 <body>
+<?php include $_SERVER['DOCUMENT_ROOT'] . '/roubbie/includes/header.php'; ?>
+
     <?php
     // Ativar exibição de erros
     error_reporting(E_ALL);
     ini_set('display_errors', 1);
 
-    require_once 'includes/header.php';
     require_once 'includes/db_connection.php';
 
     // Verificar a conexão com o banco de dados
@@ -121,34 +106,43 @@
     $compromissos_query = "SELECT COUNT(*) AS total FROM compromissos WHERE data > NOW()"; // Ajuste conforme necessário
     $compromissos_result = $conn->query($compromissos_query);
     $compromissos_count = $compromissos_result ? $compromissos_result->fetch_assoc()['total'] : 0;
+
+    // Verificar se é um novo usuário (exemplo)
+    $is_new_user = true; // Altere isso conforme a lógica de verificação de novos usuários
     ?>
-    
-     <!-- iniciar o onboarding apenas para usuarios novos que nao possuiam uma conta e acabou de se cadastrar  -->
-     <div class="container">
-        <main>
-            <button id="startOnboarding" aria-label="Iniciar onboarding">Bora conhecer nossas ferramentas</button> <!-- Botão para iniciar o onboarding -->
+
+    <div class="container">
+        <main style=" margin: auto;
+            margin-top: 200px;">
+
             <div class="row">
                 <div class="col-md-4">
                     <div class="card" id="feature1">
-                        <h3>Entradas do Diário.</h3>
-                        <p><span class="badge bg-success"> (<?php echo $diario_count; ?> registradas)</span></p>
+                        <h3>Minhas Notas</h3>
+                        <p>
+                            <span class="badge <?php echo $diario_count > 0 ? 'bg-success' : 'bg-danger'; ?>">
+                                <?php echo $diario_count > 0 ? "+{$diario_count} registradas" : "Nenhuma nota registrada ainda"; ?>
+                            </span>
+                        </p>
                     </div>
                 </div>
-
                 <div class="col-md-4">
                     <div class="card" id="feature2">
                         <h3>Eventos Pendentes</h3>
-                        <p><br><span class="badge bg-warning"> (<?php echo $events_count; ?> pendentes)</span></p>
-                        <a href="/roubbie/projeto_fullcalendar_js_php-master/status-rotina.php" class="btn btn-outline-success" aria-label="Ver eventos pendentes">Ver Eventos</a>
+                        <a href="/roubbie/projeto_fullcalendar_js_php-master/status-rotina.php" class="btn btn-outline-success" aria-label="Ver eventos pendentes">
+                            <span class="badge bg-warning"> (<?php echo $events_count; ?> pendentes)</span>
+                        </a>
+                        <p>
+                            <span class="badge <?php echo $events_count == 0 ? 'bg-danger' : ''; ?>">
+                                <?php echo $events_count == 0 ? "Nenhum evento pendente" : ""; ?>
+                            </span>
+                        </p>
                     </div>
                 </div>
-
                 <div class="col-md-4">
                     <div class="card" id="feature3">
                         <h3>Gerenciamento do Tempo</h3>
-                        <p>Horas livres e ativas.</p>
                         <canvas id="canvas" width="300" height="300"></canvas>
-                        <a href="tempo.php" class="btn btn-outline-success" aria-label="Ver detalhes do gerenciamento de tempo">Ver Detalhes</a>
                     </div>
                 </div>
             </div>
@@ -157,27 +151,28 @@
 
     <!-- Importando o script do Intro.js -->
     <script src="https://cdn.jsdelivr.net/npm/intro.js/minified/intro.min.js"></script>
+
+    <!-- Introdução com tutorial-->
     <script>
         document.getElementById('startOnboarding').addEventListener('click', function() {
             introJs().setOptions({
-                steps: [
-                    { 
-                        intro: "Olá! Bem-vindo ao Roubbie! 😊 Vamos mostrar rapidamente as principais funcionalidades para você aproveitar ao máximo!" 
+                steps: [{
+                        intro: "Olá! Bem-vindo ao Roubbie! 😊 Vamos mostrar rapidamente as principais funcionalidades para você aproveitar ao máximo!"
                     },
-                    { 
+                    {
                         element: document.querySelector('#feature1'),
                         intro: "Dê uma olhada nas suas entradas do diário registradas!"
                     },
-                    { 
+                    {
                         element: document.querySelector('#feature2'),
                         intro: "Aqui estão seus eventos pendentes!"
                     },
-                    { 
-                        element: document.querySelector('#feature3'),//puxa elementos desta mesma pagina#
+                    {
+                        element: document.querySelector('#feature3'),
                         intro: "Gerencie seu tempo e veja suas horas livres!"
                     },
-                    { 
-                        element: document.querySelector('.nav-link.click[href*="sisrot.php"]'), //puxa rotina do header
+                    {
+                        element: document.querySelector('.nav-link.click[href*="sisrot.php"]'),
                         intro: "Insira sua rotina aqui! Adicione tarefas e eventos, e tudo que você registrar aparecerá no seu status. Com essas informações, vamos ajudar você a equilibrar lazer e trabalho!"
                     },
                     {
@@ -190,6 +185,7 @@
 
     <!-- Adicionando o Chart.js para visualização de tempo -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Gráfico pra gestão de tempo  -->
     <script>
         const ctx = document.getElementById('canvas').getContext('2d');
         const myChart = new Chart(ctx, {
@@ -218,15 +214,13 @@
                     },
                     title: {
                         display: true,
-                        text: 'Gerenciamento do Tempo'
+                        text: 'Distribuição do Tempo'
                     }
                 }
             }
         });
     </script>
 
-    <!-- JAVASCRIPT FILES -->
-    <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.bundle.min.js"></script>
 </body>
 

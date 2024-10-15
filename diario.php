@@ -104,7 +104,7 @@ $entries = fetchEntries($conn);
 
         input,
         textarea {
-            width: 100%;
+            width: calc(100% - 24px); /* Ajuste para manter os campos dentro da borda */
             padding: 12px;
             margin-top: 5px;
             border: 2px solid blue;
@@ -189,11 +189,12 @@ $entries = fetchEntries($conn);
 </head>
 
 <body>
+<?php include $_SERVER['DOCUMENT_ROOT'] . '/roubbie/includes/header.php'; ?>
 
-    <?php require_once 'includes/header.php'; ?>
+    <!-- <button onclick="window.history.back()">Voltar</button> -->
+
     <div class="container">
         <h1>Meu Diário</h1>
-
         <form action="" method="post">
             <input type="hidden" id="id" name="id" value="">
             <label for="titulo">Título:</label>
@@ -235,102 +236,6 @@ $entries = fetchEntries($conn);
         </div>
 
     </div>
-<<<<<<< HEAD
-    <input type="hidden" id="feeling" name="feeling" value="😶"> <!-- Campo oculto para o sentimento -->
-    <br>
-    <button type="submit" style="border-radius: 10px;">Adicionar Entrada</button>
-</form>
-
-<script>
-    document.querySelectorAll('.emoji').forEach(emoji => {
-        emoji.addEventListener('click', function() {
-            document.querySelectorAll('.emoji').forEach(e => e.classList.remove('selected'));
-            this.classList.add('selected');
-            document.getElementById('feeling').value = this.dataset.feeling; // Atualiza o valor do feeling
-        });
-    });
-</script>
-
-
-    <div class="entries" id="entries">
-        <h2>Entradas Anteriores</h2>
-        <!-- Entradas serão adicionadas aqui -->
-    </div>
-</div>
-
-<script>
-    document.addEventListener('DOMContentLoaded', loadEntries);
-
-    let diaryEntries = JSON.parse(localStorage.getItem('diaryEntries')) || [];
-
-    function loadEntries() {
-        const entriesContainer = document.getElementById('entries');
-        entriesContainer.innerHTML = '<h2>Entradas Anteriores</h2>'; // Resetando o conteúdo
-        diaryEntries.forEach((entry, index) => {
-            const entryDiv = document.createElement('div');
-            entryDiv.classList.add('entry');
-            entryDiv.innerHTML = `
-                <strong>${entry.title}</strong> <br>
-                <em>${entry.date}</em> <br>
-                ${entry.description} <br>
-                <strong>Sentimento:</strong> ${entry.feeling} <br>
-                <button class="edit-button" onclick="editEntry(${index})">Editar</button>
-                <button class="delete-button" onclick="deleteEntry(${index})">Excluir</button>
-            `;
-            entriesContainer.appendChild(entryDiv);
-        });
-    }
-
-    document.getElementById('diaryForm').addEventListener('submit', function(event) {
-        event.preventDefault();
-        
-        const titulo = document.getElementById('titulo').value;
-        const data = document.getElementById('data').value;
-        const conteudo = document.getElementById('conteudo').value;
-        const feeling = document.querySelector('.emoji.selected')?.dataset.feeling || '😶';
-
-        const newEntry = {
-            title: titulo,
-            date: data,
-            description: conteudo,
-            feeling: feeling
-        };
-
-        // Adiciona a nova entrada ao array e armazena no Local Storage
-        diaryEntries.push(newEntry);
-        localStorage.setItem('diaryEntries', JSON.stringify(diaryEntries));
-
-        // Limpa o formulário e recarrega as entradas
-        this.reset();
-        loadEntries();
-    });
-
-    document.querySelectorAll('.emoji').forEach(emoji => {
-        emoji.addEventListener('click', function() {
-            document.querySelectorAll('.emoji').forEach(e => e.classList.remove('selected'));
-            this.classList.add('selected');
-        });
-    });
-
-    function editEntry(index) {
-        const entry = diaryEntries[index];
-        document.getElementById('titulo').value = entry.title;
-        document.getElementById('data').value = entry.date;
-        document.getElementById('conteudo').value = entry.description; // Atualizado para 'conteudo'
-        document.querySelectorAll('.emoji').forEach(e => e.classList.remove('selected'));
-        document.querySelector(`.emoji[data-feeling="${entry.feeling}"]`).classList.add('selected');
-
-        // Remove a entrada do array e do Local Storage
-        deleteEntry(index);
-    }
-
-    function deleteEntry(index) {
-        diaryEntries.splice(index, 1);
-        localStorage.setItem('diaryEntries', JSON.stringify(diaryEntries));
-        loadEntries();
-    }
-</script>
-=======
 
     <script>
         function editEntry(id, titulo, data, conteudo, sentimento) {
@@ -342,7 +247,6 @@ $entries = fetchEntries($conn);
         }
     </script>
 
->>>>>>> febfaa32067d02c564fbce0be9ff010dd75afa06
 </body>
 
 </html>

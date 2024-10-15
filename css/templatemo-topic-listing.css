@@ -5,6 +5,102 @@ TemplateMo 590 topic listing
 https://templatemo.com/tm-590-topic-listing
 
 */
+/* --------- Estilos Padronizados para Botões --------- */
+
+/* Estilos básicos para todos os botões */
+.btn {
+  display: inline-block;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+  text-align: center;
+  text-decoration: none;
+  color: var(--dark-color); /* Cor de texto padrão */
+}
+
+/* Estilo padrão (primário) dos botões */
+.btn-primary {
+  background-color: var(--custom-btn-bg-color); /* Cor personalizada para o botão */
+  color: var(--dark-color); /* Texto escuro */
+}
+
+.btn-primary:hover {
+  background-color: var(--custom-btn-bg-hover-color); /* Cor para o hover */
+  color: var(--section-bg-color); /* Cor clara para contraste */
+  transform: scale(1.05); /* Efeito de leve aumento */
+}
+
+/* Estilo secundário */
+.btn-secondary {
+  background-color: var(--secondary-color); /* Cor secundária */
+  color: var(--dark-color); /* Texto escuro */
+}
+
+.btn-secondary:hover {
+  background-color: var(--primary-color); /* Cor primária para hover */
+  color: var(--section-bg-color); /* Texto claro para contraste */
+  transform: scale(1.05);
+}
+
+/* Botão de alerta/erro */
+.btn-danger {
+  background-color: #d9534f; /* Vermelho como exemplo */
+  color: var(--section-bg-color); /* Texto claro */
+}
+
+.btn-danger:hover {
+  background-color: #c9302c;
+  transform: scale(1.05);
+}
+
+/* Botão de sucesso */
+.btn-success {
+  background-color: var(--primary-color); /* Cor primária */
+  color: var(--section-bg-color); /* Texto claro */
+}
+
+.btn-success:hover {
+  background-color: #0f3e55;
+  transform: scale(1.05);
+}
+
+/* Estilo desabilitado */
+.btn:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+  opacity: 0.6;
+  transform: none;
+}
+
+/* Botão de outline */
+.btn-outline {
+  background-color: transparent;
+  border: 2px solid var(--primary-color);
+  color: var(--primary-color);
+}
+
+.btn-outline:hover {
+  background-color: var(--primary-color);
+  color: var(--section-bg-color);
+}
+
+/* Estilo para botões menores */
+.btn-sm {
+  padding: 5px 10px;
+  font-size: 0.9rem;
+}
+
+/* Estilo para botões maiores */
+.btn-lg {
+  padding: 15px 30px;
+  font-size: 1.2rem;
+}
+
+/* --------- Fim dos Estilos para Botões --------- */
 
 /*---------------------------------------
   CUSTOM PROPERTIES ( VARIABLES )             

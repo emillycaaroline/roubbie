@@ -20,7 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->store_result();
 
     if ($stmt->num_rows > 0) {
-        echo "<script>alert('Este email já está registrado.'); window.location.href = 'cadastro.html';</script>";
+        echo "<script>alert('Este email já está registrado.'); window.location.href = 'cadastro.php';</script>";
     } else {
         // Criptografa a senha
         $hashed_password = password_hash($senha, PASSWORD_DEFAULT);
@@ -32,7 +32,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if ($stmt->execute()) {
             echo "<script>alert('Cadastro realizado com sucesso!'); window.location.href = '../index.php';</script>";
         } else {
-            echo "<script>alert('Erro ao cadastrar. Tente novamente mais tarde.'); window.location.href = 'cadastro.html';</script>";
+            echo "<script>alert('Erro ao cadastrar. Tente novamente mais tarde.'); window.location.href = 'cadastro.php';</script>";
         }
     }
 

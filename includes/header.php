@@ -20,9 +20,7 @@
 
     <!-- CUSTOM STYLES -->
     <style>
-        body {
-            /* background: none; */ /* Removido ou ajuste para um fundo, se necessário */
-        }
+      
 
         /* General styles */
         .text-white {
@@ -134,6 +132,9 @@
                         <li class="nav-item">
                             <a class="nav-link click" href="sobre.php">Sobre</a>
                         </li>
+                        <li class="nav-item">
+                        <button id="startOnboarding"  class="nav-link click btn btn-outline-success" aria-label="Tutorial pra uso">?</button> <!-- Botão para iniciar o onboarding -->
+                        </li>
                     </ul>
 
                     <!-- Login/cadastro -->
@@ -142,7 +143,7 @@
                             <a  style="background-color: #13547a;"  class="nav-link dropdown-toggle navbar-icon bi-person" style="border: none;" href="#" id="navbarUserDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Menu do usuário"></a>
                             <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarUserDropdownMenuLink">
                                 <li><a class="dropdown-item" href="http://localhost/roubbie/login-register/login.php">Login</a></li>
-                                <li><a class="dropdown-item" href="http://localhost/roubbie/login-register/cadastro.html">Cadastro</a></li>
+                                <li><a class="dropdown-item" href="http://localhost/roubbie/login-register/cadastro.php">Cadastro</a></li>
                                 <li><a class="dropdown-item" href="/roubbie/login-register/logout.php"><i class="bi bi-box-arrow-right"></i> Sair</a></li>
                             </ul>
                         </li>

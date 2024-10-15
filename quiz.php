@@ -125,11 +125,29 @@
                 font-size: 20px;
             }
         }
+        button {
+            margin-top: 15px;
+            padding: 10px;
+            background-color: blue;
+            color: white;
+            border: none;
+            border-radius: 100px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+        button:hover {
+            background-color: skyblue;
+            transform: translateY(-2px);
+        }
     </style>
 </head>
 
 <body>
+<button onclick="window.history.back()">Voltar</button>
+
     <main>
+
         <div class="widget-wrap">
             <h1>RoubQuiz</h1>
 

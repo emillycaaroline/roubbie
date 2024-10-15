@@ -27,18 +27,18 @@
                     <span class="login100-form-title p-b-43">
                         Vamos começar essa jornada juntos!
                     </span>
-                    <div class="wrap-input100 validate-input" data-validate="Valid nome is required: somente letras">
-                        <input class="input100" type="text" name="nome">
+                    <div class="wrap-input100 validate-input" data-validate="Nome é obrigatório e deve conter apenas letras.">
+                        <input class="input100" type="text" name="nome" pattern="[A-Za-zÀ-ÿ\s]+" required>
                         <span class="focus-input100"></span>
                         <span class="label-input100">Nome</span>
                     </div>
-                    <div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
-                        <input class="input100" type="text" name="email">
+                    <div class="wrap-input100 validate-input" data-validate="Formato de email inválido: ex@abc.xyz">
+                        <input class="input100" type="email" name="email" required>
                         <span class="focus-input100"></span>
                         <span class="label-input100">Email</span>
                     </div>
-                    <div class="wrap-input100 validate-input" data-validate="Password is required">
-                        <input class="input100" type="password" name="senha">
+                    <div class="wrap-input100 validate-input" data-validate="A senha é obrigatória e deve ter no mínimo 6 caracteres.">
+                        <input class="input100" type="password" name="senha" minlength="6" required>
                         <span class="focus-input100"></span>
                         <span class="label-input100">Senha</span>
                     </div>
@@ -80,7 +80,6 @@
         </div>
     </div>
 
-    <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script>
     <script src="vendor/jquery/jquery-3.2.1.min.js"></script>
     <script src="vendor/animsition/js/animsition.min.js"></script>
     <script src="vendor/bootstrap/js/popper.js"></script>
@@ -90,21 +89,13 @@
     <script src="vendor/daterangepicker/daterangepicker.js"></script>
     <script src="vendor/countdowntime/countdowntime.js"></script>
     <script src="js/main.js"></script>
-    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
-
         gtag('config', 'UA-23581568-13');
-    </script>
-    <script defer=""
-        src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015"
-        integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ=="
-        data-cf-beacon="{&quot;rayId&quot;:&quot;8a2deb496e6d4d03&quot;,&quot;serverTiming&quot;:{&quot;name&quot;:{&quot;cfL4&quot;:true}},&quot;version&quot;:&quot;2024.6.1&quot;,&quot;token&quot;:&quot;cd0b4b3a733644fc843ef0b185f98241&quot;}"
-        crossorigin="anonymous">
     </script>
 </body>
 
 </html>
- <!-- # Página HTML para o formulário de cadastro -->
