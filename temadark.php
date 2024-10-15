@@ -122,11 +122,10 @@
     $compromissos_result = $conn->query($compromissos_query);
     $compromissos_count = $compromissos_result ? $compromissos_result->fetch_assoc()['total'] : 0;
     ?>
-    
-     <!-- iniciar o onboarding apenas para usuarios novos que nao possuiam uma conta e acabou de se cadastrar  -->
-     <div class="container">
+
+    <div class="container">
         <main>
-            <button id="startOnboarding" aria-label="Iniciar onboarding">Bora conhecer nossas ferramentas</button> <!-- Botão para iniciar o onboarding -->
+            <button id="startOnboarding">Iniciar Onboarding</button> <!-- Botão para iniciar o onboarding -->
             <div class="row">
                 <div class="col-md-4">
                     <div class="card" id="feature1">
@@ -139,7 +138,7 @@
                     <div class="card" id="feature2">
                         <h3>Eventos Pendentes</h3>
                         <p><br><span class="badge bg-warning"> (<?php echo $events_count; ?> pendentes)</span></p>
-                        <a href="/roubbie/projeto_fullcalendar_js_php-master/status-rotina.php" class="btn btn-outline-success" aria-label="Ver eventos pendentes">Ver Eventos</a>
+                        <a href="/roubbie/projeto_fullcalendar_js_php-master/status-rotina.php" class="btn btn-outline-success">Ver Eventos</a>
                     </div>
                 </div>
 
@@ -148,7 +147,7 @@
                         <h3>Gerenciamento do Tempo</h3>
                         <p>Horas livres e ativas.</p>
                         <canvas id="canvas" width="300" height="300"></canvas>
-                        <a href="tempo.php" class="btn btn-outline-success" aria-label="Ver detalhes do gerenciamento de tempo">Ver Detalhes</a>
+                        <a href="tempo.php" class="btn btn-outline-success">Ver Detalhes</a>
                     </div>
                 </div>
             </div>
@@ -162,66 +161,25 @@
             introJs().setOptions({
                 steps: [
                     { 
-                        intro: "Olá! Bem-vindo ao Roubbie! 😊 Vamos mostrar rapidamente as principais funcionalidades para você aproveitar ao máximo!" 
+                        intro: "Bem-vindo ao Roubbie! Vamos mostrar as principais funcionalidades." 
                     },
                     { 
                         element: document.querySelector('#feature1'),
-                        intro: "Dê uma olhada nas suas entradas do diário registradas!"
+                        intro: "Aqui você pode ver quantas entradas do diário você tem registradas." 
                     },
                     { 
                         element: document.querySelector('#feature2'),
-                        intro: "Aqui estão seus eventos pendentes!"
+                        intro: "Nesta seção, você verá a contagem de eventos pendentes." 
                     },
                     { 
-                        element: document.querySelector('#feature3'),//puxa elementos desta mesma pagina#
-                        intro: "Gerencie seu tempo e veja suas horas livres!"
-                    },
-                    { 
-                        element: document.querySelector('.nav-link.click[href*="sisrot.php"]'), //puxa rotina do header
-                        intro: "Insira sua rotina aqui! Adicione tarefas e eventos, e tudo que você registrar aparecerá no seu status. Com essas informações, vamos ajudar você a equilibrar lazer e trabalho!"
+                        element: document.querySelector('#feature3'),
+                        intro: "Aqui, você pode gerenciar seu tempo e visualizar suas horas livres." 
                     },
                     {
-                        intro: "Obrigado por passar pelo nosso tutorial! Explore à vontade e aproveite suas ferramentas!"
+                        intro: "Clique em 'Próximo' para fechar o onboarding a qualquer momento."
                     }
                 ]
             }).start();
-        });
-    </script>
-
-    <!-- Adicionando o Chart.js para visualização de tempo -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script>
-        const ctx = document.getElementById('canvas').getContext('2d');
-        const myChart = new Chart(ctx, {
-            type: 'doughnut',
-            data: {
-                labels: ['Horas Livres', 'Horas Ativas'],
-                datasets: [{
-                    label: 'Distribuição de Tempo',
-                    data: [5, 3], // Exemplo de dados; substitua com dados reais
-                    backgroundColor: [
-                        'rgba(75, 192, 192, 0.2)',
-                        'rgba(255, 159, 64, 0.2)',
-                    ],
-                    borderColor: [
-                        'rgba(75, 192, 192, 1)',
-                        'rgba(255, 159, 64, 1)',
-                    ],
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                responsive: true,
-                plugins: {
-                    legend: {
-                        position: 'top',
-                    },
-                    title: {
-                        display: true,
-                        text: 'Gerenciamento do Tempo'
-                    }
-                }
-            }
         });
     </script>
 
