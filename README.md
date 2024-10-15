@@ -39,12 +39,13 @@ O *Roubbie* é um aplicativo que auxilia os usuários a equilibrar sua rotina di
 
 ## 👥 Equipe
 
-- **Larissa Manrique**: Programadora Frontend e Backend
-- **Emilly Caroline**: Programadora Frontend e Backend
-- **Amanda Vitória**: Designer e Gerenciamento
-- **Ana Paula**: Gerenciamento
-- **Lara**: Design
-- **Vitória**: Gerenciamento
+- **Larissa Manrique**: [LinkedIn](https://www.linkedin.com/in/larissa-manrique/)
+- **Vitória Gabrieli**: [LinkedIn](https://www.linkedin.com/in/vit%C3%B3ria-gabrieli-25b5a3274/)
+- **Ana Paula**: [LinkedIn](https://www.linkedin.com/in/ana-paula-2286b823a/)
+- **Lara Assunção**: [LinkedIn](https://www.linkedin.com/in/lara-assun%C3%A7%C3%A3o-b9b7032bb/)
+- **Amanda Vitória**: [LinkedIn](https://www.linkedin.com/in/amanda-vitoria-08600a299/)
+- **Emilly Caroline**: [LinkedIn](https://www.linkedin.com/in/emilly-caroline-129936290/)
+
 
 ## 📝 Notas
 
