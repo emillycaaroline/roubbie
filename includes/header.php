@@ -21,62 +21,30 @@
     <!-- CUSTOM STYLES -->
     <style>
         body {
-            background: none;
+            /* background: none; */ /* Removido ou ajuste para um fundo, se necessário */
         }
 
+        /* General styles */
         .text-white {
             color: #fff;
         }
 
-        .timeline-section {
-            padding: 60px 0;
-        }
-
-        .site-footer {
-            background-color: white;
-            color: #ffffff;
-        }
-
-        .site-footer a {
-            color: #13547a;
-        }
-
-        .site-footer a:hover {
-            color: #80d0c7;
+        /* Navbar styles */
+        .navbar {
+            background: linear-gradient(to right, #13547a, #80d0c7);
+            margin-top: auto;
         }
 
         .navbar-brand img {
             width: 100px;
         }
 
-        .social-icon-link {
-            color: #13547a;
-        }
-
-        .social-icon-link:hover {
-            color: #80d0c7;
-        }
-
         .nav-link {
-            color: #13547a !important;
+            color: white !important;
         }
 
         .nav-link:hover {
-            color: #80d0c7 !important;
-        }
-
-        .navbar-nav .nav-item .nav-link {
-            font-size: 14px;
-        }
-
-        .bi {
-            font-size: 1.5rem;
-        }
-
-        @media (max-width: 767.98px) {
-            .navbar-nav .nav-item .nav-link {
-                font-size: 12px;
-            }
+            color: #80d0c7 !important; 
         }
 
         .navbar-collapse {
@@ -87,11 +55,16 @@
             display: block;
         }
 
+        /* Mobile nav styles */
         .mobile-nav {
             display: none;
         }
 
         @media (max-width: 767.98px) {
+            .navbar-nav .nav-item .nav-link {
+                font-size: 12px;
+            }
+
             .mobile-nav {
                 display: block;
                 position: fixed;
@@ -114,36 +87,32 @@
                 list-style: none;
             }
 
-            .mobile-nav li {
-                text-align: center;
-            }
-
             .mobile-nav a {
-                color: #ffffff;
-                text-decoration: none;
+                color: white; /* Garantindo que os links sejam brancos no mobile */
             }
 
-            .mobile-nav svg {
-                margin-bottom: 5px;
-                fill: #ffffff;
+            .mobile-nav a:hover {
+                color: #80d0c7; /* Mudança de cor ao passar o mouse no mobile */
             }
         }
+
+        i {
+            color: white; /* Garantindo que todos os ícones sejam brancos */
+        }
+      
     </style>
 </head>
 
 <body id="top">
     <!-- Header -->
     <header>
-        <nav style="background: linear-gradient(to right, #13547a, #80d0c7);" class="navbar navbar-expand-lg navbar-light bg-light">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container">
                 <a class="navbar-brand" href="index.php">
-                    <img src="img/logo-ft.png" alt="Logo do Roubbie">
+                    <img src="img/logo/logo_branco.png" alt="Logo do Roubbie">
                 </a>
                 <button id="menuButton" aria-label="Abrir menu de configurações" class="navbar-toggler" type="button">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                        <path d="M2 6h20v3H2V6Z" fill="currentColor"></path>
-                        <path d="M2 15h20v3H2v-3Z" fill="currentColor"></path>
-                    </svg>
+                    <i class="bi bi-list"></i>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-lg-5 me-lg-auto">
@@ -160,29 +129,24 @@
                             <a class="nav-link click" href="diario.php"> Diário</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link click" href="sobre.php">Sobre</a>
+                            <a class="nav-link click" href="http://localhost/roubbie/quiz.php">Quiz</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link click" href="http://localhost/roubbie/quiz.php">Descubra um novo hobby</a>
+                            <a class="nav-link click" href="sobre.php">Sobre</a>
                         </li>
                     </ul>
 
                     <!-- Login/cadastro -->
                     <ul class="nav-menu">
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle navbar-icon bi-person" style="border: none;" href="#" id="navbarUserDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Menu do usuário">
-                            </a>
+                            <a  style="background-color: #13547a;"  class="nav-link dropdown-toggle navbar-icon bi-person" style="border: none;" href="#" id="navbarUserDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Menu do usuário"></a>
                             <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarUserDropdownMenuLink">
                                 <li><a class="dropdown-item" href="http://localhost/roubbie/login-register/login.php">Login</a></li>
                                 <li><a class="dropdown-item" href="http://localhost/roubbie/login-register/cadastro.html">Cadastro</a></li>
-                                <li><a href="logout.php" class="btn btn-danger">
-                                        <i class="fas fa-sign-out-alt"></i> Sair
-                                    </a>
-                                </li>
+                                <li><a class="dropdown-item" href="/roubbie/login-register/logout.php"><i class="bi bi-box-arrow-right"></i> Sair</a></li>
                             </ul>
                         </li>
                     </ul>
-
                 </div>
             </div>
         </nav>
@@ -191,11 +155,10 @@
     <!-- Mobile Menu -->
     <div class="mobile-nav d-lg-none">
         <ul>
-            <li><a href="index.php"><i class="bi bi-house"></i></a></li>
-            <li><a href="http://localhost/roubbie/projeto_fullcalendar_js_php-master/index.php"><i class="bi bi-calendar-month"></i></a></li>
-            <li><a href="http://localhost/roubbie/projeto_fullcalendar_js_php-master/sisrot.php"><i class="bi bi-calendar-range"></i></a></li>
-            <li><a href="diario.php"><i class="bi bi-pencil-square"></i></a></li>
-            <li><a href="http://localhost/roubbie/quiz.php"><i class="bi bi-lightbulb"></i></a></li>
+            <li><a href="index.php" aria-label="Ir para a página inicial"><i class="bi bi-house"></i></a></li>
+            <li><a href="http://localhost/roubbie/projeto_fullcalendar_js_php-master/index.php" aria-label="Ir para a agenda"><i class="bi bi-calendar-month"></i></a></li>
+            <li><a href="http://localhost/roubbie/projeto_fullcalendar_js_php-master/sisrot.php" aria-label="Ir para a rotina"><i class="bi bi-ui-checks-grid"></i></a></li>
+            <li><a href="diario.php" aria-label="Ir para o diário"><i class="bi bi-pencil-square"></i></a></li>
         </ul>
     </div>
 
@@ -203,17 +166,12 @@
     <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.bundle.min.js"></script>
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
+        document.addEventListener("DOMContentLoaded", () => {
             const menuButton = document.getElementById("menuButton");
-            const menuConfig = document.getElementById("menuConfig");
-            const closeMenu = document.getElementById("closeMenu");
+            const navbarNav = document.getElementById("navbarNav");
 
-            menuButton.addEventListener("click", function() {
-                menuConfig.classList.toggle("show");
-            });
-
-            closeMenu.addEventListener("click", function() {
-                menuConfig.classList.remove("show");
+            menuButton.addEventListener("click", () => {
+                navbarNav.classList.toggle("show");
             });
         });
     </script>

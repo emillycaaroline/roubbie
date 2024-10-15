@@ -119,7 +119,7 @@
                     <div class="card">
                         <h3>Eventos Pendentes</h3>
                         <p>Verifique seus eventos para esta semana.<br><span class="badge bg-warning"> (<?php echo $events_count; ?> pendentes)</span></p>
-                        <a href="events-pendentes.php" class="btn btn-outline-success">Ver Eventos</a>
+                        <a href="/roubbie/projeto_fullcalendar_js_php-master/exibir-events.php" class="btn btn-outline-success">Ver Eventos</a>
                     </div>
                 </div>
 

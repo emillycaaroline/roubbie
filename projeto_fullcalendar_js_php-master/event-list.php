@@ -1,7 +1,6 @@
 <?php
-require_once '../includes/db_connection.php';
-
 session_start();
+require_once '../includes/db_connection.php';
 
 $sql = $db->query("SELECT id, title, color, start, end FROM events");
 $events = $sql->fetchAll();
