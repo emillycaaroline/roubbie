@@ -16,26 +16,32 @@
 
         body {
             display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
+            justify-content: center;
             align-items: center;
             min-height: 100vh;
             background-color: #13547a;
+            color: #fff;
             text-align: center;
         }
 
         main {
-            text-align: center;
+            width: 100%;
+            max-width: 800px;
+            padding: 20px;
         }
 
         /* CONTAINER PRINCIPAL DO QUIZ */
         .widget-wrap {
-            width: 100%;
-            max-width: 600px;
-            padding: 20px;
-            border-radius: 20px;
             background-color: #80d0c7;
-            margin-top: 20px;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        /* TÍTULO */
+        h1 {
+            margin-bottom: 20px;
+            font-size: 28px;
         }
 
         /* PERGUNTA */
@@ -45,18 +51,14 @@
             font-size: 20px;
             border-radius: 10px;
             background: #4c93ba;
+            margin-bottom: 15px;
         }
 
         /* RESPOSTAS */
         #quizAns {
-            margin: 10px 0;
             display: grid;
             grid-template-columns: 1fr;
             grid-gap: 15px;
-        }
-
-        #quizAns input[type=radio] {
-            display: none;
         }
 
         #quizAns label {
@@ -64,6 +66,7 @@
             border: 1px solid #ddd;
             border-radius: 10px;
             padding: 15px;
+            color: black;
             font-size: 18px;
             cursor: pointer;
             text-align: center;
@@ -71,6 +74,7 @@
         }
 
         #quizAns label:hover {
+            background: #e0f7fa;
             transform: scale(1.05);
         }
 
@@ -95,7 +99,6 @@
         @media (max-width: 767px) {
             #quizQn {
                 font-size: 18px;
-                padding: 15px;
             }
 
             #quizAns label {
@@ -112,7 +115,6 @@
         @media (min-width: 768px) {
             #quizQn {
                 font-size: 24px;
-                padding: 20px;
             }
 
             #quizAns {
@@ -121,11 +123,6 @@
 
             #quizAns label {
                 font-size: 20px;
-                padding: 15px;
-            }
-
-            .widget-wrap {
-                padding: 20px;
             }
         }
     </style>
@@ -133,15 +130,14 @@
 
 <body>
     <main>
-
         <div class="widget-wrap">
             <h1>RoubQuiz</h1>
 
-            <!-- (A) QUIZ CONTAINER -->
+            <!-- QUIZ CONTAINER -->
             <div id="quizWrap"></div>
 
             <!-- RESTART BUTTON -->
-            <button id="restartBtn" style="display: none;" onclick="quiz.reset()">Restart Quiz</button>
+            <button id="restartBtn" style="display: none;" onclick="quiz.reset()">Reiniciar Quiz</button>
         </div>
 
         <script>
@@ -201,7 +197,6 @@
                     quiz.draw();
                 },
 
-                // Desenha a pergunta e as opções
                 draw: function () {
                     quiz.hQn.innerHTML = quiz.data[quiz.now].q;
                     quiz.hAns.innerHTML = "";
@@ -215,11 +210,10 @@
                     }
                 },
 
-                // Seleciona a resposta e avança para a próxima pergunta
                 select: function (option) {
                     let allLabels = quiz.hAns.getElementsByTagName("label");
                     for (let label of allLabels) {
-                        label.style.pointerEvents = "none"; // Desativa o clique nas opções
+                        label.style.pointerEvents = "none";
                     }
                     quiz.now++;
                     setTimeout(() => {
@@ -231,14 +225,12 @@
                     }, 1000);
                 },
 
-                // Exibe o resultado final
                 showResult: function () {
                     quiz.hQn.innerHTML = `Você completou o quiz!`;
                     quiz.hAns.innerHTML = "";
                     document.getElementById("restartBtn").style.display = "inline-block";
                 },
 
-                // Reinicia o quiz
                 reset: function () {
                     quiz.now = 0;
                     document.getElementById("restartBtn").style.display = "none";
@@ -246,7 +238,6 @@
                 }
             };
 
-            // Inicializa o quiz quando a página é carregada
             window.addEventListener("load", quiz.init);
         </script>
     </main>

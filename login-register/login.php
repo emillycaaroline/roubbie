@@ -70,7 +70,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['login'])) {
         <div class="container-login100">
             <div class="wrap-login100">
                 <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" class="login100-form validate-form">
-                    <span class="login100-form-title p-b-43">Entrar</span>
+                    <span class="login100-form-title p-b-43">Bom te ver de novo!</span>
                     <div class="wrap-input100 validate-input" data-validate="Email válido é requerido: ex@abc.xyz">
                         <input class="input100" type="email" name="email" id="email" required>
                         <span class="focus-input100"></span>

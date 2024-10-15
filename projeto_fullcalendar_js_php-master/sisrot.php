@@ -60,33 +60,40 @@
 
     <!-- Este arquivo configura a visualização semanal e diária do calendário. Inclui o modal para adicionar ou editar eventos. -->
     <!-- Card para inserir evento -->
-    <div class="modal-opened hidden">
-        <div class="modal">
-            <div class="modal-header">
-                <div class="modal-title">
-                    <h3>Cadastrar Evento</h3>
-                </div>
-                <div class="modal-close">x</div>
+<div class="modal-opened hidden">
+    <div class="modal">
+        <div class="modal-header">
+            <div class="modal-title">
+                <h3>Cadastrar Registro</h3>
             </div>
-            <form action="action-event.php" method="post" id="form-add-event">
-                <input type="hidden" name="id" id="id">
-                <input type="hidden" name="action" id="action" value="">
-                <label for="title">Nome do Evento</label>
-                <input type="text" name="title" id="title">
-                <label for="color">Selecione uma cor</label>
-                <input type="color" name="color" id="color">
-                <label for="start">Início do Evento</label>
-                <input type="datetime-local" name="start" id="start">
-                <label for="end">Término do Evento</label>
-                <input type="datetime-local" name="end" id="end">
-                <div class="modal-footer">
-                    <button type="submit" class="btn-save">Salvar</button>
-                    <button type="button" class="btn-delete hidden">Excluir</button>
-                </div>
-            </form>
-
+            <div class="modal-close">x</div>
         </div>
+        <form action="action-event.php" method="post" id="form-add-event">
+            <input type="hidden" name="id" id="id">
+            <input type="hidden" name="action" id="action" value="add"> <!-- Ação padrão como 'add' -->
+
+            <label for="title">Título</label>
+            <input type="text" name="title" id="title" required>
+
+            <label for="date">Data</label>
+            <input type="date" name="date" id="date" required>
+
+            <label for="time">Hora</label>
+            <input type="time" name="time" id="time" required>
+
+            <label for="category">Categoria</label>
+            <select name="category" id="category" required>
+                <option value="evento">Evento</option>
+                <option value="tarefa">Tarefa</option>
+                <option value="compromisso">Compromisso</option>
+            </select>
+
+            <div class="modal-footer">
+                <button type="submit" class="btn-save">Salvar</button>
+            </div>
+        </form>
     </div>
+</div>
 
     <div class="calendar-area">
         <h2 style="color: black; text-align: center;">Dia a Dia</h2>

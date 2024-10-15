@@ -2,57 +2,41 @@
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Inclui o arquivo de conexão
     include '../includes/db_connection.php';
-    
+
     // Verifica a conexão
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
     }
 
-$action = $_POST['action']; // Determina se é um add ou update
-$title = $_POST['title'];
-$color = $_POST['color'];
-$start = $_POST['start'];
-$end = $_POST['end'];
-    // Obtém os dados do formulário
+    // Captura os dados do formulário
     $title = isset($_POST["title"]) ? $_POST["title"] : '';
-    $color = isset($_POST["color"]) ? $_POST["color"] : '';
-    $start = isset($_POST["start"]) ? $_POST["start"] : '';
-    $end = isset($_POST["end"]) ? $_POST["end"] : '';
+    $date = isset($_POST["date"]) ? $_POST["date"] : '';
+    $time = isset($_POST["time"]) ? $_POST["time"] : '';
+    $category = isset($_POST["category"]) ? $_POST["category"] : '';
 
-    // // Verifica se o usuario_id é válido
-    // if ($usuario_id <= 0) {
-    //     die("Erro: ID de usuário inválido.");
-    // }
-
-    // // Verifica se o usuario_id existe na tabela usuarios
-    // $stmt = $conn->prepare("SELECT id FROM usuarios WHERE id = ?");
-    // $stmt->bind_param("i", $usuario_id);
-    // $stmt->execute();
-    // $result = $stmt->get_result();
-    // if ($result->num_rows == 0) {
-    //     die("Erro: ID de usuário não encontrado.");
-    // }
+    // Converte a data e hora para um formato datetime
+    $start = $date . ' ' . $time; // Combina data e hora
 
     // Insere o evento no banco de dados
-    $stmt = $conn->prepare("INSERT INTO events (title, color, start, end ) VALUES (?, ?, ?, ?)");
-    $stmt->bind_param("ssss", $title, $color, $start, $end);
+    $stmt = $conn->prepare("INSERT INTO events (title, start, category) VALUES (?, ?, ?)");
+    $stmt->bind_param("sss", $title, $start, $category);
 
+    // Executa a operação
     if ($stmt->execute()) {
-        $evento_id = $stmt->insert_id;
+        $evento_id = $stmt->insert_id; // Obtém o ID do evento inserido
 
-        // Redireciona para a página com os dados do evento como parâmetros
+        // Redireciona para a página de status com os dados do evento
         $redirect_url = "status-rotina.php";
         $query_params = http_build_query([
             'evento_id' => $evento_id,
             'titulo' => $title,
-            'cor' => $color,
             'start' => $start,
-            'end' => $end,
+            'categoria' => $category,
         ]);
         header("Location: $redirect_url?$query_params");
         exit();
     } else {
-        echo "Erro ao adicionar o evento: " . $stmt->error;
+        echo "Erro ao adicionar o registro: " . $stmt->error;
     }
 
     $stmt->close();
