@@ -230,7 +230,5 @@
         loadEntries();
     }
 </script>
-
-
 </body>
 </html>
