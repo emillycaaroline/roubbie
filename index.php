@@ -119,7 +119,7 @@
                     <div class="card">
                         <h3>Eventos Pendentes</h3>
                         <p>Verifique seus eventos para esta semana.<br><span class="badge bg-warning"> (<?php echo $events_count; ?> pendentes)</span></p>
-                        <a href="/roubbie/projeto_fullcalendar_js_php-master/exibir-events.php" class="btn btn-outline-success">Ver Eventos</a>
+                        <a href="/roubbie/projeto_fullcalendar_js_php-master/status-rotina.php" class="btn btn-outline-success">Ver Eventos</a>
                     </div>
                 </div>
 
@@ -127,7 +127,7 @@
                     <div class="card">
                         <h3>Compromissos</h3>
                         <p>Não perca os próximos compromissos.<br><span class="badge bg-info"> (<?php echo $compromissos_count; ?> futuros)</span></p>
-                        <a href="http://localhost/roubbie/projeto_fullcalendar_js_php-master/index.php" class="btn btn-outline-success">Ver Detalhes</a>
+                        <a href="/roubbie/projeto_fullcalendar_js_php-master/st.php" class="btn btn-outline-success">Ver Detalhes</a>
 
                     </div>
                 </div>
@@ -135,7 +135,7 @@
                     <div class="card">
                         <h3>Acompanhamento de Hobbies</h3>
                         <p>Como anda a prática do seu hobby?<br>Visualize seu progresso!</p>
-                        <a href="http://localhost/roubbie/quiz.php" class="btn btn-outline-success">Ver Detalhes</a>
+                        <a href="http://localhost/roubbie/quiz.php" class="btn btn-outline-success" data-bs-toggle="tooltip" data-bs-placement="top" title="Veja seu progresso na prática de hobbies!">Ver Detalhes</a>
 
                     </div>
                 </div>
