@@ -9,10 +9,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     // Captura os dados do formulário
-    $title = isset($_POST["title"]) ? $_POST["title"] : '';
+    $title = isset($_POST["title"]) ? trim($_POST["title"]) : '';
     $date = isset($_POST["date"]) ? $_POST["date"] : '';
     $time = isset($_POST["time"]) ? $_POST["time"] : '';
     $category = isset($_POST["category"]) ? $_POST["category"] : '';
+
+    // Valida os dados
+    if (empty($title) || empty($date) || empty($time) || empty($category)) {
+        echo "Todos os campos são obrigatórios.";
+        exit();
+    }
 
     // Converte a data e hora para um formato datetime
     $start = $date . ' ' . $time; // Combina data e hora
@@ -24,6 +30,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Executa a operação
     if ($stmt->execute()) {
         $evento_id = $stmt->insert_id; // Obtém o ID do evento inserido
+
+        // Armazena mensagem de sucesso na sessão
+        session_start();
+        $_SESSION['msg'] = "Evento adicionado com sucesso!";
 
         // Redireciona para a página de status com os dados do evento
         $redirect_url = "status-rotina.php";

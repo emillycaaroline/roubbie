@@ -21,6 +21,7 @@ document.addEventListener('DOMContentLoaded', function () {
         },
         events: 'event-list.php',
     };
+        //Vizialização da agenda
 
     if (bodyClass === 'index-page') {
         calendarConfig.headerToolbar = {
@@ -28,6 +29,7 @@ document.addEventListener('DOMContentLoaded', function () {
             center: 'title',
             right: 'dayGridMonth'
         };
+        //Vizialização da rotina
         calendarConfig.initialView = 'dayGridMonth';
     } else if (bodyClass === 'sisrot-page') {
         calendarConfig.headerToolbar = {

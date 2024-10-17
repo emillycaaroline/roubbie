@@ -55,6 +55,7 @@ var FullCalendar = (function (exports) {
             }
         });
     }
+
     // nonce
     // -------------------------------------------------------------------------------------------------
     let queriedNonceValue;
