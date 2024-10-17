@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <style>
-    .mes-atual {
+    .titulo-rotina {
         color: var(--text-color);
         font-size: 1.5rem;
         text-align: center;
@@ -273,9 +273,9 @@
     </div>
 
     <div class="calendar-area">
-        <h2 style="color: black; text-align: center;">Dia a Dia</h2>
+        <h2 id="titulo-rotina">Rotina</h2>
 
-        <div id='calendar'></div>
+        <div style="font-size: small;" id='calendar'></div>
     </div>
     <script src="dist/index.global.min.js"></script>
     <script src="core/locales/pt-br.global.min.js"></script>

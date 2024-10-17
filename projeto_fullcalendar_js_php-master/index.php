@@ -115,6 +115,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     #calendar {
+       
         width: 100%;
         height: calc(100vh - 160px);
         box-sizing: border-box;
@@ -182,16 +183,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     h2#titulo-mes{
         color: var(--text-color);
-        font-size: 1.8rem;
+        font-size: 1.5rem;
         text-align: center;
         margin: 20px 0;
         padding: 10px;
         border-radius: 8px;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
         font-weight: bold;
         text-transform: uppercase;
         
     }
+    .calendar,area, header{
+    text-align: center; 
+        font-size:small;
+}
 </style>
 
 <body class="index-page">
@@ -218,9 +222,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     <div class="calendar-area">
         <h2 id="titulo-mes">Mês Atual</h2>
-        <div class="calendar-area-header">
+        <div style="text-align: center; font-size:small; "  class="calendar-area-header">
             <div class="msg">
-                <?php
+                <?php 
                 if (!empty($_SESSION['msg'])) {
                     echo $_SESSION['msg'];
                     unset($_SESSION['msg']);
@@ -228,7 +232,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 ?>
             </div>
         </div>
-        <div id='calendar'></div>
+        <div  style="text-align: center; font-size:small; " id='calendar'></div>
     </div>
     <script src="dist/index.global.min.js"></script>
     <script src="core/locales/pt-br.global.min.js"></script>
