@@ -1,43 +1,33 @@
 <?php
+session_start();
+
+// Inclui o arquivo de conexão com o caminho correto
 require_once '../includes/db_connection.php';
 
+// Verifica se o formulário foi submetido
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
-    // Verifica a conexão
-    if ($conn->connect_error) {
-        die("Falha na conexão: " . $conn->connect_error);
-    }
-
     // Obtém os dados do formulário
-    $nome = $_POST["nome"];
-    $email = $_POST["email"];
-    $senha = $_POST["senha"];
+    $nome = trim($_POST["nome"]);
+    $email = trim($_POST["email"]);
+    $senha = password_hash(trim($_POST["senha"]), PASSWORD_DEFAULT); // Criptografa a senha
 
-    // Verifica se o email já está registrado
-    $stmt = $conn->prepare("SELECT id FROM usuarios WHERE email = ?");
-    $stmt->bind_param("s", $email);
-    $stmt->execute();
-    $stmt->store_result();
+    // Prepara a consulta para inserir o usuário
+    $stmt = $conn->prepare("INSERT INTO usuarios (nome, email, senha) VALUES (?, ?, ?)");
+    $stmt->bind_param("sss", $nome, $email, $senha);
 
-    if ($stmt->num_rows > 0) {
-        echo "<script>alert('Este email já está registrado.'); window.location.href = 'cadastro.php';</script>";
+    // Tenta executar a consulta
+    if ($stmt->execute()) {
+        // Cadastro bem-sucedido, armazena o nome na sessão
+        $_SESSION['nome'] = $nome;
+        header("Location: /roubbie/welcome.php"); // Redireciona para a página de boas-vindas
+        exit();
     } else {
-        // Criptografa a senha
-        $hashed_password = password_hash($senha, PASSWORD_DEFAULT);
-
-        // Insere os dados no banco de dados
-        $stmt = $conn->prepare("INSERT INTO usuarios (nome, email, senha) VALUES (?, ?, ?)");
-        $stmt->bind_param("sss", $nome, $email, $hashed_password);
-
-        if ($stmt->execute()) {
-            echo "<script>alert('Cadastro realizado com sucesso!'); window.location.href = '../quiz.php';</script>";
-        } else {
-            echo "<script>alert('Erro ao cadastrar. Tente novamente mais tarde.'); window.location.href = 'cadastro.php';</script>";
-        }
+        // Erro ao cadastrar
+        echo "<script>alert('Erro ao cadastrar.'); window.location.href = 'cadastro.php';</script>";
     }
 
     $stmt->close();
     $conn->close();
 }
 ?>
-<!-- # Script para processar o cadastro de usuários -->

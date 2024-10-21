@@ -24,37 +24,41 @@
         <div class="container-login100">
             <div class="wrap-login100">
                 <form action="cadastro_process.php" method="POST" class="login100-form validate-form">
+                    <input type="hidden" name="csrf_token" value="<?php echo hash('sha256', session_id()); ?>"> <!-- Token CSRF -->
+                    
                     <span class="login100-form-title p-b-43">
                         Vamos começar essa jornada juntos!
                     </span>
+
+                    <!-- Nome -->
                     <div class="wrap-input100 validate-input" data-validate="Nome é obrigatório e deve conter apenas letras.">
-                        <input class="input100" type="text" name="nome" pattern="[A-Za-zÀ-ÿ\s]+" required>
+                        <input class="input100" type="text" name="nome" pattern="[A-Za-zÀ-ÿ\s'-]+" required>
                         <span class="focus-input100"></span>
                         <span class="label-input100">Nome</span>
                     </div>
+
+                    <!-- Email -->
                     <div class="wrap-input100 validate-input" data-validate="Formato de email inválido: ex@abc.xyz">
                         <input class="input100" type="email" name="email" required>
                         <span class="focus-input100"></span>
                         <span class="label-input100">Email</span>
                     </div>
+
+                    <!-- Senha -->
                     <div class="wrap-input100 validate-input" data-validate="A senha é obrigatória e deve ter no mínimo 6 caracteres.">
                         <input class="input100" type="password" name="senha" minlength="6" required>
                         <span class="focus-input100"></span>
                         <span class="label-input100">Senha</span>
                     </div>
+
                     <div class="flex-sb-m w-full p-t-3 p-b-32">
-                        <div class="contact100-form-checkbox">
-                            <input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
-                            <label class="label-checkbox100" for="ckb1">
-                                Lembrar-me
-                            </label>
-                        </div>
                         <div>
                             <a href="#" class="txt1">
                                 Esqueceu a senha?
                             </a>
                         </div>
                     </div>
+
                     <div class="container-login100-form-btn">
                         <button type="submit" class="login100-form-btn">
                             Cadastrar
