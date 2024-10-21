@@ -30,7 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt->bind_param("sss", $nome, $email, $hashed_password);
 
         if ($stmt->execute()) {
-            echo "<script>alert('Cadastro realizado com sucesso!'); window.location.href = '../index.php';</script>";
+            echo "<script>alert('Cadastro realizado com sucesso!'); window.location.href = '../quiz.php';</script>";
         } else {
             echo "<script>alert('Erro ao cadastrar. Tente novamente mais tarde.'); window.location.href = 'cadastro.php';</script>";
         }

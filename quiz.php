@@ -125,6 +125,7 @@
                 font-size: 20px;
             }
         }
+
         button {
             margin-top: 15px;
             padding: 10px;
@@ -136,6 +137,7 @@
             font-size: 16px;
             transition: background-color 0.3s, transform 0.2s;
         }
+
         button:hover {
             background-color: skyblue;
             transform: translateY(-2px);
@@ -144,7 +146,7 @@
 </head>
 
 <body>
-<button onclick="window.history.back()">Voltar</button>
+    <button onclick="window.history.back()">Voltar</button>
 
     <main>
 
@@ -156,6 +158,9 @@
 
             <!-- RESTART BUTTON -->
             <button id="restartBtn" style="display: none;" onclick="quiz.reset()">Reiniciar Quiz</button>
+
+            <!-- HOME BUTTON -->
+            <button id="homeBtn" style="display: none;" onclick="window.location.href = 'index.php';">Ir para a Página Inicial</button>
         </div>
 
         <script>
@@ -247,11 +252,13 @@
                     quiz.hQn.innerHTML = `Você completou o quiz!`;
                     quiz.hAns.innerHTML = "";
                     document.getElementById("restartBtn").style.display = "inline-block";
+                    document.getElementById("homeBtn").style.display = "inline-block"; // Exibe o botão para a página inicial
                 },
 
                 reset: function () {
                     quiz.now = 0;
                     document.getElementById("restartBtn").style.display = "none";
+                    document.getElementById("homeBtn").style.display = "none"; // Esconde o botão para a página inicial
                     quiz.draw();
                 }
             };
