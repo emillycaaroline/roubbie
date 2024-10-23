@@ -7,7 +7,6 @@
     <title>Eventos</title>
     <link rel="stylesheet" href="seu-estilo.css">
     <style>
-<<<<<<< HEAD
 /* Estilos Gerais */
 body {
     margin: 0;
