@@ -1,55 +1,33 @@
-<?php
-session_start();
-
-// Verifica se o usuário está logado
-if (!isset($_SESSION['nome'])) {
-    header("Location: login.php"); // Redireciona para o login se não estiver logado
-    exit();
-}
-
-// Exibe a mensagem de boas-vindas
-$nome = htmlspecialchars($_SESSION['nome']); // Protege contra XSS
-
-// Ativar exibição de erros
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
-
-require_once 'includes/db_connection.php';
-
-// Verificar a conexão com o banco de dados
-if ($conn->connect_error) {
-    die("Erro de conexão: " . $conn->connect_error);
-}
-
-// Consultar o número de entradas do diário
-$diario_query = "SELECT COUNT(*) AS total FROM diario";
-$diario_result = $conn->query($diario_query);
-$diario_count = $diario_result ? $diario_result->fetch_assoc()['total'] : 0;
-
-// Consultar eventos pendentes
-$events_query = "SELECT COUNT(*) AS total FROM events WHERE status = 'pendente'";
-$events_result = $conn->query($events_query);
-$events_count = $events_result ? $events_result->fetch_assoc()['total'] : 0;
-
-// Consultar compromissos futuros
-$compromissos_query = "SELECT COUNT(*) AS total FROM compromissos WHERE data > NOW()";
-$compromissos_result = $conn->query($compromissos_query);
-$compromissos_count = $compromissos_result ? $compromissos_result->fetch_assoc()['total'] : 0;
-
-?>
-
 <!doctype html>
 <html lang="pt-BR">
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Dashboard - Roubbie</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Open+Sans&display=swap">
+    <title>Bem-vindo ao Roubbie</title>
+
+    <!-- CSS FILES -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Open+Sans&display=swap" rel="stylesheet">
     <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/intro.js/minified/introjs.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link href="css/bootstrap-icons.css" rel="stylesheet">
+    <link href="css/templatemo-topic-listing.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intro.js/minified/introjs.min.css">
     <link rel="stylesheet" href="css/dashboard.css">
+
     <style>
+        /* Estilo global */
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: var(--background-color);
+            /* Defina a cor de fundo conforme seu CSS */
+            color: var(--text-color);
+            /* Defina a cor do texto conforme seu CSS */
+        }
+
+        /* Ajuste para o status (dashboard) */
         .card {
             background-color: var(--white);
             border: 1px solid var(--border-color);
@@ -64,6 +42,7 @@ $compromissos_count = $compromissos_result ? $compromissos_result->fetch_assoc()
             transform: scale(1.02);
         }
 
+        /* Títulos dos cards */
         .card h3 {
             font-family: 'Montserrat', sans-serif;
             color: var(--primary-color);
@@ -72,6 +51,7 @@ $compromissos_count = $compromissos_result ? $compromissos_result->fetch_assoc()
             font-weight: 700;
         }
 
+        /* Estilo dos badges */
         .badge {
             font-size: 0.9rem;
             padding: 5px 10px;
@@ -88,11 +68,13 @@ $compromissos_count = $compromissos_result ? $compromissos_result->fetch_assoc()
             color: var(--white);
         }
 
+        /* Estilo dos gráficos */
         #canvas {
             max-width: 100%;
             margin-top: 20px;
         }
 
+        /* Responsividade */
         @media (max-width: 768px) {
             .card {
                 margin-bottom: 30px;
@@ -107,16 +89,154 @@ $compromissos_count = $compromissos_result ? $compromissos_result->fetch_assoc()
                 font-size: 0.9rem;
             }
         }
+
+        /* General styles */
+        .text-white {
+            color: #fff;
+        }
+
+        /* Navbar styles */
+        .navbar {
+            background: linear-gradient(to right, #13547a, #80d0c7);
+            margin-top: auto;
+        }
+
+        .navbar-brand img {
+            width: 100px;
+        }
+
+        .nav-link {
+            color: white !important;
+        }
+
+        .nav-link:hover {
+            color: #80d0c7 !important;
+        }
+
+        .navbar-collapse {
+            display: none;
+        }
+
+        .navbar-collapse.show {
+            display: block;
+        }
+
+        /* Mobile nav styles */
+        .mobile-nav {
+            display: none;
+        }
+
+        @media (max-width: 767.98px) {
+            .navbar-nav .nav-item .nav-link {
+                font-size: 12px;
+            }
+
+            .mobile-nav {
+                display: block;
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                background: linear-gradient(to right, #13547a, #80d0c7);
+                color: #ffffff;
+                border-top: 1px solid #80d0c7;
+                border-radius: 5px;
+                z-index: 1000;
+                text-align: center;
+            }
+
+            .mobile-nav ul {
+                display: flex;
+                justify-content: space-around;
+                padding: 10px 0;
+                margin: 0;
+                list-style: none;
+            }
+
+            .mobile-nav a {
+                color: white;
+                /* Garantindo que os links sejam brancos no mobile */
+            }
+
+            .mobile-nav a:hover {
+                color: #80d0c7;
+                /* Mudança de cor ao passar o mouse no mobile */
+            }
+        }
+
+        i {
+            color: white;
+            /* Garantindo que todos os ícones sejam brancos */
+        }
     </style>
 </head>
 
-<body>
-    <?php include $_SERVER['DOCUMENT_ROOT'] . '/roubbie/includes/headerintro.php'; ?>
+<body id="top">
+    <!-- Header -->
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container">
+                <a class="navbar-brand" href="index.php">
+                    <img src="img/logo/logo_branco.png" alt="Logo do Roubbie">
+                </a>
+                <button id="menuButton" aria-label="Abrir menu de configurações" class="navbar-toggler" type="button">
+                    <i class="bi bi-list"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-lg-5 me-lg-auto">
+                        <li class="nav-item">
+                            <span class="nav-link">Home</span>
+                        </li>
+                        <li class="nav-item">
+                            <span class="nav-link">Agenda</span>
+                        </li>
+                        <li class="nav-item">
+                            <span class="nav-link">Rotina</span>
+                        </li>
+                        <li class="nav-item">
+                            <span class="nav-link">Diário</span>
+                        </li>
+                        <li class="nav-item">
+                            <span class="nav-link">Quiz</span>
+                        </li>
+                        <li class="nav-item">
+                            <span class="nav-link">Sobre</span>
+                        </li>
+                        <li class="nav-item">
+                        </li>
+                    </ul>
+
+                    <!-- Login/cadastro -->
+                    <ul class="nav-menu">
+                        <li class="nav-item dropdown">
+                            <a style="background-color: #13547a;" class="nav-link dropdown-toggle navbar-icon bi-person" style="border: none;" href="#" id="navbarUserDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Menu do usuário"></a>
+                            <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarUserDropdownMenuLink">
+                                <li><span class="dropdown-item">Login</span></li>
+                                <li><span class="dropdown-item">Cadastro</span></li>
+                                <li><span class="dropdown-item"><i class="bi bi-box-arrow-right"></i> Sair</span></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-nav d-lg-none">
+        <ul>
+            <li><span aria-label="Ir para a página inicial"><i class="bi bi-house"></i></span></li>
+            <li><span aria-label="Ir para a agenda"><i class="bi bi-calendar-month"></i></span></li>
+            <li><span aria-label="Ir para a rotina"><i class="bi bi-ui-checks-grid"></i></span></li>
+            <li><span aria-label="Ir para o diário"><i class="bi bi-pencil-square"></i></span></li>
+        </ul>
+    </div>
 
     <div class="container">
-        <main style=" margin: auto; margin-top: 200px;">
-            <h1>Oi, <?php echo $nome; ?>!</h1>
+        <main style="margin: auto; margin-top: 200px;">
+            <h1>Oi, Giovanni Santos!</h1>
             <p>Bem-vindo à sua nova conta!</p>
+
             <button id="startOnboarding" class="btn btn-outline-success">Iniciar Tutorial</button>
             <button id="skipTutorial" class="btn btn-secondary">Pular Tutorial</button>
 
@@ -125,8 +245,8 @@ $compromissos_count = $compromissos_result ? $compromissos_result->fetch_assoc()
                     <div class="card" id="feature1">
                         <h3>Minhas Notas</h3>
                         <p>
-                            <span class="badge <?php echo $diario_count > 0 ? 'bg-success' : 'bg-danger'; ?>">
-                                <?php echo $diario_count > 0 ? "+{$diario_count} registradas" : "Nenhuma nota registrada ainda"; ?>
+                            <span class="badge bg-success">
+                                +2 registradas
                             </span>
                         </p>
                     </div>
@@ -134,106 +254,74 @@ $compromissos_count = $compromissos_result ? $compromissos_result->fetch_assoc()
                 <div class="col-md-4">
                     <div class="card" id="feature2">
                         <h3>Eventos Pendentes</h3>
-                        <a href="/roubbie/projeto_fullcalendar_js_php-master/status-rotina.php" class="btn btn-outline-success" aria-label="Ver eventos pendentes">
-                            <span class="badge bg-warning">(<?php echo $events_count; ?> pendentes)</span>
-                        </a>
                         <p>
-                            <span class="badge <?php echo $events_count == 0 ? 'bg-danger' : ''; ?>">
-                                <?php echo $events_count == 0 ? "Nenhum evento pendente" : ""; ?>
+                            <span class="badge">
+                                (8 pendentes)
                             </span>
                         </p>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="card" id="feature3">
-                        <h3>Gerenciamento do Tempo</h3>
-                        <canvas id="canvas" width="300" height="300"></canvas>
+                        <h3>Meus Hobbies</h3>
+                        <p>
+                            <span class="badge bg-danger">
+                                0 novos
+                            </span>
+                        </p>
                     </div>
                 </div>
             </div>
+
+            <h2 class="mt-5">Gráficos de Progresso</h2>
+            <canvas id="canvas" width="400" height="200"></canvas>
         </main>
     </div>
-
-    <!-- Importando o script do Intro.js -->
-    <script src="https://cdn.jsdelivr.net/npm/intro.js/minified/intro.min.js"></script>
-
-    <!-- Introdução com tutorial -->
-    <script>
-        document.getElementById('startOnboarding').addEventListener('click', function () {
-            introJs().setOptions({
-                steps: [
-                    {
-                        intro: "Olá! Bem-vindo ao Roubbie! 😊 Vamos mostrar rapidamente as principais funcionalidades para você aproveitar ao máximo!"
-                    },
-                    {
-                        element: document.querySelector('#feature1'),
-                        intro: "Dê uma olhada nas suas entradas do diário registradas!"
-                    },
-                    {
-                        element: document.querySelector('#feature2'),
-                        intro: "Aqui estão seus eventos pendentes!"
-                    },
-                    {
-                        element: document.querySelector('#feature3'),
-                        intro: "Gerencie seu tempo e veja suas horas livres!"
-                    },
-                    {
-                        intro: "Obrigado por passar pelo nosso tutorial! Explore à vontade e aproveite suas ferramentas!"
-                    }
-                ]
-            }).oncomplete(function() {
-                // Redireciona para a página principal (dashboard) após concluir o tutorial
-                window.location.href = 'index.php';
-            }).onexit(function() {
-                // Redireciona para a página principal (dashboard) se o tutorial for interrompido
-                window.location.href = 'index.php';
-            }).start();
-        });
-
-        document.getElementById('skipTutorial').addEventListener('click', function () {
-            // Redireciona para a página principal se o usuário pular o tutorial
-            window.location.href = 'index.php';
-        });
-    </script>
-
-    <!-- Adicionando o Chart.js para visualização de tempo -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script>
-        const ctx = document.getElementById('canvas').getContext('2d');
-        const myChart = new Chart(ctx, {
-            type: 'doughnut',
-            data: {
-                labels: ['Horas Livres', 'Horas Ativas'],
-                datasets: [{
-                    label: 'Distribuição de Tempo',
-                    data: [5, 3], // Exemplo de dados; substitua com dados reais
-                    backgroundColor: [
-                        'rgba(75, 192, 192, 0.2)',
-                        'rgba(255, 159, 64, 0.2)',
-                    ],
-                    borderColor: [
-                        'rgba(75, 192, 192, 1)',
-                        'rgba(255, 159, 64, 1)',
-                    ],
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                responsive: true,
-                plugins: {
-                    legend: {
-                        position: 'top',
-                    },
-                    title: {
-                        display: true,
-                        text: 'Distribuição do Tempo'
-                    }
-                }
-            }
-        });
-    </script>
-
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/intro.js/minified/intro.min.js"></script>
+    <script src="js/dashboard.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            $('#startOnboarding').click(function() {
+                introJs().setOptions({
+                    steps: [{
+                            intro: "Bem-vindo ao Roubbie! Vamos dar uma olhada nas principais funcionalidades."
+                        },
+                        {
+                            element: '#feature1',
+                            intro: 'Aqui estão suas notas. Você pode ver quantas notas registrou.'
+                        },
+                        {
+                            element: '#feature2',
+                            intro: 'Aqui estão os eventos pendentes. Acompanhe o que ainda precisa ser feito.'
+                        },
+                        {
+                            element: '#feature3',
+                            intro: 'Esta seção mostra seus hobbies registrados.'
+                        },
+                        {
+                            element: '#canvas',
+                            intro: 'Os gráficos mostram seu progresso ao longo do tempo.'
+                        },
+                        {
+                            intro: "Isso é tudo! Aproveite o uso do Roubbie!"
+                        }
+                    ]
+                }).start();
+            });
+        });
+    </script>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/intro.js/minified/intro.min.js"></script>
+    <script src="js/dashboard.js"></script>
 </body>
 
 </html>
