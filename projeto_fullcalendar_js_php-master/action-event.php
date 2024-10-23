@@ -23,8 +23,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Converte a data e hora para um formato datetime
     $start = $date . ' ' . $time; // Combina data e hora
 
-    // Insere o evento no banco de dados
+    // Tenta inserir o evento no banco de dados
     $stmt = $conn->prepare("INSERT INTO events (title, start, category) VALUES (?, ?, ?)");
+    if (!$stmt) {
+        echo "Erro na preparação da declaração: " . $conn->error;
+        exit();
+    }
+
     $stmt->bind_param("sss", $title, $start, $category);
 
     // Executa a operação
@@ -52,4 +57,3 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->close();
     $conn->close();
 }
-?>

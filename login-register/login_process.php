@@ -23,7 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->store_result();
 
     if ($stmt->num_rows == 1) {
-        $stmt->bind_result($user_id, $hashed_password); // Obtem o ID e a senha criptografada
+        $stmt->bind_result($user_id, $hashed_password); // Obtém o ID e a senha criptografada
         $stmt->fetch();
 
         // Verifica se a senha está correta
@@ -32,7 +32,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION["usuario_id"] = $user_id; // Armazena o ID do usuário na sessão
             $_SESSION["email"] = $email; // Opcional: armazena o email na sessão
 
-            header("Location: pagina_restrita.php"); // Redireciona para a página restrita
+            // Redireciona para a página inicial
+            header("Location: /roubbie/index.php"); // Redireciona para a página inicial
             exit();
         } else {
             // Senha incorreta

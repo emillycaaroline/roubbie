@@ -10,7 +10,7 @@ foreach ($events as $event) {
     extract($event);
 
     $evs[] = [
-        'id' => $id, 
+        'id' => $id,
         'title' => $title,
         'color' => $color,
         'start' => $start,

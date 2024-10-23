@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
@@ -81,7 +81,6 @@
         background-color: #ffffff;
         padding: 20px;
         font-family: Verdana, Geneva, Tahoma, sans-serif;
-
         border-radius: 8px;
         box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
     }
@@ -121,21 +120,25 @@
         outline: none;
         border: 1px solid #13547a;
     }
-    .fc-daygrid-day-frame, .fc-scrollgrid-sync-inner {
-    height: 50px; /* Aumente a altura para mais espaço visual */
-    width: 100%; /* Ajusta a largura para 100% do contêiner pai */
-    padding: 5px; /* Espaçamento interno */
-    margin: 0; /* Margem padrão */
-    border: 1px  #333; /* Borda leve */
-    border-radius: 3px; /* Bordas arredondadas */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra leve */
-    transition: background-color 0.3s ease, transform 0.2s ease; /* Transição suave */
-}
 
-.fc-daygrid-day-frame:hover, .fc-scrollgrid-sync-inner:hover {
-    background-color: rgba(0, 121, 107, 0.1); /* Cor de fundo ao passar o mouse */
-    transform: scale(1.02); /* Aumenta ligeiramente o tamanho ao passar o mouse */
-}
+    .fc-daygrid-day-frame,
+    .fc-scrollgrid-sync-inner {
+        height: 50px;
+        width: 100%;
+        padding: 5px;
+        margin: 0;
+        border: 1px solid #333;
+        border-radius: 3px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    .fc-daygrid-day-frame:hover,
+    .fc-scrollgrid-sync-inner:hover {
+        background-color: rgba(0, 121, 107, 0.1);
+        transform: scale(1.02);
+    }
+
     .modal-footer {
         display: flex;
         justify-content: flex-end;
@@ -183,53 +186,53 @@
             width: 100%;
         }
     }
+
     .fc-header-toolbar {
-    display: flex;
-    justify-content: space-between; /* Distribui o espaço entre os grupos */
-    align-items: center; /* Alinha os itens verticalmente */
-    padding: 10px 20px; /* Adiciona espaçamento interno */
-    background-color: #f7f7f7; /* Cor de fundo leve */
-    border-bottom: 1px solid #ddd; /* Borda inferior leve */
-}
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 20px;
+        background-color: #f7f7f7;
+        border-bottom: 1px solid #ddd;
+    }
 
-.fc-button-group {
-    display: flex; /* Mantém os botões em linha */
-}
+    .fc-button-group {
+        display: flex;
+    }
 
-.fc-button {
-    padding: 8px 12px; /* Aumenta o espaçamento interno dos botões */
-    border: none; /* Remove bordas padrão */
-    border-radius: 4px; /* Borda arredondada */
-    background-color: #007bff; /* Cor de fundo dos botões */
-    color: white; /* Cor do texto */
-    cursor: pointer; /* Muda o cursor para indicar que é clicável */
-    transition: background-color 0.3s ease, transform 0.2s ease; /* Transições suaves */
-}
+    .fc-button {
+        padding: 8px 12px;
+        border: none;
+        border-radius: 4px;
+        background-color: #007bff;
+        color: white;
+        cursor: pointer;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+    }
 
-.fc-button:hover {
-    background-color: #0056b3; /* Cor do botão ao passar o mouse */
-}
+    .fc-button:hover {
+        background-color: #0056b3;
+    }
 
-.fc-button:disabled {
-    background-color: #ccc; /* Cor do botão desabilitado */
-    cursor: not-allowed; /* Cursor indicando que está desabilitado */
-}
+    .fc-button:disabled {
+        background-color: #ccc;
+        cursor: not-allowed;
+    }
 
-.fc-button-active {
-    background-color: #0056b3; /* Cor do botão ativo */
-}
+    .fc-button-active {
+        background-color: #0056b3;
+    }
 
-.sr-only {
-    position: absolute; /* Oculta visualmente, mas mantém acessível */
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    border: 0;
-}
-
+    .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        border: 0;
+    }
 </style>
 
 <body class="sisrot-page">
@@ -243,26 +246,26 @@
                 <div class="modal-title">
                     <h3>Cadastrar Registro</h3>
                 </div>
-                <div class="modal-close">x</div>
+                <div class="modal-close" aria-label="Fechar modal">x</div>
             </div>
             <form action="action-event.php" method="post" id="form-add-event">
                 <input type="hidden" name="id" id="id">
                 <input type="hidden" name="action" id="action" value="add">
 
                 <label for="title">Título</label>
-                <input type="text" name="title" id="title" required>
+                <input type="text" name="title" id="title" required aria-required="true">
 
                 <label for="date">Data</label>
-                <input type="date" name="date" id="date" required>
+                <input type="date" name="date" id="date" required aria-required="true">
 
                 <label for="time">Hora</label>
-                <input type="time" name="time" id="time" required>
+                <input type="time" name="time" id="time" required aria-required="true">
 
                 <label for="category">Categoria</label>
-                <select name="category" id="category" required>
+                <select name="category" id="category" required aria-required="true">
                     <option value="evento">Evento</option>
                     <option value="tarefa">Tarefa</option>
-                    <option value="compromisso">Compromisso</option>
+                    <option value="compromissos">Compromisso</option>
                 </select>
 
                 <div class="modal-footer">
@@ -277,6 +280,7 @@
 
         <div style="font-size: small;" id='calendar'></div>
     </div>
+
     <script src="dist/index.global.min.js"></script>
     <script src="core/locales/pt-br.global.min.js"></script>
     <script src="script.js"></script>
