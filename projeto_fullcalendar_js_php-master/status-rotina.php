@@ -1,26 +1,13 @@
-<?php
-// Inclui o arquivo de conexão
-include '../includes/db_connection.php';
-
-
-// Verifica a conexão
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-
-// Consulta para obter todos os eventos
-$sql = "SELECT title, start, end, category FROM events"; // Seleciona apenas os campos necessários
-$result = $conn->query($sql);
-?>
-
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Status da Rotina - Dashboard</title>
-    <link rel="stylesheet" href="style.css"> <!-- Link para o CSS se necessário -->
+    <title>Eventos</title>
+    <link rel="stylesheet" href="seu-estilo.css">
     <style>
+<<<<<<< HEAD
 /* Estilos Gerais */
 body {
     margin: 0;
@@ -198,36 +185,91 @@ button:hover {
     }
 }
 
+=======
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h3 {
+            color: #3e8da5;
+            margin-top: 20px;
+            border-bottom: 2px solid #3e8da5;
+            padding-bottom: 5px;
+        }
+
+        .event {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 10px 0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s;
+        }
+
+        .event:hover {
+            transform: scale(1.02);
+            border-color: #0a5977;
+        }
+
+        h4 {
+            color: #3e8da5;
+            margin: 0 0 5px 0;
+        }
+
+        p {
+            margin: 5px 0;
+            color: #555;
+        }
+
+        p.no-events {
+            color: #ff0000;
+            font-weight: bold;
+            text-align: center;
+        }
+>>>>>>> 0c4f379fc3f55cd708b5ce1ae1d5c5f6a7f1f43e
     </style>
 </head>
 
 <body>
-<div class="container">
-<button onclick="window.history.back()">Voltar</button>
+    <?php
+    include '../includes/db_connection.php';
 
-<h2 >Aqui estão seus Eventos, Tarefas e Compromissos</h2>
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
 
-    <div class="dashboard">
-        <?php
-        if ($result->num_rows > 0) {
-            // Exibe os dados de cada linha em cards
-            while($row = $result->fetch_assoc()) {
-                echo "<div class='card'>
-                        <div class='event-title'>{$row['title']}</div>
-                        <div><strong>Início:</strong> {$row['start']}</div>
-                        <div><strong>Fim:</strong> {$row['end']}</div>
-                        <div class='event-category'><strong>Categoria:</strong> {$row['category']}</div>
-                      </div>";
-            }
-        } else {
-            echo "<div class='no-events'>Nenhum evento encontrado.</div>";
+    $sql = "SELECT title, start, end, category FROM events";
+    $result = $conn->query($sql);
+
+    if ($result && $result->num_rows > 0) {
+        $events_by_category = [];
+
+        while ($row = $result->fetch_assoc()) {
+            $category = htmlspecialchars($row['category']);
+            $events_by_category[$category][] = $row;
         }
-        ?>
-    </div>
-</div>
+
+        foreach ($events_by_category as $category => $events) {
+            echo "<h3>Categoria: " . htmlspecialchars($category) . "</h3>";
+            foreach ($events as $event) {
+                echo "<div class='event'>";
+                echo "<h4>" . htmlspecialchars($event['title']) . "</h4>";
+                echo "<p>Início: " . htmlspecialchars($event['start']) . "</p>";
+                echo "<p>Fim: " . htmlspecialchars($event['end']) . "</p>";
+                echo "</div>";
+            }
+            echo "<hr>";
+        }
+    } else {
+        echo "<p class='no-events'>Nenhum evento encontrado.</p>";
+    }
+
+    $conn->close();
+    ?>
 </body>
-<?php
-// Fecha a conexão
-$conn->close();
-?>
+
 </html>

@@ -5,12 +5,12 @@ $username = "root";        // Nome de usuário do banco de dados
 $password = "";            // Senha do banco de dados
 $dbname = "bd_roubbie";   // Nome do banco de dados
 
-// Cria a conexão
+// Criação da conexão
 $conn = new mysqli($servername, $username, $password, $dbname);
 
 // Verifica a conexão
 if ($conn->connect_error) {
-    die("Conexão falhou: " . $conn->connect_error); // Mensagem de erro em caso de falha
+    die("Connection failed: " . $conn->connect_error);
 }
 
 // Define o charset para a conexão

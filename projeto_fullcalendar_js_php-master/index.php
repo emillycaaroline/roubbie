@@ -76,20 +76,31 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     .modal-body input:focus {
         border-color: var(--secondary-color);
     }
-    .fc-daygrid-day-frame, .fc-scrollgrid-sync-inner {
-    height: 50px; /* Aumente a altura para mais espaço visual */
-    width: 100%; /* Ajusta a largura para 100% do contêiner pai */
-    padding: 5px; /* Espaçamento interno */
-    margin: 0; /* Margem padrão */
-    border: 1px  rgb(218,220,224); /* Borda leve */
-    border-radius: 3px; /* Bordas arredondadas */
-    transition: background-color 0.3s ease, transform 0.2s ease; 
-}
 
-.fc-daygrid-day-frame:hover, .fc-scrollgrid-sync-inner:hover {
-    background-color: rgba(0, 121, 107, 0.1); /* Cor de fundo ao passar o mouse */
-    transform: scale(1.02); /* Aumenta ligeiramente o tamanho ao passar o mouse */
-}
+    .fc-daygrid-day-frame,
+    .fc-scrollgrid-sync-inner {
+        height: 50px;
+        /* Aumente a altura para mais espaço visual */
+        width: 100%;
+        /* Ajusta a largura para 100% do contêiner pai */
+        padding: 5px;
+        /* Espaçamento interno */
+        margin: 0;
+        /* Margem padrão */
+        border: 1px rgb(218, 220, 224);
+        /* Borda leve */
+        border-radius: 3px;
+        /* Bordas arredondadas */
+        transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    .fc-daygrid-day-frame:hover,
+    .fc-scrollgrid-sync-inner:hover {
+        background-color: rgba(0, 121, 107, 0.1);
+        /* Cor de fundo ao passar o mouse */
+        transform: scale(1.02);
+        /* Aumenta ligeiramente o tamanho ao passar o mouse */
+    }
 
 
     .modal {
@@ -104,19 +115,40 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     @keyframes fadeIn {
-        from { opacity: 0; transform: translateY(-10px); }
-        to { opacity: 1; transform: translateY(0); }
+        from {
+            opacity: 0;
+            transform: translateY(-10px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
     }
 
     @media (max-width: 768px) {
-        button { width: 100%; padding: 10px; }
-        .modal { padding: 15px; }
-        .modal-body input, .modal-body select { font-size: 16px; padding: 8px; }
-        .modal-footer button { width: 100%; }
+        button {
+            width: 100%;
+            padding: 10px;
+        }
+
+        .modal {
+            padding: 15px;
+        }
+
+        .modal-body input,
+        .modal-body select {
+            font-size: 16px;
+            padding: 8px;
+        }
+
+        .modal-footer button {
+            width: 100%;
+        }
     }
 
     #calendar {
-       
+
         width: 100%;
         height: calc(100vh - 160px);
         box-sizing: border-box;
@@ -182,7 +214,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         display: none;
     }
 
-    h2#titulo-mes{
+    h2#titulo-mes {
         color: var(--text-color);
         font-size: 1.5rem;
         text-align: center;
@@ -191,12 +223,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         border-radius: 8px;
         font-weight: bold;
         text-transform: uppercase;
-        
+
     }
-    .calendar,area, header{
-    text-align: center; 
-        font-size:small;
-}
+
+    .calendar,
+    area,
+    header {
+        text-align: center;
+        font-size: small;
+    }
 </style>
 
 <body class="index-page">
@@ -223,9 +258,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     <div class="calendar-area">
         <h2 id="titulo-mes">Mês Atual</h2>
-        <div style="text-align: center; font-size:small; "  class="calendar-area-header">
+        <div style="text-align: center; font-size:small; " class="calendar-area-header">
             <div class="msg">
-                <?php 
+                <?php
                 if (!empty($_SESSION['msg'])) {
                     echo $_SESSION['msg'];
                     unset($_SESSION['msg']);
@@ -233,10 +268,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 ?>
             </div>
         </div>
-        <div  style="text-align: center; font-size:small; " id='calendar'></div>
+        <div style="text-align: center; font-size:small; " id='calendar'></div>
     </div>
     <script src="dist/index.global.min.js"></script>
     <script src="core/locales/pt-br.global.min.js"></script>
     <script src="script.js"></script>
 </body>
+
 </html>
