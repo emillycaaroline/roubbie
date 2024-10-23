@@ -2,6 +2,9 @@
 
 Bem-vindo ao sistema de **Login e Cadastro**! Este projeto é uma aplicação web simples que permite aos usuários se registrarem e fazerem login usando HTML, CSS, PHP e MySQL. Ideal para quem está aprendendo a integrar front-end com back-end.
 
+Veja um pouco do nosso projeto [Clique aqui](https://www.canva.com/design/DAGDLXfPXos/MbJHQolLWGGyRs1I_oQ5Pg/view?utm_content=DAGDLXfPXos&utm_campaign=designshare&utm_medium=link&utm_source=editor)
+
+
 ## 🚀 Funcionalidades
 
 - **Cadastro de Usuários**: Permite que novos usuários criem uma conta.
