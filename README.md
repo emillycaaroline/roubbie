@@ -19,12 +19,13 @@ O Roubbie é um aplicativo que oferece uma plataforma interativa para usuários 
 
 ## Funcionalidades
 
-- **Home**: Visão geral do status do usuário, incluindo progresso e tarefas pendentes.
-- **Agenda**: Gerenciamento de eventos e compromissos.
-- **Rotina**: Planejamento e organização de atividades diárias.
-- **Diário**: Registro de anotações e sentimentos.
-- **Quiz de Hobbies**: Sugestões personalizadas de hobbies com base em perfis de personalidade.
-- **Notificações**: Alertas sobre tarefas e compromissos, com confirmação de ações.
+- **Home**: Acesso rápido a todas as funcionalidades do app.
+- **Agenda**: Visualização e gerenciamento de compromissos e atividades.
+- **Rotina**: Criação e gestão de rotinas diárias, com lembretes personalizados.
+- **Diário**: Registro de anotações e sentimentos, integrado ao calendário.
+- **Login e Cadastro**: Acesso seguro ao app com opções de registro.
+- **Quiz de Hobbies**: Descubra novos hobbies com base em sua personalidade.
+- **Notificações**: Alertas para cadastro, alterações e exclusões de tarefas, garantindo segurança nas operações.
 
 ## Tecnologias Utilizadas
 
