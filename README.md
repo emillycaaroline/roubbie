@@ -1,57 +1,67 @@
-# Roubbie 📱
+# Roubbie
 
-Bem-vindo ao **Roubbie**, um aplicativo inovador criado como parte de um projeto de TCC para promover o equilíbrio entre a rotina de trabalho e momentos de lazer, focando no bem-estar mental e emocional dos usuários. 🌟
+**Roubbie** é um aplicativo inovador que combina hobbies e rotinas, ajudando os usuários a equilibrar suas vidas entre trabalho e lazer. O objetivo do Roubbie é promover o bem-estar mental e facilitar a descoberta de atividades prazerosas.
 
-## 📋 Índice
-- [Sobre o Projeto](#sobre-o-projeto)
-- [Objetivos](#objetivos)
+## Sumário
+
+- [Sobre](#sobre)
 - [Funcionalidades](#funcionalidades)
+- [Tecnologias Utilizadas](#tecnologias-utilizadas)
+- [Instalação](#instalação)
 - [Como Usar](#como-usar)
-- [Equipe](#equipe)
+- [Contribuição](#contribuição)
+- [Licença](#licença)
+- [Contato](#contato)
 
-## 📖 Sobre o Projeto
+## Sobre
 
-O *Roubbie* é um aplicativo que auxilia os usuários a equilibrar sua rotina diária com atividades de lazer e hobbies, incentivando o bem-estar mental e emocional. O objetivo é ajudar a combater questões como ansiedade, depressão e TDAH, proporcionando uma plataforma interativa para a redescoberta de hobbies, com sugestões personalizadas e desafios para incentivar o desenvolvimento pessoal.
+O Roubbie é um aplicativo que oferece uma plataforma interativa para usuários que buscam redescobrir hobbies e equilibrar suas rotinas. Com funcionalidades como lembretes, um quiz de interesses e um diário, o aplicativo se destina a ser inclusivo e acessível, visando melhorar a qualidade de vida.a
 
-## 🎯 Objetivos
+## Funcionalidades
 
-- **Equilíbrio e Bem-Estar**: Manter uma rotina saudável e equilibrada.
-- **Desenvolvimento Pessoal**: Ajudar os usuários a descobrirem novos hobbies e atividades.
-- **Saúde Mental**: Apoiar o bem-estar emocional dos usuários por meio de práticas que promovam relaxamento e autoconhecimento.
-- **Conexão e Criatividade**: Estimular a expressão pessoal e conexões significativas por meio de atividades colaborativas.
+- **Home**: Visão geral do status do usuário, incluindo progresso e tarefas pendentes.
+- **Agenda**: Gerenciamento de eventos e compromissos.
+- **Rotina**: Planejamento e organização de atividades diárias.
+- **Diário**: Registro de anotações e sentimentos.
+- **Quiz de Hobbies**: Sugestões personalizadas de hobbies com base em perfis de personalidade.
+- **Notificações**: Alertas sobre tarefas e compromissos, com confirmação de ações.
 
-## 🚀 Funcionalidades
+## Tecnologias Utilizadas
 
-- **Cadastro e Login**: Permite que novos usuários se registrem e façam login no aplicativo de forma segura.
-- **Quiz de Personalidade**: Um teste inicial que sugere hobbies e atividades com base no perfil de cada usuário.
-- **Dashboard Personalizado**: Acompanhe seu progresso, tarefas pendentes e compromissos em um só lugar.
-- **Agenda e Diário**: Salve eventos, registre compromissos e escreva suas anotações no diário integrado.
-- **Rotina e Lembretes**: Crie e gerencie sua rotina com lembretes personalizados para praticar hobbies e atividades de lazer.
+- **Frontend**: HTML, CSS, JavaScript
+- **Backend**: PHP
+- **Banco de Dados**: MySQL
+- **Arquitetura**: MVC (Model-View-Controller)
 
-## 💻 Como Usar
+## Instalação
 
-1. **Cadastro**:
-   - Acesse `login-register/cadastro.php` para criar uma nova conta.
-2. **Login**:
-   - Faça login com uma conta existente em `login-register/login.php`.
-3. **Dashboard**:
-   - Após o login, você será redirecionado para o dashboard (`dashboard.php`), onde poderá gerenciar suas tarefas, compromissos e anotações do diário.
+Para instalar o Roubbie localmente, siga os passos abaixo:
 
-## 👥 Equipe
+1. Clone o repositório:
+   ```bash
+   git clone https://github.com/seu_usuario/roubbie.git
+   ```
 
-- **Larissa Manrique**: [LinkedIn](https://www.linkedin.com/in/larissa-manrique/)
-- **Vitória Gabrieli**: [LinkedIn](https://www.linkedin.com/in/vit%C3%B3ria-gabrieli-25b5a3274/)
-- **Ana Paula**: [LinkedIn](https://www.linkedin.com/in/ana-paula-2286b823a/)
-- **Lara Assunção**: [LinkedIn](https://www.linkedin.com/in/lara-assun%C3%A7%C3%A3o-b9b7032bb/)
-- **Amanda Vitória**: [LinkedIn](https://www.linkedin.com/in/amanda-vitoria-08600a299/)
-- **Emilly Caroline**: [LinkedIn](https://www.linkedin.com/in/emilly-caroline-129936290/)
+2. Navegue até o diretório do projeto:
+   ```bash
+   cd roubbie
+   ```
 
+3. Configure o banco de dados MySQL conforme as instruções no arquivo `db_connection.php`.
 
-## 📝 Notas
+4. Inicie o servidor local (por exemplo, XAMPP) e acesse o aplicativo no navegador em `http://localhost/roubbie`.
 
-- **Segurança**: O sistema utiliza hashing de senhas. Para ambientes de produção, métodos mais seguros como `password_hash` são recomendados.
-- **Melhorias Futuras**: Adicionar mais personalização para o usuário e melhorar a interface com base no feedback dos usuários.
+## Como Usar
 
----
+1. **Cadastro e Login**: Crie uma conta ou faça login.
+2. **Configuração de Rotinas**: Adicione e gerencie suas tarefas diárias.
+3. **Diário**: Registre suas reflexões e sentimentos.
+4. **Descoberta de Hobbies**: Complete o quiz para receber sugestões de hobbies.
 
-Explore o repositório e contribua para o desenvolvimento do Roubbie!
+## Equipe
+- **Larissa Manrique**
+- **Vitória Gabrieli**
+- **Ana Paula**
+- **Lara Assunção**
+- **Amanda Vitória**
+- **Emilly Caroline**
