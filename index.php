@@ -1,237 +1,236 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Dashboard - Roubbie</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Open+Sans&display=swap">
+    <title>Roubbie Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Open+Sans&display=swap" rel="stylesheet">
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/intro.js/minified/introjs.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="../perfil.css">
     <style>
-        /* ajuste feito para o status (dashboard) */
-        .card {
-            background-color: var(--white);
-            border: 1px solid var(--border-color);
-            border-radius: 10px;
-            padding: 20px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s;
-            text-align: center;
+        :root {
+            --primary-color: #1ABC9C;
+            --secondary-color: #2C3E50;
+            --background-color: #f0f2f5;
+            --card-background: #fff;
+            --text-color: #34495E;
+            --muted-text: #7F8C8D;
+            --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
-        .card:hover {
-            transform: scale(1.02);
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
-        /* Títulos dos cards */
-        .card h3 {
-            font-family: 'Montserrat', sans-serif;
-            color: var(--primary-color);
-            margin-bottom: 15px;
-            font-size: 1.5rem;
-            font-weight: 700;
+        body {
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            min-height: 100vh;
+            background-color: var(--background-color);
         }
 
-        /* Estilo dos badges */
-        .badge {
-            font-size: 0.9rem;
-            padding: 5px 10px;
+        .dashboard-container {
+            display: flex;
+            width: 100%;
+        }
+
+        .sidebar {
+            background-color: var(--secondary-color);
+            color: #ECF0F1;
+            padding: 1.5rem 1rem;
+            width: 240px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .sidebar h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        .nav-link {
+            color: #ECF0F1;
+            display: flex;
+            align-items: center;
+            margin: 1rem 0;
+            padding: 0.8rem 1rem;
+            width: 100%;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: background 0.3s ease;
+        }
+
+        .nav-link:hover {
+            background-color: var(--primary-color);
+        }
+
+        .main-content {
+            flex: 1;
+            padding: 2rem;
+            background-color: #F5F5F5;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem;
+            background-color: var(--primary-color);
+            color: #fff;
             border-radius: 12px;
+            box-shadow: var(--box-shadow);
         }
 
-        .bg-success {
-            background-color: var(--secondary-color) !important;
-            color: var(--white);
+        .section-box {
+            background-color: var(--card-background);
+            padding: 2rem;
+            border-radius: 12px;
+            margin: 1.5rem 0;
+            text-align: center;
+            box-shadow: var(--box-shadow);
+            transition: transform 0.3s ease;
         }
 
-        .bg-danger {
-            background-color: var(--primary-color) !important;
-            color: var(--white);
+        .section-box:hover {
+            transform: translateY(-5px);
         }
 
-        /* Estilo dos gráficos */
-        #canvas {
-            max-width: 100%;
-            margin-top: 20px;
+        .section-box h2 {
+            color: var(--text-color);
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
         }
 
-        /* Responsividade */
+        .profile-section {
+            display: flex;
+            gap: 2rem;
+            margin-top: 1.5rem;
+        }
+
+        .profile-card {
+            background-color: var(--card-background);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: var(--box-shadow);
+            text-align: center;
+            flex: 1;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 1rem;
+            color: var(--muted-text);
+            font-size: 0.9rem;
+            margin-top: 1rem;
+        }
+
         @media (max-width: 768px) {
-            .card {
-                margin-bottom: 30px;
+            .sidebar {
+                display: none;
             }
 
-            .card h3 {
-                font-size: 1.2rem;
+            .main-content {
+                padding: 1rem;
             }
 
-            .btn {
-                padding: 8px 15px;
-                font-size: 0.9rem;
+            .profile-section {
+                flex-direction: column;
             }
         }
     </style>
 </head>
 
 <body>
+    <?php
+    include 'C:\xampp\htdocs\roubbie\includes\db_connection.php';
+    include 'C:\xampp\htdocs\roubbie\includes\header.php';
 
-<?php
-// Inclui o arquivo de conexão
-include 'C:\xampp\htdocs\roubbie\includes\db_connection.php';
-// Ativar exibição de erros
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
+    error_reporting(E_ALL);
+    ini_set('display_errors', 1);
 
-// Verificar a conexão com o banco de dados
-if ($conn->connect_error) {
-    die("Erro de conexão: " . $conn->connect_error);
-}
+    if ($conn->connect_error) {
+        die("Erro de conexão: " . $conn->connect_error);
+    }
 
-// Consultar o número de entradas do diário
-$diario_query = "SELECT COUNT(*) AS total FROM diario";
-$diario_result = $conn->query($diario_query);
-$diario_count = $diario_result ? $diario_result->fetch_assoc()['total'] : 0;
+    $diario_count = $conn->query("SELECT COUNT(*) AS total FROM diario")->fetch_assoc()['total'] ?? 0;
+    $events_count = $conn->query("SELECT COUNT(*) AS total FROM events WHERE status = 'pendente'")->fetch_assoc()['total'] ?? 0;
+    $tarefas_count = $conn->query("SELECT COUNT(*) AS total FROM tarefas WHERE status = 'pendente'")->fetch_assoc()['total'] ?? 0;
+    $compromissos_count = $conn->query("SELECT COUNT(*) AS total FROM compromissos WHERE data > NOW()")->fetch_assoc()['total'] ?? 0;
+    ?>
+    
+    <div class="dashboard-container">
+        <div class="main-content">
+            <header class="header">
+                <h1>Status</h1>
+                <p>Usuários (<?php echo $diario_count; ?> perfil)</p>
+            </header>
 
-// Consultar eventos pendentes 
-$events_query = "SELECT COUNT(*) AS total FROM events WHERE status = 'pendente'";
-$events_result = $conn->query($events_query);
-$events_count = $events_result ? $events_result->fetch_assoc()['total'] : 0;
-
-// Consultar tarefas pendentes
-$tarefas_query = "SELECT COUNT(*) AS total FROM tarefas WHERE status = 'pendente'";
-$tarefas_result = $conn->query($tarefas_query);
-$tarefas_count = $tarefas_result ? $tarefas_result->fetch_assoc()['total'] : 0;
-
-// Consultar compromissos
-$compromissos_query = "SELECT COUNT(*) AS total FROM compromissos WHERE data > NOW()";
-$compromissos_result = $conn->query($compromissos_query);
-$compromissos_count = $compromissos_result ? $compromissos_result->fetch_assoc()['total'] : 0;
-
-// Verificar se é um novo usuário
-$is_new_user = true; // Altere isso conforme a lógica de verificação de novos usuários
-?>
- <!-- Adiciona o header -->
- <?php include 'includes/header.php'; ?>
-<div class="container">
-    <main style="margin: auto; margin-top: 200px;">
-
-        <div class="row">
-            <div class="col-md-4">
-                <div class="card" id="feature1">
-                    <h3>Minhas Notas</h3>
-                    <p>
-                        <span class="badge <?php echo $diario_count > 0 ? 'bg-success' : 'bg-danger'; ?>">
-                            <?php echo $diario_count > 0 ? "+{$diario_count} registradas" : "Nenhuma nota registrada ainda"; ?>
-                        </span>
-                    </p>
-                    <a href="/roubbie/adicionar_nota.php" class="btn btn-primary" aria-label="Adicionar nova nota">Adicionar Nota</a>
+            <div class="section-box">
+                <h2>Visão Geral</h2>
+                <div class="profile-section">
+                    <div class="profile-card">
+                        <h2>Eventos</h2>
+                        <p>Total: <?php echo $events_count; ?></p>
+                    </div>
+                    <div class="profile-card">
+                        <h2>Tarefas</h2>
+                        <p>Total: <?php echo $tarefas_count; ?></p>
+                    </div>
+                    <div class="profile-card">
+                        <h2>Compromissos</h2>
+                        <p>Total: <?php echo $compromissos_count; ?></p>
+                    </div>
                 </div>
             </div>
 
-            <div class="col-md-4">
-                <div class="card" id="feature2">
-                    <h3>Eventos Pendentes</h3>
-                    <a href="/roubbie/projeto_fullcalendar_js_php-master/status-rotina.php" class="btn btn-outline-success" aria-label="Ver eventos">
-                        <span class="badge bg-warning"> (<?php echo $events_count; ?> eventos)</span>
-                    </a>
-                    <p>
-                        <span class="badge <?php echo $events_count == 0 ? 'bg-danger' : ''; ?>">
-                            <?php echo $events_count == 0 ? "Nenhum evento pendente" : ""; ?>
-                        </span>
-                    </p>
-                </div>
-            </div>
+            <section class="section-box">
+                <h2>Diário</h2>
+                <p>Minhas Notas (<?php echo $diario_count; ?> registradas)</p>
+            </section>
 
-            <div class="col-md-4">
-                <div class="card" id="feature3">
-                    <h3>Tarefas Pendentes</h3>
-                    <a href="/roubbie/projeto_fullcalendar_js_php-master/status-tarefas.php" class="btn btn-outline-success" aria-label="Ver tarefas">
-                        <span class="badge bg-warning"> (<?php echo $tarefas_count; ?> tarefas)</span>
-                    </a>
-                    <p>
-                        <span class="badge <?php echo $tarefas_count == 0 ? 'bg-danger' : ''; ?>">
-                            <?php echo $tarefas_count == 0 ? "Nenhuma tarefa pendente" : ""; ?>
-                        </span>
-                    </p>
-                </div>
-            </div>
+            <section class="section-box">
+                <h2>Eventos</h2>
+                <p><?php echo $events_count > 0 ? "$events_count evento(s) pendente(s)." : "Você não possui eventos pendentes."; ?></p>
+            </section>
 
-            <div class="col-md-4">
-                <div class="card" id="feature4">
-                    <h3>Compromissos Pendentes</h3>
-                    <a href="/roubbie/projeto_fullcalendar_js_php-master/status-compromissos.php" class="btn btn-outline-success" aria-label="Ver compromissos">
-                        <span class="badge bg-warning"> (<?php echo $compromissos_count; ?> compromissos)</span>
-                    </a>
-                    <p>
-                        <span class="badge <?php echo $compromissos_count == 0 ? 'bg-danger' : ''; ?>">
-                            <?php echo $compromissos_count == 0 ? "Nenhum compromisso pendente" : ""; ?>
-                        </span>
-                    </p>
-                </div>
-            </div>
+            <section class="section-box">
+                <h2>Tarefas</h2>
+                <a href="/roubbie/projeto_fullcalendar_js_php-master/status-tarefas.php" class="btn btn-outline-success" aria-label="Ver tarefas">
+                    <span class="badge bg-warning"> (<?php echo $tarefas_count; ?> tarefas)</span>
+                </a>
+                <p>
+                    <span class="badge <?php echo $tarefas_count == 0 ? 'bg-danger' : ''; ?>">
+                        <?php echo $tarefas_count == 0 ? "Nenhuma tarefa pendente" : ""; ?>
+                    </span>
+                </p>
+            </section>
 
-            <div class="col-md-4">
-                <div class="card" id="feature5">
-                    <h3>Gerenciamento do Tempo</h3>
-                    <canvas id="canvas" width="300" height="300"></canvas>
-                </div>
-            </div>
+            <section class="section-box">
+                <h2>Compromissos</h2>
+                <a href="/roubbie/projeto_fullcalendar_js_php-master/status-compromissos.php" class="btn btn-outline-success" aria-label="Ver compromissos">
+                    <span class="badge bg-warning"> (<?php echo $compromissos_count; ?> compromissos)</span>
+                </a>
+                <p>
+                    <span class="badge <?php echo $compromissos_count == 0 ? 'bg-danger' : ''; ?>">
+                        <?php echo $compromissos_count == 0 ? "Nenhum compromisso pendente" : ""; ?>
+                    </span>
+                </p>
+            </section>
+
         </div>
-    </main>
-</div>
+    </div>
 
-<!-- Importando o script do Intro.js -->
-<script src="https://cdn.jsdelivr.net/npm/intro.js/minified/intro.min.js"></script>
-
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        // Verificar se o tutorial já foi mostrado
-        if (localStorage.getItem('tutorialShown') !== 'true') {
-            // Iniciar o tutorial
-            introJs().setOptions({
-                steps: [{
-                        intro: "Olá! Bem-vindo ao Roubbie! 😊 Vamos mostrar rapidamente as principais funcionalidades para você aproveitar ao máximo!"
-                    },
-                    {
-                        element: document.querySelector('#feature1'),
-                        intro: "Dê uma olhada nas suas entradas do diário registradas!"
-                    },
-                    {
-                        element: document.querySelector('#feature2'),
-                        intro: "Aqui estão seus eventos pendentes!"
-                    },
-                    {
-                        element: document.querySelector('#feature3'),
-                        intro: "Aqui estão suas atividades pendentes!"
-                    },
-                    {
-                        element: document.querySelector('#feature4'),
-                        intro: "Aqui estão seus compromissos futuros!"
-                    },
-                    {
-                        element: document.querySelector('#feature5'),
-                        intro: "Gerencie seu tempo e veja suas horas livres!"
-                    },
-                    {
-                        element: document.querySelector('#feature1'),
-                        intro: "Por último, você pode adicionar novas notas aqui!"
-                    }
-                ],
-                showBullets: false,
-                showButtons: true,
-                nextLabel: 'Próximo',
-                prevLabel: 'Anterior',
-                doneLabel: 'Feito'
-            }).start();
-
-            // Marcar que o tutorial foi mostrado
-            localStorage.setItem('tutorialShown', 'true');
-        }
-    });
-</script>
-<script src="js/bootstrap.bundle.min.js"></script>
-<script src="js/dashboard.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/intro.js/minified/intro.min.js"></script>
 </body>
+
 </html>
