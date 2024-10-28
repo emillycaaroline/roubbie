@@ -29,7 +29,7 @@
                     <input type="hidden" name="csrf_token" value="<?php echo hash('sha256', session_id()); ?>"> <!-- Token CSRF -->
                     
                     <span class="login100-form-title p-b-43">
-                        Vamos começar essa jornada juntos!
+                    Vamos nessa!
                     </span>
 
                     <!-- Nome -->
@@ -67,21 +67,10 @@
                         </button>
                     </div>
                     <div class="text-center p-t-46 p-b-20">
-                        <span class="txt2">
-                            ou cadastre-se usando
-                        </span>
-                    </div>
-                    <div class="login100-form-social flex-c-m">
-                        <a href="#" class="login100-form-social-item flex-c-m bg1 m-r-5">
-                            <i class="fa fa-facebook-f" aria-hidden="true"></i>
-                        </a>
-                        <a href="#" class="login100-form-social-item flex-c-m bg2 m-r-5">
-                            <i class="fa fa-twitter" aria-hidden="true"></i>
-                        </a>
+                        <span  href="/login-register/login.php"  class="txt2">Ja tem uma conta? <a href="cadastro.php">Entrar na conta existente</a></span>
                     </div>
                 </form>
                 <div class="login100-more" style="background-image: url('img/tsos.jpg');">
-
                 </div>
             </div>
         </div>
