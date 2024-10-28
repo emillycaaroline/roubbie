@@ -184,7 +184,6 @@ button:hover {
     }
 }
 
-=======
         body {
             font-family: Arial, sans-serif;
             background-color: #f4f4f4;
@@ -229,7 +228,6 @@ button:hover {
             font-weight: bold;
             text-align: center;
         }
->>>>>>> 0c4f379fc3f55cd708b5ce1ae1d5c5f6a7f1f43e
     </style>
 </head>
 
