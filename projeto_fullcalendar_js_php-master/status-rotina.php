@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Eventos</title>
     <link rel="stylesheet" href="seu-estilo.css">
+    <link rel="icon" type="image/x-icon" href="/roubbie/images/icons/favicon.ico">
+
+    
     <style>
 /* Estilos Gerais */
 body {
@@ -184,7 +187,6 @@ button:hover {
     }
 }
 
-=======
         body {
             font-family: Arial, sans-serif;
             background-color: #f4f4f4;
@@ -229,7 +231,6 @@ button:hover {
             font-weight: bold;
             text-align: center;
         }
->>>>>>> 0c4f379fc3f55cd708b5ce1ae1d5c5f6a7f1f43e
     </style>
 </head>
 

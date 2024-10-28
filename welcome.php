@@ -7,6 +7,8 @@
     <title>Bem-vindo ao Roubbie</title>
 
     <!-- CSS FILES -->
+    <link rel="icon" type="image/x-icon" href="/roubbie/images/icons/favicon.ico">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Open+Sans&display=swap" rel="stylesheet">
@@ -14,142 +16,9 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <link href="css/styles.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/intro.js/4.0.0/introjs.min.css" rel="stylesheet">
-
-    <style>
+</head>
+<style>
         :root {
-    --primary-color: #1ABC9C;
-    --secondary-color: #2C3E50;
-    --background-color: #f0f2f5;
-    --card-background: #fff;
-    --text-color: #34495E;
-    --muted-text: #7F8C8D;
-    --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: 'Poppins', sans-serif;
-    display: flex;
-    min-height: 100vh;
-    background-color: var(--background-color);
-}
-
-.dashboard-container {
-    display: flex;
-    width: 100%;
-}
-
-.sidebar {
-    background-color: var(--secondary-color);
-    color: #ECF0F1;
-    padding: 1.5rem 1rem;
-    width: 240px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.sidebar h3 {
-    font-size: 1.8rem;
-    margin-bottom: 1.5rem;
-    font-weight: 600;
-}
-
-.nav-link {
-    color: #ECF0F1;
-    display: flex;
-    align-items: center;
-    margin: 1rem 0;
-    padding: 0.8rem 1rem;
-    width: 100%;
-    text-decoration: none;
-    border-radius: 8px;
-    transition: background 0.3s ease;
-}
-
-.nav-link:hover {
-    background-color: var(--primary-color);
-}
-
-.main-content {
-    flex: 1;
-    padding: 2rem;
-    background-color: #F5F5F5;
-}
-
-.header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1.5rem;
-    background-color: var(--primary-color);
-    color: #fff;
-    border-radius: 12px;
-    box-shadow: var(--box-shadow);
-}
-
-.section-box {
-    background-color: var(--card-background);
-    padding: 2rem;
-    border-radius: 12px;
-    margin: 1.5rem 0;
-    text-align: center;
-    box-shadow: var(--box-shadow);
-    transition: transform 0.3s ease;
-}
-
-.section-box:hover {
-    transform: translateY(-5px);
-}
-
-.section-box h2 {
-    color: var(--text-color);
-    font-size: 1.4rem;
-    margin-bottom: 1rem;
-}
-
-.profile-section {
-    display: flex;
-    gap: 2rem;
-    margin-top: 1.5rem;
-}
-
-.profile-card {
-    background-color: var(--card-background);
-    padding: 2rem;
-    border-radius: 12px;
-    box-shadow: var(--box-shadow);
-    text-align: center;
-    flex: 1;
-}
-
-.footer {
-    text-align: center;
-    padding: 1rem;
-    color: var(--muted-text);
-    font-size: 0.9rem;
-    margin-top: 1rem;
-}
-
-@media (max-width: 768px) {
-    .sidebar {
-        display: none;
-    }
-
-    .main-content {
-        padding: 1rem;
-    }
-
-    .profile-section {
-        flex-direction: column;
-    }
-}
-:root {
             --primary-color: #1ABC9C;
             --secondary-color: #2C3E50;
             --background-color: #f0f2f5;
@@ -282,8 +151,9 @@ body {
                 flex-direction: column;
             }
         }
-         /* General styles */
-         .text-white {
+
+        /* General styles */
+        .text-white {
             color: #fff;
         }
 
@@ -302,7 +172,7 @@ body {
         }
 
         .nav-link:hover {
-            color: #80d0c7 !important; 
+            color: #80d0c7 !important;
         }
 
         .navbar-collapse {
@@ -346,22 +216,21 @@ body {
             }
 
             .mobile-nav a {
-                color: white; /* Garantindo que os links sejam brancos no mobile */
+                color: white;
             }
 
             .mobile-nav a:hover {
-                color: #80d0c7; /* Mudança de cor ao passar o mouse no mobile */
+                color: #80d0c7;
             }
         }
 
         i {
-            color: white; /* Garantindo que todos os ícones sejam brancos */
+            color: white;
         }
-      
     </style>
-</head>
-<?php     include 'C:\xampp\htdocs\roubbie\includes\header.php';
- ?>
+<?php include 'C:\xampp\htdocs\roubbie\includes\header.php';
+?>
+
 <body>
     <div class="container mt-4">
         <h1 class="intro-title">Bem-vindo ao Roubbie!</h1>
@@ -414,13 +283,29 @@ body {
     <script>
         function startTutorial() {
             introJs().setOptions({
-                steps: [
-                    { intro: "Bem-vindo ao Roubbie! Vamos explorar o dashboard." },
-                    { element: '#feature1', intro: "Diário: Guarde suas notas e reflexões aqui." },
-                    { element: '#feature2', intro: "Eventos: Acompanhe compromissos importantes." },
-                    { element: '#feature3', intro: "Tarefas Pendentes: Controle suas pendências." },
-                    { element: '#feature4', intro: "Compromissos: Revise suas marcações e compromissos." },
-                    { element: '#feature5', intro: "Horários Livres: Encontre tempo para novos hobbies." }
+                steps: [{
+                        intro: "Bem-vindo ao Roubbie! Vamos explorar o dashboard."
+                    },
+                    {
+                        element: '#feature1',
+                        intro: "Diário: Guarde suas notas e reflexões aqui."
+                    },
+                    {
+                        element: '#feature2',
+                        intro: "Eventos: Acompanhe compromissos importantes."
+                    },
+                    {
+                        element: '#feature3',
+                        intro: "Tarefas Pendentes: Controle suas pendências."
+                    },
+                    {
+                        element: '#feature4',
+                        intro: "Compromissos: Revise suas marcações e compromissos."
+                    },
+                    {
+                        element: '#feature5',
+                        intro: "Horários Livres: Encontre tempo para novos hobbies."
+                    }
                 ],
                 showBullets: false,
                 nextLabel: 'Próximo',

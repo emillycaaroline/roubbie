@@ -11,6 +11,8 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/intro.js/minified/introjs.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../perfil.css">
+    <link rel="icon" type="image/png" href="images/icons/favicon.ico">
+
     <style>
         :root {
             --primary-color: #1ABC9C;
