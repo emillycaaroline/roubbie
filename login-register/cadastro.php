@@ -47,8 +47,8 @@
                     </div>
 
                     <!-- Senha -->
-                    <div class="wrap-input100 validate-input" data-validate="A senha é obrigatória e deve ter no mínimo 6 caracteres.">
-                        <input class="input100" type="password" name="senha" minlength="6" required>
+                    <div class="wrap-input100 validate-input"  data-validate="A senha é obrigatória e deve ter no mínimo 6 caracteres.">
+                        <input class="input100" type="password" name="senha" minlength="6"  required>
                         <span class="focus-input100"></span>
                         <span class="label-input100">Senha</span>
                     </div>
