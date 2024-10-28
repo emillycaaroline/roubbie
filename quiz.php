@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RoubQuiz</title>
+    <link rel="icon" type="image/x-icon" href="/roubbie/images/icons/favicon.ico">
+
     <style>
         /* PÁGINA & CORPO */
         * {

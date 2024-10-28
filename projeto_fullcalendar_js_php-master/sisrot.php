@@ -4,240 +4,239 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Minha Rotina</title>
-    <link rel="stylesheet" href="fullcalendar.css">
+    <title>My daily routine</title>
+    <link rel="stylesheet" href="/projeto_fullcalendar_js_php-master/fullcalendar.css">
+    <link rel="icon" type="image/x-icon" href="/roubbie/images/icons/favicon.ico">
+
 </head>
 <style>
-    .titulo-rotina {
-        color: var(--text-color);
-        font-size: 1.5rem;
-        text-align: center;
-        margin: 20px 0;
-        padding: 10px;
-        background-color: #e0f7fa;
-        border-radius: 8px;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-        font-weight: bold;
-        text-transform: uppercase;
-    }
+/* Variáveis de cores e fontes */
+:root {
+    --background-color: #ffffff;
+    --text-color: #333;
+    --primary-color: #00796b;
+    --secondary-color: #004d40;
+    --hover-color: rgba(0, 121, 107, 0.1);
+    --font-family: 'Arial', sans-serif;
+}
 
-    body {
-        margin: 0;
-        padding: 0;
-        font-family: 'Arial', sans-serif;
-        height: 100vh;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: flex-start;
-        background-color: #fff;
-    }
+/* Estilo geral */
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-family: var(--font-family);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    height: 100vh;
+    overflow-x: hidden;
+}
 
+/* Títulos e textos */
+h2, .titulo-rotina {
+    color: var(--text-color);
+    text-align: center;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin: 20px 0;
+}
+
+h2 {
+    font-size: 1.5rem;
+    padding: 15px;
+}
+
+.titulo-rotina {
+    font-size: 1.5rem;
+    padding: 10px;
+    background-color: #e0f7fa;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Botões */
+button {
+    background-color: var(--primary-color);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 12px 25px;
+    cursor: pointer;
+    font-size: 1rem;
+    margin: 10px 0;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+button:hover {
+    background-color: var(--secondary-color);
+    transform: translateY(-2px);
+}
+
+/* Calendário */
+#calendar {
+    width: 100%;
+    max-width: 1200px;
+    height: calc(100vh - 180px);
+    box-sizing: border-box;
+    margin-top: 20px;
+}
+
+.fc-daygrid-day-frame, .fc-scrollgrid-sync-inner {
+    height: 60px;
+    padding: 5px;
+    border: 1px solid rgb(218, 220, 224);
+    border-radius: 3px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.fc-daygrid-day-frame:hover, .fc-scrollgrid-sync-inner:hover {
+    background-color: var(--hover-color);
+    transform: scale(1.02);
+}
+
+/* Modal */
+.modal-opened {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(19, 84, 122, 0.5);
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal {
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    width: 90%;
+    max-width: 500px;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Modal Header */
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #e0e0e0;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+
+.modal-title h3 {
+    color: var(--primary-color);
+    margin: 0;
+}
+
+.modal-close {
+    cursor: pointer;
+    color: var(--primary-color);
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* Inputs */
+.modal-body input, .modal-body select {
+    border: 1px solid var(--primary-color);
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 15px;
+    font-size: 1rem;
+    width: 100%;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.modal-body input:focus {
+    border-color: var(--secondary-color);
+}
+
+/* Modal Footer */
+.modal-footer {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.modal-footer button {
+    padding: 10px 15px;
+    background-color: var(--primary-color);
+    border: none;
+    color: #fff;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.modal-footer button:hover {
+    background-color: var(--secondary-color);
+}
+
+/* Classes auxiliares */
+.hidden {
+    display: none;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
     h2 {
-        color: black;
-        text-align: center;
-        margin: 20px 0;
+        font-size: 1.2rem;
     }
 
     button {
-        padding: 5px;
-        background-color: white;
-        color: black;
-        border: none;
-        border-radius: 5px;
-        font-size: 1rem;
-        cursor: pointer;
-        transition: background-color 0.3s, box-shadow 0.3s;
-        margin: 20px auto;
-        display: block;
-    }
-
-    button:hover {
-        background-color: black;
-        color: white;
-        box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
-    }
-
-    #calendar {
         width: 100%;
-        height: calc(100vh - 160px);
-        box-sizing: border-box;
-    }
-
-    .modal-opened {
-        position: fixed;
-        width: 100%;
-        height: 100vh;
-        background-color: rgba(19, 84, 122, 0.5);
-        z-index: 9;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        padding: 10px;
     }
 
     .modal {
-        width: 90%;
-        max-width: 500px;
-        background-color: #ffffff;
-        padding: 20px;
-        font-family: Verdana, Geneva, Tahoma, sans-serif;
-        border-radius: 8px;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        padding: 15px;
     }
 
-    .modal-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        border-bottom: 1px solid #e0e0e0;
-        margin-bottom: 10px;
-    }
-
-    .modal-title h3 {
-        color: #13547a;
-        margin: 0;
-    }
-
-    .modal-close {
-        cursor: pointer;
-        color: #13547a;
-        font-weight: bold;
-        font-size: 20px;
-    }
-
-    .modal-body {
-        display: flex;
-        flex-direction: column;
-        margin-bottom: 10px;
-    }
-
-    .modal-body input,
-    .modal-body select {
-        font-size: 14px;
+    .modal-body input, .modal-body select {
+        font-size: 1rem;
         padding: 10px;
-        margin-bottom: 10px;
-        border-radius: 6px;
-        outline: none;
-        border: 1px solid #13547a;
-    }
-
-    .fc-daygrid-day-frame,
-    .fc-scrollgrid-sync-inner {
-        height: 50px;
-        width: 100%;
-        padding: 5px;
-        margin: 0;
-        border: 1px solid #333;
-        border-radius: 3px;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        transition: background-color 0.3s ease, transform 0.2s ease;
-    }
-
-    .fc-daygrid-day-frame:hover,
-    .fc-scrollgrid-sync-inner:hover {
-        background-color: rgba(0, 121, 107, 0.1);
-        transform: scale(1.02);
-    }
-
-    .modal-footer {
-        display: flex;
-        justify-content: flex-end;
     }
 
     .modal-footer button {
-        padding: 10px 15px;
-        background-color: #00796b;
-        border: none;
-        color: #fff;
-        border-radius: 6px;
-        cursor: pointer;
-        transition: background-color 0.3s;
+        width: 100%;
     }
+}
 
-    .modal-footer button:hover {
-        background-color: #004d40;
-    }
-
-    .hidden {
-        display: none;
-    }
-
-    @media (max-width: 768px) {
-        body {
-            justify-content: flex-start;
-        }
-
-        button {
-            width: 100%;
-            margin: 10px 0;
-        }
-
-        .modal {
-            padding: 15px;
-        }
-
-        .modal-body input,
-        .modal-body select {
-            font-size: 16px;
-            padding: 8px;
-        }
-
-        .modal-footer button {
-            width: 100%;
-        }
-    }
-
-    .fc-header-toolbar {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 10px 20px;
-        background-color: #f7f7f7;
-        border-bottom: 1px solid #ddd;
-    }
-
-    .fc-button-group {
-        display: flex;
-    }
-
-    .fc-button {
-        padding: 8px 12px;
-        border: none;
-        border-radius: 4px;
-        background-color: #007bff;
-        color: white;
-        cursor: pointer;
-        transition: background-color 0.3s ease, transform 0.2s ease;
-    }
-
-    .fc-button:hover {
-        background-color: #0056b3;
-    }
-
-    .fc-button:disabled {
-        background-color: #ccc;
-        cursor: not-allowed;
-    }
-
-    .fc-button-active {
-        background-color: #0056b3;
-    }
-
-    .sr-only {
-        position: absolute;
-        width: 1px;
-        height: 1px;
-        padding: 0;
-        margin: -1px;
-        overflow: hidden;
-        clip: rect(0, 0, 0, 0);
-        border: 0;
-    }
 </style>
+<button onclick="window.history.back()">Voltar</button>
 
 <body class="sisrot-page">
 
-    <button onclick="window.history.back()">Voltar</button>
 
     <!-- Card para inserir evento -->
     <div class="modal-opened hidden">
@@ -252,6 +251,8 @@
                 <input type="hidden" name="id" id="id">
                 <input type="hidden" name="action" id="action" value="add">
 
+
+                
                 <label for="title">Título</label>
                 <input type="text" name="title" id="title" required aria-required="true">
 
@@ -276,7 +277,7 @@
     </div>
 
     <div class="calendar-area">
-        <h2 id="titulo-rotina">Rotina</h2>
+        <h2 id="titulo-rotina">my daily routine</h2>
 
         <div style="font-size: small;" id='calendar'></div>
     </div>

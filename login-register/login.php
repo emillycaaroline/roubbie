@@ -50,7 +50,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['login'])) {
     <title>Login</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" type="image/png" href="images/icons/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="/roubbie/images/icons/favicon.ico">
     <link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
@@ -61,6 +61,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['login'])) {
     <link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
     <link rel="stylesheet" type="text/css" href="css/util.css">
     <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="icon" type="image/png" href="images/icons/favicon.ico">
+
     <meta name="robots" content="noindex, follow">
 </head>
 <body style="background-color: #666666;">
@@ -95,7 +97,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['login'])) {
                         <span class="txt2">Não tem uma conta? <a href="cadastro.php">Criar nova conta</a></span>
                     </div>
                 </form>
-                <div class="login100-more" style="background-image: url('img/meditacao.jpg');"></div>
+                <div class="login100-more" style="background-image: url('img/tso.jpg');">
+
             </div>
         </div>
     </div>

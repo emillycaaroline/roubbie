@@ -7,86 +7,148 @@
     <title>Bem-vindo ao Roubbie</title>
 
     <!-- CSS FILES -->
+    <link rel="icon" type="image/x-icon" href="/roubbie/images/icons/favicon.ico">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Open+Sans&display=swap" rel="stylesheet">
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-    <link href="css/bootstrap-icons.css" rel="stylesheet">
-    <link href="css/templatemo-topic-listing.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intro.js/minified/introjs.min.css">
-    <link rel="stylesheet" href="css/dashboard.css">
+    <link href="css/styles.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/intro.js/4.0.0/introjs.min.css" rel="stylesheet">
+</head>
+<style>
+        :root {
+            --primary-color: #1ABC9C;
+            --secondary-color: #2C3E50;
+            --background-color: #f0f2f5;
+            --card-background: #fff;
+            --text-color: #34495E;
+            --muted-text: #7F8C8D;
+            --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
 
-    <style>
-        /* Estilo global */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
-            font-family: 'Open Sans', sans-serif;
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            min-height: 100vh;
             background-color: var(--background-color);
-            /* Defina a cor de fundo conforme seu CSS */
-            color: var(--text-color);
-            /* Defina a cor do texto conforme seu CSS */
         }
 
-        /* Ajuste para o status (dashboard) */
-        .card {
-            background-color: var(--white);
-            border: 1px solid var(--border-color);
-            border-radius: 10px;
-            padding: 20px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s;
-            text-align: center;
+        .dashboard-container {
+            display: flex;
+            width: 100%;
         }
 
-        .card:hover {
-            transform: scale(1.02);
+        .sidebar {
+            background-color: var(--secondary-color);
+            color: #ECF0F1;
+            padding: 1.5rem 1rem;
+            width: 240px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
-        /* Títulos dos cards */
-        .card h3 {
-            font-family: 'Montserrat', sans-serif;
-            color: var(--primary-color);
-            margin-bottom: 15px;
-            font-size: 1.5rem;
-            font-weight: 700;
+        .sidebar h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
         }
 
-        /* Estilo dos badges */
-        .badge {
-            font-size: 0.9rem;
-            padding: 5px 10px;
+        .nav-link {
+            color: #ECF0F1;
+            display: flex;
+            align-items: center;
+            margin: 1rem 0;
+            padding: 0.8rem 1rem;
+            width: 100%;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: background 0.3s ease;
+        }
+
+        .nav-link:hover {
+            background-color: var(--primary-color);
+        }
+
+        .main-content {
+            flex: 1;
+            padding: 2rem;
+            background-color: #F5F5F5;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem;
+            background-color: var(--primary-color);
+            color: #fff;
             border-radius: 12px;
+            box-shadow: var(--box-shadow);
         }
 
-        .bg-success {
-            background-color: var(--secondary-color) !important;
-            color: var(--white);
+        .section-box {
+            background-color: var(--card-background);
+            padding: 2rem;
+            border-radius: 12px;
+            margin: 1.5rem 0;
+            text-align: center;
+            box-shadow: var(--box-shadow);
+            transition: transform 0.3s ease;
         }
 
-        .bg-danger {
-            background-color: var(--primary-color) !important;
-            color: var(--white);
+        .section-box:hover {
+            transform: translateY(-5px);
         }
 
-        /* Estilo dos gráficos */
-        #canvas {
-            max-width: 100%;
-            margin-top: 20px;
+        .section-box h2 {
+            color: var(--text-color);
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
         }
 
-        /* Responsividade */
+        .profile-section {
+            display: flex;
+            gap: 2rem;
+            margin-top: 1.5rem;
+        }
+
+        .profile-card {
+            background-color: var(--card-background);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: var(--box-shadow);
+            text-align: center;
+            flex: 1;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 1rem;
+            color: var(--muted-text);
+            font-size: 0.9rem;
+            margin-top: 1rem;
+        }
+
         @media (max-width: 768px) {
-            .card {
-                margin-bottom: 30px;
+            .sidebar {
+                display: none;
             }
 
-            .card h3 {
-                font-size: 1.2rem;
+            .main-content {
+                padding: 1rem;
             }
 
-            .btn {
-                padding: 8px 15px;
-                font-size: 0.9rem;
+            .profile-section {
+                flex-direction: column;
             }
         }
 
@@ -155,173 +217,103 @@
 
             .mobile-nav a {
                 color: white;
-                /* Garantindo que os links sejam brancos no mobile */
             }
 
             .mobile-nav a:hover {
                 color: #80d0c7;
-                /* Mudança de cor ao passar o mouse no mobile */
             }
         }
 
         i {
             color: white;
-            /* Garantindo que todos os ícones sejam brancos */
         }
     </style>
-</head>
+<?php include 'C:\xampp\htdocs\roubbie\includes\header.php';
+?>
 
-<body id="top">
-    <!-- Header -->
-    <header>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <div class="container">
-                <a class="navbar-brand" href="index.php">
-                    <img src="img/logo/logo_branco.png" alt="Logo do Roubbie">
-                </a>
-                <button id="menuButton" aria-label="Abrir menu de configurações" class="navbar-toggler" type="button">
-                    <i class="bi bi-list"></i>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav ms-lg-5 me-lg-auto">
-                        <li class="nav-item">
-                            <span class="nav-link">Home</span>
-                        </li>
-                        <li class="nav-item">
-                            <span class="nav-link">Agenda</span>
-                        </li>
-                        <li class="nav-item">
-                            <span class="nav-link">Rotina</span>
-                        </li>
-                        <li class="nav-item">
-                            <span class="nav-link">Diário</span>
-                        </li>
-                        <li class="nav-item">
-                            <span class="nav-link">Quiz</span>
-                        </li>
-                        <li class="nav-item">
-                            <span class="nav-link">Sobre</span>
-                        </li>
-                        <li class="nav-item">
-                        </li>
-                    </ul>
+<body>
+    <div class="container mt-4">
+        <h1 class="intro-title">Bem-vindo ao Roubbie!</h1>
+        <p class="text-center">Antes de começar, vamos explorar as principais seções do seu novo dashboard.</p>
 
-                    <!-- Login/cadastro -->
-                    <ul class="nav-menu">
-                        <li class="nav-item dropdown">
-                            <a style="background-color: #13547a;" class="nav-link dropdown-toggle navbar-icon bi-person" style="border: none;" href="#" id="navbarUserDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Menu do usuário"></a>
-                            <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarUserDropdownMenuLink">
-                                <li><span class="dropdown-item">Login</span></li>
-                                <li><span class="dropdown-item">Cadastro</span></li>
-                                <li><span class="dropdown-item"><i class="bi bi-box-arrow-right"></i> Sair</span></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </header>
+        <button onclick="startTutorial()" class="btn btn-primary mt-3 mb-4">Iniciar Tutorial</button>
+        <button onclick="window.location.href='index.php'" class="btn btn-secondary mt-3 mb-4">Pular Tutorial</button>
 
-    <!-- Mobile Menu -->
-    <div class="mobile-nav d-lg-none">
-        <ul>
-            <li><span aria-label="Ir para a página inicial"><i class="bi bi-house"></i></span></li>
-            <li><span aria-label="Ir para a agenda"><i class="bi bi-calendar-month"></i></span></li>
-            <li><span aria-label="Ir para a rotina"><i class="bi bi-ui-checks-grid"></i></span></li>
-            <li><span aria-label="Ir para o diário"><i class="bi bi-pencil-square"></i></span></li>
-        </ul>
+        <!-- Seção do Diário -->
+        <section class="section-box" id="feature1">
+            <h2>Diário</h2>
+            <p>Essa seção permite que você registre suas notas e reflexões pessoais.</p>
+            <button class="btn btn-outline-primary">Explorar Diário</button>
+        </section>
+
+        <!-- Seção de Eventos -->
+        <section class="section-box" id="feature2">
+            <h2>Eventos</h2>
+            <p>Acompanhe e gerencie seus eventos pessoais, sejam eles compromissos ou lembretes.</p>
+            <button class="btn btn-outline-primary">Explorar Eventos</button>
+        </section>
+
+        <!-- Seção de Tarefas -->
+        <section class="section-box" id="feature3">
+            <h2>Tarefas Pendentes</h2>
+            <p>Visualize suas tarefas e organize suas pendências para manter-se no controle.</p>
+            <button class="btn btn-outline-primary">Explorar Tarefas</button>
+        </section>
+
+        <!-- Seção de Compromissos -->
+        <section class="section-box" id="feature4">
+            <h2>Compromissos</h2>
+            <p>Revise e acompanhe os compromissos agendados para planejar melhor seu tempo.</p>
+            <button class="btn btn-outline-primary">Explorar Compromissos</button>
+        </section>
+
+        <!-- Seção de Horários Livres -->
+        <section class="section-box" id="feature5">
+            <h2>Horários Livres</h2>
+            <p>Encontre espaços em sua agenda para novos hobbies e atividades relaxantes.</p>
+            <button class="btn btn-outline-primary">Explorar Horários Livres</button>
+        </section>
     </div>
 
-    <div class="container">
-        <main style="margin: auto; margin-top: 200px;">
-            <h1>Oi, Giovanni Santos!</h1>
-            <p>Bem-vindo à sua nova conta!</p>
-
-            <button id="startOnboarding" class="btn btn-outline-success">Iniciar Tutorial</button>
-            <button id="skipTutorial" class="btn btn-secondary">Pular Tutorial</button>
-
-            <div class="row mt-4">
-                <div class="col-md-4">
-                    <div class="card" id="feature1">
-                        <h3>Minhas Notas</h3>
-                        <p>
-                            <span class="badge bg-success">
-                                +2 registradas
-                            </span>
-                        </p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card" id="feature2">
-                        <h3>Eventos Pendentes</h3>
-                        <p>
-                            <span class="badge">
-                                (8 pendentes)
-                            </span>
-                        </p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card" id="feature3">
-                        <h3>Meus Hobbies</h3>
-                        <p>
-                            <span class="badge bg-danger">
-                                0 novos
-                            </span>
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <h2 class="mt-5">Gráficos de Progresso</h2>
-            <canvas id="canvas" width="400" height="200"></canvas>
-        </main>
-    </div>
-    <!-- Scripts -->
+    <!-- JavaScript FILES -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/intro.js/minified/intro.min.js"></script>
-    <script src="js/dashboard.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intro.js/4.0.0/intro.min.js"></script>
 
     <script>
-        $(document).ready(function() {
-            $('#startOnboarding').click(function() {
-                introJs().setOptions({
-                    steps: [{
-                            intro: "Bem-vindo ao Roubbie! Vamos dar uma olhada nas principais funcionalidades."
-                        },
-                        {
-                            element: '#feature1',
-                            intro: 'Aqui estão suas notas. Você pode ver quantas notas registrou.'
-                        },
-                        {
-                            element: '#feature2',
-                            intro: 'Aqui estão os eventos pendentes. Acompanhe o que ainda precisa ser feito.'
-                        },
-                        {
-                            element: '#feature3',
-                            intro: 'Esta seção mostra seus hobbies registrados.'
-                        },
-                        {
-                            element: '#canvas',
-                            intro: 'Os gráficos mostram seu progresso ao longo do tempo.'
-                        },
-                        {
-                            intro: "Isso é tudo! Aproveite o uso do Roubbie!"
-                        }
-                    ]
-                }).start();
-            });
-        });
+        function startTutorial() {
+            introJs().setOptions({
+                steps: [{
+                        intro: "Bem-vindo ao Roubbie! Vamos explorar o dashboard."
+                    },
+                    {
+                        element: '#feature1',
+                        intro: "Diário: Guarde suas notas e reflexões aqui."
+                    },
+                    {
+                        element: '#feature2',
+                        intro: "Eventos: Acompanhe compromissos importantes."
+                    },
+                    {
+                        element: '#feature3',
+                        intro: "Tarefas Pendentes: Controle suas pendências."
+                    },
+                    {
+                        element: '#feature4',
+                        intro: "Compromissos: Revise suas marcações e compromissos."
+                    },
+                    {
+                        element: '#feature5',
+                        intro: "Horários Livres: Encontre tempo para novos hobbies."
+                    }
+                ],
+                showBullets: false,
+                nextLabel: 'Próximo',
+                prevLabel: 'Anterior',
+                doneLabel: 'Concluir'
+            }).start();
+        }
     </script>
-
-    <!-- Scripts -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/intro.js/minified/intro.min.js"></script>
-    <script src="js/dashboard.js"></script>
 </body>
 
 </html>

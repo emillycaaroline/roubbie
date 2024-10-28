@@ -21,6 +21,8 @@ $result = $conn->query($sql);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Status da Rotina</title>
     <link rel="stylesheet" href="style.css"> <!-- Link para o CSS se necessário -->
+    <link rel="icon" type="image/png" href="images/icons/favicon.ico">
+
     <style>
         body {
             background-image: linear-gradient(15deg, #13547a 0%, #80d0c7 100%);

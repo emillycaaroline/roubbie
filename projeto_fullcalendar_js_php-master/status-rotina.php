@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Eventos</title>
     <link rel="stylesheet" href="seu-estilo.css">
+    <link rel="icon" type="image/x-icon" href="/roubbie/images/icons/favicon.ico">
+
+    
     <style>
 /* Estilos Gerais */
 body {
