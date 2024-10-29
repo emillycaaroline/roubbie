@@ -16,10 +16,19 @@
     <link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
     <link rel="stylesheet" type="text/css" href="css/util.css">
     <link rel="stylesheet" type="text/css" href="css/main.css">
-    <link rel="icon" type="image/png" href="images/icons/favicon.ico">
-
     <meta name="robots" content="noindex, follow">
 </head>
+
+<style>
+    .login100-more {
+        max-width: 100%;
+        max-height: 700px;
+        background-image: url('img/tsos.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+</style>
 
 <body style="background-color: #666666;">
     <div class="limiter">
@@ -27,9 +36,9 @@
             <div class="wrap-login100">
                 <form action="cadastro_process.php" method="POST" class="login100-form validate-form">
                     <input type="hidden" name="csrf_token" value="<?php echo hash('sha256', session_id()); ?>"> <!-- Token CSRF -->
-                    
+
                     <span class="login100-form-title p-b-43">
-                    Vamos nessa!
+                        Vamos começar essa jornada juntos!
                     </span>
 
                     <!-- Nome -->
@@ -47,17 +56,27 @@
                     </div>
 
                     <!-- Senha -->
-                    <div class="wrap-input100 validate-input"  data-validate="A senha é obrigatória e deve ter no mínimo 6 caracteres.">
-                        <input class="input100" type="password" name="senha" minlength="6"  required>
+                    <div class="wrap-input100 validate-input" data-validate="A senha é obrigatória e deve ter no mínimo 6 caracteres.">
+                        <input class="input100" type="password" name="senha" minlength="6" required>
                         <span class="focus-input100"></span>
                         <span class="label-input100">Senha</span>
                     </div>
 
-                    <div class="flex-sb-m w-full p-t-3 p-b-32">
+                    <!-- Confirmação da Senha -->
+                    <div class="wrap-input100 validate-input" data-validate="Confirme sua senha">
+                        <input class="input100" type="password" name="confirm_senha" minlength="6" required>
+                        <span class="focus-input100"></span>
+                        <span class="label-input100">Confirmar Senha</span>
+                    </div>
+
+                    <div class="flex-sb-m w-full p-t-3 p-b-20">
                         <div>
                             <a href="#" class="txt1">
                                 Esqueceu a senha?
                             </a>
+                        </div>
+                        <div class="p-t-46 p-b-20">
+                            <span class="txt2">Já tem uma conta? <a href="login.php">Entrar</a></span>
                         </div>
                     </div>
 
@@ -66,12 +85,9 @@
                             Cadastrar
                         </button>
                     </div>
-                    <div class="text-center p-t-46 p-b-20">
-                        <span  href="/login-register/login.php"  class="txt2">Ja tem uma conta? <a href="cadastro.php">Entrar na conta existente</a></span>
-                    </div>
+
                 </form>
-                <div class="login100-more" style="background-image: url('img/tsos.jpg');">
-                </div>
+                <div class="login100-more"></div>
             </div>
         </div>
     </div>
@@ -88,7 +104,9 @@
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
+        function gtag() {
+            dataLayer.push(arguments);
+        }
         gtag('js', new Date());
         gtag('config', 'UA-23581568-13');
     </script>

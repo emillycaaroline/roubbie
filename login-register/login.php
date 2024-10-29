@@ -65,13 +65,34 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['login'])) {
 
     <meta name="robots" content="noindex, follow">
 </head>
+<style>
+       .login100-more{
+    max-width: 100%;
+    max-height: 700px;
+    background-image: url('img/tso.jpg');
+    background-size: cover; /* Ajusta a imagem ao contêiner */
+    background-position: center; /* Centraliza a imagem */
+    background-repeat: no-repeat; /* Evita repetição da imagem */
+}
+.login100-form {
+    max-width: 100%;
+    max-height: 700px;
+    background-size: cover; /* Ajusta a imagem ao contêiner */
+}
+img {
+    max-width: 100%;
+    max-height: 700px;
+    object-fit: cover; /* Mantém a proporção da imagem dentro dos limites */
+}
+
+</style>
 <body style="background-color: #666666;">
     <!-- # Página php para o formulário de login -->
 
     <div class="limiter">
         <div class="container-login100">
             <div class="wrap-login100">
-                <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" class="login100-form validate-form">
+                <form style="max-width: 100%; max-height: 700px;" method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" class="login100-form validate-form">
                     <span class="login100-form-title p-b-43">Bom te ver de novo!</span>
                     <div class="wrap-input100 validate-input" data-validate="Email válido é requerido: ex@abc.xyz">
                         <input class="input100" type="email" name="email" id="email" required>
@@ -97,7 +118,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['login'])) {
                         <span class="txt2">Não tem uma conta? <a href="cadastro.php">Criar nova conta</a></span>
                     </div>
                 </form>
-                <div class="login100-more" style="background-image: url('img/tso.jpg');">
+                <div class="login100-more" style="max-width: 100%; max-height: 700px; background-image: url('img/tso.jpg');">
 
             </div>
         </div>

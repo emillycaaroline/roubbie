@@ -7,7 +7,7 @@ require_once '../includes/db_connection.php';
 // Verifica se o formulário foi submetido
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
-    // Obtém os dados do formulário
+    // Obtém e sanitiza os dados do formulário
     $nome = trim($_POST["nome"]);
     $email = trim($_POST["email"]);
     $senha = password_hash(trim($_POST["senha"]), PASSWORD_DEFAULT); // Criptografa a senha
@@ -18,9 +18,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Tenta executar a consulta
     if ($stmt->execute()) {
-        // Cadastro bem-sucedido, armazena o nome na sessão
+        // Cadastro bem-sucedido, obtém o ID do novo usuário
+        $user_id = $stmt->insert_id;
+        
+        // Armazena o nome e o ID do usuário na sessão para futuras referências
         $_SESSION['nome'] = $nome;
-        header("Location: /roubbie/welcome.php"); // Redireciona para a página de boas-vindas
+        $_SESSION['user_id'] = $user_id; // Salva o ID do usuário na sessão
+        
+        // Redireciona para a página de boas-vindas ou dashboard
+        header("Location: /roubbie/welcome.php");
         exit();
     } else {
         // Erro ao cadastrar
