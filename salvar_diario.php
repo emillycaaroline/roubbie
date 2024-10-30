@@ -1,42 +1,65 @@
-<!-- Código que vai fazer o salvamento e redirecionamento para salvar no calendário a categoria notas. -->
 <?php
-// Inclui a configuração do banco de dados
-require 'includes/db_connection.php';
+session_start();
 
-// Verifica se os dados foram enviados pelo formulário
-if ($_SERVER["REQUEST_METHOD"] == "POST") {  
-    // Recebe os dados do formulário
-    $titulo = $_POST['titulo']; // título do diário
-    $data = $_POST['data']; // data da entrada
-    $conteudo = $_POST['conteudo']; // conteúdo do diário
-    $feeling = $_POST['feeling']; // sentimento associado
+// Verifica se o formulário foi submetido
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Inclui o arquivo de conexão
+    include '../includes/db_connection.php';
 
-    // Prepara a query SQL para inserção
-    $sql = "INSERT INTO diario (titulo, data, conteudo, feeling) VALUES (?, ?, ?, ?)";
-
-    // Prepara a declaração
-    $stmt = $conn->prepare($sql);
-    
-    if ($stmt === false) {
-        die('Erro na preparação da declaração SQL: ' . $conn->error);
+    // Verifica a conexão
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    } else {
+        echo "Conexão com o banco de dados bem-sucedida.<br>";
     }
 
-    // Liga os parâmetros à consulta
-    $stmt->bind_param("ssss", $titulo, $data, $conteudo, $feeling);
+    // Captura os dados do formulário
+    $titulo = isset($_POST["titulo"]) ? trim($_POST["titulo"]) : '';
+    $data = isset($_POST["data"]) ? $_POST["data"] : '';
+    $conteudo = isset($_POST["conteudo"]) ? trim($_POST["conteudo"]) : '';
+    $sentimento = isset($_POST["sentimento"]) ? $_POST["sentimento"] : null;
 
-    // Executa a consulta
+    // Valida os dados
+    if (empty($titulo) || empty($data) || empty($conteudo)) {
+        echo "Todos os campos são obrigatórios.";
+        exit();
+    }
+
+    // Obtém o user_id da sessão
+    $user_id = $_SESSION['user_id'] ?? null; // Usar operador null coalescing para evitar erros
+
+    if ($user_id === null) {
+        echo "Usuário não está logado. Verifique a sessão.";
+        exit();
+    }
+
+    // Prepara a data no formato adequado para o banco de dados
+    $data_formatada = date('Y-m-d', strtotime($data)); // Formato YYYY-MM-DD
+
+    // Tenta inserir a entrada no diário
+    $stmt = $conn->prepare("INSERT INTO diario (titulo, data, conteudo, sentimento, user_id) VALUES (?, ?, ?, ?, ?)");
+    
+    if (!$stmt) {
+        echo "Erro na preparação da declaração: " . $conn->error;
+        exit();
+    }
+
+    // Liga os parâmetros
+    $stmt->bind_param("ssssi", $titulo, $data_formatada, $conteudo, $sentimento, $user_id); // Adiciona $user_id à ligação de parâmetros
+
+    // Executa a operação
     if ($stmt->execute()) {
-        // Redireciona para a página do calendário (com parâmetros de categoria "notas")
-        header("Location: calendario.php?categoria=notas&title=" . urlencode($titulo) . "&date=" . urlencode($data) . "&description=" . urlencode($conteudo) . "&feeling=" . urlencode($feeling));
+        echo "Registro adicionado com sucesso!<br>";
+        
+        // Redireciona para a página de status ou outra página desejada
+        header("Location: status-diario.php");
         exit();
     } else {
-        echo "Erro ao salvar no banco de dados: " . $stmt->error;
+        echo "Erro ao adicionar o registro: " . $stmt->error;
     }
 
     // Fecha a declaração e a conexão
     $stmt->close();
     $conn->close();
-} else {
-    echo "Método de solicitação inválido.";
-}    
+}
 ?>

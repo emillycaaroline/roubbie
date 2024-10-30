@@ -1,4 +1,7 @@
 <?php
+session_start();
+
+// Verifica se o formulário foi submetido
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Inclui o arquivo de conexão
     include '../includes/db_connection.php';
@@ -23,21 +26,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Converte a data e hora para um formato datetime
     $start = $date . ' ' . $time; // Combina data e hora
 
+    // Obtém o user_id da sessão
+    $user_id = $_SESSION['user_id']; // Obtém o ID do usuário logado
+
     // Tenta inserir o evento no banco de dados
-    $stmt = $conn->prepare("INSERT INTO events (title, start, category) VALUES (?, ?, ?)");
+    $stmt = $conn->prepare("INSERT INTO events (title, start, category, user_id) VALUES (?, ?, ?, ?)");
     if (!$stmt) {
         echo "Erro na preparação da declaração: " . $conn->error;
         exit();
     }
 
-    $stmt->bind_param("sss", $title, $start, $category);
+    $stmt->bind_param("sssi", $title, $start, $category, $user_id); // Adiciona $user_id à ligação de parâmetros
 
     // Executa a operação
     if ($stmt->execute()) {
         $evento_id = $stmt->insert_id; // Obtém o ID do evento inserido
 
         // Armazena mensagem de sucesso na sessão
-        session_start();
         $_SESSION['msg'] = "Evento adicionado com sucesso!";
 
         // Redireciona para a página de status com os dados do evento
@@ -57,3 +62,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->close();
     $conn->close();
 }
+?>

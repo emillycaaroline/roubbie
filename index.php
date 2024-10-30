@@ -1,6 +1,25 @@
+<?php
+session_start();
+require_once 'C:\xampp\htdocs\roubbie\includes\db_connection.php';
+require_once 'C:\xampp\htdocs\roubbie\includes\header.php';
+
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
+if ($conn->connect_error) {
+    die("Erro de conexão: " . $conn->connect_error);
+}
+
+// Contagem de registros
+$diario_count = $conn->query("SELECT COUNT(*) AS total FROM diario")->fetch_assoc()['total'] ?? 0;
+$events_count = $conn->query("SELECT COUNT(*) AS total FROM events WHERE status = 'pendente'")->fetch_assoc()['total'] ?? 0;
+$tarefas_count = $conn->query("SELECT COUNT(*) AS total FROM tarefas WHERE status = 'pendente'")->fetch_assoc()['total'] ?? 0;
+$compromissos_count = $conn->query("SELECT COUNT(*) AS total FROM compromissos WHERE data > NOW()")->fetch_assoc()['total'] ?? 0;
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -10,9 +29,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Open+Sans&display=swap" rel="stylesheet">
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/intro.js/minified/introjs.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="../perfil.css">
     <link rel="icon" type="image/png" href="images/icons/favicon.ico">
-
+    
     <style>
         :root {
             --primary-color: #1ABC9C;
@@ -150,24 +168,8 @@
     </style>
 </head>
 
+</head>
 <body>
-    <?php
-    include 'C:\xampp\htdocs\roubbie\includes\db_connection.php';
-    include 'C:\xampp\htdocs\roubbie\includes\header.php';
-
-    error_reporting(E_ALL);
-    ini_set('display_errors', 1);
-
-    if ($conn->connect_error) {
-        die("Erro de conexão: " . $conn->connect_error);
-    }
-
-    $diario_count = $conn->query("SELECT COUNT(*) AS total FROM diario")->fetch_assoc()['total'] ?? 0;
-    $events_count = $conn->query("SELECT COUNT(*) AS total FROM events WHERE status = 'pendente'")->fetch_assoc()['total'] ?? 0;
-    $tarefas_count = $conn->query("SELECT COUNT(*) AS total FROM tarefas WHERE status = 'pendente'")->fetch_assoc()['total'] ?? 0;
-    $compromissos_count = $conn->query("SELECT COUNT(*) AS total FROM compromissos WHERE data > NOW()")->fetch_assoc()['total'] ?? 0;
-    ?>
-    
     <div class="dashboard-container">
         <div class="main-content">
             <header class="header">
@@ -226,7 +228,6 @@
                     </span>
                 </p>
             </section>
-
         </div>
     </div>
 
@@ -234,5 +235,4 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/intro.js/minified/intro.min.js"></script>
 </body>
-
 </html>

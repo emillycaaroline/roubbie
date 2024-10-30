@@ -197,7 +197,7 @@ $entries = fetchEntries($conn);
     <div class="container">
         <h1>Meu Diário</h1>
         <form action="" method="post">
-            <input type="hidden" id="id" name="id" value="">
+        <input type="hidden" name="user_id" value="<?php echo $_SESSION['user_id']; ?>">
             <label for="titulo">Título:</label>
             <input type="text" id="titulo" name="titulo" placeholder="Como foi seu dia?" required>
 

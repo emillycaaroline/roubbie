@@ -28,7 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['login'])) {
         if (password_verify($senha, $hashed_password)) {
             // Login bem-sucedido
             $_SESSION['email'] = $email;
-            $_SESSION['usuario_id'] = $user_id;
+            $_SESSION['user_id'] = $user_id; // Armazena o ID do usuário na sessão
 
             header("Location: /roubbie/index.php");  // Redireciona para a página inicial
             exit();

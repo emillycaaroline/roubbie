@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 23/10/2024 às 02:10
+-- Tempo de geração: 30/10/2024 às 03:43
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.2.12
 
@@ -57,16 +57,20 @@ CREATE TABLE `diario` (
   `data` date NOT NULL,
   `conteudo` text NOT NULL,
   `sentimento` enum('feliz','triste','neutro','ansioso') DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `user_id` int(11) NOT NULL,
+  `nova_coluna` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Despejando dados para a tabela `diario`
 --
 
-INSERT INTO `diario` (`id`, `titulo`, `data`, `conteudo`, `sentimento`, `created_at`) VALUES
-(16, 'Exemplo de anotação', '2024-10-15', 'Escreva aqui...', '', '2024-10-17 01:14:37'),
-(17, 'anotação diferente', '2024-10-22', 'sla foi legal', '', '2024-10-22 22:29:55');
+INSERT INTO `diario` (`id`, `titulo`, `data`, `conteudo`, `sentimento`, `created_at`, `user_id`, `nova_coluna`) VALUES
+(22, 'Meu Dia', '2024-10-28', 'Hoje foi um dia produtivo.', 'feliz', '2024-10-28 23:34:58', 1, NULL),
+(24, 'Dia Difícil', '2024-10-28', 'Tive um dia cansativo e estressante.', 'triste', '2024-10-29 02:45:00', 44, NULL),
+(25, 'Um Dia Incrível', '2024-10-28', 'Consegui realizar todas as tarefas!', 'feliz', '2024-10-29 02:55:00', 45, NULL),
+(28, 'hiiiii', '2024-10-29', 'fgnv', '', '2024-10-30 02:42:00', 0, NULL);
 
 -- --------------------------------------------------------
 
@@ -81,22 +85,21 @@ CREATE TABLE `events` (
   `start` datetime NOT NULL,
   `end` datetime NOT NULL,
   `status` enum('pendente','concluído','realizado','cancelado') DEFAULT 'pendente',
-  `category` varchar(255) NOT NULL
+  `category` varchar(255) NOT NULL,
+  `user_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Despejando dados para a tabela `events`
 --
 
-INSERT INTO `events` (`id`, `title`, `color`, `start`, `end`, `status`, `category`) VALUES
-(73, 'Judo Class', '#FF5733', '2024-10-23 09:00:00', '2024-10-23 10:30:00', 'pendente', 'judo'),
-(74, 'Judo Competition', '#FF5733', '2024-10-30 11:00:00', '2024-10-30 14:00:00', 'pendente', 'judo'),
-(75, 'Task A', '#28A745', '2024-10-23 10:00:00', '2024-10-23 11:00:00', 'pendente', 'tarefa'),
-(76, 'Task B', '#28A745', '2024-10-24 14:00:00', '2024-10-24 15:00:00', 'pendente', 'tarefa'),
-(77, 'Show Event 1', '#007BFF', '2024-10-25 17:00:00', '2024-10-25 20:30:00', 'pendente', 'evento'),
-(78, 'Show Event 2', '#007BFF', '2024-10-26 18:00:00', '2024-10-26 21:30:00', 'pendente', 'evento'),
-(79, 'Commitment 1', '#FFC107', '2024-10-27 14:00:00', '2024-10-27 15:30:00', 'pendente', 'compromissos'),
-(80, 'Commitment 2', '#FFC107', '2024-10-28 16:00:00', '2024-10-28 17:30:00', 'pendente', 'compromissos');
+INSERT INTO `events` (`id`, `title`, `color`, `start`, `end`, `status`, `category`, `user_id`) VALUES
+(86, 'bevent', '', '2024-10-22 22:20:00', '0000-00-00 00:00:00', 'pendente', 'evento', 40),
+(87, 'Treino na Academia', '#FF5733', '2024-10-29 07:00:00', '2024-10-29 08:00:00', 'pendente', 'saúde', 43),
+(88, 'Reunião de Projeto', '#33FF57', '2024-10-29 10:00:00', '2024-10-29 11:30:00', 'pendente', 'trabalho', 44),
+(89, 'Jantar com Amigos', '#3357FF', '2024-10-29 19:00:00', '2024-10-29 21:00:00', 'pendente', 'social', 45),
+(91, 'sbhksba', '', '2024-10-29 02:36:00', '0000-00-00 00:00:00', 'pendente', 'evento', 41),
+(92, '1111111111111111111111', '', '2024-10-29 02:36:00', '0000-00-00 00:00:00', 'pendente', 'evento', 41);
 
 -- --------------------------------------------------------
 
@@ -131,21 +134,14 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id`, `nome`, `email`, `senha`) VALUES
-(12, 'João da Silva', 'joao.silva@example.com', 'senha123'),
-(13, 'Maria Oliveira', 'maria.oliveira@example.com', 'senha456'),
-(14, 'vianda', 'vianda@gmail.com', '$2y$10$4FRYyu/rGom6ynpS70/0Feh2ispPMGWULnIbYc1WbmYdX1AMynu42'),
-(15, 'amanda', 'mad@gmail.com', '$2y$10$yy2YIJ0xHlBMFO7DmINAzeQwB3KaOVgNTdXsNQiVpflkeYJ8hsRiq'),
-(16, '', '', '$2y$10$dZk8t2mjAGyJs29kmFZPPuAifkIafeLN44uHU3ttj6ZgXaef8OlsK'),
-(17, 'caique sopi', 'daoarda@gmail.com', '$2y$10$eXvR8LzL0dTjP7idOFkfeOLiL3VaxdsPbmevhfvKQAY5AwYslz0xa'),
-(18, 'ana silva', 'ana@gmail.com', '$2y$10$pT1wGnlGjXGQQzyHutO4a.XLEZO.3mOlQw6YxMqCAd.RccOaDZOJi'),
-(19, 'nhoho', 'ahna@gmail.com', '$2y$10$RWI49TAaroTXzoeWviAJCOH95f6WCMbr2SgxXnooqmk56Ff3uvl9u'),
-(20, 'bruna santos', 'bruna@gmail.com', '$2y$10$YRtX0neNXREYv.N/vE/VGeJo13HAOf1zKvsIRUS.FUFaNWHPluUiG'),
-(21, 'igor santos', 'igor@gmail.com', '$2y$10$CoTjJQtEmQtOCJKpIZxk5eCtwgr0Vp8oKTf65LlZj0ofr13Y9U6ea'),
-(22, 'kol', 'kol@gmail.com', '$2y$10$kIOQiEfX4wbFN31ysXj3B.5d8kDxp3zUMxdIAc3z3YtqXwzQHXefe'),
-(23, 'bethania silva', 'beth@gmail.com', '$2y$10$tCtaMZWYL48MuIt1ufiZ.eE.vST2eCGWcq5BPECk1vYV5BnW0dp/.'),
-(24, 'yago', 'yago@gmail.com', '$2y$10$GinAqaEGnej5CLxC.P6P2Ojv04XbEv/krJaMoFUux9rAPRlx6WJDq'),
-(25, 'hb', 'betklklknlh@gmail.com', '$2y$10$s5c1kXYQtNWSTTNFOhVq7.C13y78EerVYWllTc9gru8BXjGBY/Taa'),
-(26, 'gal', 'gall@gmail.com', '$2y$10$hTs14uHKVax7/s0.AxfSnuW5YHI/HAmlo9rKzCmBe.YCIFoRsCJAq');
+(36, 'kayke', 'kayke@gmail.com', '$2y$10$lGFUd3MGTvA9bGQWyU/HRe75IfpMIZfZOtQuoMEuGWpDELLfg4YGO'),
+(39, 'ludmilla silva', 'ludmilla@gmail.com', '$2y$10$Dtp5mNWnCGld2j8XaIdvTeKsFnX.zYfR16DNcBshUycsYPMGj5sJC'),
+(40, 'brunna', 'brunna@gmail.com', '$2y$10$UI.qEe6S1eV4gZcufgzwUeJwkodg1SvNva7iEAKsMSB0Foqr/2W0m'),
+(41, 'delac', 'delac@gmail.com', '$2y$10$eMVMRGC/.eckcHoRzCX1pOPidL2a443KOEgcX2JglqJYulmTWWeTO'),
+(43, 'Larissa Santos', 'larissa@gmail.com', '$2y$10$H3H6U0YwfxEjY6jK9aExq.w4hM6ycHpOIQn34bP2ZxrTQ9Be1WlG'),
+(44, 'Ricardo Almeida', 'ricardo@gmail.com', '$2y$10$H3H6U0YwfxEjY6jK9aExq.w4hM6ycHpOIQn34bP2ZxrTQ9Be1WlG'),
+(45, 'Julia Costa', 'julia@gmail.com', '$2y$10$H3H6U0YwfxEjY6jK9aExq.w4hM6ycHpOIQn34bP2ZxrTQ9Be1WlG'),
+(46, 'jao', 'jao@gmail.com', '$2y$10$5VJiqi9EiydQgba0XoMuHO9QuuzBd3m3XDahVbjqk6t3j0RKBpP.a');
 
 --
 -- Índices para tabelas despejadas
@@ -167,7 +163,8 @@ ALTER TABLE `diario`
 -- Índices de tabela `events`
 --
 ALTER TABLE `events`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_user_events` (`user_id`);
 
 --
 -- Índices de tabela `tarefas`
@@ -195,13 +192,13 @@ ALTER TABLE `compromissos`
 -- AUTO_INCREMENT de tabela `diario`
 --
 ALTER TABLE `diario`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT de tabela `events`
 --
 ALTER TABLE `events`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=81;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=93;
 
 --
 -- AUTO_INCREMENT de tabela `tarefas`
@@ -213,7 +210,17 @@ ALTER TABLE `tarefas`
 -- AUTO_INCREMENT de tabela `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
+
+--
+-- Restrições para tabelas despejadas
+--
+
+--
+-- Restrições para tabelas `events`
+--
+ALTER TABLE `events`
+  ADD CONSTRAINT `fk_user_events` FOREIGN KEY (`user_id`) REFERENCES `usuarios` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
