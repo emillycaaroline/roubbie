@@ -38,7 +38,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Tenta inserir a entrada no diário
     $stmt = $conn->prepare("INSERT INTO diario (titulo, data, conteudo, sentimento, user_id) VALUES (?, ?, ?, ?, ?)");
-    
     if (!$stmt) {
         echo "Erro na preparação da declaração: " . $conn->error;
         exit();
@@ -51,8 +50,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($stmt->execute()) {
         echo "Registro adicionado com sucesso!<br>";
         
-        // Redireciona para a página de status ou outra página desejada
-        header("Location: status-diario.php");
+        // Armazena mensagem de sucesso na sessão
+        $_SESSION['msg'] = "Entrada do diário adicionada com sucesso!";
+        
+        // Redireciona para a página de diário
+        header("Location: diario.php"); // Mude para a página que você deseja redirecionar
         exit();
     } else {
         echo "Erro ao adicionar o registro: " . $stmt->error;
