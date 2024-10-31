@@ -6,16 +6,35 @@ require_once 'C:\xampp\htdocs\roubbie\includes\header.php';
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-if ($conn->connect_error) {
-    die("Erro de conexão: " . $conn->connect_error);
+// Verifica se o usuário está logado
+if (!isset($_SESSION['user_id'])) {
+    header("Location: login.php");
+    exit();
+}
+
+// Função para contar registros
+function getCount($conn, $table, $status = null) {
+    $query = "SELECT COUNT(*) AS total FROM $table";
+    if ($status) {
+        $query .= " WHERE status = ?";
+        $stmt = $conn->prepare($query);
+        $stmt->bind_param("s", $status);
+    } else {
+        $stmt = $conn->prepare($query);
+    }
+    $stmt->execute();
+    $result = $stmt->get_result();
+    return $result->fetch_assoc()['total'] ?? 0;
 }
 
 // Contagem de registros
-$diario_count = $conn->query("SELECT COUNT(*) AS total FROM diario")->fetch_assoc()['total'] ?? 0;
-$events_count = $conn->query("SELECT COUNT(*) AS total FROM events WHERE status = 'pendente'")->fetch_assoc()['total'] ?? 0;
-$tarefas_count = $conn->query("SELECT COUNT(*) AS total FROM tarefas WHERE status = 'pendente'")->fetch_assoc()['total'] ?? 0;
-$compromissos_count = $conn->query("SELECT COUNT(*) AS total FROM compromissos WHERE data > NOW()")->fetch_assoc()['total'] ?? 0;
+$diario_count = getCount($conn, 'diario');
+$events_count = getCount($conn, 'events', 'pendente');
+$tarefas_count = getCount($conn, 'tarefas', 'pendente');
+$compromissos_count = getCount($conn, 'compromissos', null, 'data > NOW()');
 
+// Obtém o nome do usuário da sessão
+$nome_usuario = $_SESSION['nome'] ?? 'Usuário';
 ?>
 
 <!DOCTYPE html>
@@ -60,38 +79,6 @@ $compromissos_count = $conn->query("SELECT COUNT(*) AS total FROM compromissos W
             width: 100%;
         }
 
-        .sidebar {
-            background-color: var(--secondary-color);
-            color: #ECF0F1;
-            padding: 1.5rem 1rem;
-            width: 240px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .sidebar h3 {
-            font-size: 1.8rem;
-            margin-bottom: 1.5rem;
-            font-weight: 600;
-        }
-
-        .nav-link {
-            color: #ECF0F1;
-            display: flex;
-            align-items: center;
-            margin: 1rem 0;
-            padding: 0.8rem 1rem;
-            width: 100%;
-            text-decoration: none;
-            border-radius: 8px;
-            transition: background 0.3s ease;
-        }
-
-        .nav-link:hover {
-            background-color: var(--primary-color);
-        }
-
         .main-content {
             flex: 1;
             padding: 2rem;
@@ -133,6 +120,7 @@ $compromissos_count = $conn->query("SELECT COUNT(*) AS total FROM compromissos W
             display: flex;
             gap: 2rem;
             margin-top: 1.5rem;
+            flex-wrap: wrap;
         }
 
         .profile-card {
@@ -142,6 +130,7 @@ $compromissos_count = $conn->query("SELECT COUNT(*) AS total FROM compromissos W
             box-shadow: var(--box-shadow);
             text-align: center;
             flex: 1;
+            min-width: 200px;
         }
 
         .footer {
@@ -153,83 +142,42 @@ $compromissos_count = $conn->query("SELECT COUNT(*) AS total FROM compromissos W
         }
 
         @media (max-width: 768px) {
-            .sidebar {
-                display: none;
-            }
-
             .main-content {
                 padding: 1rem;
             }
-
-            .profile-section {
-                flex-direction: column;
-            }
         }
     </style>
-</head>
-
 </head>
 <body>
     <div class="dashboard-container">
         <div class="main-content">
             <header class="header">
-                <h1>Status</h1>
+                <h1>Status - Bem-vindo, <?php echo htmlspecialchars($nome_usuario); ?>!</h1>
                 <p>Usuários (<?php echo $diario_count; ?> perfil)</p>
             </header>
+           
+            <!-- Conteúdo do dashboard do usuário cadastrado e logado -->
+            <?php
+            // Função para criar seções
+            function createSection($title, $content) {
+                return "
+                    <section class='section-box'>
+                        <h2>$title</h2>
+                        <p>$content</p>
+                    </section>
+                ";
+            }
 
-            <div class="section-box">
-                <h2>Visão Geral</h2>
-                <div class="profile-section">
-                    <div class="profile-card">
-                        <h2>Eventos</h2>
-                        <p>Total: <?php echo $events_count; ?></p>
-                    </div>
-                    <div class="profile-card">
-                        <h2>Tarefas</h2>
-                        <p>Total: <?php echo $tarefas_count; ?></p>
-                    </div>
-                    <div class="profile-card">
-                        <h2>Compromissos</h2>
-                        <p>Total: <?php echo $compromissos_count; ?></p>
-                    </div>
-                </div>
-            </div>
+            // Uso da função no dashboard
+            echo createSection("Diário", "Minhas Notas ($diario_count registradas)");
+            echo createSection("Eventos", "$events_count evento(s) pendente(s).");
+            echo createSection("Tarefas", "$tarefas_count tarefa(s) pendente(s).");
+            echo createSection("Compromissos", "$compromissos_count compromisso(s) pendente(s).");
+            ?>
 
-            <section class="section-box">
-                <h2>Diário</h2>
-                <p>Minhas Notas (<?php echo $diario_count; ?> registradas)</p>
-            </section>
-
-            <section class="section-box">
-                <h2>Eventos</h2>
-                <p><?php echo $events_count > 0 ? "$events_count evento(s) pendente(s)." : "Você não possui eventos pendentes."; ?></p>
-            </section>
-
-            <section class="section-box">
-                <h2>Tarefas</h2>
-                <a href="/roubbie/projeto_fullcalendar_js_php-master/status-tarefas.php" class="btn btn-outline-success" aria-label="Ver tarefas">
-                    <span class="badge bg-warning"> (<?php echo $tarefas_count; ?> tarefas)</span>
-                </a>
-                <p>
-                    <span class="badge <?php echo $tarefas_count == 0 ? 'bg-danger' : ''; ?>">
-                        <?php echo $tarefas_count == 0 ? "Nenhuma tarefa pendente" : ""; ?>
-                    </span>
-                </p>
-            </section>
-
-            <section class="section-box">
-                <h2>Compromissos</h2>
-                <a href="/roubbie/projeto_fullcalendar_js_php-master/status-compromissos.php" class="btn btn-outline-success" aria-label="Ver compromissos">
-                    <span class="badge bg-warning"> (<?php echo $compromissos_count; ?> compromissos)</span>
-                </a>
-                <p>
-                    <span class="badge <?php echo $compromissos_count == 0 ? 'bg-danger' : ''; ?>">
-                        <?php echo $compromissos_count == 0 ? "Nenhum compromisso pendente" : ""; ?>
-                    </span>
-                </p>
-            </section>
         </div>
     </div>
+    
 
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
