@@ -15,10 +15,11 @@
 
 ## Sobre
 
-O Roubbie é um aplicativo que oferece uma plataforma interativa para usuários que buscam redescobrir hobbies e equilibrar suas rotinas. Com funcionalidades como lembretes, um quiz de interesses e um diário, o aplicativo se destina a ser inclusivo e acessível, visando melhorar a qualidade de vida.a
+O Roubbie é um aplicativo que oferece uma plataforma interativa para usuários que buscam redescobrir hobbies e equilibrar suas rotinas. Com funcionalidades como lembretes, um quiz de interesses e um diário, o aplicativo se destina a ser inclusivo e acessível, visando melhorar a qualidade de vida.
 
 ## Funcionalidades
 
+- **Página de Boas-vindas**: Introduz o usuário ao aplicativo com informações sobre funcionalidades e um redirecionamento fácil para cadastro.
 - **Home**: Acesso rápido a todas as funcionalidades do app.
 - **Agenda**: Visualização e gerenciamento de compromissos e atividades.
 - **Rotina**: Criação e gestão de rotinas diárias, com lembretes personalizados.
@@ -33,6 +34,7 @@ O Roubbie é um aplicativo que oferece uma plataforma interativa para usuários 
 - **Backend**: PHP
 - **Banco de Dados**: MySQL
 - **Arquitetura**: MVC (Model-View-Controller)
+
 
 ## Instalação
 
@@ -54,15 +56,20 @@ Para instalar o Roubbie localmente, siga os passos abaixo:
 
 ## Como Usar
 
-1. **Cadastro e Login**: Crie uma conta ou faça login.
-2. **Configuração de Rotinas**: Adicione e gerencie suas tarefas diárias.
-3. **Diário**: Registre suas reflexões e sentimentos.
-4. **Descoberta de Hobbies**: Complete o quiz para receber sugestões de hobbies.
+1. **Página de Boas-vindas**: Ao acessar o aplicativo, você será direcionado a uma página de boas-vindas, onde poderá conhecer mais sobre o Roubbie e suas funcionalidades. Usuários novos podem optar pelo cadastro diretamente a partir dessa página.
+
+2. **Cadastro e Login**: Crie uma conta ou faça login para começar a explorar suas rotinas e hobbies.
+
+3. **Configuração de Rotinas**: Adicione e gerencie suas tarefas diárias.
+
+4. **Diário**: Registre suas reflexões e sentimentos.
+
+5. **Descoberta de Hobbies**: Complete o quiz para receber sugestões de hobbies.
 
 ## Equipe
-- **Larissa Manrique**
-- **Vitória Gabrieli**
-- **Ana Paula**
-- **Lara Assunção**
-- **Amanda Vitória**
-- **Emilly Caroline**
+- Larissa Manrique
+- Vitória Gabrieli
+- Ana Paula
+- Lara Assunção
+- Amanda Vitória
+- Emilly Caroline
