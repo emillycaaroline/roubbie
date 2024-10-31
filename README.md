@@ -35,25 +35,6 @@ O Roubbie é um aplicativo que oferece uma plataforma interativa para usuários 
 - **Banco de Dados**: MySQL
 - **Arquitetura**: MVC (Model-View-Controller)
 
-
-## Instalação
-
-Para instalar o Roubbie localmente, siga os passos abaixo:
-
-1. Clone o repositório:
-   ```bash
-   git clone https://github.com/seu_usuario/roubbie.git
-   ```
-
-2. Navegue até o diretório do projeto:
-   ```bash
-   cd roubbie
-   ```
-
-3. Configure o banco de dados MySQL conforme as instruções no arquivo `db_connection.php`.
-
-4. Inicie o servidor local (por exemplo, XAMPP) e acesse o aplicativo no navegador em `http://localhost/roubbie`.
-
 ## Como Usar
 
 1. **Página de Boas-vindas**: Ao acessar o aplicativo, você será direcionado a uma página de boas-vindas, onde poderá conhecer mais sobre o Roubbie e suas funcionalidades. Usuários novos podem optar pelo cadastro diretamente a partir dessa página.
