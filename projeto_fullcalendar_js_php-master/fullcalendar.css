@@ -1,147 +1,4 @@
 :root {
-  --background-color: #f0f4f8; /* Cor de fundo */
-  --text-color: #333; /* Cor do texto */
-  --primary-color: #00796b; /* Cor primária */
-  --secondary-color: #004d40; /* Cor secundária */
-}
-
-/* Estilo Geral */
-body {
-  background-color: var(--background-color);
-  color: var(--text-color);
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center; /* Centraliza os itens */
-}
-
-/* Estilo dos Títulos */
-h2 {
-  margin: 20px 0;
-  padding: 10px;
-  font-size: 2rem; /* Tamanho maior para títulos em desktop */
-}
-
-/* Estilo padrão para todos os botões */
-button,
-.fc-button {
-  padding: 10px 15px;
-  background-color: var(--primary-color);
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: background-color 0.3s, transform 0.2s;
-  width: 100%; /* Botões ocupam toda a largura disponível */
-  max-width: 300px; /* Largura máxima para botões */
-}
-
-/* Estilo para botões em hover */
-button:hover,
-.fc-button:hover {
-  background-color: var(--secondary-color);
-  transform: scale(1.05);
-  color: #e0f2f1; /* Cor do texto ao passar o mouse */
-}
-
-/* Estilo para botões desativados */
-button:disabled,
-.fc-button:disabled {
-  background-color: #b0bec5;
-  color: #fff;
-  cursor: not-allowed;
-}
-
-/* Estilo para o botão ativo */
-.fc-button-active,
-button.active {
-  background-color: var(--secondary-color);
-}
-
-/* Estilo dos Inputs */
-.modal-body input,
-.modal-body select {
-  border: 1px solid var(--primary-color);
-  border-radius: 5px;
-  padding: 10px;
-  transition: border-color 0.3s;
-  width: 100%; /* Ocupa toda a largura do contêiner */
-  margin-bottom: 10px; /* Margem inferior para espaçamento */
-}
-
-.modal-body input:focus,
-.modal-body select:focus {
-  border-color: var(--secondary-color);
-  outline: none;
-}
-
-/* Estilo do Modal */
-.modal {
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
-  animation: fadeIn 0.3s ease;
-  max-width: 500px; /* Largura máxima do modal */
-  width: 90%; /* Largura padrão em mobile */
-}
-
-/* Estilo do Título do Calendário */
-.fc-toolbar-title {
-  font-size: 1.8rem; /* Tamanho da fonte do título */
-  color: #13547a; /* Tom de azul-escuro */
-  text-align: center; /* Centraliza o texto */
-  margin: 20px 0; /* Espaçamento superior e inferior */
-  padding: 10px; /* Espaço interno ao redor do texto */
-  background-color: #ecf0f1; /* Cor de fundo suave (cinza claro) */
-  border-radius: 8px; /* Bordas arredondadas */
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Sombra suave */
-}
-
-/* Estilo específico para o id (opcional) */
-#fc-dom-1 {
-  font-weight: bold; /* Texto em negrito */
-  text-transform: uppercase; /* Transforma o texto em letras maiúsculas */
-}
-
-@keyframes fadeIn {
-  from {
-      opacity: 0;
-      transform: translateY(-10px);
-  }
-  to {
-      opacity: 1;
-      transform: translateY(0);
-  }
-}
-
-/* Estilos Responsivos */
-@media (max-width: 768px) {
-  h2 {
-      font-size: 1.5rem; /* Menor tamanho de fonte em mobile */
-      text-align: center; /* Centraliza o texto em mobile */
-  }
-
-  button,
-  .fc-button {
-      padding: 10px; /* Ajusta o padding para mobile */
-      width: 100%; /* Botões ocupam toda a largura em mobile */
-  }
-
-  .modal {
-      padding: 15px; /* Padding consistente na modal */
-  }
-
-  .fc-toolbar-title {
-      font-size: 1.5rem; /* Tamanho reduzido do título em mobile */
-  }
-
-  /* Outros ajustes para responsividade, se necessário */
-}
-:root {
   --background-color: #ffffff;
   --text-color: #333;
   --primary-color: #00796b;
@@ -159,7 +16,7 @@ body {
   align-items: center;
   justify-content: flex-start;
   height: 100vh;
-  overflow-x: hidden;
+  overflow: hidden;
 }
 
 h2 {
@@ -204,25 +61,10 @@ button:hover {
 
 #calendar {
   width: 100%;
-  max-width: 1200px;
   height: calc(100vh - 180px);
-  box-sizing: border-box;
-  margin-top: 20px;
-}
-
-.fc-daygrid-day-frame,
-.fc-scrollgrid-sync-inner {
-  height: 60px;
-  padding: 5px;
-  border: 1px solid rgb(218, 220, 224);
-  border-radius: 3px;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-.fc-daygrid-day-frame:hover,
-.fc-scrollgrid-sync-inner:hover {
-  background-color: rgba(0, 121, 107, 0.1);
-  transform: scale(1.02);
+  max-width: 800px;
+  margin: 20px auto;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .modal-opened {
@@ -253,6 +95,7 @@ button:hover {
       opacity: 0;
       transform: translateY(-10px);
   }
+
   to {
       opacity: 1;
       transform: translateY(0);
@@ -314,7 +157,7 @@ h2#titulo-mes {
 
 .calendar-area {
   width: 100%;
-  max-width: 1200px;
+  max-width: 800px;
   padding: 20px;
   box-sizing: border-box;
 }
@@ -323,7 +166,7 @@ h2#titulo-mes {
   h2#titulo-mes {
       font-size: 1.2rem;
   }
-  
+
   button {
       width: 100%;
       padding: 10px;
@@ -343,8 +186,3 @@ h2#titulo-mes {
       width: 100%;
   }
 }
-
-
-
-
-

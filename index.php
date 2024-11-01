@@ -31,7 +31,7 @@ function getCount($conn, $table, $status = null) {
 $diario_count = getCount($conn, 'diario');
 $events_count = getCount($conn, 'events', 'pendente');
 $tarefas_count = getCount($conn, 'tarefas', 'pendente');
-$compromissos_count = getCount($conn, 'compromissos', null, 'data > NOW()');
+$compromissos_count = getCount($conn, 'compromissos', null);
 
 // Obtém o nome do usuário da sessão
 $nome_usuario = $_SESSION['nome'] ?? 'Usuário';
@@ -51,101 +51,80 @@ $nome_usuario = $_SESSION['nome'] ?? 'Usuário';
     <link rel="icon" type="image/png" href="images/icons/favicon.ico">
     
     <style>
-        :root {
-            --primary-color: #1ABC9C;
-            --secondary-color: #2C3E50;
-            --background-color: #f0f2f5;
-            --card-background: #fff;
-            --text-color: #34495E;
-            --muted-text: #7F8C8D;
-            --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
+   /* Adicionando um estilo de fundo para as seções */
+.section-box {
+    background-color: var(--card-background);
+    padding: 2rem;
+    border-radius: 12px;
+    margin: 1.5rem 0;
+    text-align: center;
+    box-shadow: var(--box-shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+/* Hover effect */
+.section-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
 
-        body {
-            font-family: 'Poppins', sans-serif;
-            display: flex;
-            min-height: 100vh;
-            background-color: var(--background-color);
-        }
+/* Estilizando o botão de detalhes */
+.details-button {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: var(--primary-color);
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s, transform 0.3s;
+    font-weight: bold;
+}
 
-        .dashboard-container {
-            display: flex;
-            width: 100%;
-        }
+.details-button:hover {
+    background-color: #16a085; /* Cor mais escura para o hover */
+    transform: scale(1.05); /* Aumentar um pouco o botão no hover */
+}
 
-        .main-content {
-            flex: 1;
-            padding: 2rem;
-            background-color: #F5F5F5;
-        }
+/* Estilizando a seção de perfil */
+.profile-section {
+    display: flex;
+    gap: 2rem;
+    margin-top: 1.5rem;
+    flex-wrap: wrap;
+}
 
-        .header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1.5rem;
-            background-color: var(--primary-color);
-            color: #fff;
-            border-radius: 12px;
-            box-shadow: var(--box-shadow);
-        }
+.profile-card {
+    background-color: var(--card-background);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: var(--box-shadow);
+    text-align: center;
+    flex: 1;
+    min-width: 200px;
+}
 
-        .section-box {
-            background-color: var(--card-background);
-            padding: 2rem;
-            border-radius: 12px;
-            margin: 1.5rem 0;
-            text-align: center;
-            box-shadow: var(--box-shadow);
-            transition: transform 0.3s ease;
-        }
+/* Estilo do cabeçalho */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem;
+    background-color: var(--primary-color);
+    color: #fff;
+    border-radius: 12px;
+    box-shadow: var(--box-shadow);
+}
 
-        .section-box:hover {
-            transform: translateY(-5px);
-        }
+/* Footer */
+.footer {
+    text-align: center;
+    padding: 1rem;
+    color: var(--muted-text);
+    font-size: 0.9rem;
+    margin-top: 1rem;
+}
 
-        .section-box h2 {
-            color: var(--text-color);
-            font-size: 1.4rem;
-            margin-bottom: 1rem;
-        }
-
-        .profile-section {
-            display: flex;
-            gap: 2rem;
-            margin-top: 1.5rem;
-            flex-wrap: wrap;
-        }
-
-        .profile-card {
-            background-color: var(--card-background);
-            padding: 2rem;
-            border-radius: 12px;
-            box-shadow: var(--box-shadow);
-            text-align: center;
-            flex: 1;
-            min-width: 200px;
-        }
-
-        .footer {
-            text-align: center;
-            padding: 1rem;
-            color: var(--muted-text);
-            font-size: 0.9rem;
-            margin-top: 1rem;
-        }
-
-        @media (max-width: 768px) {
-            .main-content {
-                padding: 1rem;
-            }
-        }
     </style>
 </head>
 <body>
@@ -157,28 +136,26 @@ $nome_usuario = $_SESSION['nome'] ?? 'Usuário';
             </header>
            
             <!-- Conteúdo do dashboard do usuário cadastrado e logado -->
-            <?php
-            // Função para criar seções
-            function createSection($title, $content) {
-                return "
-                    <section class='section-box'>
-                        <h2>$title</h2>
-                        <p>$content</p>
-                    </section>
-                ";
-            }
+        <?php
+        function createSection($title, $content, $detailsLink = '') {
+            return "
+                <section class='section-box'>
+                    <h2>$title</h2>
+                    <p>$content</p>
+                    $detailsLink
+                </section>
+            ";
+        }
 
-            // Uso da função no dashboard
-            echo createSection("Diário", "Minhas Notas ($diario_count registradas)");
-            echo createSection("Eventos", "$events_count evento(s) pendente(s).");
-            echo createSection("Tarefas", "$tarefas_count tarefa(s) pendente(s).");
-            echo createSection("Compromissos", "$compromissos_count compromisso(s) pendente(s).");
-            ?>
-
-        </div>
+        // Uso da função no dashboard 
+     // Uso da função no dashboard
+echo createSection("Diário", "Minhas Notas ($diario_count registradas)", '<a href="projeto_fullcalendar_js_php-master/status-rotina.php/#entries" class="details-button">Ver diario</a>');
+echo createSection("Eventos", "$events_count evento(s) pendente(s).", '<a href="projeto_fullcalendar_js_php-master/status-rotina.php" class="details-button">Ver eventos</a>');
+echo createSection("Tarefas", "$tarefas_count tarefa(s) pendente(s).", '<a href="status-rotina.php" class="details-button">Ver Detalhes</a>');
+echo createSection("Compromissos", "$compromissos_count compromisso(s) pendente(s).", '<a href="projeto_fullcalendar_js_php-master/status-rotina.php/#compromisso" class="details-button">compromisso</a>');
+?>
     </div>
     
-
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/intro.js/minified/intro.min.js"></script>

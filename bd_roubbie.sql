@@ -140,89 +140,47 @@ INSERT INTO `usuarios` (`id`, `nome`, `email`, `senha`) VALUES
 (41, 'delac', 'delac@gmail.com', '$2y$10$eMVMRGC/.eckcHoRzCX1pOPidL2a443KOEgcX2JglqJYulmTWWeTO'),
 (43, 'Larissa Santos', 'larissa@gmail.com', '$2y$10$H3H6U0YwfxEjY6jK9aExq.w4hM6ycHpOIQn34bP2ZxrTQ9Be1WlG'),
 (44, 'Ricardo Almeida', 'ricardo@gmail.com', '$2y$10$H3H6U0YwfxEjY6jK9aExq.w4hM6ycHpOIQn34bP2ZxrTQ9Be1WlG'),
-(45, 'Julia Costa', 'julia@gmail.com', '$2y$10$H3H6U0YwfxEjY6jK9aExq.w4hM6ycHpOIQn34bP2ZxrTQ9Be1WlG'),
-(46, 'jao', 'jao@gmail.com', '$2y$10$5VJiqi9EiydQgba0XoMuHO9QuuzBd3m3XDahVbjqk6t3j0RKBpP.a');
+(45, 'Julia Costa', 'julia@gmail.com', '$2y$10$H3H6U0YwfxEjY6jK9aExq.w4hM6ycHpOIQn34bP2ZxrTQ9Be1WlG');
 
 --
--- Índices para tabelas despejadas
+-- AUTO_INCREMENT para tabelas
 --
 
---
--- Índices de tabela `compromissos`
---
 ALTER TABLE `compromissos`
   ADD PRIMARY KEY (`id`);
 
---
--- Índices de tabela `diario`
---
 ALTER TABLE `diario`
   ADD PRIMARY KEY (`id`);
 
---
--- Índices de tabela `events`
---
 ALTER TABLE `events`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `fk_user_events` (`user_id`);
+  ADD PRIMARY KEY (`id`);
 
---
--- Índices de tabela `tarefas`
---
 ALTER TABLE `tarefas`
   ADD PRIMARY KEY (`id`);
 
---
--- Índices de tabela `usuarios`
---
 ALTER TABLE `usuarios`
   ADD PRIMARY KEY (`id`);
 
---
--- AUTO_INCREMENT para tabelas despejadas
---
-
---
--- AUTO_INCREMENT de tabela `compromissos`
---
 ALTER TABLE `compromissos`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
---
--- AUTO_INCREMENT de tabela `diario`
---
 ALTER TABLE `diario`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
---
--- AUTO_INCREMENT de tabela `events`
---
 ALTER TABLE `events`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=93;
 
---
--- AUTO_INCREMENT de tabela `tarefas`
---
 ALTER TABLE `tarefas`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
---
--- AUTO_INCREMENT de tabela `usuarios`
---
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 
 --
--- Restrições para tabelas despejadas
+-- Restrições de chave estrangeira para tabelas
 --
 
---
--- Restrições para tabelas `events`
---
 ALTER TABLE `events`
-  ADD CONSTRAINT `fk_user_events` FOREIGN KEY (`user_id`) REFERENCES `usuarios` (`id`);
-COMMIT;
+  ADD CONSTRAINT `fk_events_user` FOREIGN KEY (`user_id`) REFERENCES `usuarios` (`id`);
 
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+COMMIT;
