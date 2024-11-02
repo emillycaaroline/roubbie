@@ -2,6 +2,17 @@
 
 **Roubbie** é um aplicativo que oferece uma plataforma interativa para usuários que buscam redescobrir hobbies e equilibrar suas rotinas. Com funcionalidades como lembretes, um quiz de interesses e um diário, o aplicativo se destina a ser inclusivo e acessível, visando melhorar a qualidade de vida.
 
+## 📝 Sobre
+
+**Roubbie** é um aplicativo desenvolvido como parte do nosso Trabalho de Conclusão de Curso (TCC) que conecta rotina e hobbies. Seu principal objetivo é ajudar os usuários a equilibrar suas atividades diárias, promovendo um estilo de vida saudável e satisfatório.
+
+Com diversas funcionalidades, o aplicativo permite que os usuários gerenciem suas rotinas e explorem novos hobbies, incentivando práticas que melhoram o bem-estar mental e emocional. 
+
+Com uma interface intuitiva, o Roubbie se propõe a ser um companheiro na jornada de autodescoberta, oferecendo ferramentas para criar lembretes, registrar sentimentos em um diário e descobrir hobbies alinhados com as preferências pessoais.
+
+Nosso objetivo é fazer do Roubbie uma plataforma inclusiva e acessível, que ajude os usuários a organizarem suas rotinas e inspire a busca por novas paixões e interesses.
+
+
 ---
 
 ## 📖 Sumário
