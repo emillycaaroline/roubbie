@@ -71,11 +71,16 @@ $entries = fetchEntries($conn);
     <link rel="icon" type="image/x-icon" href="/roubbie/images/icons/favicon.ico">
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
+    /* Estilo do corpo da página */
         body {
-            font-family: 'Roboto', sans-serif;
-            background-color: #f0f8ff;
-            margin: 0;
+            background: linear-gradient(to bottom right, #80d0c7, #13547a);
+            color: #13547a;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
         }
 
         form,
@@ -91,7 +96,7 @@ $entries = fetchEntries($conn);
 
         h1 {
             text-align: center;
-            color: #ff6347;
+            color: #fff;
             font-family: 'Pacifico', cursive;
             margin-bottom: 20px;
         }
@@ -193,7 +198,7 @@ $entries = fetchEntries($conn);
 <?php include $_SERVER['DOCUMENT_ROOT'] . '/roubbie/includes/header.php'; ?>
 
     <!-- <button onclick="window.history.back()">Voltar</button> -->
-
+<br><br><br><br>
     <div class="container">
         <h1>Meu Diário</h1>
         <form action="" method="post">

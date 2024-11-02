@@ -3,16 +3,11 @@ session_start();
 require_once 'C:\xampp\htdocs\roubbie\includes\db_connection.php';
 require_once 'C:\xampp\htdocs\roubbie\includes\header.php';
 
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
-
-// Verifica se o usuário está logado
 if (!isset($_SESSION['user_id'])) {
     header("Location: login.php");
     exit();
 }
 
-// Função para contar registros
 function getCount($conn, $table, $status = null) {
     $query = "SELECT COUNT(*) AS total FROM $table";
     if ($status) {
@@ -27,13 +22,10 @@ function getCount($conn, $table, $status = null) {
     return $result->fetch_assoc()['total'] ?? 0;
 }
 
-// Contagem de registros
 $diario_count = getCount($conn, 'diario');
 $events_count = getCount($conn, 'events', 'pendente');
 $tarefas_count = getCount($conn, 'tarefas', 'pendente');
 $compromissos_count = getCount($conn, 'compromissos', null);
-
-// Obtém o nome do usuário da sessão
 $nome_usuario = $_SESSION['nome'] ?? 'Usuário';
 ?>
 
@@ -49,115 +41,128 @@ $nome_usuario = $_SESSION['nome'] ?? 'Usuário';
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/intro.js/minified/introjs.min.css" rel="stylesheet">
     <link rel="icon" type="image/png" href="images/icons/favicon.ico">
-    
     <style>
-   /* Adicionando um estilo de fundo para as seções */
-.section-box {
-    background-color: var(--card-background);
-    padding: 2rem;
-    border-radius: 12px;
-    margin: 1.5rem 0;
-    text-align: center;
-    box-shadow: var(--box-shadow);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
+        /* Estilos gerais */
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background: linear-gradient(to bottom right, #80d0c7, #13547a);
+            color: #333; /* Cor de texto padrão */
+        }
 
-/* Hover effect */
-.section-box:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-}
+        .dashboard-container {
+            padding: 2rem;
+        }
 
-/* Estilizando o botão de detalhes */
-.details-button {
-    display: inline-block;
-    margin-top: 20px;
-    padding: 10px 20px;
-    background-color: var(--primary-color);
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: background-color 0.3s, transform 0.3s;
-    font-weight: bold;
-}
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem;
+            background-color: #165378; /* Azul mais escuro */
+            color: #fff;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
 
-.details-button:hover {
-    background-color: #16a085; /* Cor mais escura para o hover */
-    transform: scale(1.05); /* Aumentar um pouco o botão no hover */
-}
+        .header h1 {
+            font-size: 2rem; /* Tamanho maior */
+        }
 
-/* Estilizando a seção de perfil */
-.profile-section {
-    display: flex;
-    gap: 2rem;
-    margin-top: 1.5rem;
-    flex-wrap: wrap;
-}
+        /* Layout dos cartões */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
 
-.profile-card {
-    background-color: var(--card-background);
-    padding: 2rem;
-    border-radius: 12px;
-    box-shadow: var(--box-shadow);
-    text-align: center;
-    flex: 1;
-    min-width: 200px;
-}
+        .card {
+            background-color: #fff; /* Fundo branco para os cards */
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
 
-/* Estilo do cabeçalho */
-.header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1.5rem;
-    background-color: var(--primary-color);
-    color: #fff;
-    border-radius: 12px;
-    box-shadow: var(--box-shadow);
-}
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+        }
 
-/* Footer */
-.footer {
-    text-align: center;
-    padding: 1rem;
-    color: var(--muted-text);
-    font-size: 0.9rem;
-    margin-top: 1rem;
-}
+        .card h2 {
+            font-size: 1.5rem; /* Tamanho do título maior */
+            margin-bottom: 0.5rem;
+            color: #165378; /* Azul para títulos dos cards */
+        }
 
+        .card p {
+            font-size: 1rem;
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        .details-button {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background-color: #81cfc6; /* Verde para o botão */
+            color: #165378; /* Azul para o texto do botão */
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .details-button:hover {
+            background-color: #165378; /* Azul ao passar o mouse */
+            color: #fff; /* Texto em branco ao passar o mouse */
+        }
+
+        .details-button:focus {
+            outline: none; /* Remove outline padrão */
+            box-shadow: 0 0 0 4px rgba(129, 207, 198, 0.5); /* Destaque ao foco com verde */
+        }
+        
     </style>
 </head>
 <body>
-    <div class="dashboard-container">
-        <div class="main-content">
-            <header class="header">
-                <h1>Status - Bem-vindo, <?php echo htmlspecialchars($nome_usuario); ?>!</h1>
-                <p>Usuários (<?php echo $diario_count; ?> perfil)</p>
-            </header>
-           
-            <!-- Conteúdo do dashboard do usuário cadastrado e logado -->
-        <?php
-        function createSection($title, $content, $detailsLink = '') {
-            return "
-                <section class='section-box'>
-                    <h2>$title</h2>
-                    <p>$content</p>
-                    $detailsLink
-                </section>
-            ";
-        }
+    <div class="dashboard-container"><br><br><br><br><br>
+        <header class="header">
+            <h1>Bem-vindo, <?php echo htmlspecialchars($nome_usuario); ?>!</h1>
+        </header>
 
-        // Uso da função no dashboard 
-     // Uso da função no dashboard
-echo createSection("Diário", "Minhas Notas ($diario_count registradas)", '<a href="projeto_fullcalendar_js_php-master/status-rotina.php/#entries" class="details-button">Ver diario</a>');
-echo createSection("Eventos", "$events_count evento(s) pendente(s).", '<a href="projeto_fullcalendar_js_php-master/status-rotina.php" class="details-button">Ver eventos</a>');
-echo createSection("Tarefas", "$tarefas_count tarefa(s) pendente(s).", '<a href="status-rotina.php" class="details-button">Ver Detalhes</a>');
-echo createSection("Compromissos", "$compromissos_count compromisso(s) pendente(s).", '<a href="projeto_fullcalendar_js_php-master/status-rotina.php/#compromisso" class="details-button">compromisso</a>');
-?>
+        <div class="card-grid">
+            <!-- Diários -->
+            <div class="card">
+                <h2>Diário</h2>
+                <p>Notas registradas: <?php echo $diario_count; ?></p>
+                <a href="projeto_fullcalendar_js_php-master/status-rotina.php/#entries" class="details-button">Ver Diário</a>
+            </div>
+
+            <!-- Eventos -->
+            <div class="card">
+                <h2>Eventos</h2>
+                <p><?php echo $events_count; ?> evento(s) pendente(s)</p>
+                <a href="projeto_fullcalendar_js_php-master/status-rotina.php" class="details-button">Ver Eventos</a>
+            </div>
+
+            <!-- Compromissos -->
+            <div class="card">
+                <h2>Compromissos</h2>
+                <p><?php echo $compromissos_count; ?> compromisso(s)</p>
+                <a href="projeto_fullcalendar_js_php-master/status-rotina.php/#compromisso" class="details-button">Ver Compromissos</a>
+            </div>
+
+             <!-- Rotina -->
+             <div class="card">
+                <h2>Rotina</h2>
+                <p>Inserir uma miniatura do calendario so da semana</p>
+                <a href="projeto_fullcalendar_js_php-master/sisrot.php" class="details-button">Minha rotina</a>
+            </div>
+
+        </div>
     </div>
-    
-    <script src="js/bootstrap.bundle.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/intro.js/minified/intro.min.js"></script>
 </body>
 </html>
