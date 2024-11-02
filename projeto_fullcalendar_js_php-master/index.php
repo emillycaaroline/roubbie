@@ -15,7 +15,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <link rel="stylesheet" href="../projeto_fullcalendar_js_php-master/fullcalendar.css">
     
 </head>
-
 <body class="index-page">
 
     <div class="modal-opened hidden">

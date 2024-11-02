@@ -36,6 +36,8 @@ button {
   font-size: 1rem;
   transition: background-color 0.3s ease, transform 0.2s ease;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  width: 100%; /* Tornar o botão responsivo */
+  max-width: 250px; /* Limitar a largura do botão */
 }
 
 button:hover {
@@ -160,29 +162,142 @@ h2#titulo-mes {
   max-width: 800px;
   padding: 20px;
   box-sizing: border-box;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+}
+
+.calendar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 25px 30px 10px;
+}
+
+.fc-header-toolbar {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.fc-button-group {
+  display: flex;
+}
+
+.fc-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #aeabab;
+  font-size: 1.5rem;
+}
+
+.fc-button:hover {
+  color: #000;
+}
+
+.fc-toolbar-title {
+  font-weight: 500;
+  font-size: 1.45rem;
+}
+
+.calendar-body {
+  padding: 20px;
+}
+
+.calendar-body ul {
+  list-style: none;
+  flex-wrap: wrap;
+  display: flex;
+  text-align: center;
+}
+
+.calendar-body .calendar-weekdays {
+  margin-bottom: 20px;
+}
+
+.calendar-body li {
+  width: calc(100% / 7);
+  font-size: 1.07rem;
+  color: #414141;
+}
+
+.calendar-body .calendar-weekdays li {
+  cursor: default;
+  font-weight: 500;
+}
+
+.calendar-body .calendar-dates li {
+  margin-top: 30px;
+  position: relative;
+  z-index: 1;
+  cursor: pointer;
+}
+
+.calendar-dates li.inactive {
+  color: #aaa;
+}
+
+.calendar-dates li.active {
+  color: #fff;
+}
+
+.calendar-dates li::before {
+  position: absolute;
+  content: "";
+  z-index: -1;
+  top: 50%;
+  left: 50%;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.calendar-dates li.active::before {
+  background: #6332c5;
+}
+
+.calendar-dates li:not(.active):hover::before {
+  background: #e4e1e1;
 }
 
 @media (max-width: 768px) {
-  h2#titulo-mes {
-      font-size: 1.2rem;
+  body {
+    padding: 10px; /* Adicionado padding para dispositivos menores */
+  }
+
+  h2 {
+    font-size: 1.3rem; /* Ajuste no tamanho do título */
   }
 
   button {
-      width: 100%;
-      padding: 10px;
+    padding: 10px; /* Ajuste no padding do botão */
   }
 
   .modal {
-      padding: 15px;
+    padding: 15px; /* Ajuste no padding do modal */
   }
 
   .modal-body input,
   .modal-body select {
-      font-size: 1rem;
-      padding: 10px;
+    font-size: 1rem;
+    padding: 10px; /* Ajuste no padding dos campos do modal */
   }
 
   .modal-footer button {
-      width: 100%;
+    width: 100%; /* Botão ocupa 100% do espaço no modal */
+  }
+
+  .calendar-body li {
+    font-size: 0.9rem; /* Ajuste no tamanho do texto */
+  }
+
+  .calendar-area {
+    padding: 15px; /* Ajuste no padding da área do calendário */
+  }
+
+  .fc-button {
+    font-size: 1.2rem; /* Ajuste no tamanho do botão do calendário */
   }
 }
