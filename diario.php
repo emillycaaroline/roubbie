@@ -71,16 +71,36 @@ $entries = fetchEntries($conn);
     <link rel="icon" type="image/x-icon" href="/roubbie/images/icons/favicon.ico">
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
-    /* Estilo do corpo da página */
+        /* Estilo do corpo da página */
+        :root {
+            --bg_color: white;
+            --list_hover_bg: #ddd;
+            --shadow_color: rgba(100, 100, 100, 0.5);
+            --font_color: black;
+            --text_color: black;
+            --btn_border_radius: 2px;
+            --window_border_radius: 4px;
+        }
+
+        * {
+            padding: 0;
+            margin: 0;
+            border: 0;
+            box-sizing: border-box;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+                'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+
         body {
-            background: linear-gradient(to bottom right, #80d0c7, #13547a);
-            color: #13547a;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            padding: 20px;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            height: 100%;
+            color: var(--font_color);
             display: flex;
             flex-direction: column;
             align-items: center;
             min-height: 100vh;
+            padding: 20px;
         }
 
         form,
@@ -96,7 +116,7 @@ $entries = fetchEntries($conn);
 
         h1 {
             text-align: center;
-            color: #fff;
+            color: #333;
             font-family: 'Pacifico', cursive;
             margin-bottom: 20px;
         }
@@ -110,7 +130,7 @@ $entries = fetchEntries($conn);
 
         input,
         textarea {
-            width: calc(100% - 24px); /* Ajuste para manter os campos dentro da borda */
+            width: calc(100% - 24px);
             padding: 12px;
             margin-top: 5px;
             border: 2px solid blue;
@@ -190,6 +210,25 @@ $entries = fetchEntries($conn);
             cursor: pointer;
             font-size: 16px;
             transition: background-color 0.3s, transform 0.2s;
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background-color: transparent;
+            margin: 20px 5px 20px 0px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background-color: #999;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background-color: #777;
         }
     </style>
 </head>

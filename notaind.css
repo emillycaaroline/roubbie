@@ -1,0 +1,372 @@
+    :root {
+    --bg_color: white;
+    --list_hover_bg: #ddd;
+    --shadow_color: rgba(100, 100, 100, 0.5);
+    --font_color: black;
+    --text_color: black;
+    --btn_border_radius: 2px;
+    --window_border_radius: 4px;
+}
+* {
+    padding: 0;
+    margin: 0;
+    border: 0;
+    box-sizing: border-box;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 
+    'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+body {
+    background-image: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(252,176,69,1) 100%);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    height: 100%;
+    color: var(--font_color);
+}
+
+/*Custom scrollbar*/
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background-color: transparent;
+    margin: 20px 5px 20px 0px;
+}
+::-webkit-scrollbar-thumb {
+    background-color: #999;
+    border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background-color: #777;
+}
+
+/*Overall style of main container and note editor*/
+[id$="container"] {
+    position: absolute;
+    top: 10%;
+    background-color: var(--bg_color);
+    border-radius: 10px;
+    box-shadow: 0px 5px 10px 5px var(--shadow_color);
+    padding: 20px 10px;
+    overflow: auto;
+    transition: transform 0.3s;
+}
+#memos-container {
+    width: 99%;  
+    height: 80%;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+#edit-area-container {
+    width: 96%;
+    height: 60%;
+    top: 20%;
+    left: 50%;
+    transform: scale(0) translate(-50%, 0);
+    transform-origin: 0% 50%;
+}
+@media only screen and (min-width: 600px) {
+    #memos-container {width: 56%;}
+    #edit-area-container {width: 52%;}
+}
+@media only screen and (min-width: 992px) {
+    #memos-container {width: 28%;}
+    #edit-area-container {width: 26%;}
+}
+
+/*Style top bar icons*/
+.material-symbols-outlined {margin-top: 8px;}
+#memos-container ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+.top-icons {
+    float: left;
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    cursor: pointer;
+    text-align: center;
+    transition: color 0.2s, transform 0.4s;
+}
+#new-note-btn:hover {
+    transform: rotate(180deg);
+    color: tomato;
+}
+#new-folder-btn:hover {
+    color: royalblue;
+}
+#search-area:hover {
+    color: goldenrod;
+}
+.icon-detail {
+    float: left;
+    width: 0;
+    font-size: 14px;
+    white-space: nowrap;
+    padding-top: 10px;
+    overflow: hidden;
+    transition: width 0.4s;
+}
+#new-note-btn:hover + .icon-detail {
+    width: 70px;
+    color: tomato;
+}
+#new-folder-btn:hover  + .icon-detail {
+    width: 76px;
+    color: royalblue;
+}
+
+/*Search box style*/
+#search-area {
+    width: 150px;
+    cursor: default;
+}
+#search-box {
+    color: var(--text_color);
+    font-size: 14px;
+    position: relative;
+    bottom: 6px;
+    width: 70%;
+    background-color: transparent;
+    border: 0;
+    outline: 0;
+}
+
+/*Light-dark mode button styling*/
+#light-dark-switch {
+    visibility: hidden;
+    width: 0;
+    height: 0;
+    opacity: 0;
+}
+#light-dark-div {
+    position: absolute;
+    top: 27px;
+    right: 20px;
+    height: 26px;
+    padding: 4px 5px;
+    border-radius: 13px;
+    background-color: black;
+}
+#light-dark-div:hover {cursor: pointer;}
+#light-dark-div > span {
+    color: white;
+    font-size: 18px;
+    line-height: 0;
+}
+#light-dark-slider {
+    position: absolute;
+    top: 3px;
+    right: 27px;
+    width: 20px;
+    height: 20px;
+    border-radius: 10px;
+    background-color: grey;
+    transition: transform 0.3s;
+}
+#light-dark-switch:checked ~ #light-dark-div > #light-dark-slider {
+    transform: translate(24px, 0);
+}
+#light-dark-switch:checked ~ #light-dark-div > span {
+    color: black;
+}
+#light-dark-switch:checked ~ #light-dark-div {
+    background-color: white;
+}
+
+/*Group creator modal*/
+#create-folder-div {
+    position: absolute;
+    z-index: 2;
+    top: 70px;
+    left: 50%;
+    width: 90%;
+    height: 50px;
+    padding: 10px 0 0 5px;
+    border-radius: 5px;
+    background-color: var(--bg_color);
+    box-shadow: 0px 2px 5px 2px var(--shadow_color);
+    transform: scale(0) translate(-50%, 0);
+    transform-origin: 0;
+    transition: transform 0.3s;
+}
+#new-folder-name {
+    color: var(--text_color);
+    font-size: 14px;
+    width: 50%;
+    padding: 5px 0 0 10px;
+    background-color: transparent;
+    border: 0;
+    outline: 0;
+}
+.btn {
+    position: absolute;
+    height: 30px;
+    padding: 0 10px;
+    background-color: transparent;
+    border-radius: 2px;
+    transition: color 0.3s, background-color 0.3s;
+}
+.btn:hover {cursor: pointer;}
+#create-folder-btn {
+    right: 20px;
+    color: dodgerblue;
+    border: 2px solid dodgerblue;
+}
+#create-folder-btn:hover {
+    color: white;
+    background-color: dodgerblue;
+}
+#cancel-folder-btn {
+    right: 90px;
+    color: red;
+    border: 2px solid red;
+}
+#cancel-folder-btn:hover {
+    color: white;
+    background-color: red;
+}
+
+/*Note and group items styling*/
+.folder, .note, #all-notes-div {
+    display: flex;
+    float: left;
+    position: relative;
+    width: 96%;
+    height: 30px;
+    margin: 4px 2%;
+    padding: 5px 10px;
+    font-size: 14px;
+    background-color: var(--bg_color);
+    border-left: 5px dodgerblue solid;
+    box-shadow: 0px 1px 5px var(--shadow_color);
+    cursor: pointer;
+}
+.note {
+    border-left: 5px tomato solid;
+}
+.folder:hover, .note:hover, #all-notes-div:hover {
+    background-color: var(--list_hover_bg);
+}
+#all-notes-count, #all-folders-count {
+    position: absolute;
+    font-size: 12px;
+}
+#all-notes-count {right: 65px;}
+#all-folders-count {right: 10px;}
+.item-type-icon {
+    position: absolute;
+    font-size: 20px;
+    left: 5px;
+    bottom: 3px;
+}
+.folder-name, .note-title {
+    position: relative;
+    left: 25px;
+}
+.folder .folder-delete, .note .note-delete {
+    position: absolute;
+    font-size: 20px;
+    right: 10px;
+    bottom: 5px;
+}
+.folder .folder-delete:hover, .note .note-delete:hover {
+    color: red;
+}
+.note .note-move {
+    position: absolute;
+    font-size: 20px;
+    right: 40px;
+    bottom: 5px;
+}
+.note .note-move:hover {
+    color: royalblue;
+}
+
+/*Move-note-to-group modal*/
+#folder-move-div {
+    position: absolute;
+    z-index: 2;
+    top: 25%;
+    left: 50%;
+    width: 200px;
+    height: 30%;
+    padding: 10px 0 0 10px;
+    border-radius: 5px;
+    box-shadow: 0px 2px 5px 2px var(--shadow_color);
+    background-color: var(--bg_color);
+    transform: scale(0) translate(-50%, 0);
+    transform-origin: 0;
+    transition: transform 0.3s;  
+}
+#cancel-move-btn {
+    right: 10px;
+    color: red;
+    border: 2px solid red;
+}
+#cancel-move-btn:hover {
+    color: white;
+    background-color: red;
+}
+.folder-move-item {
+    position: relative;
+    top: 15px;
+    width: 90%;
+    height: 30px;
+    padding: 3px 0 0 10px;
+    margin: 0 0 4px 0;
+    background-color: var(--bg_color);
+    border-left: 5px solid dodgerblue;
+    border-radius: 2px;
+    cursor: pointer;
+    overflow-y: auto;
+}
+.folder-move-item:hover {
+    background-color: var(--list_hover_bg);
+}
+
+/*Note editor modal*/
+#new-note-name {
+    color: var(--text_color);
+    font-size: 14px;
+    width: 45%;
+    margin: 0 10px 0 7px;
+    padding: 5px 0 0 0;
+    background-color: transparent;
+    border: 0;
+    outline: 0;
+}
+#create-note-btn {
+    right: 20px;
+    color: dodgerblue;
+    border: 2px solid dodgerblue;
+}
+#create-note-btn:hover {
+    color: white;
+    background-color: dodgerblue;
+}
+#discard-note-btn {
+    right: 85px;
+    color: red;
+    border: 2px solid red;
+}
+#discard-note-btn:hover {
+    color: white;
+    background-color: red;
+}
+#new-note-text {
+    color: var(--text_color);
+    position: relative;
+    width: 95%;
+    height: 85%;
+    padding: 10px 0 0 0;
+    left: 50%;
+    top: 20px;
+    background-color: transparent;
+    resize: none;
+    border: none;
+    border-top: 1px solid var(--font_color);
+    outline: 0;
+    transform: translate(-50%, 0);
+}
