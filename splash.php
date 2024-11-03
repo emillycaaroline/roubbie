@@ -17,7 +17,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background-color: #ffffff; /* Cor de fundo da tela de splash */
+            background: linear-gradient(to bottom right, #80d0c7, #13547a);
             display: flex;
             justify-content: center;
             align-items: center;
@@ -25,13 +25,13 @@
         }
 
         #logo {
-            width: 200px; /* Ajuste o tamanho do logo conforme necessário */
+            width: 400px; /* Ajuste o tamanho do logo conforme necessário */
         }
     </style>
 </head>
 <body>
     <div id="splash-screen">
-        <img src="../roubbie/img/logo/Logo_preta.png" alt="Logo" id="logo">
+        <img src="../roubbie/img/logo/logo_branco.png" alt="Logo" id="logo">
     </div>
     <div id="main-content" style="display: none;">
     </div>
