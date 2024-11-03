@@ -14,6 +14,7 @@ if (!isset($_SESSION['user_id'])) {
 
 $nome_usuario = htmlspecialchars($_SESSION['nome'] ?? 'Usuário'); // Obtém o nome do usuário da sessão
 ?>
+<?php include 'splash.php'; ?>
 
 <!DOCTYPE html>
 <html lang="pt-BR">
