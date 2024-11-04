@@ -34,7 +34,6 @@ $nome_usuario = isset($_SESSION['nome']) ? htmlspecialchars($_SESSION['nome']) :
 
 ?>
 <!-- Inclua a página de splash -->
-<?php include 'splash.php'; ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
