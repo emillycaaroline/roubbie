@@ -29,9 +29,6 @@ $compromissos_count = getCount($conn, 'compromissos', null);
 
 // Validação do nome do usuário
 $nome_usuario = isset($_SESSION['nome']) ? htmlspecialchars($_SESSION['nome']) : 'Usuário';
-
-
-
 ?>
 <!-- Inclua a página de splash -->
 <!DOCTYPE html>
