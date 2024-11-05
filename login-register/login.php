@@ -28,7 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['login'])) {
         if (password_verify($senha, $hashed_password)) {
             // Login bem-sucedido
             $_SESSION['email'] = $email;
-            header("Location: /roubbie/index.php");  // Redireciona para a página inicial
+            header("Location: /roubbie/dashboard.php");  // Redireciona para a página inicial
             exit();
         } else {
             // Senha incorreta

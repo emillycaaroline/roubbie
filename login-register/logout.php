@@ -7,6 +7,6 @@ session_unset();
 session_destroy();
 
 // Redireciona o usuário para a página de login ou inicial
-header("Location: /roubbie/login-register/login.php");
+header("Location: /roubbie/index.php");
 exit();
 ?>
