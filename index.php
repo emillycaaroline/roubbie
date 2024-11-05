@@ -7,7 +7,7 @@ if (isset($_SESSION['usuario_id'])) {
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
+<head> 
     <title>Bem-vindo ao Roubbie</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
