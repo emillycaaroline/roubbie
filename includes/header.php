@@ -20,8 +20,6 @@
 
     <!-- CUSTOM STYLES -->
     <style>
-      
-
         /* General styles */
         .text-white {
             color: #fff;
@@ -42,7 +40,7 @@
         }
 
         .nav-link:hover {
-            color: #80d0c7 !important; 
+            color: #80d0c7 !important;
         }
 
         .navbar-collapse {
@@ -86,18 +84,20 @@
             }
 
             .mobile-nav a {
-                color: white; /* Garantindo que os links sejam brancos no mobile */
+                color: white;
+                /* Garantindo que os links sejam brancos no mobile */
             }
 
             .mobile-nav a:hover {
-                color: #80d0c7; /* Mudança de cor ao passar o mouse no mobile */
+                color: #80d0c7;
+                /* Mudança de cor ao passar o mouse no mobile */
             }
         }
 
         i {
-            color: white; /* Garantindo que todos os ícones sejam brancos */
+            color: white;
+            /* Garantindo que todos os ícones sejam brancos */
         }
-      
     </style>
 </head>
 
@@ -133,14 +133,14 @@
                             <a class="nav-link click" href="sobre.php">Sobre</a>
                         </li>
                         <li class="nav-item">
-                        <button id="startOnboarding"  class="nav-link click btn btn-outline-success" aria-label="Tutorial pra uso">?</button> <!-- Botão para iniciar o onboarding -->
+                            <button id="startOnboarding" class="nav-link click btn btn-outline-success" aria-label="Tutorial pra uso">?</button> <!-- Botão para iniciar o onboarding -->
                         </li>
                     </ul>
 
                     <!-- Login/cadastro -->
                     <ul class="nav-menu">
                         <li class="nav-item dropdown">
-                            <a  style="background-color: #13547a;"  class="nav-link dropdown-toggle navbar-icon bi-person" style="border: none;" href="#" id="navbarUserDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Menu do usuário"></a>
+                            <a style="background-color: #13547a;" class="nav-link dropdown-toggle navbar-icon bi-person" style="border: none;" href="#" id="navbarUserDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Menu do usuário"></a>
                             <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarUserDropdownMenuLink">
                                 <li><a class="dropdown-item" href="http://localhost/roubbie/login-register/login.php">Login</a></li>
                                 <li><a class="dropdown-item" href="http://localhost/roubbie/login-register/cadastro.php">Cadastro</a></li>
