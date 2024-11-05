@@ -35,7 +35,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $_SESSION['user_id'] = $user_id; // Salva o ID do usuário na sessão
         
         // Redireciona para a página de boas-vindas ou dashboard
-        header("Location: /login-register/login.php");
+        header("Location: /roubbie/dashboard.php");
         exit();
     } else {
         // Erro ao cadastrar
