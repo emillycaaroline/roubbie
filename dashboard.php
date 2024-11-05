@@ -6,7 +6,7 @@ require_once 'C:\xampp\htdocs\roubbie\includes\header.php';
 if (!isset($_SESSION['user_id'])) {
     header("Location: login.php");
     exit();
-}
+} 
 
 function getCount($conn, $table, $status = null) {
     $query = "SELECT COUNT(*) AS total FROM $table";
