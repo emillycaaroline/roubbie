@@ -105,13 +105,13 @@ $entries = fetchEntries($conn);
 
         form,
         .entries {
-            max-width: 600px;
+            max-width: 800px;
             margin: auto;
             background: #edebff;
             padding: 20px;
             border-radius: 15px;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-            border: 2px dashed blue;
+            
         }
 
         h1 {
@@ -160,6 +160,7 @@ $entries = fetchEntries($conn);
             cursor: pointer;
             font-size: 16px;
             transition: background-color 0.3s, transform 0.2s;
+            
         }
 
         button:hover {
@@ -211,6 +212,12 @@ $entries = fetchEntries($conn);
             font-size: 16px;
             transition: background-color 0.3s, transform 0.2s;
         }
+
+        .form-center {
+    text-align: center;
+    margin-top: 20px;
+}
+
     </style>
 </head>
 
@@ -218,22 +225,22 @@ $entries = fetchEntries($conn);
 <?php include $_SERVER['DOCUMENT_ROOT'] . '/roubbie/includes/header.php'; ?>
 
     <br><br><br><br>
-    <div class="container">
+    <div class="container" >
         <h1>Meu Diário</h1>
         <form action="" method="post">
             <input type="hidden" name="user_id" value="<?php echo $_SESSION['user_id']; ?>">
             <input type="hidden" name="id" id="id" value="">
 
             <label for="titulo">Título:</label>
-            <input type="text" id="titulo" name="titulo" placeholder="Como foi seu dia?" required>
+            <input type="text" id="titulo" name="titulo" placeholder="Como foi seu dia?" required><br><br>
 
             <label for="data">Data:</label>
-            <input type="date" id="data" name="data" required>
+            <input type="date" id="data" name="data" required> <br><br>
 
             <label for="conteudo">Sobre o dia:</label>
             <textarea id="conteudo" name="conteudo" placeholder="Escreva aqui..." required></textarea>
 
-            <label>Como você se sentiu?</label><br>
+            <label class="form-center">Como você se sentiu?</label><br>
             <select name="sentimento" id="sentimento" required>
                 <option value="😊">😊</option>
                 <option value="😐">😐</option>
@@ -241,8 +248,8 @@ $entries = fetchEntries($conn);
                 <option value="😡">😡</option>
             </select><br><br>
 
-            <button type="submit" style="border-radius: 10px;">Adicionar Entrada</button>
-        </form>
+            <button type="submit" style="border-radius: 10px;">Adicionar Entrada</button> <br>
+        </form><br><br>
 
         <div class="entries" id="entries">
             <h2>Entradas Anteriores</h2>
