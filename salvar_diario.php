@@ -22,7 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Valida os dados
     if (empty($titulo) || empty($data) || empty($conteudo)) {
         echo "Todos os campos são obrigatórios.";
-        exit();
+        exit(); 
     }
 
     // Obtém o user_id da sessão
