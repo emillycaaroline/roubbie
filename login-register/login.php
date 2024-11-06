@@ -51,6 +51,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['login'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" type="image/x-icon" href="/roubbie/images/icons/favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
@@ -61,39 +62,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['login'])) {
     <link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
     <link rel="stylesheet" type="text/css" href="css/util.css">
     <link rel="stylesheet" type="text/css" href="css/main.css">
-    <link rel="icon" type="image/png" href="images/icons/favicon.ico">
 
     <meta name="robots" content="noindex, follow">
 </head>
-<style>
-       .login100-more{
-    max-width: 100%;
-    max-height: 700px;
-    background-image: url('img/tso.jpg');
-    background-size: cover; /* Ajusta a imagem ao contêiner */
-    background-position: center; /* Centraliza a imagem */
-    background-repeat: no-repeat; /* Evita repetição da imagem */
-}
-.login100-form {
-    max-width: 100%;
-    max-height: 700px;
-    background-size: cover; /* Ajusta a imagem ao contêiner */
-}
-img {
-    max-width: 100%;
-    max-height: 700px;
-    object-fit: cover; /* Mantém a proporção da imagem dentro dos limites */
-}
-
-</style>
-<body style="background-color: #666666;">
+<body>
     <!-- # Página php para o formulário de login -->
 
     <div class="limiter">
         <div class="container-login100">
             <div class="wrap-login100">
-                <form style="max-width: 100%; max-height: 700px;" method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" class="login100-form validate-form">
-                    <span class="login100-form-title p-b-43">Bom te ver de novo!</span>
+                <form style="padding-top: 160px; background-color: white; max-width: 100%; max-height: 700px;" method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" class="login100-form validate-form">
+                    <span class="login100-form-title p-b-43">Bem-vindo de volta!</span>
                     <div class="wrap-input100 validate-input" data-validate="Email válido é requerido: ex@abc.xyz">
                         <input class="input100" type="email" name="email" id="email" required>
                         <span class="focus-input100"></span>
@@ -109,17 +88,15 @@ img {
                             <input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
                             <label class="label-checkbox100" for="ckb1">Lembrar-me</label>
                         </div>
-                        <div><a href="#" class="txt1">Esqueceu a senha?</a></div>
+                        <a class="small" href="#">Forgot password?</a>
                     </div>
                     <div class="container-login100-form-btn">
                         <button type="submit" value="Login" name="login" class="login100-form-btn">Login</button>
                     </div>
-                    <div class="text-center p-t-46 p-b-20">
-                        <span class="txt2">Não tem uma conta? <a href="cadastro.php">Criar nova conta</a></span>
-                    </div>
+                    
                 </form>
-                <div class="login100-more" style="max-width: 100%; max-height: 700px; background-image: url('img/tso.jpg');">
-
+                <div class="login100-more" style="max-width: 100%; max-height: 700px; background-image: url('img/medit.jpg'); background-size: cover; background-position: center;">
+                </div>
             </div>
         </div>
     </div>

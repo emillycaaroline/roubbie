@@ -6,6 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" type="image/x-icon" href="/roubbie/images/icons/favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
@@ -18,27 +19,14 @@
     <link rel="stylesheet" type="text/css" href="css/main.css">
     <meta name="robots" content="noindex, follow">
 </head>
-
-<style>
-    .login100-more {
-        max-width: 100%;
-        max-height: 700px;
-        background-image: url('img/tsos.jpg');
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-    }
-</style>
-
-<body style="background-color: #666666;">
+<body>
     <div class="limiter">
         <div class="container-login100">
             <div class="wrap-login100">
-                <form action="cadastro_process.php" method="POST" class="login100-form validate-form">
+                <form style="padding-top: 80px; background-color: white; max-width: 100%; max-height: 700px;" action="cadastro_process.php" method="POST" class="login100-form validate-form">
                     <input type="hidden" name="csrf_token" value="<?php echo hash('sha256', session_id()); ?>"> <!-- Token CSRF -->
-
-                    <span class="login100-form-title p-b-43">
-                        Vamos começar essa jornada juntos!
+                    <span class="login100-form-title p-b-43 ">
+                        Crie sua conta!
                     </span>
 
                     <!-- Nome -->
@@ -70,13 +58,8 @@
                     </div>
 
                     <div class="flex-sb-m w-full p-t-3 p-b-20">
-                        <div>
-                            <a href="#" class="txt1">
-                                Esqueceu a senha?
-                            </a>
-                        </div>
                         <div class="p-t-46 p-b-20">
-                            <span class="txt2">Já tem uma conta? <a href="login.php">Entrar</a></span>
+                        <span>Já tem uma conta? <a href="login.php">Fazer login</a></span>
                         </div>
                     </div>
 
@@ -85,10 +68,11 @@
                             Cadastrar
                         </button>
                     </div>
+                    
 
                 </form>
-                <div class="login100-more"></div>
-            </div>
+                <div class="login100-more" style="max-width: 100%; max-height: 700px; background-image: url('img/confuso.jpg'); background-size: cover; background-position: center;">
+                </div>
         </div>
     </div>
 
