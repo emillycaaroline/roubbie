@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Página de Splash</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Link para o CSS -->
+    <link rel="stylesheet" href="styles.css">
     <style>
         body {
             margin: 0;
@@ -21,11 +21,13 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            z-index: 1000; /* Para garantir que a tela de splash fique acima do conteúdo */
+            z-index: 1000;
+            opacity: 1;
+            transition: opacity 1s ease;
         }
 
         #logo {
-            width: 400px; /* Ajuste o tamanho do logo conforme necessário */
+            width: 400px;
         }
     </style>
 </head>
@@ -33,14 +35,12 @@
     <div id="splash-screen">
         <img src="../roubbie/img/logo/logo_branco.png" alt="Logo" id="logo">
     </div>
-    <div id="main-content" style="display: none;">
-    </div>
+
     <script>
-        // Espera 3 segundos e depois oculta a tela de splash e exibe o conteúdo principal
+        // Aguarda 3 segundos e depois redireciona para o dashboard
         setTimeout(function() {
-            document.getElementById('splash-screen').style.display = 'none';
-            document.getElementById('main-content').style.display = 'block';
-        }, 3000); // Tempo em milissegundos (3000 ms = 3 segundos)
+            window.location.href = "/roubbie/dashboard.php"; // Redireciona para o dashboard
+        }, 3000); // 3 segundos de espera
     </script>
 </body>
 </html>
