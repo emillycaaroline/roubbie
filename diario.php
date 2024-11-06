@@ -211,37 +211,19 @@ $entries = fetchEntries($conn);
             font-size: 16px;
             transition: background-color 0.3s, transform 0.2s;
         }
-
-        /* Custom scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background-color: transparent;
-            margin: 20px 5px 20px 0px;
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background-color: #999;
-            border-radius: 4px;
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background-color: #777;
-        }
     </style>
 </head>
 
 <body>
 <?php include $_SERVER['DOCUMENT_ROOT'] . '/roubbie/includes/header.php'; ?>
 
-    <!-- <button onclick="window.history.back()">Voltar</button> -->
-<br><br><br><br>
+    <br><br><br><br>
     <div class="container">
         <h1>Meu Diário</h1>
         <form action="" method="post">
-        <input type="hidden" name="user_id" value="<?php echo $_SESSION['user_id']; ?>">
+            <input type="hidden" name="user_id" value="<?php echo $_SESSION['user_id']; ?>">
+            <input type="hidden" name="id" id="id" value="">
+
             <label for="titulo">Título:</label>
             <input type="text" id="titulo" name="titulo" placeholder="Como foi seu dia?" required>
 
@@ -279,7 +261,6 @@ $entries = fetchEntries($conn);
                 <p>Nenhuma entrada encontrada.</p>
             <?php endif; ?>
         </div>
-
     </div>
 
     <script>
@@ -289,9 +270,10 @@ $entries = fetchEntries($conn);
             document.getElementById('data').value = data;
             document.getElementById('conteudo').value = conteudo;
             document.getElementById('sentimento').value = sentimento;
+
+            // Rola a página para o formulário
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
     </script>
-
 </body>
-
 </html>
