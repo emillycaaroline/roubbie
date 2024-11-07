@@ -48,7 +48,6 @@ $nome_usuario = isset($_SESSION['nome']) ? htmlspecialchars($_SESSION['nome']) :
     /* Estilos gerais */
 body {
     font-family: 'Open Sans', sans-serif;
-    background: linear-gradient(to bottom right, #80d0c7, #13547a);
     color: #333; /* Cor de texto padrão */
 }
 
@@ -80,10 +79,13 @@ body {
     gap: 1.5rem;
 }
 
+
 .card {
     background-color: #fff; /* Fundo branco para os cards */
     padding: 1.5rem;
-    border-radius: 12px;
+    border-radius: 2x;
+    border: 2px solid; /* Define uma borda sólida para que o gradiente seja aplicado */
+    border-image: linear-gradient(to right, #13547a, #80d0c7) 1; /* Aplica o gradiente nas bordas */
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
     text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;

@@ -25,10 +25,53 @@
             color: #fff;
         }
 
+        .mobile-nav {
+            display: none;
+        }
+
+        @media (max-width: 767.98px) {
+            .mobile-nav {
+                display: block;
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                background: linear-gradient(to right, #13547a, #80d0c7);
+                color: #ffffff;
+                border-top: 1px solid #80d0c7;
+                border-radius: 5px;
+                z-index: 1000;
+                text-align: center;
+            }
+
+            .mobile-nav a {
+                color: white;
+            }
+
+            .mobile-nav a:hover {
+                color: #80d0c7;
+            }
+        }
+
         /* Navbar styles */
         .navbar {
-            background: linear-gradient(to right, #13547a, #80d0c7);
-            margin-top: auto;
+            color: black;
+            background-color: #ffffff;
+            /* Cor de fundo do menu */
+            padding: 1rem;
+            border: 2px solid;
+            /* Define uma borda sólida para o menu */
+            border-image: linear-gradient(to right, #13547a, #80d0c7) 1;
+            /* Aplica o gradiente nas bordas */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            /* Sombra para dar um efeito de profundidade */
+            display: flex;
+            /* Alinha os itens do menu horizontalmente */
+            justify-content: space-around;
+            /* Distribui os itens igualmente */
+            align-items: center;
+            border-radius: 10px;
+            /* Arredonda as bordas */
         }
 
         .navbar-brand img {
@@ -36,7 +79,7 @@
         }
 
         .nav-link {
-            color: white !important;
+            color: black !important;
         }
 
         .nav-link:hover {
