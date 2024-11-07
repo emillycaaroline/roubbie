@@ -16,9 +16,9 @@
 
         /* Estilo do corpo da página */
         body {
-            background: linear-gradient(to bottom right, #80d0c7, #13547a);
-            color: #13547a;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f7f6;
+            color: #333;
+            font-family: 'Arial', sans-serif;
             padding: 20px;
             display: flex;
             flex-direction: column;
@@ -26,57 +26,47 @@
             min-height: 100vh;
         }
 
-        /* Estilo do cabeçalho */
+        /* Cabeçalho */
         header {
-            background-color: rgba(19, 84, 122, 0.9);
-            color: white;
-            padding: 20px;
-            text-align: center;
-            border-radius: 10px;
+            background-color: #fff;
+            color: #4a4a4a;
+            padding: 20px 40px;
             width: 100%;
-            max-width: 600px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-            margin-bottom: 20px;
+            max-width: 800px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+            border-radius: 8px;
         }
 
-        /* Títulos */
-        h1 {
+        header h1 {
             font-size: 2rem;
             margin-bottom: 10px;
         }
 
-        /* Container de filtros */
-        .filter-container {
-            margin: 20px 0;
+        header .filter-container {
+            margin: 15px 0;
         }
 
-        /* Botões de filtro */
-        .filter-button {
-            background-color: #80d0c7;
-            color: #13547a;
-            border: none;
+        header .filter-button {
+            background-color: #d8e6e2;
+            color: #4a4a4a;
+            border: 1px solid #ccc;
             border-radius: 5px;
-            padding: 10px 20px;
+            padding: 8px 16px;
+            margin: 5px;
             cursor: pointer;
-            transition: background-color 0.3s, transform 0.3s;
-            margin: 0 5px;
             font-weight: bold;
+            transition: background-color 0.3s ease, transform 0.3s ease;
         }
 
-        .filter-button:hover {
-            background-color: #13547a;
+        header .filter-button:hover {
+            background-color: #80d0c7;
             color: white;
             transform: scale(1.05);
         }
 
-        /* Estilo de sub-títulos */
-        h2 {
-            margin: 20px 0;
-            font-size: 1.5rem;
-            color: #13547a;
-        }
-
-        /* Grade de eventos */
+        /* Estilo da grade de eventos */
         .event-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -87,120 +77,134 @@
 
         /* Estilo dos eventos */
         .event {
-            background-color: white;
-            border: 2px dashed #13547a;
-            border-radius: 10px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
             padding: 15px;
-            transition: transform 0.3s, box-shadow 0.3s;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            transition: box-shadow 0.3s ease, transform 0.3s ease;
         }
 
         .event:hover {
             transform: scale(1.02);
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
 
-        /* Estilo para a mensagem de eventos não encontrados */
-        .no-events {
-            color: #b00020; /* Vermelho para ênfase */
-            font-weight: bold;
-            text-align: center;
+        .event h4 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        .event p {
+            font-size: 0.95rem;
+            color: #666;
+        }
+
+        /* Estilo de compromissos */
+        .compromissos {
+            width: 100%;
+            max-width: 800px;
+            margin-top: 30px;
+        }
+
+        .compromisso {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 10px 0;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
         }
 
         /* Estilo das entradas do diário */
         .entries {
-            margin-top: 40px;
             width: 100%;
             max-width: 800px;
+            margin-top: 30px;
         }
 
-        /* Estilo das entradas individuais */
         .entry {
-            background-color: #e0f7fa;
-            border: 1px solid #00796b;
-            border-radius: 5px;
-            padding: 10px;
+            background-color: #eaf2f1;
+            border: 1px solid #d1e7e1;
+            border-radius: 8px;
+            padding: 15px;
             margin: 10px 0;
-            transition: background-color 0.3s;
+            transition: background-color 0.3s ease;
         }
 
         .entry:hover {
-            background-color: #b2ebf2;
+            background-color: #d0f0e2;
         }
 
-        /* Estilo dos botões de edição e exclusão */
+        /* Estilo dos botões de editar e excluir */
         .edit-button, .delete-button {
-            margin-top: 5px;
-            background-color: #00796b;
+            background-color: #4a90e2;
             color: white;
             border: none;
             border-radius: 5px;
-            padding: 5px 10px;
+            padding: 5px 12px;
             cursor: pointer;
-            text-decoration: none;
-            transition: background-color 0.3s;
+            font-size: 0.9rem;
+            transition: background-color 0.3s ease;
+            margin-top: 10px;
         }
 
         .edit-button:hover, .delete-button:hover {
-            background-color: #004d40;
+            background-color: #357ab7;
         }
 
-        /* Estilo para compromissos */
-        .compromissos {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        .compromisso {
-            background-color: #e0f7fa; /* Cor de fundo leve */
-            border: 1px solid #00796b; /* Borda escura */
-            border-radius: 5px;
-            padding: 10px;
-            transition: background-color 0.3s;
-        }
-
-        .compromisso:hover {
-            background-color: #b2ebf2; /* Cor ao passar o mouse */
-        }
-
-        /* Estilo de botões gerais */
+        /* Estilo geral dos botões */
         .button {
             background-color: #80d0c7;
-            color: #13547a;
+            color: #fff;
             border: none;
-            border-radius: 5px;
-            padding: 10px 20px;
+            border-radius: 8px;
+            padding: 12px 20px;
+            font-size: 1rem;
             cursor: pointer;
-            transition: background-color 0.3s, transform 0.3s;
-            margin-top: 20px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            margin-top: 30px;
             display: inline-block;
-            font-weight: bold;
-            text-decoration: none;
         }
 
         .button:hover {
             background-color: #13547a;
-            color: white;
             transform: scale(1.05);
+        }
+
+        /* Estilo do rodapé */
+        footer {
+            width: 100%;
+            background-color: #fff;
+            color: #666;
+            padding: 15px;
+            text-align: center;
+            margin-top: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        footer p {
+            font-size: 0.9rem;
         }
 
         /* Responsividade */
         @media (max-width: 600px) {
-            h1 {
+            header h1 {
                 font-size: 1.5rem;
             }
 
             .filter-button {
-                padding: 8px 16px;
-                font-size: 0.9rem;
+                padding: 6px 12px;
+                font-size: 0.85rem;
             }
 
-            .entry, .event {
-                padding: 10px;
+            .event-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .entry, .event, .compromisso {
+                padding: 12px;
             }
         }
     </style>
@@ -270,11 +274,11 @@
                     echo "Data: " . htmlspecialchars($entry['data']) . "<br>";
                     echo nl2br(htmlspecialchars($entry['conteudo'])) . "<br>";
                     echo "<a href='editar_diario.php?id=" . $entry['id'] . "' class='edit-button'>Editar</a>";
-                    echo "<a href='deletar_diario.php?id=" . $entry['id'] . "' class='delete-button'>Excluir</a>";
+                    echo "<a href='excluir_diario.php?id=" . $entry['id'] . "' class='delete-button'>Excluir</a>";
                     echo "</div>";
                 }
             } else {
-                echo "<p class='no-events'>Nenhuma entrada de diário encontrada.</p>";
+                echo "<p class='no-events'>Nenhuma entrada encontrada.</p>";
             }
 
             $conn->close();
@@ -282,28 +286,31 @@
         </div>
 
         <div class="compromissos">
-            <h2>Meus Compromissos</h2>
+            <h2>Compromissos Futuros</h2>
             <?php
             include '../includes/db_connection.php';
 
-            $sql_compromissos = "SELECT * FROM compromissos"; // Exemplo de consulta para compromissos
-            $compromissos_result = $conn->query($sql_compromissos);
+            $sql_compromissos = "SELECT title, start FROM events WHERE category = 'compromissos' AND start > NOW()";
+            $compromissos = $conn->query($sql_compromissos);
 
-            if ($compromissos_result && $compromissos_result->num_rows > 0) {
-                while ($compromisso = $compromissos_result->fetch_assoc()) {
+            if ($compromissos && $compromissos->num_rows > 0) {
+                while ($compromisso = $compromissos->fetch_assoc()) {
                     echo "<div class='compromisso'>";
-                    echo "<strong>" . htmlspecialchars($compromisso['titulo']) . "</strong> <br>";
-                    echo "Data: " . htmlspecialchars($compromisso['data']) . "<br>";
-                    echo "Descrição: " . htmlspecialchars($compromisso['descricao']) . "<br>";
+                    echo "<strong>" . htmlspecialchars($compromisso['title']) . "</strong><br>";
+                    echo "Início: " . htmlspecialchars($compromisso['start']) . "<br>";
                     echo "</div>";
                 }
             } else {
-                echo "<p class='no-events'>Nenhum compromisso encontrado.</p>";
+                echo "<p class='no-events'>Nenhum compromisso futuro.</p>";
             }
 
             $conn->close();
             ?>
         </div>
     </main>
+
+    <footer>
+        <p>&copy; 2024 Roubbie</p>
+    </footer>
 </body>
 </html>

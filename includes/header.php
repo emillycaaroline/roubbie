@@ -20,84 +20,39 @@
 
     <!-- CUSTOM STYLES -->
     <style>
-        /* General styles */
-        .text-white {
-            color: #fff;
-        }
-
         /* Navbar styles */
-        .navbar {
-            background: linear-gradient(to right, #13547a, #80d0c7);
-            margin-top: auto;
-        }
+.navbar {
+    background-color: rgba(255, 255, 255, 0.1); /* Fundo levemente transparente */
+    color: #13547a; /* Cor da fonte */
+    padding: 1rem 0;
+    border-bottom: 3px solid transparent; /* Borda transparente inicialmente */
+    border-image: linear-gradient(to right, #13547a, #80d0c7) 1; /* Gradiente na borda inferior */
+    backdrop-filter: blur(5px); /* Leve desfoque de fundo */
+    transition: background 0.3s ease, border-color 0.3s ease;
+}
 
-        .navbar-brand img {
-            width: 100px;
-        }
+.navbar.scrolled {
+    background-color: rgba(19, 84, 122, 0.9); /* Fundo mais opaco ao rolar */
+}
 
-        .nav-link {
-            color: white !important;
-        }
+.navbar-brand img {
+    width: 120px;
+}
 
-        .nav-link:hover {
-            color: #80d0c7 !important;
-        }
+.nav-link {
+    color: rgba(19, 84, 122, 0.9) !important; /* Cor das links */
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
 
-        .navbar-collapse {
-            display: none;
-        }
+.nav-link:hover,
+.nav-link:focus {
+    color: black !important;
+}
 
-        .navbar-collapse.show {
-            display: block;
-        }
+/* Borda inferior do menu de navegação */
 
-        /* Mobile nav styles */
-        .mobile-nav {
-            display: none;
-        }
 
-        @media (max-width: 767.98px) {
-            .navbar-nav .nav-item .nav-link {
-                font-size: 12px;
-            }
-
-            .mobile-nav {
-                display: block;
-                position: fixed;
-                bottom: 0;
-                left: 0;
-                width: 100%;
-                background: linear-gradient(to right, #13547a, #80d0c7);
-                color: #ffffff;
-                border-top: 1px solid #80d0c7;
-                border-radius: 5px;
-                z-index: 1000;
-                text-align: center;
-            }
-
-            .mobile-nav ul {
-                display: flex;
-                justify-content: space-around;
-                padding: 10px 0;
-                margin: 0;
-                list-style: none;
-            }
-
-            .mobile-nav a {
-                color: white;
-                /* Garantindo que os links sejam brancos no mobile */
-            }
-
-            .mobile-nav a:hover {
-                color: #80d0c7;
-                /* Mudança de cor ao passar o mouse no mobile */
-            }
-        }
-
-        i {
-            color: white;
-            /* Garantindo que todos os ícones sejam brancos */
-        }
     </style>
 </head>
 
@@ -140,7 +95,7 @@
                     <!-- Login/cadastro -->
                     <ul class="nav-menu">
                         <li class="nav-item dropdown">
-                            <a style="background-color: #13547a;" class="nav-link dropdown-toggle navbar-icon bi-person" style="border: none;" href="#" id="navbarUserDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Menu do usuário"></a>
+                            <a class="nav-link dropdown-toggle navbar-icon bi-person" href="#" id="navbarUserDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Menu do usuário"></a>
                             <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarUserDropdownMenuLink">
                                 <li><a class="dropdown-item" href="http://localhost/roubbie/login-register/login.php">Login</a></li>
                                 <li><a class="dropdown-item" href="http://localhost/roubbie/login-register/cadastro.php">Cadastro</a></li>
