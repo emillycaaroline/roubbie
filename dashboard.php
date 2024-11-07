@@ -45,91 +45,88 @@ $nome_usuario = isset($_SESSION['nome']) ? htmlspecialchars($_SESSION['nome']) :
     <link rel="icon" type="image/png" href="images/icons/favicon.ico">
 </head>
 <style>
-    /* Estilos gerais */
-body {
-    font-family: 'Open Sans', sans-serif;
-    color: #333; /* Cor de texto padrão */
-}
+    body {
+        font-family: 'Open Sans', sans-serif;
+        color: #333;
+        background-color: white;
+    }
 
-.dashboard-container {
-    padding: 2rem;
-}
+    .dashboard-container {
+        padding: 2rem;
+    }
 
-.header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1.5rem;
-    background-color: #165378; /* Azul mais escuro */
-    color: #fff;
-    border-radius: 12px;
-    margin-bottom: 2rem;
-    text-align: center;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-}
+    .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1.5rem;
+        background-color: #165378;
+        color: #fff;
+        border-radius: 12px;
+        margin-bottom: 2rem;
+        text-align: center;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
 
-.header h1 {
-    font-size: 2rem; /* Tamanho maior */
-}
+    .header h1 {
+        font-size: 2rem;
+    }
 
-/* Layout dos cartões */
-.card-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1.5rem;
-}
+    .card-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1.5rem;
+    }
 
+    .card {
+        background-color: #fff;
+        padding: 1.5rem;
+        border-radius: 2rem;
+        border: 2px solid;
+        border-image: linear-gradient(to right, #13547a, #80d0c7) 1;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
 
-.card {
-    background-color: #fff; /* Fundo branco para os cards */
-    padding: 1.5rem;
-    border-radius: 2x;
-    border: 2px solid; /* Define uma borda sólida para que o gradiente seja aplicado */
-    border-image: linear-gradient(to right, #13547a, #80d0c7) 1; /* Aplica o gradiente nas bordas */
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
+    .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    }
 
-.card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
-}
+    .card h2 {
+        font-size: 1.5rem;
+        margin-bottom: 0.5rem;
+        color: #165378;
+    }
 
-.card h2 {
-    font-size: 1.5rem; /* Tamanho do título maior */
-    margin-bottom: 0.5rem;
-    color: #165378; /* Azul para títulos dos cards */
-}
+    .card p {
+        font-size: 1rem;
+        color: #666;
+        margin-bottom: 1rem;
+    }
 
-.card p {
-    font-size: 1rem;
-    color: #666;
-    margin-bottom: 1rem;
-}
+    .details-button {
+        display: inline-block;
+        padding: 0.5rem 1rem;
+        background-color: #81cfc6;
+        color: #165378;
+        text-decoration: none;
+        border-radius: 5px;
+        font-size: 1rem;
+        transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
 
-.details-button {
-    display: inline-block;
-    padding: 0.5rem 1rem;
-    background-color: #81cfc6; /* Verde para o botão */
-    color: #165378; /* Azul para o texto do botão */
-    text-decoration: none;
-    border-radius: 5px;
-    font-size: 1rem;
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
+    .details-button:hover {
+        background-color: #165378;
+        color: #fff;
+    }
 
-.details-button:hover {
-    background-color: #165378; /* Azul ao passar o mouse */
-    color: #fff; /* Texto em branco ao passar o mouse */
-}
-
-.details-button:focus {
-    outline: none; /* Remove outline padrão */
-    box-shadow: 0 0 0 4px rgba(129, 207, 198, 0.5); /* Destaque ao foco com verde */
-}
-
+    .details-button:focus {
+        outline: none;
+        box-shadow: 0 0 0 4px rgba(129, 207, 198, 0.5);
+    }
 </style>
 <body>
     <div class="dashboard-container"><br><br><br>

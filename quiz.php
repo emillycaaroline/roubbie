@@ -21,8 +21,8 @@
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            background-color: #13547a;
-            color: #fff;
+            background-color: #F8F8FF;
+            color: #F8F8FF;
             text-align: center;
         }
 
@@ -131,7 +131,7 @@
         button {
             margin-top: 15px;
             padding: 10px;
-            background-color: blue;
+            background-color: #80d0c7;
             color: white;
             border: none;
             border-radius: 100px;
@@ -141,7 +141,7 @@
         }
 
         button:hover {
-            background-color: skyblue;
+            background-color: #357aab;
             transform: translateY(-2px);
         }
     </style>
