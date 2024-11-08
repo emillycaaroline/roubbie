@@ -20,38 +20,85 @@
 
     <!-- CUSTOM STYLES -->
     <style>
+        /* General styles */
+        .text-white {
+            color: #fff;
+        }
+
         /* Navbar styles */
-.navbar {
-    background-color: rgba(255, 255, 255, 0.1); /* Fundo levemente transparente */
-    color: #13547a; /* Cor da fonte */
-    padding: 1rem 0;
-    border-bottom: 3px solid transparent; /* Borda transparente inicialmente */
-    border-image: linear-gradient(to right, #13547a, #80d0c7) 1; /* Gradiente na borda inferior */
-    backdrop-filter: blur(5px); /* Leve desfoque de fundo */
-    transition: background 0.3s ease, border-color 0.3s ease;
-}
+        .navbar {
+            background: linear-gradient(to right, #13547a, #80d0c7);
+            margin-top: auto;
+            border: 1px solid linear-gradient(to right, #13547a, #80d0c7);
+        }
 
-.navbar.scrolled {
-    background-color: rgba(19, 84, 122, 0.9); /* Fundo mais opaco ao rolar */
-}
+        .navbar-brand img {
+            width: 100px;
+        }
 
-.navbar-brand img {
-    width: 120px;
-}
+        .nav-link {
+            color: white !important;
+        }
 
-.nav-link {
-    color: rgba(19, 84, 122, 0.9) !important; /* Cor das links */
-    font-weight: 500;
-    transition: color 0.3s ease;
-}
+        .nav-link:hover {
+            color: #80d0c7 !important;
+        }
 
-.nav-link:hover,
-.nav-link:focus {
-    color: black !important;
-}
+        .navbar-collapse {
+            display: none;
+        }
 
-/* Borda inferior do menu de navegação */
+        .navbar-collapse.show {
+            display: block;
+        }
 
+        /* Mobile nav styles */
+        .mobile-nav {
+            display: none;
+            border: 1px solid linear-gradient(to right, #13547a, #80d0c7);
+        }
+
+        @media (max-width: 767.98px) {
+            .navbar-nav .nav-item .nav-link {
+                font-size: 12px;
+            }
+
+            .mobile-nav {
+                background-color: #fff;
+                display: block;
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                color: #13547a;
+                border: 1px solid linear-gradient(to right, #13547a, #80d0c7);
+                border-radius: 5px;
+                z-index: 1000;
+                text-align: center;
+            }
+
+            .mobile-nav ul {
+                display: flex;
+                justify-content: space-around;
+                padding: 10px 0;
+                margin: 0;
+                list-style: none;
+                border: 1px solid linear-gradient(to right, #13547a, #80d0c7);
+            }
+
+            .mobile-nav a {
+                color: #13547a;
+            }
+
+            .mobile-nav a:hover {
+                color: #80d0c7;
+            }
+        }
+
+        /* Icon styling */
+        i {
+            color: #13547a;
+        }
 
     </style>
 </head>
@@ -88,7 +135,7 @@
                             <a class="nav-link click" href="sobre.php">Sobre</a>
                         </li>
                         <li class="nav-item">
-                            <button id="startOnboarding" class="nav-link click btn btn-outline-success" aria-label="Tutorial pra uso">?</button> <!-- Botão para iniciar o onboarding -->
+                            <button id="startOnboarding" class="nav-link click btn btn-outline-success" aria-label="Tutorial para uso">?</button> <!-- Botão para iniciar o onboarding -->
                         </li>
                     </ul>
 

@@ -1,7 +1,6 @@
 <?php
 session_start();
 require_once 'C:\xampp\htdocs\roubbie\includes\db_connection.php';
-require_once 'C:\xampp\htdocs\roubbie\includes\header.php';
 
 if (!isset($_SESSION['user_id'])) {
     header("Location: login.php");
@@ -30,7 +29,6 @@ $compromissos_count = getCount($conn, 'compromissos', null);
 // Validação do nome do usuário
 $nome_usuario = isset($_SESSION['nome']) ? htmlspecialchars($_SESSION['nome']) : 'Usuário';
 ?>
-<!-- Inclua a página de splash -->
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -129,6 +127,8 @@ $nome_usuario = isset($_SESSION['nome']) ? htmlspecialchars($_SESSION['nome']) :
     }
 </style>
 <body>
+    <?php require_once 'C:\xampp\htdocs\roubbie\includes\header.php'; ?>
+
     <div class="dashboard-container"><br><br><br>
         <header class="header" role="banner">
             <h1>Bem-vindo, <?php echo $nome_usuario; ?>!</h1>

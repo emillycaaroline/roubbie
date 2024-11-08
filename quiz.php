@@ -178,7 +178,6 @@
 </head>
 
 <body>
-    <button onclick="window.history.back()">Voltar</button>
 
     <main>
 
@@ -194,6 +193,7 @@
             <!-- HOME BUTTON -->
             <button id="homeBtn" style="display: none;" onclick="window.location.href = 'index.php';">Ir para a Página Inicial</button>
         </div>
+        <button onclick="window.history.back()">Voltar</button>
 
         <script>
             // Definição do quiz com perguntas e alternativas
