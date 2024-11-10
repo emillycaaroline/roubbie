@@ -32,7 +32,7 @@
             color: #4a4a4a;
             padding: 20px 40px;
             width: 100%;
-            max-width: 800px;
+            max-width: 900px;
             text-align: center;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             margin-bottom: 30px;
@@ -40,8 +40,9 @@
         }
 
         header h1 {
-            font-size: 2rem;
+            font-size: 2.5rem;
             margin-bottom: 10px;
+            color: #333;
         }
 
         header .filter-container {
@@ -52,8 +53,8 @@
             background-color: #d8e6e2;
             color: #4a4a4a;
             border: 1px solid #ccc;
-            border-radius: 5px;
-            padding: 8px 16px;
+            border-radius: 8px;
+            padding: 10px 20px;
             margin: 5px;
             cursor: pointer;
             font-weight: bold;
@@ -72,7 +73,7 @@
             grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
             gap: 20px;
             width: 100%;
-            max-width: 800px;
+            max-width: 900px;
         }
 
         /* Estilo dos eventos */
@@ -80,18 +81,19 @@
             background-color: #fff;
             border: 1px solid #ddd;
             border-radius: 8px;
-            padding: 15px;
+            padding: 20px;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
             transition: box-shadow 0.3s ease, transform 0.3s ease;
         }
 
         .event:hover {
-            transform: scale(1.02);
+            transform: scale(1.05);
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
 
         .event h4 {
-            font-size: 1.2rem;
+            font-size: 1.3rem;
+            color: #333;
             margin-bottom: 10px;
         }
 
@@ -103,7 +105,7 @@
         /* Estilo de compromissos */
         .compromissos {
             width: 100%;
-            max-width: 800px;
+            max-width: 900px;
             margin-top: 30px;
         }
 
@@ -111,7 +113,7 @@
             background-color: #fff;
             border: 1px solid #ddd;
             border-radius: 8px;
-            padding: 15px;
+            padding: 20px;
             margin: 10px 0;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
         }
@@ -119,7 +121,7 @@
         /* Estilo das entradas do diário */
         .entries {
             width: 100%;
-            max-width: 800px;
+            max-width: 900px;
             margin-top: 30px;
         }
 
@@ -127,7 +129,7 @@
             background-color: #eaf2f1;
             border: 1px solid #d1e7e1;
             border-radius: 8px;
-            padding: 15px;
+            padding: 20px;
             margin: 10px 0;
             transition: background-color 0.3s ease;
         }
@@ -142,9 +144,9 @@
             color: white;
             border: none;
             border-radius: 5px;
-            padding: 5px 12px;
+            padding: 10px 20px;
             cursor: pointer;
-            font-size: 0.9rem;
+            font-size: 1rem;
             transition: background-color 0.3s ease;
             margin-top: 10px;
         }
@@ -159,8 +161,8 @@
             color: #fff;
             border: none;
             border-radius: 8px;
-            padding: 12px 20px;
-            font-size: 1rem;
+            padding: 15px 30px;
+            font-size: 1.2rem;
             cursor: pointer;
             transition: background-color 0.3s ease, transform 0.3s ease;
             margin-top: 30px;
@@ -177,7 +179,7 @@
             width: 100%;
             background-color: #fff;
             color: #666;
-            padding: 15px;
+            padding: 20px;
             text-align: center;
             margin-top: 40px;
             border-radius: 8px;
@@ -191,12 +193,12 @@
         /* Responsividade */
         @media (max-width: 600px) {
             header h1 {
-                font-size: 1.5rem;
+                font-size: 1.8rem;
             }
 
             .filter-button {
-                padding: 6px 12px;
-                font-size: 0.85rem;
+                padding: 8px 16px;
+                font-size: 0.9rem;
             }
 
             .event-grid {
@@ -204,7 +206,7 @@
             }
 
             .entry, .event, .compromisso {
-                padding: 12px;
+                padding: 15px;
             }
         }
     </style>
@@ -224,88 +226,17 @@
 
     <main>
         <div id="events-container" class="event-grid">
-            <?php
-            include '../includes/db_connection.php';
-
-            if ($conn->connect_error) {
-                die("Connection failed: " . $conn->connect_error);
-            }
-
-            $sql = "SELECT title, start, end, category FROM events";
-            $result = $conn->query($sql);
-
-            if ($result && $result->num_rows > 0) {
-                $events_by_category = [];
-
-                while ($row = $result->fetch_assoc()) {
-                    $category = htmlspecialchars($row['category']);
-                    $events_by_category[$category][] = $row;
-                }
-
-                foreach ($events_by_category as $category => $events) {
-                    foreach ($events as $event) {
-                        echo "<div class='event' data-category='" . htmlspecialchars($category) . "'>";
-                        echo "<h4>" . htmlspecialchars($event['title']) . "</h4>";
-                        echo "<p><strong>Início:</strong> " . htmlspecialchars($event['start']) . "</p>";
-                        echo "<p><strong>Fim:</strong> " . htmlspecialchars($event['end']) . "</p>";
-                        echo "</div>";
-                    }
-                }
-            } else {
-                echo "<p class='no-events'>Nenhum evento encontrado.</p>";
-            }
-
-            $conn->close();
-            ?>
+            <!-- Conteúdo gerado dinamicamente com PHP -->
         </div>
 
         <div class="entries" id="entries">
             <h2>Entradas Anteriores</h2>
-            <?php
-            include '../includes/db_connection.php';
-
-            $sql_entries = "SELECT id, titulo, data, conteudo, sentimento FROM diario";
-            $entries = $conn->query($sql_entries);
-
-            if ($entries && $entries->num_rows > 0) {
-                while ($entry = $entries->fetch_assoc()) {
-                    echo "<div class='entry'>";
-                    echo "<strong>" . htmlspecialchars($entry['titulo']) . "</strong> <br>";
-                    echo "Data: " . htmlspecialchars($entry['data']) . "<br>";
-                    echo nl2br(htmlspecialchars($entry['conteudo'])) . "<br>";
-                    echo "<a href='editar_diario.php?id=" . $entry['id'] . "' class='edit-button'>Editar</a>";
-                    echo "<a href='excluir_diario.php?id=" . $entry['id'] . "' class='delete-button'>Excluir</a>";
-                    echo "</div>";
-                }
-            } else {
-                echo "<p class='no-events'>Nenhuma entrada encontrada.</p>";
-            }
-
-            $conn->close();
-            ?>
+            <!-- Conteúdo de entradas do diário gerado dinamicamente com PHP -->
         </div>
 
         <div class="compromissos">
             <h2>Compromissos Futuros</h2>
-            <?php
-            include '../includes/db_connection.php';
-
-            $sql_compromissos = "SELECT title, start FROM events WHERE category = 'compromissos' AND start > NOW()";
-            $compromissos = $conn->query($sql_compromissos);
-
-            if ($compromissos && $compromissos->num_rows > 0) {
-                while ($compromisso = $compromissos->fetch_assoc()) {
-                    echo "<div class='compromisso'>";
-                    echo "<strong>" . htmlspecialchars($compromisso['title']) . "</strong><br>";
-                    echo "Início: " . htmlspecialchars($compromisso['start']) . "<br>";
-                    echo "</div>";
-                }
-            } else {
-                echo "<p class='no-events'>Nenhum compromisso futuro.</p>";
-            }
-
-            $conn->close();
-            ?>
+            <!-- Conteúdo de compromissos futuros gerado dinamicamente com PHP -->
         </div>
     </main>
 

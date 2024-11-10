@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Roubbie - Encontre equilíbrio entre organização e lazer.">
     <meta name="author" content="Equipe Roubbie">
-    <title>Sobre o Roubbie</title>
+    <title>Sobre</title>
 
     <!-- CSS FILES -->
     <link rel="icon" type="image/x-icon" href="/roubbie/images/icons/favicon.ico">
@@ -25,76 +25,11 @@
     <script src="js/click-scroll.js"></script>
     <script src="js/custom.js"></script>
 
-    <!-- CUSTOM STYLES -->
-    <style>
-        main{
-            margin-top: 60px;
-        }
-        body {
-            background-image: url('images/colleagues-working-cozy-office-medium-shot.jpg');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            background-repeat: no-repeat;
-        }
-
-        body::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.4);
-            z-index: -1;
-        }
-
-        .text-white {
-            color: #fff;
-        }
-
-        .timeline-section {
-            padding: 60px 0;
-        }
-
-        .site-footer {
-            background-color: white;
-            color: #ffffff;
-        }
-
-        .site-footer a {
-            color: #13547a;
-        }
-
-        .site-footer a:hover {
-            color: #80d0c7;
-        }
-
-        .navbar-brand img {
-            width: 100px;
-        }
-
-        .social-icon-link {
-            color: #13547a;
-        }
-
-        .social-icon-link:hover {
-            color: #80d0c7;
-        }
-
-        .nav-link {
-            color: #13547a !important;
-        }
-
-        .nav-link:hover {
-            color: #80d0c7 !important;
-        }
-    </style>
 </head>
-
-<body id="top">
     <!-- Adiciona o header -->
     <?php include 'includes/header.php'; ?>
+
+<body id="top">
 
     <!-- Campos para Artigos -->
     <main>

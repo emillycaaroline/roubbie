@@ -220,9 +220,9 @@ $entries = fetchEntries($conn);
 
     </style>
 </head>
+<?php require_once 'C:\xampp\htdocs\roubbie\includes\header.php'; ?>
 
 <body>
-<?php include $_SERVER['DOCUMENT_ROOT'] . '/roubbie/includes/header.php'; ?>
 
     <br><br><br><br>
     <div class="container" >

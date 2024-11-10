@@ -126,8 +126,9 @@ $nome_usuario = isset($_SESSION['nome']) ? htmlspecialchars($_SESSION['nome']) :
         box-shadow: 0 0 0 4px rgba(129, 207, 198, 0.5);
     }
 </style>
+<?php require_once 'C:\xampp\htdocs\roubbie\includes\header.php'; ?>
+
 <body>
-    <?php require_once 'C:\xampp\htdocs\roubbie\includes\header.php'; ?>
 
     <div class="dashboard-container"><br><br><br>
         <header class="header" role="banner">
