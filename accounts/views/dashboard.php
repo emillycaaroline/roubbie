@@ -52,7 +52,7 @@ $nome_usuario = isset($_SESSION['nome']) ? htmlspecialchars($_SESSION['nome']) :
     body {
         font-family: 'Open Sans', sans-serif;
         color: #333;
-        background-color: #f4f4f4;
+        background-color: #f4f4f4; 
         margin: 0;
         padding: 0;
     }
