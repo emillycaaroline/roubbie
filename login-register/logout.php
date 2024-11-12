@@ -10,6 +10,6 @@ unset($_SESSION['user_name']);  // Remover o nome do usuário, se estiver armaze
 // unset($_SESSION['outra_variavel']);
 
 // Redireciona o usuário para a página de login ou inicial
-header("Location: /roubbie/index.php");
+header("Location: /index.php");
 exit();
 ?>

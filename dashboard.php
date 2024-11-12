@@ -3,7 +3,7 @@ session_start();
 require_once 'C:\xampp\htdocs\roubbie\includes\db_connection.php';
 
 if (!isset($_SESSION['user_id'])) {
-    header("Location: login.php");
+    header("Location: /roubbie/index.php");
     exit();
 } 
 
