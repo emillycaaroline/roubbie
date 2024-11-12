@@ -1,16 +1,11 @@
 <?php
-// Verifica se a sessão já foi iniciada
-if (session_status() == PHP_SESSION_NONE) {
-    session_start();
-}
-
-// Verifica se o usuário está logado
-if (!isset($_SESSION['usuario_id'])) {
-    header('Location: /roubbie/accounts/views/login.php'); // Redireciona para o login se não estiver logado
-    exit;
-}
-
+session_start();
 require_once 'C:\xampp\htdocs\roubbie\includes\db_connection.php';
+
+if (!isset($_SESSION['user_id'])) {
+    header("Location: login.php");
+    exit();
+} 
 
 function getCount($conn, $table, $status = null) {
     $query = "SELECT COUNT(*) AS total FROM $table";
@@ -34,7 +29,6 @@ $compromissos_count = getCount($conn, 'compromissos', null);
 // Validação do nome do usuário
 $nome_usuario = isset($_SESSION['nome']) ? htmlspecialchars($_SESSION['nome']) : 'Usuário';
 ?>
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -52,15 +46,26 @@ $nome_usuario = isset($_SESSION['nome']) ? htmlspecialchars($_SESSION['nome']) :
     body {
         font-family: 'Open Sans', sans-serif;
         color: #333;
-        background-color: #f4f4f4; 
-        margin: 0;
-        padding: 0;
+        background-color: white;
     }
 
     .dashboard-container {
         padding: 2rem;
     }
 
+    .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1.5rem;
+        color: #000000;
+        margin-bottom: 2rem;
+        text-align: center;
+    }
+
+    .header h1 {
+        font-size: 2rem;
+    }
 
     .card-grid {
         display: grid;
@@ -117,68 +122,43 @@ $nome_usuario = isset($_SESSION['nome']) ? htmlspecialchars($_SESSION['nome']) :
         outline: none;
         box-shadow: 0 0 0 4px rgba(129, 207, 198, 0.5);
     }
-
-    /* Calendário */
-    .calendar-container {
-        display: flex;
-        justify-content: center;
-        margin-top: 2rem;
-    }
-
-    .calendar {
-        width: 100%;
-        max-width: 350px;
-        border: 1px solid #ddd;
-        border-radius: 8px;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    }
-
 </style>
+<?php require_once 'C:\xampp\htdocs\roubbie\includes\header.php'; ?>
 
 <body>
-<?php include '/xampp/htdocs/roubbie/includes/header.php'; ?>
 
-    <div class="dashboard-container">
+    <div class="dashboard-container"><br><br><br>
         <header class="header" role="banner">
             <h1>Bem-vindo, <?php echo $nome_usuario; ?>!</h1>
         </header>
 
         <div class="card-grid" role="main" aria-label="Dashboard de atividades">
             <!-- Diários -->
-            <div class="card" aria-labelledby="diario-title" aria-describedby="diario-desc">
+            <div class="card" aria-labelledby="diario-title">
                 <h2 id="diario-title">Diário</h2>
-                <p id="diario-desc">Notas registradas: <?php echo $diario_count; ?></p>
+                <p>Notas registradas: <?php echo $diario_count; ?></p>
                 <a href="projeto_fullcalendar_js_php-master/status-rotina.php/#entries" class="details-button">Ver Diário</a>
             </div>
 
             <!-- Eventos -->
-            <div class="card" aria-labelledby="eventos-title" aria-describedby="eventos-desc">
+            <div class="card" aria-labelledby="eventos-title">
                 <h2 id="eventos-title">Eventos</h2>
-                <p id="eventos-desc"><?php echo $events_count > 0 ? "$events_count evento(s) pendente(s)" : "Nenhum evento pendente"; ?></p>
-                <a href="/roubbie/projeto_fullcalendar_js_php-master/status-rotina.php" class="details-button">Ver Eventos</a>
+                <p><?php echo $events_count > 0 ? "$events_count evento(s) pendente(s)" : "Nenhum evento pendente"; ?></p>
+                <a href="projeto_fullcalendar_js_php-master/status-rotina.php" class="details-button">Ver Eventos</a>
             </div>
 
             <!-- Compromissos -->
-            <div class="card" aria-labelledby="compromissos-title" aria-describedby="compromissos-desc">
+            <div class="card" aria-labelledby="compromissos-title">
                 <h2 id="compromissos-title">Compromissos</h2>
-                <p id="compromissos-desc"><?php echo $compromissos_count > 0 ? "$compromissos_count compromisso(s)" : "Nenhum compromisso agendado"; ?></p>
+                <p><?php echo $compromissos_count > 0 ? "$compromissos_count compromisso(s)" : "Nenhum compromisso agendado"; ?></p>
                 <a href="projeto_fullcalendar_js_php-master/status-rotina.php/#compromisso" class="details-button">Ver Compromissos</a>
             </div>
 
             <!-- Rotina -->
-            <div class="card" aria-labelledby="rotina-title" aria-describedby="rotina-desc">
+            <div class="card" aria-labelledby="rotina-title">
                 <h2 id="rotina-title">Rotina</h2>
-                <p id="rotina-desc">Visualize sua rotina da semana abaixo:</p>
+                <p>Inserir uma miniatura do calendário só da semana</p>
                 <a href="projeto_fullcalendar_js_php-master/sisrot.php" class="details-button">Minha rotina</a>
-            </div>
-        </div>
-
-        <!-- Calendário de rotina -->
-        <div class="calendar-container">
-            <div class="calendar">
-                <!-- Insira aqui o mini calendário ou outros componentes -->
-                <h3>Calendário da Semana</h3>
-                <!-- Adicione um calendário dinâmico ou imagem aqui -->
             </div>
         </div>
     </div>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eventos</title>
+    <title>Dashboard de Eventos</title>
     <link rel="stylesheet" href="seu-estilo.css">
     <link rel="icon" type="image/x-icon" href="/roubbie/images/icons/favicon.ico">
     <style>
@@ -14,199 +14,141 @@
             box-sizing: border-box;
         }
 
-        /* Estilo do corpo da página */
         body {
             background-color: #f4f7f6;
             color: #333;
             font-family: 'Arial', sans-serif;
-            padding: 20px;
             display: flex;
             flex-direction: column;
             align-items: center;
             min-height: 100vh;
         }
 
-        /* Cabeçalho */
+        /* Cabeçalho fixo com navegação */
         header {
-            background-color: #fff;
-            color: #4a4a4a;
-            padding: 20px 40px;
+            background-color: #13547a;
+            color: #fff;
+            padding: 15px 20px;
             width: 100%;
-            max-width: 900px;
-            text-align: center;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            margin-bottom: 30px;
-            border-radius: 8px;
+            position: fixed;
+            top: 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 10;
         }
 
         header h1 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-            color: #333;
+            font-size: 1.8rem;
+            color: #fff;
         }
 
-        header .filter-container {
-            margin: 15px 0;
+        .filter-container, .nav-buttons {
+            display: flex;
+            gap: 10px;
         }
 
-        header .filter-button {
-            background-color: #d8e6e2;
-            color: #4a4a4a;
-            border: 1px solid #ccc;
-            border-radius: 8px;
-            padding: 10px 20px;
-            margin: 5px;
-            cursor: pointer;
-            font-weight: bold;
-            transition: background-color 0.3s ease, transform 0.3s ease;
-        }
-
-        header .filter-button:hover {
+        .filter-button {
             background-color: #80d0c7;
-            color: white;
-            transform: scale(1.05);
+            border: none;
+            border-radius: 5px;
+            padding: 8px 16px;
+            color: #fff;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            font-weight: bold;
         }
 
-        /* Estilo da grade de eventos */
-        .event-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 20px;
-            width: 100%;
-            max-width: 900px;
+        .filter-button:hover {
+            background-color: #1f6f8b;
         }
 
-        /* Estilo dos eventos */
-        .event {
-            background-color: #fff;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            padding: 20px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-            transition: box-shadow 0.3s ease, transform 0.3s ease;
-        }
-
-        .event:hover {
-            transform: scale(1.05);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        }
-
-        .event h4 {
-            font-size: 1.3rem;
-            color: #333;
-            margin-bottom: 10px;
-        }
-
-        .event p {
-            font-size: 0.95rem;
-            color: #666;
-        }
-
-        /* Estilo de compromissos */
-        .compromissos {
-            width: 100%;
-            max-width: 900px;
-            margin-top: 30px;
-        }
-
-        .compromisso {
-            background-color: #fff;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            padding: 20px;
-            margin: 10px 0;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        /* Estilo das entradas do diário */
-        .entries {
-            width: 100%;
-            max-width: 900px;
-            margin-top: 30px;
-        }
-
-        .entry {
-            background-color: #eaf2f1;
-            border: 1px solid #d1e7e1;
-            border-radius: 8px;
-            padding: 20px;
-            margin: 10px 0;
-            transition: background-color 0.3s ease;
-        }
-
-        .entry:hover {
-            background-color: #d0f0e2;
-        }
-
-        /* Estilo dos botões de editar e excluir */
-        .edit-button, .delete-button {
-            background-color: #4a90e2;
-            color: white;
+        .button {
+            background-color: #e07b39;
+            color: #fff;
             border: none;
             border-radius: 5px;
             padding: 10px 20px;
             cursor: pointer;
-            font-size: 1rem;
-            transition: background-color 0.3s ease;
-            margin-top: 10px;
-        }
-
-        .edit-button:hover, .delete-button:hover {
-            background-color: #357ab7;
-        }
-
-        /* Estilo geral dos botões */
-        .button {
-            background-color: #80d0c7;
-            color: #fff;
-            border: none;
-            border-radius: 8px;
-            padding: 15px 30px;
-            font-size: 1.2rem;
-            cursor: pointer;
-            transition: background-color 0.3s ease, transform 0.3s ease;
-            margin-top: 30px;
-            display: inline-block;
+            transition: background-color 0.3s;
+            font-weight: bold;
         }
 
         .button:hover {
-            background-color: #13547a;
-            transform: scale(1.05);
+            background-color: #c46c34;
         }
 
-        /* Estilo do rodapé */
+        /* Main content */
+        main {
+            margin-top: 100px;
+            width: 100%;
+            max-width: 1100px;
+            padding: 20px;
+        }
+
+        /* Estilos para cards */
+        .dashboard-section {
+            margin: 20px 0;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #13547a;
+            font-weight: bold;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            transition: transform 0.2s;
+        }
+
+        .card:hover {
+            transform: scale(1.03);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .card h4 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .card p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        /* Rodapé minimalista */
         footer {
             width: 100%;
-            background-color: #fff;
-            color: #666;
-            padding: 20px;
+            padding: 10px;
             text-align: center;
-            margin-top: 40px;
-            border-radius: 8px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-        }
-
-        footer p {
+            background-color: #13547a;
+            color: #fff;
             font-size: 0.9rem;
+            margin-top: 30px;
         }
 
         /* Responsividade */
         @media (max-width: 600px) {
             header h1 {
-                font-size: 1.8rem;
+                font-size: 1.5rem;
             }
 
-            .filter-button {
-                padding: 8px 16px;
-                font-size: 0.9rem;
-            }
-
-            .event-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .entry, .event, .compromisso {
-                padding: 15px;
+            .button, .filter-button {
+                padding: 6px 14px;
+                font-size: 0.85rem;
             }
         }
     </style>
@@ -214,34 +156,38 @@
 
 <body>
     <header>
-        <h1>Eventos</h1>
+        <h1>Dashboard de Eventos</h1>
         <div class="filter-container">
             <button class="filter-button" onclick="filterEvents('all')">Todos</button>
             <button class="filter-button" onclick="filterEvents('diario')">Diário</button>
             <button class="filter-button" onclick="filterEvents('categoria2')">Categoria 2</button>
-            <button class="filter-button" onclick="filterEvents('categoria3')">Categoria 3</button>
         </div>
-        <a href="criar_evento.php" class="button">Criar Evento</a>
+        <a href="http://localhost/roubbie/dashboard.php" class="button">Criar Evento</a>
     </header>
 
     <main>
-        <div id="events-container" class="event-grid">
-            <!-- Conteúdo gerado dinamicamente com PHP -->
-        </div>
+        <section class="dashboard-section">
+            <h2 class="section-title">Eventos</h2>
+            <div class="card-grid">
+                <!-- Cards de eventos com conteúdo dinâmico -->
+            </div>
+        </section>
 
-        <div class="entries" id="entries">
-            <h2>Entradas Anteriores</h2>
-            <!-- Conteúdo de entradas do diário gerado dinamicamente com PHP -->
-        </div>
+        <section class="dashboard-section">
+            <h2 class="section-title">Entradas Anteriores</h2>
+            <div class="card-grid">
+                <!-- Cards de entradas de diário com conteúdo dinâmico -->
+            </div>
+        </section>
 
-        <div class="compromissos">
-            <h2>Compromissos Futuros</h2>
-            <!-- Conteúdo de compromissos futuros gerado dinamicamente com PHP -->
-        </div>
+        <section class="dashboard-section">
+            <h2 class="section-title">Compromissos Futuros</h2>
+            <div class="card-grid">
+                <!-- Cards de compromissos com conteúdo dinâmico -->
+            </div>
+        </section>
     </main>
 
-    <footer>
-        <p>&copy; 2024 Roubbie</p>
-    </footer>
+   
 </body>
 </html>
