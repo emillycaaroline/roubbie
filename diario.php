@@ -70,175 +70,171 @@ $entries = fetchEntries($conn);
     <title>Meu Diário</title>
     <link rel="icon" type="image/x-icon" href="/roubbie/images/icons/favicon.ico">
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        /* Estilo do corpo da página */
-        :root {
-            --bg_color: white;
-            --list_hover_bg: #ddd;
-            --shadow_color: rgba(100, 100, 100, 0.5);
-            --font_color: black;
-            --text_color: black;
-            --btn_border_radius: 2px;
-            --window_border_radius: 4px;
-        }
-
-        * {
-            padding: 0;
-            margin: 0;
-            border: 0;
-            box-sizing: border-box;
-            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
-                'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-        }
-
-        body {
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-            height: 100%;
-            color: var(--font_color);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            min-height: 100vh;
-            padding: 20px;
-        }
-
-        form,
-        .entries {
-            max-width: 800px;
-            margin: auto;
-            background: #edebff;
-            padding: 20px;
-            border-radius: 15px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-            
-        }
-
-        h1 {
-            text-align: center;
-            color: #333;
-            font-family: 'Pacifico', cursive;
-            margin-bottom: 20px;
-        }
-
-        label {
-            display: block;
-            margin-top: 10px;
-            color: #333;
-            font-weight: 700;
-        }
-
-        input,
-        textarea {
-            width: calc(100% - 24px);
-            padding: 12px;
-            margin-top: 5px;
-            border: 2px solid blue;
-            border-radius: 10px;
-            transition: border-color 0.3s;
-            background-color: #fff;
-        }
-
-        input:focus,
-        textarea:focus {
-            border-color: black;
-            outline: none;
-        }
-
-        textarea {
-            height: 120px;
-            resize: vertical;
-        }
-
-        button {
-            margin-top: 15px;
-            padding: 10px;
-            background-color: blue;
-            color: white;
-            border: none;
-            border-radius: 100px;
-            cursor: pointer;
-            font-size: 16px;
-            transition: background-color 0.3s, transform 0.2s;
-            
-        }
-
-        button:hover {
-            background-color: skyblue;
-            transform: translateY(-2px);
-        }
-
-        .entries {
-            margin-top: 20px;
-            border-top: 2px solid blue;
-            padding-top: 10px;
-        }
-
-        .entry {
-            background: #dcd9ff;
-            margin: 10px 0;
-            padding: 10px;
-            border-radius: 10px;
-        }
-
-        .edit-button {
-            background-color: lightblue;
-            border-radius: 50px;
-            padding: 5px 10px;
-            color: white;
-            border: none;
-            cursor: pointer;
-            margin-left: 5px;
-        }
-
-        .delete-button {
-            background-color: red;
-            border-radius: 50px;
-            padding: 5px 10px;
-            color: white;
-            border: none;
-            cursor: pointer;
-            margin-left: 5px;
-        }
-
-        select {
-            margin-top: 15px;
-            padding: 10px;
-            background-color: skyblue;
-            color: white;
-            border: none;
-            border-radius: 10px;
-            cursor: pointer;
-            font-size: 16px;
-            transition: background-color 0.3s, transform 0.2s;
-        }
-
-        .form-center {
-    text-align: center;
-    margin-top: 20px;
-}
-
-    </style>
+    
 </head>
+<style>
+    /* Estilo do corpo da página */
+    :root {
+        --bg_color: #f5f5f5;
+        --list_hover_bg: #e0e0e0;
+        --shadow_color: rgba(150, 150, 150, 0.4);
+        --font_color: #333;
+        --text_color: #333;
+        --btn_border_radius: 2px;
+        --window_border_radius: 4px;
+    }
+
+    * {
+        padding: 0;
+        margin: 0;
+        border: 0;
+        box-sizing: border-box;
+        font-family: 'Roboto', sans-serif;
+    }
+
+    body {
+        background-color: var(--bg_color);
+        color: var(--font_color);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        min-height: 100vh;
+        padding: 20px;
+    }
+
+    form,
+    .entries {
+        max-width: 800px;
+        margin: auto;
+        background: #ffffff;
+        padding: 20px;
+        border-radius: var(--window_border_radius);
+        box-shadow: 0 4px 15px var(--shadow_color);
+    }
+
+    h1,h3 {
+        text-align: center;
+        color: #4a4a4a;
+        font-family: 'Pacifico', cursive;
+        margin-bottom: 20px;
+    }
+
+    label {
+        display: block;
+        margin-top: 10px;
+        color: #555;
+        font-weight: 700;
+    }
+
+    input,
+    textarea {
+        width: calc(100% - 24px);
+        padding: 12px;
+        margin-top: 5px;
+        border: 2px solid #4A90E2;
+        border-radius: 10px;
+        transition: border-color 0.3s;
+        background-color: #fff;
+    }
+
+    input:focus,
+    textarea:focus {
+        border-color: #2C82C9;
+        outline: none;
+    }
+
+    textarea {
+        height: 120px;
+        resize: vertical;
+    }
+
+    button {
+        margin-top: 15px;
+        padding: 10px;
+        background-color: #2C82C9;
+        color: #fff;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 16px;
+        transition: background-color 0.3s, transform 0.2s;
+    }
+
+    button:hover {
+        background-color: #4A90E2;
+        transform: translateY(-2px);
+    }
+
+    .entries {
+        margin-top: 20px;
+        border-top: 2px solid #4A90E2;
+        padding-top: 10px;
+    }
+
+    .entry {
+        background: #e0f7fa;
+        margin: 10px 0;
+        padding: 10px;
+        border-radius: 10px;
+    }
+
+    .edit-button {
+        background-color: #ffca28;
+        border-radius: 50px;
+        padding: 5px 10px;
+        color: #333;
+        border: none;
+        cursor: pointer;
+        margin-left: 5px;
+    }
+
+    .delete-button {
+        background-color: #e57373;
+        border-radius: 50px;
+        padding: 5px 10px;
+        color: white;
+        border: none;
+        cursor: pointer;
+        margin-left: 5px;
+    }
+
+    select {
+        margin-top: 15px;
+        padding: 10px;
+        background-color: #2C82C9;
+        color: #fff;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        font-size: 16px;
+        transition: background-color 0.3s, transform 0.2s;
+    }
+
+    .form-center {
+        text-align: center;
+        margin-top: 20px;
+    }
+</style>
+
+<?php require_once 'C:\xampp\htdocs\roubbie\includes\header.php'; ?>
 
 <body>
-<?php include $_SERVER['DOCUMENT_ROOT'] . '/roubbie/includes/header.php'; ?>
 
     <br><br><br><br>
     <div class="container" >
-        <h1>Meu Diário</h1>
-        <form action="" method="post">
+    <h3>Momento Reflexão</h3>
+    <form action="" method="post">
             <input type="hidden" name="user_id" value="<?php echo $_SESSION['user_id']; ?>">
             <input type="hidden" name="id" id="id" value="">
 
             <label for="titulo">Título:</label>
-            <input type="text" id="titulo" name="titulo" placeholder="Como foi seu dia?" required><br><br>
+            <input type="text" id="titulo" name="titulo" placeholder="Título" required><br><br>
 
             <label for="data">Data:</label>
             <input type="date" id="data" name="data" required> <br><br>
 
             <label for="conteudo">Sobre o dia:</label>
-            <textarea id="conteudo" name="conteudo" placeholder="Escreva aqui..." required></textarea>
+            <textarea id="conteudo" name="conteudo" placeholder="Como foi seu dia?" required></textarea>
 
             <label class="form-center">Como você se sentiu?</label><br>
             <select name="sentimento" id="sentimento" required>
@@ -248,11 +244,11 @@ $entries = fetchEntries($conn);
                 <option value="😡">😡</option>
             </select><br><br>
 
-            <button type="submit" style="border-radius: 10px;">Adicionar Entrada</button> <br>
+            <button type="submit" style="border-radius: 10px;">Registrar</button> <br>
         </form><br><br>
 
         <div class="entries" id="entries">
-            <h2>Entradas Anteriores</h2>
+            <h2>Anotações anteriores</h2>
             <?php if ($entries && $entries->num_rows > 0): ?>
                 <?php while ($entry = $entries->fetch_assoc()): ?>
                     <div class="entry">
@@ -265,7 +261,7 @@ $entries = fetchEntries($conn);
                     </div>
                 <?php endwhile; ?>
             <?php else: ?>
-                <p>Nenhuma entrada encontrada.</p>
+                <p>Nenhum registro encontrado.</p>
             <?php endif; ?>
         </div>
     </div>

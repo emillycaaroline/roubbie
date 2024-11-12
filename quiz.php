@@ -21,8 +21,8 @@
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            background-color: #13547a;
-            color: #fff;
+            background-color: #F0F8FF;
+            color: #333;
             text-align: center;
         }
 
@@ -34,56 +34,63 @@
 
         /* CONTAINER PRINCIPAL DO QUIZ */
         .widget-wrap {
-            background-color: #80d0c7;
-            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.9); /* Fundo branco mais forte */
+            padding: 30px;
             border-radius: 15px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            border: 3px solid linear-gradient(to right, #13547a, #80d0c7) 1; 
+            backdrop-filter: blur(5px);
         }
 
         /* TÍTULO */
         h1 {
             margin-bottom: 20px;
-            font-size: 28px;
+            font-size: 32px;
+            color: #4c93ba;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         /* PERGUNTA */
         #quizQn {
             padding: 15px;
             color: #fff;
-            font-size: 20px;
+            font-size: 22px;
             border-radius: 10px;
             background: #4c93ba;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
+            font-weight: bold;
         }
 
         /* RESPOSTAS */
         #quizAns {
             display: grid;
             grid-template-columns: 1fr;
-            grid-gap: 15px;
+            grid-gap: 20px;
         }
 
         #quizAns label {
             background: #f9f9f9;
             border: 1px solid #ddd;
             border-radius: 10px;
-            padding: 15px;
+            padding: 20px;
             color: black;
             font-size: 18px;
             cursor: pointer;
             text-align: center;
-            transition: background 0.3s, transform 0.2s;
+            transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
         }
 
         #quizAns label:hover {
-            background: #e0f7fa;
+            background: #f9f9f9;
             transform: scale(1.05);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border: linear-gradient(to right, #13547a, #80d0c7) 1;
         }
 
         /* BOTÃO DE REINICIAR */
         #restartBtn {
-            margin-top: 20px;
-            padding: 10px 20px;
+            margin-top: 30px;
+            padding: 12px 25px;
             background: #4c93ba;
             color: #fff;
             border: none;
@@ -94,6 +101,23 @@
         }
 
         #restartBtn:hover {
+            background: linear-gradient(to right, #13547a, #80d0c7) 1; ;
+        }
+
+        /* BOTÃO HOME */
+        #homeBtn {
+            margin-top: 15px;
+            padding: 12px 25px;
+            background: #80d0c7;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            transition: background 0.3s;
+        }
+
+        #homeBtn:hover {
             background: #357aab;
         }
 
@@ -105,11 +129,15 @@
 
             #quizAns label {
                 font-size: 16px;
-                padding: 12px;
+                padding: 15px;
             }
 
             .widget-wrap {
-                padding: 15px;
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 28px;
             }
         }
 
@@ -128,27 +156,28 @@
             }
         }
 
+        /* BOTÃO VOLTAR */
         button {
-            margin-top: 15px;
-            padding: 10px;
-            background-color: blue;
+            margin-top: 20px;
+            padding: 12px 30px;
+            background-color: #80d0c7;
             color: white;
             border: none;
-            border-radius: 100px;
+            border-radius: 50px;
             cursor: pointer;
             font-size: 16px;
             transition: background-color 0.3s, transform 0.2s;
         }
 
         button:hover {
-            background-color: skyblue;
+            background-color: #357aab;
             transform: translateY(-2px);
         }
     </style>
 </head>
+</head>
 
 <body>
-    <button onclick="window.history.back()">Voltar</button>
 
     <main>
 
@@ -164,6 +193,7 @@
             <!-- HOME BUTTON -->
             <button id="homeBtn" style="display: none;" onclick="window.location.href = 'index.php';">Ir para a Página Inicial</button>
         </div>
+        <button onclick="window.history.back()">Voltar</button>
 
         <script>
             // Definição do quiz com perguntas e alternativas

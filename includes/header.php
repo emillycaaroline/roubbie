@@ -29,6 +29,7 @@
         .navbar {
             background: linear-gradient(to right, #13547a, #80d0c7);
             margin-top: auto;
+            border: 1px solid linear-gradient(to right, #13547a, #80d0c7);
         }
 
         .navbar-brand img {
@@ -54,6 +55,7 @@
         /* Mobile nav styles */
         .mobile-nav {
             display: none;
+            border: 1px solid linear-gradient(to right, #13547a, #80d0c7);
         }
 
         @media (max-width: 767.98px) {
@@ -62,14 +64,14 @@
             }
 
             .mobile-nav {
+                background-color: #fff;
                 display: block;
                 position: fixed;
                 bottom: 0;
                 left: 0;
                 width: 100%;
-                background: linear-gradient(to right, #13547a, #80d0c7);
-                color: #ffffff;
-                border-top: 1px solid #80d0c7;
+                color: #13547a;
+                border: 1px solid linear-gradient(to right, #13547a, #80d0c7);
                 border-radius: 5px;
                 z-index: 1000;
                 text-align: center;
@@ -81,23 +83,23 @@
                 padding: 10px 0;
                 margin: 0;
                 list-style: none;
+                border: 1px solid linear-gradient(to right, #13547a, #80d0c7);
             }
 
             .mobile-nav a {
-                color: white;
-                /* Garantindo que os links sejam brancos no mobile */
+                color: #13547a;
             }
 
             .mobile-nav a:hover {
                 color: #80d0c7;
-                /* Mudança de cor ao passar o mouse no mobile */
             }
         }
 
+        /* Icon styling */
         i {
-            color: white;
-            /* Garantindo que todos os ícones sejam brancos */
+            color: #13547a;
         }
+
     </style>
 </head>
 
@@ -133,14 +135,14 @@
                             <a class="nav-link click" href="sobre.php">Sobre</a>
                         </li>
                         <li class="nav-item">
-                            <button id="startOnboarding" class="nav-link click btn btn-outline-success" aria-label="Tutorial pra uso">?</button> <!-- Botão para iniciar o onboarding -->
+                            <button id="startOnboarding" class="nav-link click btn btn-outline-success" aria-label="Tutorial para uso">?</button> <!-- Botão para iniciar o onboarding -->
                         </li>
                     </ul>
 
                     <!-- Login/cadastro -->
                     <ul class="nav-menu">
                         <li class="nav-item dropdown">
-                            <a style="background-color: #13547a;" class="nav-link dropdown-toggle navbar-icon bi-person" style="border: none;" href="#" id="navbarUserDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Menu do usuário"></a>
+                            <a class="nav-link dropdown-toggle navbar-icon bi-person" href="#" id="navbarUserDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Menu do usuário"></a>
                             <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarUserDropdownMenuLink">
                                 <li><a class="dropdown-item" href="http://localhost/roubbie/login-register/login.php">Login</a></li>
                                 <li><a class="dropdown-item" href="http://localhost/roubbie/login-register/cadastro.php">Cadastro</a></li>
