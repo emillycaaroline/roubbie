@@ -8,26 +8,29 @@ if (!isset($_SESSION['user_id'])) {
     exit();
 } 
 
+// Função para contar registros específicos do usuário
 function getCount($conn, $table, $status = null) {
-    $query = "SELECT COUNT(*) AS total FROM $table";
+    $query = "SELECT COUNT(*) AS total FROM $table WHERE user_id = ?";
     if ($status) {
-        $query .= " WHERE status = ?";
+        $query .= " AND status = ?";
         $stmt = $conn->prepare($query);
-        $stmt->bind_param("s", $status);
+        $stmt->bind_param("is", $_SESSION['user_id'], $status);
     } else {
         $stmt = $conn->prepare($query);
+        $stmt->bind_param("i", $_SESSION['user_id']);
     }
     $stmt->execute();
     $result = $stmt->get_result();
     return $result->fetch_assoc()['total'] ?? 0;
 }
 
+// Chamadas da função para contar registros do usuário logado
 $diario_count = getCount($conn, 'diario');
 $events_count = getCount($conn, 'events', 'pendente');
 $tarefas_count = getCount($conn, 'tarefas', 'pendente');
-$compromissos_count = getCount($conn, 'compromissos', null);
+$compromissos_count = getCount($conn, 'compromissos');
 
-// Validação do nome do usuário
+// Nome do usuário para exibição
 $nome_usuario = isset($_SESSION['nome']) ? htmlspecialchars($_SESSION['nome']) : 'Usuário';
 ?>
 <!-- Inclua a página de splash -->
