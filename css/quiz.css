@@ -1,0 +1,112 @@
+/* Estilo geral da página */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f7fc;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Container principal do quiz */
+.quiz-border {
+    background: linear-gradient(to right, #13547a, #80d0c7);
+    padding: 20px;
+    border-radius: 20px;
+    max-width: 800px;
+    margin: 40px auto;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo do conteúdo do widget */
+.widget-wrap {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.widget-wrap:hover {
+    transform: scale(1.02);
+}
+
+/* Título do quiz */
+h1 {
+    font-size: 2.5rem;
+    color: #13547a;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Estilo das perguntas */
+#quizQn {
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* Estilo para as opções de respostas */
+#quizAns label {
+    display: block;
+    background-color: #fff;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    color: #333;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Efeito de hover nas opções */
+#quizAns label:hover {
+    background-color: #4c93ba;
+    color: #fff;
+    transform: translateY(-3px);
+}
+
+/* Efeito de seleção da opção */
+#quizAns label:active {
+    background-color: #2c6c84;
+    color: #fff;
+    transform: translateY(1px);
+}
+
+/* Botões de reiniciar e voltar */
+button {
+    background-color: #4c93ba;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin: 15px 5px;
+}
+
+/* Efeito de hover nos botões */
+button:hover {
+    background-color: #2c6c84;
+    transform: translateY(-3px);
+}
+
+/* Estilo do botão de reiniciar e da página inicial */
+#restartBtn,
+#homeBtn {
+    display: none;
+}
+
+/* Botão de voltar */
+button[onclick="window.history.back()"] {
+    background-color: #ddd;
+    color: #333;
+}
+
+button[onclick="window.history.back()"]:hover {
+    background-color: #bbb;
+}

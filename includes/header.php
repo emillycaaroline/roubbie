@@ -109,7 +109,7 @@
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container">
                 <a class="navbar-brand" href="index.php">
-                    <img src="img/logo/logo_branco.png" alt="Logo do Roubbie">
+                    <img src="/roubbie/img/logo/lgroubbie (1).png" alt="Logo do Roubbie">
                 </a>
                 <button id="menuButton" aria-label="Abrir menu de configurações" class="navbar-toggler" type="button">
                     <i class="bi bi-list"></i>
@@ -133,9 +133,6 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link click" href="sobre.php">Sobre</a>
-                        </li>
-                        <li class="nav-item">
-                            <button id="startOnboarding" class="nav-link click btn btn-outline-success" aria-label="Tutorial para uso">?</button> <!-- Botão para iniciar o onboarding -->
                         </li>
                     </ul>
 

@@ -1,13 +1,6 @@
-<?php
-session_start();
-if (isset($_SESSION['usuario_id'])) {
-    header("Location: dashboard.php");
-    exit();
-}
-?>
 <!DOCTYPE html>
 <html lang="pt-br">
- 
+
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -22,182 +15,182 @@ if (isset($_SESSION['usuario_id'])) {
 </head>
 <style>
     /* Estilos gerais */
-body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f4f4f9;
-    margin: 0;
-    padding: 0;
-    color: #333;
-}
+    body {
+        font-family: 'Arial', sans-serif;
+        background-color: #f4f4f9;
+        margin: 0;
+        padding: 0;
+        color: #333;
+    }
 
-        /* General styles */
-        .text-white {
-            color: #fff;
+    /* General styles */
+    .text-white {
+        color: #fff;
+    }
+
+    /* Navbar styles */
+    .navbar {
+        background: linear-gradient(to right, #13547a, #80d0c7);
+        margin-top: auto;
+    }
+
+    .navbar-brand img {
+        width: 100px;
+    }
+
+    .nav-link {
+        color: white !important;
+    }
+
+    .nav-link:hover {
+        color: #80d0c7 !important;
+    }
+
+    .navbar-collapse {
+        display: none;
+    }
+
+    .navbar-collapse.show {
+        display: block;
+    }
+
+    /* Mobile nav styles */
+    .mobile-nav {
+        display: none;
+    }
+
+    @media (max-width: 767.98px) {
+        .navbar-nav .nav-item .nav-link {
+            font-size: 12px;
         }
 
-        /* Navbar styles */
-        .navbar {
-            background: linear-gradient(to right, #13547a, #80d0c7);
-            margin-top: auto;
-        }
-
-        .navbar-brand img {
-            width: 100px;
-        }
-
-        .nav-link {
-            color: white !important;
-        }
-
-        .nav-link:hover {
-            color: #80d0c7 !important;
-        }
-
-        .navbar-collapse {
-            display: none;
-        }
-
-        .navbar-collapse.show {
-            display: block;
-        }
-
-        /* Mobile nav styles */
         .mobile-nav {
-            display: none;
+            display: block;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: linear-gradient(to right, #13547a, #80d0c7);
+            color: #ffffff;
+            border-top: 1px solid #80d0c7;
+            border-radius: 5px;
+            z-index: 1000;
+            text-align: center;
         }
 
-        @media (max-width: 767.98px) {
-            .navbar-nav .nav-item .nav-link {
-                font-size: 12px;
-            }
-
-            .mobile-nav {
-                display: block;
-                position: fixed;
-                bottom: 0;
-                left: 0;
-                width: 100%;
-                background: linear-gradient(to right, #13547a, #80d0c7);
-                color: #ffffff;
-                border-top: 1px solid #80d0c7;
-                border-radius: 5px;
-                z-index: 1000;
-                text-align: center;
-            }
-
-            .mobile-nav ul {
-                display: flex;
-                justify-content: space-around;
-                padding: 10px 0;
-                margin: 0;
-                list-style: none;
-            }
-
-            .mobile-nav a {
-                color: white;
-                /* Garantindo que os links sejam brancos no mobile */
-            }
-
-            .mobile-nav a:hover {
-                color: #80d0c7;
-                /* Mudança de cor ao passar o mouse no mobile */
-            }
+        .mobile-nav ul {
+            display: flex;
+            justify-content: space-around;
+            padding: 10px 0;
+            margin: 0;
+            list-style: none;
         }
 
-        i {
+        .mobile-nav a {
             color: white;
-            /* Garantindo que todos os ícones sejam brancos */
+            /* Garantindo que os links sejam brancos no mobile */
         }
 
-/* Masthead */
-.masthead {
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/roubbie/pubimg/public1.jpg') no-repeat center center;
-    background-size: cover;
-    padding: 10rem 0;
-    color: white;
-}
+        .mobile-nav a:hover {
+            color: #80d0c7;
+            /* Mudança de cor ao passar o mouse no mobile */
+        }
+    }
 
-.masthead-heading {
-    font-size: 3rem;
-    font-weight: bold;
-    margin-bottom: 1rem;
-}
+    i {
+        color: white;
+        /* Garantindo que todos os ícones sejam brancos */
+    }
 
-.masthead-subheading {
-    font-size: 1.5rem;
-    margin-bottom: 3rem;
-}
+    /* Masthead */
+    .masthead {
+        background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/roubbie/pubimg/public1.jpg') no-repeat center center;
+        background-size: cover;
+        padding: 10rem 0;
+        color: white;
+    }
 
-.masthead .btn {
-    background-color: #009688;
-    border-color: #00796b;
-    font-size: 1.25rem;
-    padding: 12px 30px;
-}
-
-.masthead .btn:hover {
-    background-color: #00796b;
-    border-color: #004d40;
-}
-
-/* Seções de conteúdo */
-section {
-    padding: 60px 0;
-    background-color: #ffffff;
-}
-
-section h2 {
-    font-size: 2.5rem;
-    font-weight: bold;
-    color: #009688;
-    margin-bottom: 1.5rem;
-}
-
-section p {
-    font-size: 1.125rem;
-    line-height: 1.6;
-    color: #555;
-}
-
-section img {
-    max-width: 100%;
-    border-radius: 50%;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-}
-
-/* Footer */
-footer {
-    background-color: #333;
-    color: white;
-    padding: 20px 0;
-}
-
-footer .small {
-    font-size: 0.875rem;
-    color: #bbb;
-}
-
-/* Estilos responsivos */
-@media (max-width: 767px) {
     .masthead-heading {
-        font-size: 2.5rem;
+        font-size: 3rem;
+        font-weight: bold;
+        margin-bottom: 1rem;
     }
 
     .masthead-subheading {
-        font-size: 1.2rem;
+        font-size: 1.5rem;
+        margin-bottom: 3rem;
+    }
+
+    .masthead .btn {
+        background-color: #009688;
+        border-color: #00796b;
+        font-size: 1.25rem;
+        padding: 12px 30px;
+    }
+
+    .masthead .btn:hover {
+        background-color: #00796b;
+        border-color: #004d40;
+    }
+
+    /* Seções de conteúdo */
+    section {
+        padding: 60px 0;
+        background-color: #ffffff;
     }
 
     section h2 {
-        font-size: 2rem;
+        font-size: 2.5rem;
+        font-weight: bold;
+        color: #009688;
+        margin-bottom: 1.5rem;
     }
 
-    .navbar-custom .navbar-brand,
-    .navbar-custom .nav-link {
-        font-size: 1rem;
+    section p {
+        font-size: 1.125rem;
+        line-height: 1.6;
+        color: #555;
     }
-}
 
+    section img {
+        max-width: 100%;
+        border-radius: 50%;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Footer */
+    footer {
+        background-color: #333;
+        color: white;
+        padding: 20px 0;
+    }
+
+    footer .small {
+        font-size: 0.875rem;
+        color: #bbb;
+    }
+
+    /* Estilos responsivos */
+    @media (max-width: 767px) {
+        .masthead-heading {
+            font-size: 2.5rem;
+        }
+
+        .masthead-subheading {
+            font-size: 1.2rem;
+        }
+
+        section h2 {
+            font-size: 2rem;
+        }
+
+        .navbar-custom .navbar-brand,
+        .navbar-custom .nav-link {
+            font-size: 1rem;
+        }
+    }
 </style>
+
 <body id="page-top">
     <!-- Navegação da pagina publica  -->
     <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">

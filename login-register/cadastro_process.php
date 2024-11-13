@@ -10,6 +10,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = trim($_POST["email"]);
     $senha = password_hash(trim($_POST["senha"]), PASSWORD_DEFAULT); // Criptografa a senha
 
+    // Valida o email
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        echo "<script>alert('Email inválido.'); window.location.href = '/login-register/cadastro.php';</script>";
+        exit();
+    }
+
     // Verifica se o email já está cadastrado
     $stmt = $conn->prepare("SELECT id FROM usuarios WHERE email = ?");
     $stmt->bind_param("s", $email);
@@ -35,15 +41,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $_SESSION['user_id'] = $user_id; // Salva o ID do usuário na sessão
         
         // Redireciona para a página de boas-vindas ou dashboard
-        header("Location: /roubbie/splash.php");
+        header("Location: login.php");  // Ajuste conforme necessário
         exit();
     } else {
         // Erro ao cadastrar
-        echo "<script>alert('Erro ao cadastrar.'); window.location.href = 'cadastro.php';</script>";
+        header("Location: cadastro.php?erro=1");  // Redireciona com erro
+        exit();
     }
 
     $stmt->close();
     $conn->close();
 }
 ?>
-w

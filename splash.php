@@ -34,7 +34,7 @@
 <body>
     <!-- tela de abertura com a logo do roubbie  -->
     <div id="splash-screen">
-        <img src="../roubbie/img/logo/logo_branco.png" alt="Logo" id="logo">
+        <img src="../roubbie/img/logo/lgroubbie (1).png" alt="Logo" id="logo">
     </div>
 
     <script>
