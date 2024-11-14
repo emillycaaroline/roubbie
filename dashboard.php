@@ -19,46 +19,65 @@
 
     <div class="dashboard-container">
         <header class="header" role="banner">
-            <h1>Bem-vindo, <?php echo htmlspecialchars($nome_usuario); ?>!</h1>
+            <!-- <h1>Bem-vindo, <?php echo htmlspecialchars($user_id); ?>!</h1> -->
         </header>
 
         <main class="card-grid" role="main" aria-label="Dashboard de atividades">
-            <!-- Diários -->
-            <div class="card" aria-labelledby="diario-title">
-                <h2 id="diario-title">Diário</h2>
-                <p>Notas registradas: <?php echo htmlspecialchars($diario_count); ?></p>
-                <a href="projeto_fullcalendar_js_php-master/status-rotina.php/#entries" class="details-button">Ver Diário</a>
-            </div>
-
             <!-- Eventos -->
             <div class="card" aria-labelledby="eventos-title">
                 <h2 id="eventos-title">Eventos</h2>
-                <p><?php echo $events_count > 0 ? htmlspecialchars($events_count) . " evento(s) pendente(s)" : "Nenhum evento pendente"; ?></p>
-                <a href="projeto_fullcalendar_js_php-master/status-rotina.php" class="details-button">Ver Eventos</a>
+                <p>Veja e organize seus eventos próximos.</p>
+                <img src="img/icones/rotina.png" width="100" height="100" class="icon" alt="Ícone de Eventos" style="display: block; margin: 0 auto;">
+                <a href="projeto_fullcalendar_js_php-master/status-rotina.php" class="details-button" aria-label="Ver Eventos">Ver Eventos</a>
             </div>
 
             <!-- Compromissos -->
             <div class="card" aria-labelledby="compromissos-title">
                 <h2 id="compromissos-title">Compromissos</h2>
-                <p><?php echo $compromissos_count > 0 ? htmlspecialchars($compromissos_count) . " compromisso(s)" : "Nenhum compromisso agendado"; ?></p>
-                <a href="projeto_fullcalendar_js_php-master/status-rotina.php/#compromisso" class="details-button">Ver Compromissos</a>
+                <p>Confira e gerencie seus compromissos agendados.</p>
+                <img src="img/icones/agenda.png" width="100" height="100" class="icon" alt="Ícone de Compromissos" style="display: block; margin: 0 auto;">
+                <a href="projeto_fullcalendar_js_php-master/index.php" class="details-button" aria-label="Ver Compromissos">Ver Compromissos</a>
             </div>
 
             <!-- Tarefas Pendentes -->
             <div class="card" aria-labelledby="tarefas-title">
-                <h2 id="tarefas-title">Tarefas</h2>
-                <p><?php echo $tarefas_count > 0 ? htmlspecialchars($tarefas_count) . " tarefa(s) pendente(s)" : "Nenhuma tarefa pendente"; ?></p>
-                <a href="projeto_fullcalendar_js_php-master/status-rotina.php/#tarefas" class="details-button">Ver Tarefas</a>
+                <h2 id="tarefas-title">Tarefas Pendentes</h2>
+                <p>Gerencie suas tarefas e acompanhe o progresso.</p>
+                <img src="img/icones/home.png" width="100" height="100" class="icon" alt="Ícone de Tarefas Pendentes" style="display: block; margin: 0 auto;">
+                <a href="projeto_fullcalendar_js_php-master/status-rotina.php/#tarefas" class="details-button" aria-label="Ver Tarefas Pendentes">Ver Tarefas</a>
             </div>
 
             <!-- Rotina -->
             <div class="card" aria-labelledby="rotina-title">
                 <h2 id="rotina-title">Rotina</h2>
-                <p>Inserir uma miniatura do calendário só da semana</p>
-                <a href="projeto_fullcalendar_js_php-master/sisrot.php" class="details-button">Minha rotina</a>
+                <p>Visite sua rotina e ajuste conforme necessário.</p>
+                <img src="img/icones/rotina.png" width="100" height="100" class="icon" alt="Ícone de Rotina" style="display: block; margin: 0 auto;">
+                <a href="projeto_fullcalendar_js_php-master/sisrot.php" class="details-button" aria-label="Ver Minha Rotina">Minha Rotina</a>
             </div>
+
+            <!-- Hobbies -->
+            <div class="card" aria-labelledby="hobbies-title">
+                <h2 id="hobbies-title">Meus obbies</h2>
+                <p>Descubra e pratique novos hobbies.</p>
+                <img src="img/icones/hobbies.png" width="100" height="100" class="icon" alt="Ícone de Hobbies" style="display: block; margin: 0 auto;">
+                <a href="quiz.php" class="details-button" aria-label="Ver Hobbies">Ver Hobbies</a>
+            </div>
+
         </main>
     </div>
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/intro.js/minified/intro.min.js"></script>
+    <footer style="font-size: small;">
+    <div id="quotes">
+            <p>"A felicidade não está na felicidade em si, mas na busca dela!"</p>
+            <a href="https://br.freepik.com/search" target="_blank">Ícone de Kiranshastry</a>
+            <a href="https://br.freepik.com/search" target="_blank">Ícone de Iconmas</a>
+            <a href="https://br.freepik.com/search" target="_blank">Ícone de Afif Fudin</a>
+            <a href="https://br.freepik.com/search" target="_blank">Ícone de Elzicon</a>
+            <a href="https://br.freepik.com/icones/rotina" target="_blank">Ícone de Freepik</a>
+        </div>
+    </footer>
 </body>
 
 </html>

@@ -38,6 +38,7 @@
 
         .nav-link {
             color: white !important;
+
         }
 
         .nav-link:hover {
@@ -99,6 +100,49 @@
         i {
             color: #13547a;
         }
+a#navbarUserDropdownMenuLink{
+    background-color: #13547a;
+}
+/* Estilos para dispositivos móveis */
+@media (max-width: 768px) {
+    .card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .icon {
+        width: 80px;
+        height: 80px;
+    }
+
+    .details-button {
+        padding: 10px 15px;
+        margin-top: 10px;
+    }
+}
+
+/* Menu com ícones */
+.menu-mobile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.menu-mobile a {
+    padding: 10px;
+    text-decoration: none;
+    font-size: 18px;
+    color: #000;
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+}
+
+.menu-mobile a .fa {
+    margin-right: 10px;
+}
 
     </style>
 </head>
@@ -109,9 +153,9 @@
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container">
                 <a class="navbar-brand" href="index.php">
-                    <img src="/roubbie/img/logo/lgroubbie (1).png" alt="Logo do Roubbie">
+                    <img src="/roubbie/img/logo/lgroubbie (1).png" alt="Logo do Roubbie" aria-label="Logo do Roubbie">
                 </a>
-                <button id="menuButton" aria-label="Abrir menu de configurações" class="navbar-toggler" type="button">
+                <button id="menuButton" aria-label="Abrir menu de navegação" class="navbar-toggler" type="button">
                     <i class="bi bi-list"></i>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
@@ -126,7 +170,7 @@
                             <a class="nav-link click" href="http://localhost/roubbie/projeto_fullcalendar_js_php-master/sisrot.php">Rotina</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link click" href="diario.php"> Diário</a>
+                            <a class="nav-link click" href="diario.php">Diário</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link click" href="http://localhost/roubbie/quiz.php">Quiz</a>
@@ -140,10 +184,13 @@
                     <ul class="nav-menu">
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle navbar-icon bi-person" href="#" id="navbarUserDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Menu do usuário"></a>
-                            <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarUserDropdownMenuLink">
-                                <li><a class="dropdown-item" href="http://localhost/roubbie/login-register/login.php">Login</a></li>
-                                <li><a class="dropdown-item" href="http://localhost/roubbie/login-register/cadastro.php">Cadastro</a></li>
-                                <li><a class="dropdown-item" href="/roubbie/login-register/logout.php"><i class="bi bi-box-arrow-right"></i> Sair</a></li>
+                            <ul class="dropdown-menu dropdown-menu" aria-labelledby="navbarUserDropdownMenuLink">
+                                
+                                <li><a class="dropdown-item" href="http://localhost/roubbie/login-register/login.php"><i class="bi bi-person-fill">  </i>Log In</a></li>
+
+                                <li><a class="dropdown-item" href="http://localhost/roubbie/login-register/cadastro.php"><i class="bi bi-person-plus-fill">  </i>Register</a></li>
+
+                                <li><a class="dropdown-item" href="/roubbie/login-register/logout.php"><i class="bi bi-box-arrow-right">  </i>Sign out</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -157,10 +204,11 @@
         <ul>
             <li><a href="index.php" aria-label="Ir para a página inicial"><i class="bi bi-house"></i></a></li>
             <li><a href="http://localhost/roubbie/projeto_fullcalendar_js_php-master/index.php" aria-label="Ir para a agenda"><i class="bi bi-calendar-month"></i></a></li>
+            <li><a href="http://localhost/roubbie/diario.php" aria-label="Ir para a diario"><i class="bi bi-ui-checks-grid"></i></a></li>
             <li><a href="http://localhost/roubbie/projeto_fullcalendar_js_php-master/sisrot.php" aria-label="Ir para a rotina"><i class="bi bi-ui-checks-grid"></i></a></li>
-            <li><a href="diario.php" aria-label="Ir para o diário"><i class="bi bi-pencil-square"></i></a></li>
         </ul>
-    </div>
+    </div>                
+
 
     <!-- JAVASCRIPT FILES -->
     <script src="js/jquery.min.js"></script>
@@ -172,6 +220,14 @@
 
             menuButton.addEventListener("click", () => {
                 navbarNav.classList.toggle("show");
+            });
+
+            // Close the mobile menu when a link is clicked
+            const navLinks = document.querySelectorAll(".mobile-nav a");
+            navLinks.forEach(link => {
+                link.addEventListener("click", () => {
+                    navbarNav.classList.remove("show");
+                });
             });
         });
     </script>

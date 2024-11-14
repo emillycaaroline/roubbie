@@ -1,18 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RoubQuiz</title>
     <link rel="icon" type="image/x-icon" href="/roubbie/images/icons/favicon.ico">
-<link rel="stylesheet" href="css/quiz.css">
+    <link rel="stylesheet" href="css/quiz.css">
 </head>
 
 <body>
 
     <main>
-
         <div class="widget-wrap">
             <h1>RoubQuiz</h1>
 
@@ -62,7 +61,7 @@
                         q: "4. Em uma viagem você prefere?",
                         o: [
                             "Procurar lugares do meu interesse.",
-                            "Ir à lugares diferentes e agradar todo mundo na escolha.",
+                            "Ir a lugares diferentes e agradar todo mundo na escolha.",
                             "Seguir minha programação à risca, evitando contratempos.",
                             "Deixo a vida me levar, qualquer lugar é uma nova experiência."
                         ]
@@ -87,21 +86,20 @@
                 draw: function () {
                     quiz.hQn.innerHTML = quiz.data[quiz.now].q;
                     quiz.hAns.innerHTML = "";
-                    for (let i in quiz.data[quiz.now].o) {
+                    quiz.data[quiz.now].o.forEach((option, i) => {
                         let label = document.createElement("label");
-                        label.innerHTML = quiz.data[quiz.now].o[i];
+                        label.innerHTML = option;
                         label.classList.add("quiz-option");
                         label.dataset.idx = i;
                         label.addEventListener("click", () => quiz.select(label));
                         quiz.hAns.appendChild(label);
-                    }
+                    });
                 },
 
                 select: function (option) {
-                    let allLabels = quiz.hAns.getElementsByTagName("label");
-                    for (let label of allLabels) {
+                    [...quiz.hAns.getElementsByTagName("label")].forEach(label => {
                         label.style.pointerEvents = "none";
-                    }
+                    });
                     quiz.now++;
                     setTimeout(() => {
                         if (quiz.now < quiz.data.length) {
@@ -116,13 +114,13 @@
                     quiz.hQn.innerHTML = `Você completou o quiz!`;
                     quiz.hAns.innerHTML = "";
                     document.getElementById("restartBtn").style.display = "inline-block";
-                    document.getElementById("homeBtn").style.display = "inline-block"; // Exibe o botão para a página inicial
+                    document.getElementById("homeBtn").style.display = "inline-block";
                 },
 
                 reset: function () {
                     quiz.now = 0;
                     document.getElementById("restartBtn").style.display = "none";
-                    document.getElementById("homeBtn").style.display = "none"; // Esconde o botão para a página inicial
+                    document.getElementById("homeBtn").style.display = "none";
                     quiz.draw();
                 }
             };

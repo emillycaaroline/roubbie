@@ -222,7 +222,7 @@
         <div class="container px-5">
             <div class="row gx-5 align-items-center">
                 <div class="col-lg-6 order-lg-2">
-                    <div class="p-5"><img class="img-fluid" src="/roubbie/pubimg/public1.jpg" alt="Pessoa relaxando com atividades recreativas" loading="lazy" /></div>
+                    <div class="p-5"><img class="img-fluid" src="img/vetores/vetores (1).jpg" alt="Pessoa relaxando com atividades recreativas" loading="lazy" /></div>
                 </div>
                 <div class="col-lg-6 order-lg-1">
                     <div class="p-5">
@@ -238,7 +238,7 @@
         <div class="container px-5">
             <div class="row gx-5 align-items-center">
                 <div class="col-lg-6">
-                    <div class="p-5"><img class="img-fluid" src="/roubbie/pubimg/public2.jpg" alt="Pessoa se organizando em uma rotina saudável" loading="lazy" /></div>
+                    <div class="p-5"><img class="img-fluid" src="img/vetores/vetores (2).jpg" alt="Pessoa se organizando em uma rotina saudável" loading="lazy" /></div>
                 </div>
                 <div class="col-lg-6">
                     <div class="p-5">
@@ -254,7 +254,7 @@
         <div class="container px-5">
             <div class="row gx-5 align-items-center">
                 <div class="col-lg-6 order-lg-2">
-                    <div class="p-5"><img class="img-fluid" src="/roubbie/pubimg/public3.jpg" alt="Pessoa sorrindo e se sentindo bem" loading="lazy" /></div>
+                    <div class="p-5"><img class="img-fluid" src="img/vetores/vetores (3).jpg" alt="Pessoa sorrindo e se sentindo bem" loading="lazy" /></div>
                 </div>
                 <div class="col-lg-6 order-lg-1">
                     <div class="p-5">
