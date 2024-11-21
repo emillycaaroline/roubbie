@@ -21,6 +21,7 @@ document.addEventListener('DOMContentLoaded', function () {
         },
         events: 'event-list.php',
     };
+    
         //Vizialização da agenda
 
     if (bodyClass === 'index-page') {

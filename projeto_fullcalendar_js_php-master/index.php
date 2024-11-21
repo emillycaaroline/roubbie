@@ -64,10 +64,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     width: 100%;
     max-width: 800px;
     padding: 20px;
-    box-sizing: border-box;
-    background: #fff;
-    border-radius: 10px;
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+
   }
 
   .calendar-header {

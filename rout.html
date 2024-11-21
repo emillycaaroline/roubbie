@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Planner Semanal</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      background-color: #f4f4f9;
+    }
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+    .form-container {
+      max-width: 600px;
+      margin: 20px auto;
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    select, input, button {
+      width: 100%;
+      padding: 10px;
+      margin: 5px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    button {
+      background-color: #5cb85c;
+      color: white;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #4cae4c;
+    }
+    .week-section {
+      max-width: 800px;
+      margin: 20px auto;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+    th, td {
+      padding: 10px;
+      text-align: left;
+      border: 1px solid #ddd;
+    }
+    th {
+      background-color: #f4f4f9;
+    }
+    .delete-btn {
+      background-color: #d9534f;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+    .delete-btn:hover {
+      background-color: #c9302c;
+    }
+    .day-title {
+      margin-top: 20px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>Planner</h1>
+  
+  <div class="form-container">
+    <select id="daySelect">
+      <option value="" disabled selected>Selecione o dia</option>
+      <option value="monday">Segunda</option>
+      <option value="tuesday">Terça</option>
+      <option value="wednesday">Quarta</option>
+      <option value="thursday">Quinta</option>
+      <option value="friday">Sexta</option>
+      <option value="saturday">Sábado</option>
+      <option value="sunday">Domingo</option>
+    </select>
+    <input type="text" id="taskInput" placeholder="Descrição da tarefa">
+    <input type="time" id="timeInput">
+    <button id="addTaskBtn">Adicionar Tarefa</button>
+  </div>
+
+  <div class="week-section">
+    <!-- Dias da semana -->
+    <div id="monday" class="day-section">
+      <p class="day-title">Segunda</p>
+      <table>
+        <thead>
+          <tr>
+            <th>Hora</th>
+            <th>Tarefa</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+    <div id="tuesday" class="day-section">
+      <p class="day-title">Terça</p>
+      <table>
+        <thead>
+          <tr>
+            <th>Hora</th>
+            <th>Tarefa</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+    <!-- Repita para os outros dias -->
+    <div id="wednesday" class="day-section">
+      <p class="day-title">Quarta</p>
+      <table>
+        <thead>
+          <tr>
+            <th>Hora</th>
+            <th>Tarefa</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+    <div id="thursday" class="day-section">
+      <p class="day-title">Quinta</p>
+      <table>
+        <thead>
+          <tr>
+            <th>Hora</th>
+            <th>Tarefa</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+    <div id="friday" class="day-section">
+      <p class="day-title">Sexta</p>
+      <table>
+        <thead>
+          <tr>
+            <th>Hora</th>
+            <th>Tarefa</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+    <div id="saturday" class="day-section">
+      <p class="day-title">Sábado</p>
+      <table>
+        <thead>
+          <tr>
+            <th>Hora</th>
+            <th>Tarefa</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+    <div id="sunday" class="day-section">
+      <p class="day-title">Domingo</p>
+      <table>
+        <thead>
+          <tr>
+            <th>Hora</th>
+            <th>Tarefa</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </div>
+
+  <script>
+    const daySelect = document.getElementById('daySelect');
+    const taskInput = document.getElementById('taskInput');
+    const timeInput = document.getElementById('timeInput');
+    const addTaskBtn = document.getElementById('addTaskBtn');
+
+    addTaskBtn.addEventListener('click', () => {
+      const day = daySelect.value;
+      const task = taskInput.value.trim();
+      const time = timeInput.value;
+
+      if (day && task && time) {
+        const tbody = document.querySelector(`#${day} tbody`);
+        const row = document.createElement('tr');
+
+        row.innerHTML = `
+          <td>${time}</td>
+          <td>${task}</td>
+          <td><button class="delete-btn">Remover</button></td>
+        `;
+
+        tbody.appendChild(row);
+
+        // Limpar os campos
+        daySelect.value = '';
+        taskInput.value = '';
+        timeInput.value = '';
+
+        // Adicionar funcionalidade ao botão de remover
+        row.querySelector('.delete-btn').addEventListener('click', () => {
+          row.remove();
+        });
+      } else {
+        alert('Por favor, preencha todos os campos!');
+      }
+    });document.addEventListener('DOMContentLoaded', function () {
+    var calendarEl = document.getElementById('calendar');
+
+    var calendar = new FullCalendar.Calendar(calendarEl, {
+        locale: 'pt-br', // Para o idioma português
+        initialView: 'timeGridWeek', // Configuração inicial como semanal
+        headerToolbar: {
+            left: 'prev,next today',
+            center: 'title',
+            right: 'timeGridWeek,dayGridMonth' // Adiciona opções para alternar entre semanal e mensal
+        },
+        events: 'action-event.php', // URL para carregar eventos do banco de dados
+        editable: true, // Permite arrastar e soltar
+        selectable: true, // Permite selecionar datas
+        dateClick: function (info) {
+            // Abrir modal para adicionar evento
+            document.querySelector('.modal-opened').classList.remove('hidden');
+            document.getElementById('date').value = info.dateStr;
+        },
+        eventClick: function (info) {
+            // Abrir modal para editar evento
+            const event = info.event;
+            document.querySelector('.modal-opened').classList.remove('hidden');
+            document.getElementById('id').value = event.id;
+            document.getElementById('title').value = event.title;
+            document.getElementById('date').value = event.startStr.split('T')[0];
+            document.getElementById('time').value = event.startStr.split('T')[1] || '';
+            document.getElementById('category').value = event.extendedProps.category || '';
+            document.getElementById('action').value = 'edit';
+        }
+    });
+
+    calendar.render();
+});
+
+// Fechar modal
+document.querySelector('.modal-close').addEventListener('click', function () {
+    document.querySelector('.modal-opened').classList.add('hidden');
+});
+
+  </script>
+</body>
+</html>

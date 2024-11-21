@@ -22,7 +22,7 @@
             <!-- <h1>Bem-vindo, <?php echo htmlspecialchars($user_id); ?>!</h1> -->
         </header>
 
-        <main class="card-grid" role="main" aria-label="Dashboard de atividades">
+        <main class="card-grid" role="main" aria-label="Dashboard de atividades"> 
             <!-- Eventos -->
             <div class="card" aria-labelledby="eventos-title">
                 <h2 id="eventos-title">Eventos</h2>
