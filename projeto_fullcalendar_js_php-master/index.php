@@ -11,7 +11,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Schedule</title>
+    <title>Calendário</title>
     <link rel="stylesheet" href="../projeto_fullcalendar_js_php-master/fullcalendar.css">
     
 </head>
@@ -146,6 +146,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
   }
 </style>
+
+
 <body class="index-page">
 
     <div class="modal-opened hidden">
@@ -169,7 +171,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     <div class="calendar-area">
 
-        <h2 id="titulo-mes">My Schedule</h2>
+        <h3 id="titulo-mes">Calendário</h3>
         <div style="text-align: center; font-size: small;" class="calendar-area-header">
             <div class="msg">
                 <?php
